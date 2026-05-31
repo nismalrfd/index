@@ -4,150 +4,497 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>We're Upgrading</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<link rel="stylesheet" href="style.css">
+:root {
+  --bg0: #07060f;
+  --bg1: #f5f4f9;
+  --ink: #12102a;
+  --v:   #5b21b6;
+  --vl:  #7c3aed;
+  --vm:  #a78bfa;
+  --dim: #71717a;
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+}
+
+body {
+  font-family: 'Geist Mono', monospace;
+  background: var(--bg0);
+  min-height: 100vh;
+  overflow: hidden;
+  cursor: none;
+  transition: background 1.6s cubic-bezier(.4,0,.2,1);
+}
+body.lit { background: var(--bg1); }
+
+/* ── CUSTOM CURSOR ── */
+#cur {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--vm);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .2s, height .2s, background .2s, opacity .2s;
+  mix-blend-mode: screen;
+}
+#cur-ring {
+  position: fixed;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(167,139,250,.45);
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: width .35s cubic-bezier(.34,1.56,.64,1),
+              height .35s cubic-bezier(.34,1.56,.64,1),
+              border-color .3s, opacity .3s;
+}
+body.lit #cur { background: var(--vl); mix-blend-mode: normal; }
+body.lit #cur-ring { border-color: rgba(91,33,182,.35); }
+
+/* hover state injected via JS class */
+body.hovering #cur { width:16px; height:16px; }
+body.hovering #cur-ring { width:56px; height:56px; border-color: rgba(167,139,250,.7); }
+
+/* ── STARFIELD ── */
+#stars {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  transition: opacity 1.6s;
+}
+body.lit #stars { opacity: 0; }
+
+/* ── MOUSE PARALLAX LAYER ── */
+.parallax {
+  position: fixed; inset: -8%;
+  pointer-events: none; z-index: 0;
+  will-change: transform;
+  transition: transform .1s linear;
+}
+
+/* ambient blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  transition: opacity 1.6s;
+}
+.b1 {
+  width: 600px; height: 600px;
+  top: -10%; left: -10%;
+  background: radial-gradient(circle, rgba(91,33,182,.28), transparent 65%);
+}
+.b2 {
+  width: 500px; height: 500px;
+  bottom: -5%; right: -5%;
+  background: radial-gradient(circle, rgba(124,58,237,.2), transparent 65%);
+}
+body.lit .blob { opacity: .15; }
+
+/* ── FLASH ── */
+.flash {
+  position: fixed; inset: 0; background: #fff;
+  opacity: 0; pointer-events: none; z-index: 999;
+}
+.flash.pop { animation: fp .65s ease forwards; }
+@keyframes fp { 0%{opacity:0} 38%{opacity:.95} 100%{opacity:0} }
+
+/* ── STAGE ── */
+.stage {
+  position: relative; z-index: 10;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 48px 24px 110px;
+}
+
+/* ── LOGO — plain, no effects, just letter ── */
+.logo {
+  width: 120px; height: 120px;
+  border-radius: 28px;
+  background: linear-gradient(150deg, #fff 0%, #e8e3ff 55%, #d4c8ff 100%);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 44px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1), 0 12px 40px rgba(91,33,182,.22);
+  opacity: 0;
+  animation: riseIn .65s cubic-bezier(.4,0,.2,1) .05s forwards;
+  flex-shrink: 0;
+}
+.logo span {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 72px;
+  color: var(--v);
+  line-height: 1;
+  letter-spacing: -2px;
+  user-select: none;
+}
+
+/* ── EYEBROW ── */
+.eyebrow {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--vm);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: riseIn .6s ease .22s forwards;
+}
+
+/* ── MAIN HEADING — Cormorant, elegant serif ── */
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(52px, 9vw, 96px);
+  line-height: .92;
+  letter-spacing: -2px;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 22px;
+  opacity: 0;
+  animation: riseIn .7s ease .34s forwards;
+  transition: color 1.6s;
+}
+body.lit h1 { color: var(--ink); }
+h1 .accent {
+  font-style: normal;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--vm) 20%, #c4b5fd 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── SUBTITLE ── */
+.sub {
+  font-family: 'Geist Mono', monospace;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.75;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: riseIn .7s ease .46s forwards;
+  transition: color 1.6s;
+}
+body.lit .sub { color: rgba(50,40,90,.42); }
+
+@keyframes riseIn {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: none; }
+}
+
+/* ── CONNECTOR ── */
+.connector {
+  width: min(800px, 86vw);
+  height: 84px;
+  position: relative;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: riseIn .7s ease .56s forwards;
+}
+.track {
+  position: absolute;
+  top: 50%; left: 13%; right: 13%;
+  height: 1px;
+  transform: translateY(-50%);
+  background: rgba(124,58,237,.18);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.bolt {
+  position: absolute; top: 0; height: 100%; width: 72px;
+  background: linear-gradient(90deg, transparent, rgba(167,139,250,.8), #fff, rgba(167,139,250,.8), transparent);
+  animation: boltFly 2s cubic-bezier(.4,0,.6,1) infinite;
+}
+@keyframes boltFly { from{left:-72px} to{left:100%} }
+
+.plug {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  transition: all 3s cubic-bezier(.19,1,.22,1);
+}
+#pl { left: 3%; }
+#pr { right: 3%; }
+.plug svg { display: block; }
+
+/* ── PROGRESS ── */
+.prog-wrap {
+  width: min(340px, 66vw);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: riseIn .7s ease .66s forwards;
+}
+.prog-meta {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 10px; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.22);
+  margin-bottom: 10px;
+  transition: color 1.6s;
+}
+body.lit .prog-meta { color: rgba(80,60,140,.3); }
+#ppct { font-variant-numeric: tabular-nums; }
+.prog-track {
+  height: 2px;
+  background: rgba(124,58,237,.1);
+  border-radius: 99px; overflow: hidden;
+}
+.prog-bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--v), var(--vl), var(--vm));
+  border-radius: 99px;
+  transition: width .28s ease;
+  box-shadow: 0 0 10px rgba(124,58,237,.55);
+}
+
+/* ── STATUS CHIPS ── */
+.chips {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  animation: riseIn .7s ease .76s forwards;
+}
+.chip {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+  border: 1px solid rgba(124,58,237,.16);
+  background: rgba(91,33,182,.07);
+  color: rgba(255,255,255,.4);
+  backdrop-filter: blur(10px);
+  transition: border-color 1.6s, background 1.6s, color 1.6s;
+}
+body.lit .chip {
+  border-color: rgba(91,33,182,.14);
+  background: rgba(91,33,182,.05);
+  color: rgba(70,50,130,.5);
+}
+.chip-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--vm);
+  box-shadow: 0 0 4px var(--vm);
+  animation: dp 2.6s ease-in-out infinite;
+}
+@keyframes dp { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.5)} }
+
+/* ── FINAL ── */
+.final {
+  text-align: center;
+  opacity: 0; transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity .9s ease, transform .9s ease;
+}
+.final.show { opacity:1; transform:none; pointer-events:auto; }
+
+.final-rule {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--vm), transparent);
+  margin: 0 auto 28px;
+  opacity: .5;
+}
+.final h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-style: italic;
+  font-size: clamp(28px, 4.5vw, 40px);
+  color: var(--ink);
+  letter-spacing: -.5px;
+  margin-bottom: 12px;
+}
+.final p {
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px; font-weight: 300;
+  letter-spacing: .04em;
+  color: var(--dim);
+  max-width: 300px; margin: auto;
+  line-height: 1.8;
+}
+
+/* ── CTA ── */
+.cta {
+  position: fixed;
+  bottom: 40px; left: 50%;
+  transform: translateX(-50%) translateY(54px);
+  opacity: 0;
+  padding: 14px 46px;
+  border-radius: 99px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px; font-weight: 400;
+  letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(135deg, #5b21b6, #7c3aed);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.08) inset,
+    0 4px 24px rgba(91,33,182,.38);
+  transition: transform .9s cubic-bezier(.34,1.56,.64,1), opacity .9s ease;
+  z-index: 50;
+}
+.cta.show { transform: translateX(-50%) translateY(0); opacity:1; }
+.cta:hover {
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset, 0 8px 36px rgba(91,33,182,.55);
+  transform: translateX(-50%) translateY(-2px) !important;
+}
+</style>
 </head>
-
 <body>
-
 <div id="cur"></div>
 <div id="cur-ring"></div>
-
 <canvas id="stars"></canvas>
-
-<div class="parallax" id="par">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-</div>
-
+<div class="parallax" id="par"><div class="blob b1"></div><div class="blob b2"></div></div>
 <div class="flash" id="flash"></div>
 
 <div class="stage">
+  <!-- LOGO: plain letter, no effects -->
+  <div class="logo"><span>A</span></div>
 
-    <div class="logo">
-        <span>A</span>
+  <div class="eyebrow">Scheduled Maintenance</div>
+
+  <h1>We're <span class="accent">Upgrading</span></h1>
+  <p class="sub">We are preparing a better<br>experience for you.</p>
+
+  <!-- CONNECTOR -->
+  <div class="connector" id="connector">
+    <div class="track"><div class="bolt"></div></div>
+    <div class="plug" id="pl">
+      <svg width="140" height="64" viewBox="0 0 140 64" fill="none">
+        <rect x="26" y="9" width="70" height="46" rx="11" fill="rgba(91,33,182,.07)" stroke="rgba(124,58,237,.5)" stroke-width="1.2"/>
+        <line x1="96" y1="22" x2="136" y2="22" stroke="rgba(124,58,237,.45)" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="96" y1="42" x2="136" y2="42" stroke="rgba(124,58,237,.45)" stroke-width="1.2" stroke-linecap="round"/>
+        <rect x="46" y="27" width="30" height="10" rx="3" fill="rgba(124,58,237,.12)" stroke="rgba(124,58,237,.35)" stroke-width="1"/>
+      </svg>
     </div>
-
-    <div class="eyebrow">Scheduled Maintenance</div>
-
-    <h1>We're <span class="accent">Upgrading</span></h1>
-
-    <p class="sub">
-        We are preparing a better
-        <br>
-        experience for you.
-    </p>
-
-    <div class="connector" id="connector">
-
-        <div class="track">
-            <div class="bolt"></div>
-        </div>
-
-        <div class="plug" id="pl">
-
-            <svg width="140" height="64" viewBox="0 0 140 64" fill="none">
-                <rect x="26" y="9" width="70" height="46" rx="11"
-                fill="rgba(91,33,182,.07)"
-                stroke="rgba(124,58,237,.5)"
-                stroke-width="1.2"/>
-
-                <line x1="96" y1="22" x2="136" y2="22"
-                stroke="rgba(124,58,237,.45)"
-                stroke-width="1.2"/>
-
-                <line x1="96" y1="42" x2="136" y2="42"
-                stroke="rgba(124,58,237,.45)"
-                stroke-width="1.2"/>
-
-                <rect x="46" y="27" width="30" height="10" rx="3"
-                fill="rgba(124,58,237,.12)"
-                stroke="rgba(124,58,237,.35)"
-                stroke-width="1"/>
-            </svg>
-
-        </div>
-
-        <div class="plug" id="pr">
-
-            <svg width="140" height="64" viewBox="0 0 140 64" fill="none">
-                <rect x="44" y="9" width="70" height="46" rx="11"
-                fill="rgba(91,33,182,.07)"
-                stroke="rgba(124,58,237,.5)"
-                stroke-width="1.2"/>
-
-                <line x1="4" y1="22" x2="44" y2="22"
-                stroke="rgba(124,58,237,.45)"
-                stroke-width="1.2"/>
-
-                <line x1="4" y1="42" x2="44" y2="42"
-                stroke="rgba(124,58,237,.45)"
-                stroke-width="1.2"/>
-
-                <rect x="64" y="27" width="30" height="10" rx="3"
-                fill="rgba(124,58,237,.12)"
-                stroke="rgba(124,58,237,.35)"
-                stroke-width="1"/>
-            </svg>
-
-        </div>
-
+    <div class="plug" id="pr">
+      <svg width="140" height="64" viewBox="0 0 140 64" fill="none">
+        <rect x="44" y="9" width="70" height="46" rx="11" fill="rgba(91,33,182,.07)" stroke="rgba(124,58,237,.5)" stroke-width="1.2"/>
+        <line x1="4" y1="22" x2="44" y2="22" stroke="rgba(124,58,237,.45)" stroke-width="1.2" stroke-linecap="round"/>
+        <line x1="4" y1="42" x2="44" y2="42" stroke="rgba(124,58,237,.45)" stroke-width="1.2" stroke-linecap="round"/>
+        <rect x="64" y="27" width="30" height="10" rx="3" fill="rgba(124,58,237,.12)" stroke="rgba(124,58,237,.35)" stroke-width="1"/>
+      </svg>
     </div>
+  </div>
 
-    <div class="prog-wrap" id="progWrap">
+  <!-- PROGRESS -->
+  <div class="prog-wrap" id="progWrap">
+    <div class="prog-meta"><span>Loading</span><span id="ppct">0%</span></div>
+    <div class="prog-track"><div class="prog-bar" id="progBar"></div></div>
+  </div>
 
-        <div class="prog-meta">
-            <span>Loading</span>
-            <span id="ppct">0%</span>
-        </div>
+  <!-- CHIPS -->
+  <div class="chips" id="chips">
+    <div class="chip"><div class="chip-dot"></div>Performance</div>
+    <div class="chip"><div class="chip-dot" style="animation-delay:.6s"></div>Security</div>
+    <div class="chip"><div class="chip-dot" style="animation-delay:1.2s"></div>Reliability</div>
+  </div>
 
-        <div class="prog-track">
-            <div class="prog-bar" id="progBar"></div>
-        </div>
-
-    </div>
-
-    <div class="chips" id="chips">
-
-        <div class="chip">
-            <div class="chip-dot"></div>
-            Performance
-        </div>
-
-        <div class="chip">
-            <div class="chip-dot"></div>
-            Security
-        </div>
-
-        <div class="chip">
-            <div class="chip-dot"></div>
-            Reliability
-        </div>
-
-    </div>
-
-    <div class="final" id="final">
-
-        <div class="final-rule"></div>
-
-        <h2>Maintenance In Progress</h2>
-
-        <p>
-            Our team is improving performance,
-            reliability and security.
-        </p>
-
-    </div>
-
+  <!-- FINAL -->
+  <div class="final" id="final">
+    <div class="final-rule"></div>
+    <h2>Maintenance In Progress</h2>
+    <p>Our team is improving performance,<br>reliability and security.</p>
+  </div>
 </div>
 
-<a href="mailto:support@yourcompany.com" class="cta" id="cta">
-Contact Us
-</a>
+<a href="mailto:support@yourcompany.com" class="cta" id="cta">Contact Us</a>
 
-<script src="script.js"></script>
+<script>
+  /* ── CURSOR ── */
+  const cur = document.getElementById('cur');
+  const ring = document.getElementById('cur-ring');
+  let mx = innerWidth/2, my = innerHeight/2;
+  let rx = mx, ry = my;
 
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    cur.style.left = mx+'px'; cur.style.top = my+'px';
+  });
+
+  (function trackRing(){
+    rx += (mx - rx) * .12;
+    ry += (my - ry) * .12;
+    ring.style.left = rx+'px'; ring.style.top = ry+'px';
+    requestAnimationFrame(trackRing);
+  })();
+
+  document.querySelectorAll('a, button, .chip').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+  });
+
+  /* ── PARALLAX ── */
+  const par = document.getElementById('par');
+  document.addEventListener('mousemove', e => {
+    const dx = (e.clientX / innerWidth  - .5) * 28;
+    const dy = (e.clientY / innerHeight - .5) * 28;
+    par.style.transform = `translate(${dx}px, ${dy}px)`;
+  });
+
+  /* ── STARFIELD ── */
+  const cv = document.getElementById('stars');
+  const ct = cv.getContext('2d');
+  const rsz = () => { cv.width = innerWidth; cv.height = innerHeight; };
+  rsz(); window.addEventListener('resize', rsz);
+  const s = Array.from({length:110}, () => ({
+    x: Math.random()*innerWidth, y: Math.random()*innerHeight,
+    r: Math.random()*.9+.15, ph: Math.random()*Math.PI*2,
+    sp: Math.random()*.005+.002, a: Math.random()*.6+.1
+  }));
+  (function frame(t){
+    ct.clearRect(0,0,cv.width,cv.height);
+    s.forEach(st=>{
+      const a = (Math.sin(t*.001*st.sp*1000+st.ph)*.45+.55)*st.a;
+      ct.beginPath(); ct.arc(st.x,st.y,st.r,0,Math.PI*2);
+      ct.fillStyle=`rgba(196,181,253,${a})`; ct.fill();
+    });
+    requestAnimationFrame(frame);
+  })(0);
+
+  /* ── PROGRESS ── */
+  const bar = document.getElementById('progBar');
+  const pct = document.getElementById('ppct');
+  let p = 0;
+  const iv = setInterval(()=>{
+    p = Math.min(84, p + Math.random()*2.4+.6);
+    bar.style.width = p+'%';
+    pct.textContent = Math.round(p)+'%';
+  }, 110);
+
+  /* ── PLUGS ── */
+  const pl = document.getElementById('pl');
+  const pr = document.getElementById('pr');
+  setTimeout(()=>{ pl.style.left='32%'; pr.style.right='32%'; }, 650);
+
+  /* ── TRANSITION ── */
+  setTimeout(()=>{
+    clearInterval(iv);
+    bar.style.transition='width .55s ease';
+    bar.style.width='100%'; pct.textContent='100%';
+    setTimeout(()=>{
+      document.getElementById('flash').classList.add('pop');
+      document.body.classList.add('lit');
+      pl.style.opacity='0'; pr.style.opacity='0';
+      document.querySelector('.track').style.opacity='0';
+      document.getElementById('progWrap').style.opacity='0';
+      document.getElementById('chips').style.opacity='0';
+      document.querySelector('.eyebrow').style.opacity='0';
+      setTimeout(()=>{
+        document.getElementById('connector').remove();
+        document.getElementById('progWrap').remove();
+        document.getElementById('chips').remove();
+        document.getElementById('final').classList.add('show');
+        document.getElementById('cta').classList.add('show');
+      }, 750);
+    }, 520);
+  }, 3800);
+</script>
 </body>
 </html>
