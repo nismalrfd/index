@@ -33,7 +33,23 @@ body.light{
 @keyframes spin{
     to{transform:rotate(360deg)}
 }
+#mainLogo{
+    height:110px;
+    animation:
+        float 4s ease-in-out infinite,
+        glow 2.5s ease-in-out infinite;
+}
 
+@keyframes float{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-15px)}
+    100%{transform:translateY(0)}
+}
+
+@keyframes glow{
+    0%,100%{filter:drop-shadow(0 0 10px #8b5cf6)}
+    50%{filter:drop-shadow(0 0 40px #a78bfa)}
+}
 /* LOGO WRAP CENTER FIX */
 .logo-wrap{
     display:flex;
