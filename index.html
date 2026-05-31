@@ -16,10 +16,16 @@ body{
     transition:1.4s;
 }
 
-body.light{
-    background:#fff;
+/* FULL CENTER FIX */
+.min-h-screen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 16px;
 }
 
+/* AURORA */
 .aurora{
     position:fixed;
     inset:-20%;
@@ -33,11 +39,12 @@ body.light{
 @keyframes spin{
     to{transform:rotate(360deg)}
 }
+
+/* LOGO */
 #mainLogo{
-    height:110px;
-    animation:
-        float 4s ease-in-out infinite,
-        glow 2.5s ease-in-out infinite;
+    height:90px;
+    width:auto;
+    animation: float 4s ease-in-out infinite, glow 2.5s ease-in-out infinite;
 }
 
 @keyframes float{
@@ -50,38 +57,28 @@ body.light{
     0%,100%{filter:drop-shadow(0 0 10px #8b5cf6)}
     50%{filter:drop-shadow(0 0 40px #a78bfa)}
 }
-/* LOGO WRAP CENTER FIX */
+
 .logo-wrap{
     display:flex;
     justify-content:center;
-    align-items:center;
-    margin-bottom:40px;
+    margin-bottom:30px;
 }
 
-/* SAME SIZE FOR BOTH LOGOS */
-#mainLogo{
-    height:90px;   /* medium size */
-    width:auto;
-    object-fit:contain;
-    transition:opacity .6s ease;
-}
-
-.logo-fade{
-    opacity:0;
-}
+.logo-fade{opacity:0}
 
 /* CONNECTION */
 .connection{
     position:relative;
-    height:140px;
+    width:100%;
     max-width:900px;
+    height:140px;
     margin:auto;
 }
 
 .line{
     position:absolute;
-    left:15%;
-    right:15%;
+    left:10%;
+    right:10%;
     top:50%;
     height:4px;
     background:rgba(139,92,246,.3);
@@ -93,14 +90,7 @@ body.light{
     position:absolute;
     height:100%;
     width:120px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        #fff,
-        #8b5cf6,
-        #fff,
-        transparent
-    );
+    background:linear-gradient(90deg,transparent,#fff,#8b5cf6,#fff,transparent);
     animation:flow 1.8s linear infinite;
 }
 
@@ -109,30 +99,36 @@ body.light{
     to{left:100%}
 }
 
+/* PLUG FIX (IMPORTANT) */
 .plug{
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    transition:2.4s cubic-bezier(.17,.84,.44,1);
+    transition:2s ease;
 }
 
-#left{left:8%}
-#right{right:8%}
+#left{left:5%}
+#right{right:5%}
 
-/* CONTACT */
+.plug svg{
+    width:180px;
+    height:auto;
+}
+
+/* CONTACT BUTTON */
 .contact{
     position:fixed;
     left:50%;
-    bottom:35px;
+    bottom:30px;
     transform:translateX(-50%) translateY(40px);
     opacity:0;
-    padding:18px 50px;
+    padding:16px 48px;
     border-radius:999px;
     color:#111;
     font-weight:700;
     text-decoration:none;
     background:linear-gradient(135deg,#8B5CF6,#C4B5FD,#FFF);
-    transition:.8s;
+    transition:.6s;
     box-shadow:0 10px 40px rgba(139,92,246,.35);
 }
 
@@ -141,17 +137,18 @@ body.light{
     transform:translateX(-50%) translateY(0);
 }
 
+/* CONTENT */
 .content{
     opacity:0;
     transform:translateY(20px);
     transition:1s;
 }
-
 .content.show{
     opacity:1;
     transform:none;
 }
 
+/* FLASH */
 .flash{
     position:fixed;
     inset:0;
@@ -159,51 +156,51 @@ body.light{
     opacity:0;
     pointer-events:none;
 }
+.flash.active{animation:f .8s}
+@keyframes f{50%{opacity:1}}
 
-.flash.active{
-    animation:f .8s;
-}
-
-@keyframes f{
-    50%{opacity:1}
-}
-
-/* MOBILE */
+/* ================= MOBILE FIX ================= */
 @media (max-width:768px){
 
-    body{overflow-x:hidden;}
+    body{overflow:hidden;}
 
-    #mainLogo{
-        height:65px;
-    }
+    #mainLogo{height:65px;}
 
     #title{
-        font-size:2.7rem !important;
+        font-size:2.2rem !important;
         line-height:1.1;
     }
 
     #sub{
-        font-size:1rem;
+        font-size:0.95rem;
         padding:0 10px;
     }
 
-    .connection{height:100px;}
-
-    .plug svg{
-        width:110px;
-        height:auto;
+    .connection{
+        height:120px;
     }
 
-    #left{left:2%}
-    #right{right:2%}
+    .plug svg{
+        width:120px;
+        max-width:42vw;
+    }
+
+    #left{left:0%}
+    #right{right:0%}
+
+    .line{
+        left:5%;
+        right:5%;
+        height:3px;
+    }
 
     .contact{
-        width:calc(100% - 32px);
-        max-width:320px;
-        padding:16px 24px;
-        bottom:20px;
+        width:calc(100% - 24px);
+        max-width:340px;
+        padding:14px 20px;
+        font-size:14px;
+        bottom:16px;
         text-align:center;
-        font-size:15px;
     }
 }
 </style>
@@ -214,16 +211,15 @@ body.light{
 <div class="aurora"></div>
 <div id="flash" class="flash"></div>
 
-<div class="min-h-screen flex items-center justify-center px-6">
+<div class="min-h-screen">
 
     <div class="text-center w-full max-w-5xl">
 
-        <!-- LOGO CENTERED -->
         <div class="logo-wrap">
-            <img id="mainLogo" src="logobefore.png" alt="Company Logo">
+            <img id="mainLogo" src="logobefore.png">
         </div>
 
-        <h1 id="title" class="text-white text-5xl md:text-7xl font-black mb-4">
+        <h1 id="title" class="text-white text-5xl font-black mb-4">
             We're Upgrading
         </h1>
 
@@ -233,12 +229,12 @@ body.light{
 
         <div id="connection" class="connection">
 
-            <div id="line" class="line">
+            <div class="line">
                 <div class="energy"></div>
             </div>
 
             <div id="left" class="plug">
-                <svg width="180" height="80">
+                <svg viewBox="0 0 200 100">
                     <rect x="40" y="15" width="90" height="50" rx="10"
                     fill="none" stroke="#8B5CF6" stroke-width="4"/>
                     <line x1="130" y1="30" x2="170" y2="30"
@@ -249,7 +245,7 @@ body.light{
             </div>
 
             <div id="right" class="plug">
-                <svg width="180" height="80">
+                <svg viewBox="0 0 200 100">
                     <rect x="50" y="15" width="90" height="50" rx="10"
                     fill="none" stroke="#8B5CF6" stroke-width="4"/>
                     <line x1="10" y1="30" x2="50" y2="30"
@@ -265,7 +261,6 @@ body.light{
             <h2 class="text-3xl font-bold text-gray-800 mb-3">
                 Maintenance In Progress
             </h2>
-
             <p class="text-gray-600">
                 Our team is improving performance, reliability and security.
             </p>
@@ -274,14 +269,10 @@ body.light{
     </div>
 </div>
 
-<!-- WHATSAPP BUTTON -->
-<a
-    id="contact"
-    class="contact"
-    href="https://wa.me/917306201900?text=Hello%20I%20need%20assistance"
-    target="_blank"
->
-    WhatsApp Us
+<a id="contact" class="contact"
+href="https://wa.me/917306201900?text=Hello%20I%20need%20assistance"
+target="_blank">
+WhatsApp Us
 </a>
 
 <script>
@@ -290,7 +281,7 @@ const right = document.getElementById('right');
 const flash = document.getElementById('flash');
 const title = document.getElementById('title');
 const sub = document.getElementById('sub');
-const line = document.getElementById('line');
+const line = document.querySelector('.line');
 const final = document.getElementById('final');
 const contact = document.getElementById('contact');
 const connection = document.getElementById('connection');
@@ -301,26 +292,24 @@ setTimeout(() => {
     right.style.right = '38%';
 }, 1000);
 
+/* ✅ ADDED: WHITE LOADING EFFECT AFTER CONNECTION */
+setTimeout(() => {
+    flash.classList.add('active');
+    document.body.style.background = "#fff";
+}, 2200);
+
 setTimeout(() => {
 
     flash.classList.add('active');
-
     logo.classList.add('logo-fade');
 
     setTimeout(() => {
         logo.src = 'logoafter.png';
-        logo.onload = () => {
-            logo.classList.remove('logo-fade');
-        };
+        logo.onload = () => logo.classList.remove('logo-fade');
     }, 300);
 
-    document.body.classList.add('light');
-
-    title.classList.remove('text-white');
-    title.classList.add('text-gray-900');
-
-    sub.classList.remove('text-gray-300');
-    sub.classList.add('text-gray-600');
+    title.classList.replace('text-white','text-gray-900');
+    sub.classList.replace('text-gray-300','text-gray-600');
 
     left.style.opacity = '0';
     right.style.opacity = '0';
