@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>We're Upgrading</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<canvas id="stars"></canvas>
+
+<div class="parallax" id="par">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+</div>
+
+<div class="flash" id="flash"></div>
+
+<div class="stage">
+
+    <div class="logo">
+        <span>A</span>
+    </div>
+
+    <div class="eyebrow">Scheduled Maintenance</div>
+
+    <h1>We're <span class="accent">Upgrading</span></h1>
+
+    <p class="sub">
+        We are preparing a better
+        <br>
+        experience for you.
+    </p>
+
+    <div class="connector" id="connector">
+
+        <div class="track">
+            <div class="bolt"></div>
+        </div>
+
+        <div class="plug" id="pl">
+
+            <svg width="140" height="64" viewBox="0 0 140 64" fill="none">
+                <rect x="26" y="9" width="70" height="46" rx="11"
+                fill="rgba(91,33,182,.07)"
+                stroke="rgba(124,58,237,.5)"
+                stroke-width="1.2"/>
+
+                <line x1="96" y1="22" x2="136" y2="22"
+                stroke="rgba(124,58,237,.45)"
+                stroke-width="1.2"/>
+
+                <line x1="96" y1="42" x2="136" y2="42"
+                stroke="rgba(124,58,237,.45)"
+                stroke-width="1.2"/>
+
+                <rect x="46" y="27" width="30" height="10" rx="3"
+                fill="rgba(124,58,237,.12)"
+                stroke="rgba(124,58,237,.35)"
+                stroke-width="1"/>
+            </svg>
+
+        </div>
+
+        <div class="plug" id="pr">
+
+            <svg width="140" height="64" viewBox="0 0 140 64" fill="none">
+                <rect x="44" y="9" width="70" height="46" rx="11"
+                fill="rgba(91,33,182,.07)"
+                stroke="rgba(124,58,237,.5)"
+                stroke-width="1.2"/>
+
+                <line x1="4" y1="22" x2="44" y2="22"
+                stroke="rgba(124,58,237,.45)"
+                stroke-width="1.2"/>
+
+                <line x1="4" y1="42" x2="44" y2="42"
+                stroke="rgba(124,58,237,.45)"
+                stroke-width="1.2"/>
+
+                <rect x="64" y="27" width="30" height="10" rx="3"
+                fill="rgba(124,58,237,.12)"
+                stroke="rgba(124,58,237,.35)"
+                stroke-width="1"/>
+            </svg>
+
+        </div>
+
+    </div>
+
+    <div class="prog-wrap" id="progWrap">
+
+        <div class="prog-meta">
+            <span>Loading</span>
+            <span id="ppct">0%</span>
+        </div>
+
+        <div class="prog-track">
+            <div class="prog-bar" id="progBar"></div>
+        </div>
+
+    </div>
+
+    <div class="chips" id="chips">
+
+        <div class="chip">
+            <div class="chip-dot"></div>
+            Performance
+        </div>
+
+        <div class="chip">
+            <div class="chip-dot"></div>
+            Security
+        </div>
+
+        <div class="chip">
+            <div class="chip-dot"></div>
+            Reliability
+        </div>
+
+    </div>
+
+    <div class="final" id="final">
+
+        <div class="final-rule"></div>
+
+        <h2>Maintenance In Progress</h2>
+
+        <p>
+            Our team is improving performance,
+            reliability and security.
+        </p>
+
+    </div>
+
+</div>
+
+<a href="mailto:support@yourcompany.com" class="cta" id="cta">
+Contact Us
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

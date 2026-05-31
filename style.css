@@ -1,0 +1,65 @@
+*, *::before, *::after { ... }
+
+:root { ... }
+
+body { ... }
+
+#cur { ... }
+
+#cur-ring { ... }
+
+#stars { ... }
+
+.parallax { ... }
+
+.blob { ... }
+
+.flash { ... }
+
+.stage { ... }
+
+.logo { ... }
+
+.logo span { ... }
+
+.eyebrow { ... }
+
+h1 { ... }
+
+.sub { ... }
+
+.connector { ... }
+
+.track { ... }
+
+.bolt { ... }
+
+.plug { ... }
+
+.prog-wrap { ... }
+
+.prog-meta { ... }
+
+.prog-track { ... }
+
+.prog-bar { ... }
+
+.chips { ... }
+
+.chip { ... }
+
+.final { ... }
+
+.final h2 { ... }
+
+.final p { ... }
+
+.cta { ... }
+
+@keyframes riseIn { ... }
+
+@keyframes boltFly { ... }
+
+@keyframes dp { ... }
+
+@keyframes fp { ... }
