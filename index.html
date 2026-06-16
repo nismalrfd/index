@@ -1,15 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RHenova Tech - Interactive Corporate Brochure</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="logo.png.png"
+  >
+  <title>RHenova Tech | Enterprise Architecture & Zoho Systems</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+          },
           colors: {
             brand: {
               50: '#f4f3f9',
@@ -18,917 +35,1084 @@
               300: '#c0b8dc',
               400: '#a195ca',
               500: '#8374b7',
-              600: '#736db3',
+              600: '#736db3', // Primary brand color
               700: '#5e549d',
               800: '#4e4583',
               900: '#413a6c',
-              950: '#262143',
+              950: '#16132b',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'glow-pulse': 'glow 3s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            glow: {
+              '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
+              '50%': { opacity: 0.9, transform: 'scale(1.05)' },
             }
           }
         }
       }
     }
   </script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
-    body { font-family: 'Plus+Jakarta+Sans', 'Plus Jakarta Sans', sans-serif; }
+    /* Premium Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c0b8dc;
+      border-radius: 4px;
+    }
+    .dark ::-webkit-scrollbar-thumb {
+      background: #4e4583;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #736db3;
+    }
 
-    /* ── INDUSTRY CARDS ── */
-    .industry-card { position:relative; height:420px; border-radius:32px; overflow:hidden; cursor:pointer; box-shadow:0 20px 50px rgba(0,0,0,0.12); transition:.5s ease; }
-    .industry-card img { width:100%; height:100%; object-fit:cover; transition:.7s ease; }
-    .industry-card::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.2) 40%,rgba(0,0,0,.85) 100%); z-index:1; }
-    .overlay { position:absolute; inset:0; z-index:2; display:flex; align-items:flex-end; padding:35px; transition:.5s ease; }
-    .category { display:inline-block; padding:8px 18px; background:rgba(255,255,255,.15); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.3); border-radius:100px; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:white; margin-bottom:18px; }
-    .overlay h3 { font-size:32px; font-weight:900; color:white; margin-bottom:15px; transform:translateY(50px); transition:.5s ease; }
-    .overlay p { font-size:14px; line-height:28px; color:#e2e8f0; opacity:0; transform:translateY(50px); transition:.5s ease; max-height:0; overflow:hidden; }
-    .industry-card:hover { transform:translateY(-10px); }
-    .industry-card:hover img { transform:scale(1.1); }
-    .industry-card:hover h3 { transform:translateY(0); }
-    .industry-card:hover p { opacity:1; transform:translateY(0); max-height:250px; }
-    .industry-card::after { content:"↗"; position:absolute; top:25px; right:25px; width:55px; height:55px; border-radius:50%; background:rgba(255,255,255,.15); backdrop-filter:blur(20px); display:flex; justify-content:center; align-items:center; font-size:26px; font-weight:900; color:white; z-index:3; opacity:0; transition:.5s ease; }
-    .industry-card:hover::after { opacity:1; transform:rotate(-45deg); }
-
-    /* ── VISION / MISSION CARDS ── */
-    .vm-card { position:relative; display:flex; align-items:flex-start; gap:30px; padding:45px; border-radius:32px; background:#fff; border:1px solid #e2e8f0; overflow:hidden; transition:.4s ease; box-shadow:0 10px 35px rgba(0,0,0,.06); }
-    .vm-card::before { content:""; position:absolute; width:250px; height:250px; top:-120px; right:-120px; border-radius:50%; background:#736db315; transition:.4s ease; }
-    .vm-card:hover { transform:translateY(-8px); }
-    .vm-card:hover::before { transform:scale(1.2); }
-    .vm-icon { width:80px; height:80px; flex-shrink:0; border-radius:24px; background:#736db3; display:flex; align-items:center; justify-content:center; color:white; box-shadow:0 10px 30px rgba(115,109,179,.25); }
-    .vm-icon svg { width:38px; height:38px; }
-    .vm-label { font-size:11px; font-weight:800; letter-spacing:4px; text-transform:uppercase; color:#736db3; }
-    .vm-card h3 { font-size:34px; font-weight:900; margin-top:10px; margin-bottom:18px; color:#0f172a; line-height:1.2; }
-    .vm-card p { font-size:15px; line-height:32px; color:#64748b; max-width:500px; }
-    .shape { width:14px; height:14px; background:#736db3; border-radius:50%; opacity:.7; }
-    .shape.large { width:70px; height:10px; border-radius:100px; }
-
-    /* ══════════════════════════════════════════════
-       ADVANCED TEAM SECTION
-    ══════════════════════════════════════════════ */
-
-    /* floating decorative blobs */
-    .team-blob { position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none; }
-
-    /* Grid background for team section */
-    .team-section-bg {
-      background: #ffffff;
+    /* Advanced Card Tilt & Spotlight Effects */
+    .spotlight-card {
       position: relative;
       overflow: hidden;
     }
-
-    /* TEAM CARD — advanced floating card design */
-    .adv-team-card {
-      position: relative;
-      cursor: pointer;
-      height: 100%;
-    }
-
-    .adv-team-inner {
-      position: relative;
-      background: #ffffff;
-      border: 1.5px solid #e9e7f4;
-      border-radius: 28px;
-      padding: 40px 32px 36px;
-      overflow: hidden;
-      transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
-      box-shadow: 0 8px 32px rgba(115,109,179,0.08);
+    .spotlight-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(115,109,179,0.12), transparent 40%);
       z-index: 1;
-      min-height: 340px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0;
-    }
-
-    /* Animated top accent bar */
-    .adv-team-inner::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #736db3, #a195ca, #736db3);
-      background-size: 200% 100%;
-      border-radius: 28px 28px 0 0;
-      transition: all 0.5s;
-      animation: shimmer 3s linear infinite;
-      will-change: background-position;
-      transform: translateZ(0);
-      -webkit-backface-visibility: hidden;
-    }
-
-    @keyframes shimmer { 0%{background-position:0% 0%} 100%{background-position:200% 0%} }
-
-    /* Large decorative number */
-    .adv-team-num {
-      position: absolute;
-      top: -10px;
-      right: 22px;
-      font-size: 120px;
-      font-weight: 900;
-      color: #736db3;
-      opacity: 0.05;
-      line-height: 1;
-      letter-spacing: -6px;
       pointer-events: none;
-      transition: opacity 0.4s, transform 0.4s;
-      user-select: none;
-    }
-
-    /* Diagonal stripe decoration */
-    .adv-team-inner::after {
-      content: "";
-      position: absolute;
-      bottom: -30px;
-      right: -30px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 28px solid #736db315;
-      transition: all 0.5s;
-    }
-
-    .adv-team-card:hover .adv-team-inner {
-      transform: translateY(-12px);
-      box-shadow: 0 32px 64px rgba(115,109,179,0.18), 0 0 0 1.5px #736db340;
-      border-color: #c0b8dc;
-      background: linear-gradient(145deg, #ffffff 60%, #f4f3f9 100%);
-    }
-
-    .adv-team-card:hover .adv-team-num {
-      opacity: 0.09;
-      transform: scale(1.05);
-    }
-
-    .adv-team-card:hover .adv-team-inner::after {
-      transform: scale(1.4);
-      border-color: #736db325;
-    }
-
-    /* Icon container */
-    .adv-icon-wrap {
-      width: 68px;
-      height: 68px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #736db3 0%, #a195ca 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      margin-bottom: 24px;
-      box-shadow: 0 12px 28px rgba(115,109,179,0.28);
-      transition: transform 0.4s, box-shadow 0.4s;
-      flex-shrink: 0;
-    }
-    .adv-icon-wrap svg { width: 32px; height: 32px; stroke-width: 2; }
-
-    .adv-team-card:hover .adv-icon-wrap {
-      transform: scale(1.1) rotate(-5deg);
-      box-shadow: 0 18px 36px rgba(115,109,179,0.36);
-    }
-
-    .adv-team-tag {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #736db3;
-      background: #f4f3f9;
-      border: 1px solid #dad6eb;
-      border-radius: 100px;
-      padding: 5px 14px;
-      margin-bottom: 14px;
-    }
-
-    .adv-team-inner h3 {
-      font-size: 26px;
-      font-weight: 900;
-      color: #0f172a;
-      line-height: 1.2;
-      margin-bottom: 14px;
-    }
-
-    .adv-team-inner p {
-      font-size: 14px;
-      line-height: 26px;
-      color: #64748b;
-      flex: 1;
-    }
-
-    /* Bottom pill row */
-    .adv-team-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 24px;
-    }
-
-    .adv-pill {
-      font-size: 10px;
-      font-weight: 700;
-      color: #736db3;
-      background: #e9e7f4;
-      border-radius: 100px;
-      padding: 4px 12px;
-    }
-
-    /* ── MOBILE / TOUCH ANIMATION FIXES ──
-       The CSS "@media (hover:none)" feature query is unreliable in practice —
-       Android Chrome actually reports "hover:hover" on touchscreens for
-       legacy-site compatibility, so that query silently failed to match on
-       the most common mobile browser. These rules are instead driven by a
-       JS feature-detected ".touch-device" class on <html>, plus real
-       touchstart/touchend listeners (added in the script below) and a
-       scroll-triggered IntersectionObserver reveal animation that fires on
-       its own the moment a card scrolls into view — no hover/tap required,
-       so it is guaranteed to animate on every phone. */
-    html.touch-device .overlay h3 { transform: translateY(0); }
-    html.touch-device .overlay p { opacity: 1; transform: translateY(0); max-height: 250px; }
-    html.touch-device .industry-card::after { opacity: 1; }
-
-    .adv-team-card.tap-active .adv-team-inner {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 48px rgba(115,109,179,0.18), 0 0 0 1.5px #736db340;
-      border-color: #c0b8dc;
-      background: linear-gradient(145deg, #ffffff 60%, #f4f3f9 100%);
-    }
-    .adv-team-card.tap-active .adv-team-num { opacity: 0.09; transform: scale(1.05); }
-    .adv-team-card.tap-active .adv-icon-wrap { transform: scale(1.08) rotate(-5deg); box-shadow: 0 18px 36px rgba(115,109,179,0.36); }
-    .adv-team-card.tap-active .adv-team-inner::after { transform: scale(1.4); border-color: #736db325; }
-
-    .vm-card.tap-active { transform: translateY(-6px); }
-    .vm-card.tap-active::before { transform: scale(1.2); }
-
-    /* Scroll-reveal entrance — fires automatically as cards enter the
-       viewport, so there's always a visible animation on mobile even if
-       a browser's touch/hover handling misbehaves. */
-    .reveal-up {
+      transition: opacity 0.5s;
       opacity: 0;
-      transform: translateY(26px);
-      transition: opacity .65s cubic-bezier(.23,1,.32,1), transform .65s cubic-bezier(.23,1,.32,1);
     }
-    .reveal-up.revealed {
+    .dark .spotlight-card::before {
+      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(161,149,202,0.18), transparent 40%);
+    }
+    .spotlight-card:hover::before {
       opacity: 1;
-      transform: translateY(0);
     }
 
-    @media (max-width: 480px) {
-      .adv-team-num { font-size: 80px; top: -6px; right: 16px; }
+    /* Animated gradient border on hover */
+    .border-gradient-hover {
+      position: relative;
+      background: linear-gradient(to right, #ffffff, #ffffff), linear-gradient(135deg, #e2e8f0 0%, #e9e7f4 100%);
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      border: 1.5px solid transparent;
+      transition: all 0.4s ease;
+    }
+    .dark .border-gradient-hover {
+      background: linear-gradient(to right, #111827, #111827), linear-gradient(135deg, #1f2937 0%, #262143 100%);
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+    }
+    .border-gradient-hover:hover {
+      background: linear-gradient(to right, #ffffff, #ffffff), linear-gradient(135deg, #736db3 0%, #a195ca 100%);
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -15px rgba(115,109,179,0.15);
+    }
+    .dark .border-gradient-hover:hover {
+      background: linear-gradient(to right, #111827, #111827), linear-gradient(135deg, #736db3 0%, #a195ca 100%);
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
     }
 
-    /* Section floating shapes */
-    .deco-ring {
+    /* Industry Card Glass Effects */
+    .industry-card-adv {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .industry-card-adv img {
+      transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .industry-card-adv:hover img {
+      transform: scale(1.08) rotate(1deg);
+    }
+    .industry-card-overlay {
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0) 40%, rgba(15, 23, 42, 0.75) 70%, rgba(22, 19, 43, 0.95) 100%);
+      transition: all 0.4s ease;
+    }
+    .industry-card-adv:hover .industry-card-overlay {
+      background: linear-gradient(180deg, rgba(115, 109, 179, 0.1) 20%, rgba(22, 19, 43, 0.85) 60%, rgba(22, 19, 43, 0.98) 100%);
+    }
+
+    /* Floating blobs configuration */
+    .ambient-glow {
       position: absolute;
+      width: 400px;
+      height: 400px;
       border-radius: 50%;
-      border: 2px solid #736db320;
+      background: radial-gradient(circle, rgba(115,109,179,0.15) 0%, rgba(255,255,255,0) 70%);
+      filter: blur(40px);
       pointer-events: none;
+      z-index: 0;
+    }
+    .dark .ambient-glow {
+      background: radial-gradient(circle, rgba(115,109,179,0.25) 0%, rgba(0,0,0,0) 70%);
     }
 
-    .deco-dot {
-      position: absolute;
+    /* Active navigation dot animation */
+    .nav-dot {
+      width: 6px;
+      height: 6px;
+      background: #736db3;
       border-radius: 50%;
-      background: #736db3;
-      pointer-events: none;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover .nav-dot {
+      transform: scale(1);
     }
 
-    .deco-cross {
-      position: absolute;
-      pointer-events: none;
+    /* Gentle Page Load Animations */
+    .animate-fade-in-up {
+      animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animation-delay-100 {
+      animation-delay: 150ms;
+    }
+    .animation-delay-200 {
+      animation-delay: 300ms;
+    }
+    .animation-delay-300 {
+      animation-delay: 450ms;
     }
 
-
-    
-    .deco-cross::before, .deco-cross::after {
-      content: "";
-      position: absolute;
-      background: #736db3;
-      border-radius: 2px;
-    }
-    .deco-cross::before { width: 2px; height: 20px; top: 0; left: 9px; }
-    .deco-cross::after { width: 20px; height: 2px; top: 9px; left: 0; }
-
-    .deco-square {
-      position: absolute;
-      border-radius: 6px;
-      background: #736db308;
-      border: 1.5px solid #736db320;
-      pointer-events: none;
-    }
-
-    /* animated floating dots in team header */
-    @keyframes floatUp { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-    @keyframes floatDown { 0%,100%{transform:translateY(0)} 50%{transform:translateY(14px)} }
-    @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-
-    .float-a { animation: floatUp 4s ease-in-out infinite; }
-    .float-b { animation: floatDown 5s ease-in-out infinite; }
-    .float-c { animation: floatUp 6s ease-in-out infinite; }
-    .spin-ring { animation: spin-slow 18s linear infinite; transform-origin: center; }
-
-    /* ── NO SCROLLBAR ── */
-    .no-scrollbar::-webkit-scrollbar { display:none; }
-    .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
-
-    @media print {
-      body { background:#ffffff!important; color:#000000!important; }
-      .no-print { display:none!important; }
-      .print-page { page-break-after:always; width:100%!important; max-width:100%!important; box-shadow:none!important; border:none!important; background:#ffffff!important; }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-brand-600 selection:text-white">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 min-h-screen font-sans antialiased transition-colors duration-300">
 
-  <!-- Hidden file inputs -->
-  <input type="file" id="logo-image-input" accept="image/*" class="hidden" onchange="handleLogoUpload(event)">
-  <input type="file" id="screenshot-image-input" accept="image/*" class="hidden" onchange="handleScreenshotUpload(event)">
+  <!-- 1. LOADING SCREEN -->
+  <div id="loading-screen" class="fixed inset-0 bg-[#fbfbfe] dark:bg-slate-950 z-[999] flex flex-col items-center justify-center transition-all duration-700 ease-in-out">
+    <div class="relative flex flex-col items-center max-w-sm px-6 text-center">
+      <!-- Animated Premium Tech Frame -->
+      <div class="relative w-28 h-28 flex items-center justify-center">
+        <!-- Rotating Outer Orbit Ring -->
+        <div class="absolute inset-0 border-t-2 border-r-2 border-brand-600 dark:border-brand-400 rounded-full animate-spin" style="animation-duration: 1.5s;"></div>
+        <!-- Counter-rotating Inner Ring -->
+        <div class="absolute inset-2 border-b-2 border-l-2 border-indigo-400 dark:border-indigo-600 rounded-full animate-spin" style="animation-duration: 3s; animation-direction: reverse;"></div>
+        <!-- Central Branded Icon (R) -->
+       <!-- Central Branded Icon (R) -->
+<div class="w-16 h-16 rounded-2xl from-brand-600 to-indigo-600 flex items-center justify-center">
 
-  <main class="flex-grow flex flex-col items-center justify-start p-3 sm:p-8 md:p-12 w-full max-w-7xl mx-auto">
+<img src="WhatsApp_Image_2026-05-31_at_9.23.59_PM__1_-removebg-preview.png" alt="">
 
-    <!-- ══ BROCHURE SPREAD ══ -->
-    <div id="brochure-container" class="w-full grid grid-cols-1 gap-10 items-start">
+<svg ...>
+  ...
+</svg>
 
-    <section class="print-page bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 relative overflow-hidden flex flex-col justify-between min-h-[75vh] lg:min-h-[85vh] shadow-xl w-full text-slate-900">
-        <div class="absolute inset-0 opacity-5 pointer-events-none">
-          <svg width="100%" height="100%"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#736db3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid)"/></svg>
-        </div>
-        <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-brand-100/40 blur-3xl pointer-events-none"></div>
-
-<div class="relative z-10 flex items-center justify-between">
-    <div class="flex items-center space-x-0">
-
-        <!-- Rhenova Logo -->
-        <img
-            src="rhenova combination logo.png"
-            alt="Rhenova Tech"
-            class="h-20 sm:h-36 w-auto object-contain"
-        />
-
-        <!-- Separator -->
-        <div class="px-6">
-            <span class="text-3xl font-light text-[#736db3]">|</span>
-        </div>
-
-        <!-- Zoho Logo -->
-        <img
-            src="give.png"
-            alt="Zoho"
-            class="h-10 sm:h-8 w-auto object-contain"
-        />
-
-    </div>
 </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="relative z-10 my-8 sm:my-10">
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-4 text-slate-900">
-            Where <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-purple-600">CHAOS</span> MEETS CLARITY.
-          </h1>
-          <p class="text-base sm:text-lg text-slate-600 font-light max-w-xl leading-relaxed mb-6 sm:mb-8">
-            Are manual workflows and Excel complexity breaking your operational scalability? RHenova Tech designs intelligent business architectures to give you flawless clarity.
-          </p>
-          <div class="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-brand-50 to-slate-100 border border-slate-200 flex items-center justify-between gap-4">
-            <div>
-              <span class="block text-[10px] uppercase tracking-wider text-brand-700 font-bold">WHY US?</span>
-              <span class="text-sm sm:text-lg font-bold text-slate-900 leading-tight">THE BEST SERVICE PROVIDER EVER IN THE MARKET!</span>
-            </div>
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-100 border border-brand-200 flex items-center justify-center text-brand-600 flex-shrink-0 animate-pulse">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
-            </div>
+  <!-- Ambient Glow Background Blobs -->
+  <div class="ambient-glow top-[15%] left-[5%]"></div>
+  <div class="ambient-glow top-[50%] right-[5%]"></div>
+  <div class="ambient-glow top-[80%] left-[20%]"></div>
+
+  <!-- NAVIGATION HEADER -->
+<!-- HEADER -->
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-white/85 dark:bg-slate-950/85 border-b border-slate-200/50 dark:border-slate-800/40 transition-all duration-300">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="h-20 flex items-center justify-between">
+
+      <!-- LEFT SIDE -->
+
+      <div class="flex items-center gap-5 sm:gap-8">
+
+        <!-- RHenova Logo -->
+
+        <a href="#" class="flex items-center gap-3 group">
+
+          <img
+            src="WhatsApp_Image_2026-05-31_at_9.23.59_PM__1_-removebg-preview.png"
+            alt="RHenova Tech"
+            class="h-6 sm:h-8 lg:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          >
+
+          <div class="flex flex-col leading-none">
+
+            <span class="text-lg sm:text-2xl font-bold tracking-tight text-slate-800 dark:text-white uppercase">
+
+              RHenova
+
+              <span class="text-brand-500 dark:text-brand-400 font-extrabold">
+
+                Tech
+
+              </span>
+
+            </span>
+
+            <!-- <span class="hidden sm:block text-[11px] text-slate-500 dark:text-slate-400 tracking-[0.25em] uppercase">
+
+              Digital Transformation Partner
+
+            </span> -->
+
           </div>
+
+        </a>
+
+        <!-- ZOHO PARTNER -->
+
+        <div class="flex items-center border-l border-slate-300 dark:border-slate-800 h-14 pl-5 sm:pl-8">
+
+          <div class="flex items-center gap-3">
+
+            <div class="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+
+              <img
+
+                src="download.webp"
+
+                alt="ZOHO Partner"
+
+                class="w-full h-full object-contain"
+
+              >
+
+            </div>
+
+            <div class="flex flex-col leading-none">
+
+              <span class="text-xs sm:text-sm font-black text-slate-800 dark:text-slate-200 tracking-[0.25em] uppercase">
+
+                ZOHO
+
+              </span>
+
+              <span class="text-[9px] sm:text-[11px] font-medium text-slate-500 dark:text-slate-400 tracking-[0.2em]">
+
+                Partner
+
+              </span>
+
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
-          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
-            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="layers" class="w-5 h-5"></i></div>
-            <span class="text-xs sm:text-sm font-semibold text-slate-800">CRM & Zoho Automation Systems</span>
-          </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
-            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="code-2" class="w-5 h-5"></i></div>
-            <span class="text-xs sm:text-sm font-semibold text-slate-800">Custom Web & Mobile Applications</span>
-          </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
-            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="smartphone" class="w-5 h-5"></i></div>
-            <span class="text-xs sm:text-sm font-semibold text-slate-800">AI-Powered Workflows & Smart Systems</span>
-          </div>
-          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
-            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="network" class="w-5 h-5"></i></div>
-            <span class="text-xs sm:text-sm font-semibold text-slate-800">Integrated Digital Ecosystems</span>
-          </div>
-        </div>
+      </div>
 
-        <div class="relative z-10 border-t border-slate-200/80 pt-6 mt-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div class="flex flex-col">
-            <span class="text-[10px] text-slate-500">FOUNDED BY SYSTEM ARCHITECTS</span>
-            <span class="text-xs sm:text-sm font-bold text-slate-800">Reshma M Mathews & Hrishikesh Krishna</span>
-          </div>
-          <div class="flex flex-col text-left md:text-right text-xs space-y-1.5 text-slate-500 font-medium">
-            <a href="mailto:ceo@rhenovatech.com" class="flex items-center md:justify-end gap-1.5 hover:text-brand-600 transition-colors"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-500"></i> ceo@rhenovatech.com</a>
-            <a href="https://www.rhenovatech.com" class="flex items-center md:justify-end gap-1.5 hover:text-brand-600 transition-colors"><i data-lucide="globe" class="w-3.5 h-3.5 text-brand-500"></i> www.rhenovatech.com</a>
-            <span class="flex items-center md:justify-end gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500"></i> India | Middle East</span>
-          </div>
-        </div>
-      </section>
+      <!-- NAVIGATION -->
 
-      <!-- PAGE 2 -->
-      <section class="print-page bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 relative overflow-hidden flex flex-col justify-between min-h-[75vh] lg:min-h-[85vh] shadow-xl w-full text-slate-900">
-        <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-brand-100/20 blur-3xl pointer-events-none"></div>
-        <div class="relative z-10">
-          <span class="inline-block text-[10px] uppercase tracking-widest text-brand-700 font-bold bg-brand-50 px-3 py-1.5 rounded-full border border-brand-100 mb-4">Scale Milestones</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2 leading-tight">Engineered for Lasting Traction</h2>
-          <p class="text-slate-500 font-light text-sm max-w-xl mb-6">Unlike standard services partners, our clients don't get passed to sales agents. We lead directly with technology architectures built to withstand rapid expansion.</p>
+      <nav class="hidden md:flex items-center gap-8">
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
-            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
-              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">3+</span>
-              <span class="text-[10px] sm:text-xs text-slate-500">Years Experience</span>
-            </div>
-            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
-              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">20+</span>
-              <span class="text-[10px] sm:text-xs text-slate-500">Systems Done</span>
-            </div>
-            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
-              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">12+</span>
-              <span class="text-[10px] sm:text-xs text-slate-500">Industries</span>
-            </div>
-            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
-              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">200+</span>
-              <span class="text-[10px] sm:text-xs text-slate-500">Active Users</span>
-            </div>
-          </div>
+        <a href="#services"
 
-          <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-3 sm:mb-4">Why RHenova Tech Differentiates</h3>
-          <div class="space-y-3 mb-6 sm:mb-8">
-            <div class="p-3 sm:p-4 rounded-xl bg-slate-50/50 border border-slate-200 flex items-start space-x-3 hover:border-brand-500/50 transition-all duration-300">
-              <div class="p-1.5 rounded-lg bg-brand-50 text-brand-600 mt-0.5 flex-shrink-0"><i data-lucide="eye" class="w-4 h-4"></i></div>
-              <div>
-                <h4 class="text-xs sm:text-sm font-bold text-slate-900">Prototype First Approach</h4>
-                <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">We present custom working prototype screens aligned with your logic in our first discussion.</p>
-              </div>
-            </div>
-            <div class="p-3 sm:p-4 rounded-xl bg-slate-50/50 border border-slate-200 flex items-start space-x-3 hover:border-brand-500/50 transition-all duration-300">
-              <div class="p-1.5 rounded-lg bg-brand-50 text-brand-600 mt-0.5 flex-shrink-0"><i data-lucide="users" class="w-4 h-4"></i></div>
-              <div>
-                <h4 class="text-xs sm:text-sm font-bold text-slate-900">No Intermediary Sales Chains</h4>
-                <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">Your core project leads are the actual software developers and system architects behind the code.</p>
-              </div>
-            </div>
-            <div class="p-3 sm:p-4 rounded-xl bg-slate-50/50 border border-slate-200 flex items-start space-x-3 hover:border-brand-500/50 transition-all duration-300">
-              <div class="p-1.5 rounded-lg bg-brand-50 text-brand-600 mt-0.5 flex-shrink-0"><i data-lucide="zap" class="w-4 h-4"></i></div>
-              <div>
-                <h4 class="text-xs sm:text-sm font-bold text-slate-900">Proven System Rescue Operations</h4>
-                <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">Specialists at turning around broken, unresponsive, and un-optimized Zoho ecosystems from previous vendors.</p>
-              </div>
-            </div>
-          </div>
+          class="group flex flex-col items-center text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-all">
 
-          <h3 class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-3">TRUSTED CLIENT DEPLOYMENTS</h3>
-          <div class="flex flex-wrap gap-1.5">
-            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">Valluvassery Builders</span>
-            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">3A Advertising (Riyadh)</span>
-            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">Metx360 Study Abroad</span>
-            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">R2S Realtors</span>
-            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">Unicorn Power</span>
-            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">And More</span>
-          </div>
-        </div>
-        <div class="relative z-10 pt-4 border-t border-slate-200/80 mt-6 text-center lg:text-left">
-          <span class="text-[11px] italic text-slate-500 tracking-wider font-medium">"Transforming manual operations into scalable, future-ready business intelligence systems."</span>
-        </div>
-      </section>
+          <span>Services</span>
+
+          <div class="w-1.5 h-1.5 rounded-full bg-brand-600 opacity-0 group-hover:opacity-100 mt-1 transition-all"></div>
+
+        </a>
+
+        <a href="#industries"
+
+          class="group flex flex-col items-center text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-all">
+
+          <span>Industries</span>
+
+          <div class="w-1.5 h-1.5 rounded-full bg-brand-600 opacity-0 group-hover:opacity-100 mt-1 transition-all"></div>
+
+        </a>
+
+        <a href="#team"
+
+          class="group flex flex-col items-center text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-all">
+
+          <span>Our Team</span>
+
+          <div class="w-1.5 h-1.5 rounded-full bg-brand-600 opacity-0 group-hover:opacity-100 mt-1 transition-all"></div>
+
+        </a>
+
+        <a href="#planner"
+
+          class="group flex flex-col items-center text-sm font-semibold text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-all">
+
+          <span>Strategy Blueprint</span>
+
+          <div class="w-1.5 h-1.5 rounded-full bg-brand-600 opacity-0 group-hover:opacity-100 mt-1 transition-all"></div>
+
+        </a>
+
+      </nav>
+
     </div>
 
-    <!-- ══ INDUSTRY SECTION ══ -->
-    <section class="w-full mt-20">
-      <div class="text-center mb-16">
-        <span class="inline-block px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold uppercase tracking-[4px]">Industry Specialization</span>
-        <h2 class="mt-5 text-5xl font-black text-slate-900">Solutions Across Industries</h2>
-        <p class="mt-4 max-w-3xl mx-auto text-slate-500">Hover to explore the systems we engineered for different businesses.</p>
+  </div>
+
+</header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-32 flex flex-col items-center text-center max-w-4xl mx-auto space-y-8 z-10">
+      <!-- Floating Tag -->
+      <div class="opacity-0 translate-y-4 animate-fade-in-up inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 shadow-sm">
+        <div class="w-1.5 h-1.5 rounded-full bg-brand-600 dark:bg-brand-400 animate-pulse"></div>
+        <span class="text-[10px] font-black text-brand-700 dark:text-brand-300 tracking-widest uppercase">ZOHO PARTNER & DIGITAL ARCHITECTS</span>
       </div>
-      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-        <div class="industry-card">
-          <img src="image (27).png" alt="Construction">
-          <div class="overlay"><div><span class="category">Construction ERP</span><h3>Valluvassery Builders</h3><p>Project management ecosystem handling quotations, clients, site tracking, materials and finance operations.</p></div></div>
+
+      <h1 class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-100 text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-slate-900 dark:text-white">
+        Where <span class="bg-gradient-to-r from-brand-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Chaos</span><br>
+        Meets Clarity.
+      </h1>
+
+      <p class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-200 text-base sm:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-2xl">
+        Are manual spreadsheets and fragmented workflow databases scaling down your operations? RHenova Tech engineers customized system architectures that deliver crystal-clear corporate control.
+      </p>
+
+      <!-- Call to Actions -->
+      <div class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row gap-4 pt-4 justify-center items-center">
+        <a href="#planner" class="px-8 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 transition-all">
+          Interactive System Planner
+        </a>
+        <!-- <button onclick="togglePortalModal()" class="px-8 py-3.5 text-sm font-bold text-slate-700 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-850 rounded-xl transition-all flex items-center justify-center space-x-2">
+          <span>Access Client Portal</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button> -->
+      </div>
+    </section>
+
+    <!-- CORE SERVICES LISTING -->
+    <section id="services" class="py-24 border-t border-slate-200/50 dark:border-slate-800/40">
+      <div class="text-center mb-16 space-y-4">
+        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">WHAT WE ENGINEER</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Core Digital Architectures</h2>
+        <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm">We construct full-stack operational solutions, bridging custom logic directly to your enterprise database systems.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service 1 -->
+        <div class="p-6 rounded-3xl border-gradient-hover flex flex-col justify-between min-h-[220px]">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-6 border border-brand-100 dark:border-brand-900/40">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Zoho CRM & Creator Setup</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Custom-tailored CRM lead pipelines, Deluge scripting automation, and unified Creator operational databases.</p>
+          </div>
         </div>
-        <div class="industry-card">
-          <img src="interior.png" alt="Interior">
-          <div class="overlay"><div><span class="category">Interior ERP</span><h3>IBO Interior Studio</h3><p>Manage design approvals, quotations, procurement, execution timelines and customer collaboration.</p></div></div>
+        <!-- Service 2 -->
+        <div class="p-6 rounded-3xl border-gradient-hover flex flex-col justify-between min-h-[220px]">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-6 border border-brand-100 dark:border-brand-900/40">
+              <i data-lucide="code-2" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Custom App Engineering</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">High-performance React/Node web platforms and Flutter cross-platform mobile apps for workflows.</p>
+          </div>
         </div>
-        <div class="industry-card">
-          <img src="realestate.png" alt="Real Estate">
-          <div class="overlay"><div><span class="category">Real Estate CRM</span><h3>R2S Realtors</h3><p>Lead management, broker tracking, customer journey monitoring and sales analytics.</p></div></div>
+        <!-- Service 3 -->
+        <div class="p-6 rounded-3xl border-gradient-hover flex flex-col justify-between min-h-[220px]">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-6 border border-brand-100 dark:border-brand-900/40">
+              <i data-lucide="brain" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">AI-Powered Workflows</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Integrating LLMs and intelligent data matching engines directly into database logic endpoints.</p>
+          </div>
         </div>
-        <div class="industry-card">
-          <img src="ChatGPT Image Jun 12, 2026, 12_45_30 PM.png" alt="Education">
-          <div class="overlay"><div><span class="category">Education ERP</span><h3>LMS Platform</h3><p>Admissions, attendance, exams, assignments and communication automation.</p></div></div>
+        <!-- Service 4 -->
+        <div class="p-6 rounded-3xl border-gradient-hover flex flex-col justify-between min-h-[220px]">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-6 border border-brand-100 dark:border-brand-900/40">
+              <i data-lucide="git-merge" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">API Integration Hubs</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Bridging external software components, shipping APIs, payment gateways, and core systems flawlessly.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-         ADVANCED TEAM SECTION
-    ══════════════════════════════════════════════ -->
-    <section class="team-section-bg w-full mt-24 mb-4 rounded-[48px] py-24 px-6 sm:px-12 relative overflow-hidden border border-brand-100/60">
-
-      <!-- Large decorative rings -->
-      <!-- <div class="deco-ring float-a" style="width:500px;height:500px;top:-200px;left:-200px;opacity:0.4;"></div>
-      <div class="deco-ring float-b" style="width:320px;height:320px;bottom:-100px;right:-100px;opacity:0.3;border-color:#736db330;"></div>
-      <div class="deco-ring" style="width:180px;height:180px;top:40px;right:15%;opacity:0.2;border-color:#736db340;border-width:1px;"></div> -->
-
-      <!-- Spinning ring -->
-      <!-- <svg class="absolute top-0 right-0 w-64 h-64 opacity-5 spin-ring" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="90" stroke="#736db3" stroke-width="1" stroke-dasharray="8 12"/>
-      </svg>
-      <svg class="absolute bottom-10 left-10 w-40 h-40 opacity-5 spin-ring" style="animation-direction:reverse;" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="90" stroke="#736db3" stroke-width="1" stroke-dasharray="4 8"/>
-      </svg> -->
-
-      <!-- Floating dots -->
-      <!-- <div class="deco-dot float-a" style="width:8px;height:8px;top:60px;left:8%;opacity:0.4;"></div>
-      <div class="deco-dot float-b" style="width:12px;height:12px;top:120px;right:12%;opacity:0.3;"></div>
-      <div class="deco-dot float-c" style="width:6px;height:6px;bottom:80px;left:20%;opacity:0.35;"></div>
-      <div class="deco-dot float-a" style="width:10px;height:10px;bottom:60px;right:25%;opacity:0.3;"></div> -->
-
-      <!-- Cross decorations -->
-      <!-- <div class="deco-cross float-b" style="top:80px;left:40%;opacity:0.12;transform:scale(1.5);"></div>
-      <div class="deco-cross float-c" style="bottom:100px;right:40%;opacity:0.12;transform:scale(1.2);"></div> -->
-
-      <!-- Diagonal squares -->
-      <!-- <div class="deco-square float-a" style="width:48px;height:48px;top:100px;right:8%;transform:rotate(24deg);"></div>
-      <div class="deco-square float-b" style="width:32px;height:32px;bottom:120px;left:7%;transform:rotate(-18deg);"></div>
-      <div class="deco-square" style="width:24px;height:24px;top:50%;left:5%;transform:rotate(45deg);opacity:0.06;"></div> -->
-
-      <!-- Grid background subtle -->
-      <!-- <div class="absolute inset-0 opacity-[0.025] pointer-events-none">
-        <svg width="100%" height="100%"><defs><pattern id="team-grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="#736db3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#team-grid)"/></svg>
-      </div> -->
-
-      <!-- Section Header -->
-      <div class="relative z-10 text-center mb-20">
-        <!-- Floating shape cluster above heading -->
-        <!-- <div class="flex justify-center items-center gap-5 mb-8">
-          <div class="deco-dot float-c" style="position:relative;width:8px;height:8px;opacity:0.5;"></div>
-          <div style="width:48px;height:2px;background:linear-gradient(90deg,transparent,#736db3,transparent);border-radius:2px;"></div>
-          <div class="w-10 h-10 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center float-a" style="position:relative;">
-            <i data-lucide="users" class="w-5 h-5 text-brand-600"></i>
-          </div>
-          <div style="width:48px;height:2px;background:linear-gradient(90deg,transparent,#736db3,transparent);border-radius:2px;"></div>
-          <div class="deco-dot float-b" style="position:relative;width:8px;height:8px;opacity:0.5;"></div>
-        </div> -->
-
-        <span class="inline-block px-5 py-2 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold uppercase tracking-[4px] mb-6">Our Team</span>
-
-        <h2 class="text-5xl font-black text-slate-900 mb-5 leading-tight">
-          People Behind<br>
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-600">RHenova</span>
-        </h2>
-        <p class="max-w-2xl mx-auto text-slate-500 text-base leading-relaxed">
-          Technology, research, and business experts working together to build systems that last.
-        </p>
+    <!-- CASE MILESTONES (STATISTICS) -->
+    <section class="py-16 bg-slate-900 text-slate-100 rounded-[32px] px-8 sm:px-12 relative overflow-hidden mb-24 shadow-xl">
+      <div class="absolute inset-0 opacity-5 pointer-events-none">
+        <svg width="100%" height="100%"><defs><pattern id="grid-dark" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#736db3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid-dark)"/></svg>
       </div>
-
-      <!-- TEAM CARDS GRID -->
-      <div class="relative z-10 grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-
-        <!-- Card 1: Development -->
-        <div class="adv-team-card">
-          <div class="adv-team-inner">
-            <div class="adv-team-num">01</div>
-            <div class="adv-icon-wrap">
-              <i data-lucide="code-2"></i>
-            </div>
-            <span class="adv-team-tag">Engineering</span>
-            <h3>Development Team</h3>
-            <p>ERP, CRM, Mobile Apps and AI systems engineered for scale, stability and performance.</p>
-            <div class="adv-team-pills">
-              <span class="adv-pill">Zoho</span>
-              <span class="adv-pill">Flutter</span>
-              <span class="adv-pill">React</span>
-              <span class="adv-pill">AI/ML</span>
-            </div>
+      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-10">
+        <div class="max-w-md space-y-4">
+          <span class="text-[10px] font-black text-brand-400 tracking-widest uppercase">ENGINEERED FOR TRACTION</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold leading-tight">Scale-Tested Systems Built for expansion</h2>
+          <p class="text-xs text-slate-400 leading-relaxed">We directly design structural database architectures that don't fail when transaction loads grow exponentially.</p>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-10 w-full lg:w-auto">
+          <div class="text-center p-4">
+            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-400">3+</span>
+            <span class="text-[10px] text-slate-400 block mt-1 uppercase tracking-wider font-semibold">Years Experience</span>
+          </div>
+          <div class="text-center p-4">
+            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-400">20+</span>
+            <span class="text-[10px] text-slate-400 block mt-1 uppercase tracking-wider font-semibold">Systems Deployed</span>
+          </div>
+          <div class="text-center p-4">
+            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-400">12+</span>
+            <span class="text-[10px] text-slate-400 block mt-1 uppercase tracking-wider font-semibold">Industries Served</span>
+          </div>
+          <div class="text-center p-4">
+            <span class="block text-3xl sm:text-4xl font-extrabold text-brand-400">200+</span>
+            <span class="text-[10px] text-slate-400 block mt-1 uppercase tracking-wider font-semibold">Active Users</span>
           </div>
         </div>
-
-        <!-- Card 2: Research -->
-        <div class="adv-team-card">
-          <div class="adv-team-inner">
-            <div class="adv-team-num">02</div>
-            <div class="adv-icon-wrap">
-              <i data-lucide="brain"></i>
-            </div>
-            <span class="adv-team-tag">Intelligence</span>
-            <h3>Research Team</h3>
-            <p>Studies workflows deeply and creates intelligent business solutions grounded in process reality.</p>
-            <div class="adv-team-pills">
-              <span class="adv-pill">Workflow</span>
-              <span class="adv-pill">Analytics</span>
-              <span class="adv-pill">Strategy</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Sales -->
-        <div class="adv-team-card">
-          <div class="adv-team-inner">
-            <div class="adv-team-num">03</div>
-            <div class="adv-icon-wrap">
-              <i data-lucide="briefcase-business"></i>
-            </div>
-            <span class="adv-team-tag">Business</span>
-            <h3>Sales Team</h3>
-            <p>Transforms client requirements into clear project roadmaps and actionable system blueprints.</p>
-            <div class="adv-team-pills">
-              <span class="adv-pill">CRM</span>
-              <span class="adv-pill">Roadmap</span>
-              <span class="adv-pill">BD</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Support -->
-        <div class="adv-team-card">
-          <div class="adv-team-inner">
-            <div class="adv-team-num">04</div>
-            <div class="adv-icon-wrap">
-              <i data-lucide="headset"></i>
-            </div>
-            <span class="adv-team-tag">Operations</span>
-            <h3>Support Team</h3>
-            <p>Provides continuous, expert assistance after deployment to ensure systems run at peak efficiency.</p>
-            <div class="adv-team-pills">
-              <span class="adv-pill">24/7</span>
-              <span class="adv-pill">Training</span>
-              <span class="adv-pill">Maintenance</span>
-            </div>
-          </div>
-        </div>
-
       </div>
-
-      <!-- Bottom decorative shape row -->
-      <!-- <div class="relative z-10 flex justify-center items-center gap-6 mt-20">
-        <div class="deco-dot" style="position:relative;width:10px;height:10px;opacity:0.5;"></div>
-        <div style="width:28px;height:28px;border-radius:6px;background:#736db310;border:1.5px solid #736db330;transform:rotate(45deg);"></div>
-        <div style="width:60px;height:3px;border-radius:2px;background:linear-gradient(90deg,#736db3,#a195ca);opacity:0.4;"></div>
-        <div style="width:20px;height:20px;border-radius:50%;border:2px solid #736db340;"></div>
-        <div style="width:60px;height:3px;border-radius:2px;background:linear-gradient(90deg,#a195ca,#736db3);opacity:0.4;"></div>
-        <div style="width:28px;height:28px;border-radius:6px;background:#736db310;border:1.5px solid #736db330;transform:rotate(45deg);"></div>
-        <div class="deco-dot" style="position:relative;width:10px;height:10px;opacity:0.5;"></div>
-      </div> -->
-
     </section>
 
-    <!-- ══ CONSULTATION PLANNER ══ -->
-    <div class="no-print w-full mt-12 bg-white border border-slate-200 rounded-3xl p-5 sm:p-10 shadow-md overflow-hidden relative">
-      <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-brand-50/20 blur-3xl pointer-events-none"></div>
-      <div class="relative z-10 text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-        <span class="inline-block text-[10px] uppercase tracking-widest text-brand-600 font-bold bg-brand-50 px-3 py-1.5 rounded-full border border-brand-100 mb-3">Custom Consultation Planner</span>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identify Your Core Friction Point</h2>
-        <p class="text-slate-500 text-xs sm:text-sm mt-1.5">Select one of the structural business problems below to instantly generate a custom-tailored system blueprint strategy proposed by RHenova Tech.</p>
+    <!-- ADVANCED INDUSTRY SPECIFIC CARDS SECTION -->
+    <section id="industries" class="py-12">
+      <div class="text-center mb-16 space-y-4">
+        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">SECTOR EXPERTISE</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Built for Industry Leaders</h2>
+        <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm">Explore specialized operational workflows designed for enterprise sectors.</p>
       </div>
-      <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
-        <button onclick="generateStrategy('excel')" class="friction-btn p-5 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-brand-500/50 hover:shadow-lg transition-all duration-300 focus:outline-none flex flex-col justify-between">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Industry Card 1 -->
+        <div class="industry-card-adv h-[420px] shadow-lg group">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Construction ERP" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 industry-card-overlay z-10"></div>
+          <div class="absolute inset-0 z-20 p-6 flex flex-col justify-between text-white">
+            <span class="self-start px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[9px] font-extrabold uppercase tracking-wider">CONSTRUCTION</span>
+            <div class="space-y-3">
+              <h3 class="text-xl font-bold tracking-tight">Valluvassery Builders</h3>
+              <p class="text-xs text-slate-200 line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">Full Project lifecycle ERP tracking material procurements, site timelines, vendor budgets, and contractor ledgers.</p>
+              <div class="pt-2 flex items-center text-xs font-semibold text-brand-300 group-hover:text-brand-200 transition-colors">
+                <span>View Case Specifications</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Card 2 -->
+        <div class="industry-card-adv h-[420px] shadow-lg group">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Interior Design Systems" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 industry-card-overlay z-10"></div>
+          <div class="absolute inset-0 z-20 p-6 flex flex-col justify-between text-white">
+            <span class="self-start px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[9px] font-extrabold uppercase tracking-wider">INTERIOR DESIGN</span>
+            <div class="space-y-3">
+              <h3 class="text-xl font-bold tracking-tight">IBO Interior Studio</h3>
+              <p class="text-xs text-slate-200 line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">Operational tracking dashboard managing design review versions, customer approvals, material lists, and billing metrics.</p>
+              <div class="pt-2 flex items-center text-xs font-semibold text-brand-300 group-hover:text-brand-200 transition-colors">
+                <span>View Case Specifications</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Card 3 -->
+        <div class="industry-card-adv h-[420px] shadow-lg group">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Real Estate CRM" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 industry-card-overlay z-10"></div>
+          <div class="absolute inset-0 z-20 p-6 flex flex-col justify-between text-white">
+            <span class="self-start px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[9px] font-extrabold uppercase tracking-wider">REAL ESTATE</span>
+            <div class="space-y-3">
+              <h3 class="text-xl font-bold tracking-tight">R2S Realtors</h3>
+              <p class="text-xs text-slate-200 line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">Automated lead qualification pipeline mapping prospect statuses, agent follow-up indicators, and closed deal ledgers.</p>
+              <div class="pt-2 flex items-center text-xs font-semibold text-brand-300 group-hover:text-brand-200 transition-colors">
+                <span>View Case Specifications</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Industry Card 4 -->
+        <div class="industry-card-adv h-[420px] shadow-lg group">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Education Systems" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 industry-card-overlay z-10"></div>
+          <div class="absolute inset-0 z-20 p-6 flex flex-col justify-between text-white">
+            <span class="self-start px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[9px] font-extrabold uppercase tracking-wider">EDUCATION</span>
+            <div class="space-y-3">
+              <h3 class="text-xl font-bold tracking-tight">LMS Platforms</h3>
+              <p class="text-xs text-slate-200 line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">Automated enrollment portals, virtual assignment pipelines, and parent messaging alerts integrated directly.</p>
+              <div class="pt-2 flex items-center text-xs font-semibold text-brand-300 group-hover:text-brand-200 transition-colors">
+                <span>View Case Specifications</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO-GRID EXPERTISE/TEAM SECTION -->
+    <section id="team" class="py-24">
+      <div class="text-center mb-16 space-y-4">
+        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">WHO WE ARE</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Direct Engineering Capabilities</h2>
+        <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm">We operate without intermediate account managers. Clients discuss parameters directly with software developers.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Bento Card 1: Developers -->
+        <div class="spotlight-card border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 rounded-[28px] p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center border border-brand-100 dark:border-brand-900/40">
+            <i data-lucide="code-2" class="w-5 h-5"></i>
+          </div>
+          <div class="space-y-2">
+            <span class="text-[9px] font-extrabold text-brand-600 dark:text-brand-400 tracking-wider uppercase">01 / CAPABILITY</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Software Developers</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Direct implementation of Zoho, React, Flutter, and complex logic layers with clean, optimized version control.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">Zoho Creator</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">React</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">Flutter</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 2: Research -->
+        <div class="spotlight-card border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 rounded-[28px] p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center border border-brand-100 dark:border-brand-900/40">
+            <i data-lucide="search" class="w-5 h-5"></i>
+          </div>
+          <div class="space-y-2">
+            <span class="text-[9px] font-extrabold text-brand-600 dark:text-brand-400 tracking-wider uppercase">02 / LOGIC</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Workflow Analysts</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Translating messy operations worksheets into clean system flowcharts and structural logic entities.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">Logic mapping</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">Process Audit</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 3: Business -->
+        <div class="spotlight-card border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 rounded-[28px] p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center border border-brand-100 dark:border-brand-900/40">
+            <i data-lucide="briefcase" class="w-5 h-5"></i>
+          </div>
+          <div class="space-y-2">
+            <span class="text-[9px] font-extrabold text-brand-600 dark:text-brand-400 tracking-wider uppercase">03 / PROJECT</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Systems Architects</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Structuring client project scope lists into formal, actionable product roadmaps and database schemas.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">UML Specs</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">Roadmaps</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 4: Support -->
+        <div class="spotlight-card border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 rounded-[28px] p-8 space-y-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center border border-brand-100 dark:border-brand-900/40">
+            <i data-lucide="help-circle" class="w-5 h-5"></i>
+          </div>
+          <div class="space-y-2">
+            <span class="text-[9px] font-extrabold text-brand-600 dark:text-brand-400 tracking-wider uppercase">04 / SUPPORT</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Support Engineers</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Rapid operational troubleshooting and system health sync maintenance post-deployment.</p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">24/7 Ticketing</span>
+            <span class="px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-350 text-[9px] font-bold">Maintenance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE STRATEGY BLUEPRINT PLANNER -->
+    <section id="planner" class="py-20 border-t border-slate-200/50 dark:border-slate-800/40">
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">BLUEPRINT GENERATOR</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Identify Your Core Friction Point</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-sm">Select an operational bottle-neck below to instantly construct a customized architectural solution blueprint.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <!-- Friction Btn 1 -->
+        <button onclick="generateStrategy('excel', this)" class="planner-btn p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-brand-500/50 hover:shadow-lg dark:hover:shadow-black/20 transition-all flex flex-col justify-between min-h-[160px] group focus:outline-none">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-transform">
+            <i data-lucide="sheet" class="w-5 h-5"></i>
+          </div>
           <div>
-            <div class="p-3 rounded-xl bg-brand-50 text-brand-600 w-fit mb-4"><i data-lucide="sheet" class="w-6 h-6"></i></div>
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Excel & Manual Chaos</h3>
-            <p class="text-xs text-slate-500 leading-relaxed">Your administration spends hours copying data across sheets and manual checks, leading to severe computational errors.</p>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Excel & Manual Chaos</h3>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">Administrators spend hours copying numbers across rows, triggering critical errors and missing updates.</p>
           </div>
         </button>
-        <button onclick="generateStrategy('leads')" class="friction-btn p-5 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-brand-500/50 hover:shadow-lg transition-all duration-300 focus:outline-none flex flex-col justify-between">
+
+        <!-- Friction Btn 2 -->
+        <button onclick="generateStrategy('leads', this)" class="planner-btn p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-brand-500/50 hover:shadow-lg dark:hover:shadow-black/20 transition-all flex flex-col justify-between min-h-[160px] group focus:outline-none">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-transform">
+            <i data-lucide="user-minus" class="w-5 h-5"></i>
+          </div>
           <div>
-            <div class="p-3 rounded-xl bg-brand-50 text-brand-600 w-fit mb-4"><i data-lucide="user-x" class="w-6 h-6"></i></div>
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Lost Pipeline & Leads</h3>
-            <p class="text-xs text-slate-500 leading-relaxed">No tracking records are actively retained. Sales agents are unresponsive, and key follow-ups are completely inconsistent.</p>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Lost Lead Pipelines</h3>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">No customer history records are logged. Sales reps forget client calls, and leads drop off without follow-ups.</p>
           </div>
         </button>
-        <button onclick="generateStrategy('silo')" class="friction-btn p-5 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-brand-500/50 hover:shadow-lg transition-all duration-300 focus:outline-none flex flex-col justify-between">
+
+        <!-- Friction Btn 3 -->
+        <button onclick="generateStrategy('silo', this)" class="planner-btn p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-brand-500/50 hover:shadow-lg dark:hover:shadow-black/20 transition-all flex flex-col justify-between min-h-[160px] group focus:outline-none">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-transform">
+            <i data-lucide="unplug" class="w-5 h-5"></i>
+          </div>
           <div>
-            <div class="p-3 rounded-xl bg-brand-50 text-brand-600 w-fit mb-4"><i data-lucide="unlink" class="w-6 h-6"></i></div>
-            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Siloed Software Systems</h3>
-            <p class="text-xs text-slate-500 leading-relaxed">Your database tracking software does not talk with your analytical finance tools, rendering real-time business metrics invisible.</p>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Siloed Software Tools</h3>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">Lead pipelines don't link with inventory lists or billing platforms, obscuring real-time business metrics.</p>
           </div>
         </button>
       </div>
-      <div id="strategy-output-panel" class="relative z-10 hidden p-5 sm:p-6 rounded-2xl bg-white border border-brand-200 transition-all duration-300 shadow-sm">
+
+      <!-- Strategy Output Card -->
+      <div id="strategy-panel" class="hidden p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-brand-200 dark:border-brand-900/80 shadow-md transition-all duration-300">
         <div class="flex items-center space-x-3 mb-4">
-          <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></div>
-          <span class="text-[10px] uppercase tracking-widest text-brand-600 font-bold">RHenova Tech Strategy Architecture Blueprint</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-brand-600 dark:bg-brand-400 animate-pulse"></span>
+          <span class="text-[10px] uppercase tracking-widest text-brand-600 dark:text-brand-400 font-black">Generated System Blueprint Strategy</span>
         </div>
-        <h4 id="output-title" class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Loading Strategy...</h4>
-        <p id="output-description" class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4"></p>
-        <div class="p-4 rounded-xl bg-slate-50 border border-slate-150 space-y-2.5">
-          <span class="text-xs text-slate-500 uppercase tracking-widest font-bold">Engineered Solution Components:</span>
-          <ul id="output-list" class="list-disc list-inside text-xs text-slate-700 space-y-1.5 leading-relaxed font-semibold"></ul>
+        <h4 id="strategy-title" class="text-xl font-bold text-slate-900 dark:text-white mb-3">Architectural Plan</h4>
+        <p id="strategy-desc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-6"></p>
+        
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 space-y-4">
+          <span class="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-extrabold block">ENGINEERED COMPONENTS</span>
+          <ul id="strategy-components" class="text-xs text-slate-700 dark:text-slate-350 space-y-3">
+            <!-- Dynamically populated list -->
+          </ul>
         </div>
-      </div>
-    </div>
-
-    <!-- ══ VISION & MISSION ══ -->
-    <section class="w-full mt-24 mb-24">
-      <div class="text-center mb-16">
-        <span class="inline-block px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold uppercase tracking-[4px]">Our Direction</span>
-        <h2 class="mt-5 text-5xl font-black text-slate-900">Vision & Mission</h2>
-        <p class="mt-4 max-w-3xl mx-auto text-slate-500">Building intelligent systems that transform complexity into clarity.</p>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div class="vm-card">
-          <div class="vm-icon"><i data-lucide="telescope"></i></div>
-          <div>
-            <span class="vm-label">Vision</span>
-            <h3>Engineering The Future Of Business</h3>
-            <p>To become a global technology partner that empowers businesses through intelligent digital ecosystems, automation and data-driven decision making.</p>
-          </div>
-        </div>
-        <div class="vm-card">
-          <div class="vm-icon"><i data-lucide="rocket"></i></div>
-          <div>
-            <span class="vm-label">Mission</span>
-            <h3>Transform Chaos Into Clarity</h3>
-            <p>We design scalable ERP, CRM and AI-powered systems that simplify operations and create measurable business growth.</p>
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-center items-center gap-6 mt-16">
-        <div class="shape"></div>
-        <div class="shape large"></div>
-        <div class="shape"></div>
       </div>
     </section>
 
-    <!-- ══ CTA ══ -->
-    <div class="w-full mt-12 bg-gradient-to-r from-brand-50 to-indigo-50/50 border border-slate-200 rounded-3xl p-6 sm:p-12 text-center relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10 pointer-events-none"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#grid)"/></svg></div>
-      <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">Let's Gain Complete Business Visibility.</h2>
-        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed font-semibold">Ready to scale your systems seamlessly without operations breaking? Schedule an introductory system architectural consultation with our founders and developers directly.</p>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-3 pt-4">
-          <a href="mailto:ceo@rhenovatech.com" class="w-full sm:w-auto justify-center px-6 py-3 rounded-xl bg-brand-700 hover:bg-brand-600 text-white font-bold text-sm transition-all duration-300 shadow-md shadow-brand-200 flex items-center gap-2 min-h-[48px]">
-            <i data-lucide="mail" class="w-4 h-4"></i><span>Schedule A Founder Call</span>
-          </a>
-          <!-- <a href="https://www.rhenovatech.com" target="_blank" class="w-full sm:w-auto justify-center px-6 py-3 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-400 text-sm font-semibold transition-all duration-300 flex items-center gap-2 min-h-[48px] shadow-sm">
-            <i data-lucide="globe" class="w-4 h-4"></i><span>Visit Our Hub</span>
-          </a> -->
+    <!-- VISION & MISSION -->
+    <section class="py-20 border-t border-slate-200/50 dark:border-slate-800/40">
+      <div class="text-center mb-16 space-y-4">
+        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">OUR DIRECTION</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Structured Vision & Mission</h2>
+        <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm">Engineering systems designed to stand operational test limits.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Vision card -->
+        <div class="p-8 rounded-3xl border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 relative overflow-hidden shadow-sm">
+          <div class="absolute -right-16 -top-16 w-40 h-40 bg-brand-500/5 dark:bg-brand-400/5 rounded-full"></div>
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0 border border-brand-100 dark:border-brand-900/40">
+              <i data-lucide="eye" class="w-5 h-5"></i>
+            </div>
+            <div class="space-y-3">
+              <span class="text-[9px] font-extrabold text-brand-600 dark:text-brand-400 tracking-wider uppercase">Enterprise Vision</span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Architecting Digital Futures</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">To lead as a premier technical consultant team globally, empowering corporate units with clean Zoho Creator platforms, database integration code, and secure cloud operations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission card -->
+        <div class="p-8 rounded-3xl border border-slate-200 dark:border-slate-850 bg-white dark:bg-slate-900 relative overflow-hidden shadow-sm">
+          <div class="absolute -right-16 -top-16 w-40 h-40 bg-brand-500/5 dark:bg-brand-400/5 rounded-full"></div>
+          <div class="flex items-start gap-5">
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0 border border-brand-100 dark:border-brand-900/40">
+              <i data-lucide="rocket" class="w-5 h-5"></i>
+            </div>
+            <div class="space-y-3">
+              <span class="text-[9px] font-extrabold text-brand-600 dark:text-brand-400 tracking-wider uppercase">Core Mission</span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white">Simplifying Complex Process Models</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">We systematically evaluate human friction coordinates, designing structured system scripts, APIs, and custom applications that deliver measurable productivity outcomes.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- CORE CALL TO ACTION -->
+    <section class="py-16 bg-gradient-to-r from-brand-50 to-indigo-50/50 dark:from-slate-900 dark:to-indigo-950/20 border border-slate-200 dark:border-slate-850 rounded-[32px] p-8 sm:p-12 text-center relative overflow-hidden shadow-sm">
+      <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Let's Establish Absolute System Visibility.</h2>
+        <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">Establish structured workflow architectures before operations split. Speak directly to our founders and senior software engineering developers.</p>
+        <div class="pt-4 flex justify-center">
+          <a href="mailto:ceo@rhenovatech.com" class="px-6 py-3.5 rounded-xl bg-brand-700 hover:bg-brand-600 text-white font-bold text-xs transition-all shadow-md shadow-brand-500/10 flex items-center space-x-2">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>Schedule A Founder Call</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- ══ FOOTER ══ -->
-  <footer class="border-t border-slate-100 bg-white py-8 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-4">
-      <!-- Logo + wordmark -->
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-brand-600">
-          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-            <rect width="512" height="512" rx="120" fill="#736db3"/>
-            <path d="M 160,225 C 160,195 180,175 210,175 C 180,175 160,155 160,125 C 160,155 140,175 110,175 C 140,175 160,195 160,225 Z" fill="#ffffff"/>
-            <path d="M 127,362 L 127,302 H 190 C 240,302 280,260 330,208 L 192,208 L 192,150 H 385 V 362 H 325 V 270 C 280,310 240,362 210,362 H 127 Z" fill="#ffffff"/>
+  <!-- ENTERPRISE FOOTER -->
+  <footer class="border-t border-slate-200/60 dark:border-slate-850 bg-white dark:bg-slate-950 py-10 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <!-- Logo Wordmark -->
+      <div class="flex items-center space-x-3">
+        <!-- <div class="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white">
+            <path d="M 160,225 C 160,195 180,175 210,175 C 180,175 160,155 160,125 C 160,155 140,175 110,175 C 140,175 160,195 160,225 Z" fill="currentColor"/>
+            <path d="M 127,362 L 127,302 H 190 C 240,302 280,260 330,208 L 192,208 L 192,150 H 385 V 362 H 325 V 270 C 280,310 240,362 210,362 H 127 Z" fill="currentColor"/>
           </svg>
-        </div>
-        <span class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Powered by <span class="text-brand-600 font-bold">RHenova Tech</span></span>
+        </div> -->
+        <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+          Powered by <span class="text-brand-600 dark:text-brand-400 font-bold">RHenova Tech</span>
+        </span>
       </div>
-      <!-- Decorative dots -->
-      <div class="flex items-center gap-2">
-        <div style="width:4px;height:4px;border-radius:50%;background:#736db340;"></div>
-        <div style="width:24px;height:1px;background:#736db320;border-radius:1px;"></div>
-        <div style="width:6px;height:6px;border-radius:50%;background:#736db360;"></div>
-        <div style="width:24px;height:1px;background:#736db320;border-radius:1px;"></div>
-        <div style="width:4px;height:4px;border-radius:50%;background:#736db340;"></div>
+
+      <!-- Copyright Details -->
+      <!-- <div class="text-xs text-slate-500 dark:text-slate-400 space-y-1">
+        <p>© 2026 RHenova Tech. All rights reserved.</p>
+        <p class="text-[10px] text-slate-400 dark:text-slate-500">India | Middle East | Global Consultancies</p>
+      </div> -->
+
+      <!-- Quick Contacts -->
+      <div class="flex flex-col md:items-end text-xs text-slate-500 dark:text-slate-400 space-y-1">
+        <a href="mailto:ceo@rhenovatech.com" class="hover:text-brand-600 transition-colors">ceo@rhenovatech.com</a>
+        <a href="https://www.rhenovatech.com" target="_blank" class="hover:text-brand-600 transition-colors">www.rhenovatech.com</a>
       </div>
     </div>
   </footer>
 
+  <!-- 2. SIMULATED CLIENT PORTAL MODAL -->
+  <div id="portal-modal" class="fixed inset-0 bg-slate-900/60 dark:bg-slate-950/85 backdrop-blur-sm z-[100] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <!-- Modal Container -->
+    <div id="modal-card" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden transform scale-95 transition-all duration-300">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-5 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-150 dark:border-slate-800/80 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="shield-check" class="w-5 h-5 text-brand-600 dark:text-brand-400"></i>
+          <span class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">RHENOVA CLIENT PORTAL</span>
+        </div>
+        <button onclick="togglePortalModal()" class="p-1.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-850 text-slate-400 hover:text-slate-600 transition-colors">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Login Form) -->
+      <div id="portal-login-form" class="p-6 space-y-6">
+        <div class="text-center space-y-1">
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white">Secure Workspace Connection</h3>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Access your custom system dashboards and ongoing project status.</p>
+        </div>
+
+        <form onsubmit="handlePortalLogin(event)" class="space-y-4">
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase">Registered Work Email</label>
+            <input type="email" id="portal-email" value="client@rhenova.com" required class="w-full px-4 py-3 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-brand-500 focus:outline-none dark:text-white">
+          </div>
+          
+          <div class="space-y-1">
+            <label class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase">Access Passkey</label>
+            <input type="password" id="portal-pass" value="••••••••" required class="w-full px-4 py-3 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:border-brand-500 focus:outline-none dark:text-white">
+          </div>
+
+          <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-bold text-xs rounded-xl shadow-md shadow-brand-500/10 hover:shadow-brand-500/25 transition-all">
+            Establish Secure Console Connection
+          </button>
+        </form>
+
+        <div class="text-center">
+          <span class="text-[10px] text-slate-400 dark:text-slate-500">Need credentials? Contact your RHenova Lead Developer.</span>
+        </div>
+      </div>
+
+      <!-- Modal Body (Interactive Dashboard Console - Hidden by Default) -->
+      <div id="portal-dashboard" class="hidden p-6 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+          <div>
+            <span class="text-[9px] text-brand-600 dark:text-brand-400 uppercase tracking-widest font-extrabold block">VALLUVASSERY BUILDERS CONSOLE</span>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white">Active System Pipeline</h3>
+          </div>
+          <button onclick="portalLogout()" class="px-2.5 py-1 text-[9px] font-bold text-slate-500 hover:text-red-500 bg-slate-100 dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-950/20 border border-slate-200 dark:border-slate-800 rounded-lg transition-colors flex items-center space-x-1">
+            <i data-lucide="log-out" class="w-3 h-3"></i>
+            <span>Log Out</span>
+          </button>
+        </div>
+
+        <!-- Dashboard KPIs -->
+        <div class="grid grid-cols-3 gap-3">
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80">
+            <span class="text-[9px] text-slate-400 block font-semibold">Creator syncs</span>
+            <span class="text-sm font-black text-slate-900 dark:text-white mt-0.5 block">99.98%</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80">
+            <span class="text-[9px] text-slate-400 block font-semibold">Ledger Health</span>
+            <span class="text-sm font-black text-green-600 dark:text-green-400 mt-0.5 block">Optimal</span>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-100 dark:border-slate-800/80">
+            <span class="text-[9px] text-slate-400 block font-semibold">Support status</span>
+            <span class="text-sm font-black text-brand-600 dark:text-brand-400 mt-0.5 block">No Issues</span>
+          </div>
+        </div>
+
+        <!-- Interactive Ticket creator -->
+        <div class="p-4 rounded-xl bg-brand-50/50 dark:bg-brand-950/20 border border-brand-100 dark:border-brand-900/40 space-y-3">
+          <span class="text-[9px] font-black text-brand-700 dark:text-brand-300 tracking-wider uppercase block">Simulate Developer Ticket</span>
+          <form onsubmit="handleSimulatedTicketSubmit(event)" class="space-y-2.5">
+            <div class="flex gap-2">
+              <select id="ticket-category" class="px-3 py-2 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-700 dark:text-slate-300 focus:outline-none w-1/3">
+                <option value="CRM Sync">CRM Sync</option>
+                <option value="ERP Ledger">ERP Ledger</option>
+                <option value="Mobile App">Mobile App</option>
+              </select>
+              <input type="text" id="ticket-text" required placeholder="Describe issue or system request..." class="flex-1 px-3 py-2 text-xs bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-700 dark:text-slate-300 focus:outline-none">
+            </div>
+            <button type="submit" class="w-full py-2 bg-brand-600 hover:bg-brand-700 text-white font-bold text-[10px] rounded-lg shadow-sm transition-all flex items-center justify-center space-x-1">
+              <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i>
+              <span>File Dev Ticket</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Live Developer Logs -->
+        <div class="space-y-2">
+          <span class="text-[9px] text-slate-400 dark:text-slate-500 uppercase tracking-wider font-extrabold block">Live Ticket Log Stream</span>
+          <div id="ticket-log-container" class="space-y-2 max-h-[140px] overflow-y-auto pr-1">
+            <div class="p-2.5 rounded-lg border border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-950/20 text-[11px] flex justify-between items-center">
+              <div class="flex items-center space-x-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                <span class="font-bold text-slate-800 dark:text-slate-200">[CRM Sync]</span>
+                <span class="text-slate-500 dark:text-slate-400">Database triggers verified.</span>
+              </div>
+              <span class="text-[9px] text-slate-400">Resolved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
   <script>
+    // System Loader logic
+    window.addEventListener('DOMContentLoaded', () => {
+      const loader = document.getElementById('loading-screen');
+      const bar = document.getElementById('loading-bar');
+      const pct = document.getElementById('loading-percentage');
+      
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.floor(Math.random() * 12) + 4;
+        if (progress > 100) progress = 100;
+        
+        if (bar) bar.style.width = progress + '%';
+        if (pct) pct.innerText = progress + '%';
+        
+        if (progress === 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            if (loader) {
+              loader.style.opacity = '0';
+              loader.style.pointerEvents = 'none';
+            }
+          }, 350);
+        }
+      }, 60);
+    });
+
+    // Theme Toggle Handler
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-toggle-icon');
+
+    // Load initial theme state
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      if (themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
+    } else {
+      document.documentElement.classList.remove('dark');
+      if (themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', function() {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+          if (themeIcon) themeIcon.setAttribute('data-lucide', 'moon');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+          if (themeIcon) themeIcon.setAttribute('data-lucide', 'sun');
+        }
+        // Re-create icons to update Lucide DOM state
+        lucide.createIcons();
+      });
+    }
+
+    // Initialize Lucide Icons
     lucide.createIcons();
 
-    let customLogoBase64 = localStorage.getItem('rhenova_logo_b64') || null;
-    let screenshotStore = JSON.parse(localStorage.getItem('rhenova_screenshots') || '{}');
-    let currentActiveSystemKey = 'builders';
+    // Bento Grid Card Mouse Spotlight coordinates tracker
+    document.querySelectorAll('.spotlight-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
 
-    window.onload = function() {
-      applyStoredLogo();
-    };
+    // Simulated Blueprint Planner Generator
+    function generateStrategy(frictionKey, buttonEl) {
+      const panel = document.getElementById('strategy-panel');
+      const title = document.getElementById('strategy-title');
+      const desc = document.getElementById('strategy-desc');
+      const compList = document.getElementById('strategy-components');
 
-    function applyStoredLogo() {
-      if (customLogoBase64) {
-        document.getElementById('default-cover-logo-svg').classList.add('hidden');
-        const cImg = document.getElementById('cover-logo-img');
-        cImg.src = customLogoBase64;
-        cImg.classList.remove('hidden');
-      }
-    }
-
-    function triggerLogoUpload() {
-      document.getElementById('logo-image-input').click();
-    }
-
-    function handleLogoUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        customLogoBase64 = e.target.result;
-        localStorage.setItem('rhenova_logo_b64', customLogoBase64);
-        applyStoredLogo();
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function handleScreenshotUpload(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        screenshotStore[currentActiveSystemKey] = e.target.result;
-        localStorage.setItem('rhenova_screenshots', JSON.stringify(screenshotStore));
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function generateStrategy(frictionKey) {
-      const outputPanel = document.getElementById('strategy-output-panel');
-      const titleEl = document.getElementById('output-title');
-      const descEl = document.getElementById('output-description');
-      const listEl = document.getElementById('output-list');
-
-      document.querySelectorAll('.friction-btn').forEach(btn => {
-        btn.classList.remove('border-brand-500', 'ring-2', 'ring-brand-500/30');
+      // Unselect other active buttons styling
+      document.querySelectorAll('.planner-btn').forEach(btn => {
+        btn.classList.remove('border-brand-500', 'ring-2', 'ring-brand-500/20', 'shadow-md');
       });
 
-      outputPanel.classList.remove('hidden');
+      // Style active button
+      buttonEl.classList.add('border-brand-500', 'ring-2', 'ring-brand-500/20', 'shadow-md');
 
-      const strategyData = {
+      const data = {
         excel: {
-          title: "Zoho Creator Customized Ledger & Operational Hub",
-          description: "We design cloud databases that completely replace messy Excel manual worksheets, enforcing strict data validating rules, automated backups, and instant cross-sheet math validation.",
+          title: "Customized Ledger Database & Zoho Creator Hub",
+          desc: "We completely eliminate excel computations with cloud-native workflows that incorporate strict validation protocols, multi-node backup scripts, and cross-worksheet validation logic automatically.",
           components: [
-            "Continuous automated script syncing to enforce strict role-based data entries.",
-            "Unified database instances that automatically feed into Zoho Books.",
-            "Interactive system alerts when site execution values deviate from structural benchmarks."
+            "Enforced field data checking rules to completely stop input arithmetic errors.",
+            "Live transaction syncing channels mapping operational records to financial software accounts.",
+            "Real-time indicator alarms when construction site records deviate from budget specifications."
           ]
         },
         leads: {
-          title: "Unified Zoho CRM Automation Pipeline with Lead Cadences",
-          description: "We optimize and reconstruct your CRM setup to consolidate leads coming in from Social Ads, Referral forms, or Direct sites immediately without lag, coupled with instant owner assignments.",
+          title: "Unified Zoho CRM Flow with Pipeline Cadences",
+          desc: "We construct and restructure your corporate CRM parameters to immediately fetch incoming leads from web, social ads, and emails, assigning ownership records automatically to prevent customer drop-off.",
           components: [
-            "Instant automated WhatsApp and email follow-up cadences on lead creation.",
-            "Custom workflow rules preventing leads from hanging stale for more than 4 hours.",
-            "Real-time visual graphs mapping sales-agent response speeds and pipeline conversion metrics."
+            "Automatic follow-up streams that send WhatsApp notifications and emails on prospect creation.",
+            "Logical expiration rules that sound warnings if a lead sits uncontacted for over 3 hours.",
+            "Dynamic dashboard screens logging sales-agent speed responses and overall deal pipeline flow."
           ]
         },
         silo: {
-          title: "Multi-Platform System Orchestrations (API Integration Hub)",
-          description: "We bridge the gap using Zoho Creator as an orchestrator, connecting external mobile dashboards, financial platforms, and warehouse tracking services cleanly into a singular interface.",
+          title: "API Orchestration Hub & Enterprise Zoho Bridging",
+          desc: "We bridge data gaps by establishing Zoho Creator as an API integration coordinator, synchronizing third-party shipping APIs, billing nodes, and product stock levels cleanly into a single panel.",
           components: [
-            "Advanced Flutter components reading directly from Zoho Creator endpoints.",
-            "Live system status reports synchronizing inventories, vendor accounts, and sales dashboards.",
-            "Unified executive command console tracking active systems and analytics simultaneously."
+            "Secured JSON logic connections linking web frameworks directly to core Zoho databases.",
+            "Automated system scripts updating inventory records, vendor invoices, and tracking tables.",
+            "Interactive manager interface viewing unified active platforms and project logs concurrently."
           ]
         }
       };
 
-      const selected = strategyData[frictionKey];
+      const selected = data[frictionKey];
       if (selected) {
-        titleEl.innerText = selected.title;
-        descEl.innerText = selected.description;
-        listEl.innerHTML = selected.components.map(comp => `<li>${comp}</li>`).join('');
+        title.innerText = selected.title;
+        desc.innerText = selected.desc;
+        compList.innerHTML = selected.components.map(comp => `
+          <li class="flex items-start space-x-2">
+            <i data-lucide="check-circle" class="w-4 h-4 text-brand-600 dark:text-brand-400 mt-0.5 flex-shrink-0"></i>
+            <span>${comp}</span>
+          </li>
+        `).join('');
+        
+        panel.classList.remove('hidden');
+        lucide.createIcons();
       }
     }
 
-    /* ── MOBILE ANIMATION FIX ──
-       Feature-detect touch (don't trust the CSS hover media query — Android
-       Chrome reports hover:hover on touchscreens) and wire up real touch
-       events plus a scroll-triggered reveal so cards visibly animate on
-       phones whether or not the device cooperates with :hover/:active. */
-    (function () {
-      const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-      if (isTouch) document.documentElement.classList.add('touch-device');
-
-      // Tap feedback for team + vision/mission cards (mirrors the hover effect)
-      document.querySelectorAll('.adv-team-card, .vm-card').forEach((el) => {
-        el.addEventListener('touchstart', () => el.classList.add('tap-active'), { passive: true });
-        el.addEventListener('touchend', () => {
-          setTimeout(() => el.classList.remove('tap-active'), 400);
-        }, { passive: true });
-      });
-
-      // Scroll-triggered entrance animation — guaranteed to play on mobile
-      const revealEls = document.querySelectorAll('.adv-team-card, .vm-card, .industry-card');
-      revealEls.forEach((el) => el.classList.add('reveal-up'));
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
-        revealEls.forEach((el) => observer.observe(el));
+    // Portal Modal Actions
+    function togglePortalModal() {
+      const modal = document.getElementById('portal-modal');
+      const card = document.getElementById('modal-card');
+      
+      if (modal.classList.contains('opacity-0')) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        card.classList.remove('scale-95');
+        card.classList.add('scale-100');
       } else {
-        revealEls.forEach((el) => el.classList.add('revealed'));
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        card.classList.add('scale-95');
+        card.classList.remove('scale-100');
       }
-    })();
+    }
+
+    // Portal Login handling
+    function handlePortalLogin(e) {
+      e.preventDefault();
+      
+      // Simulating a minor load transition
+      const loginForm = document.getElementById('portal-login-form');
+      const dashboard = document.getElementById('portal-dashboard');
+      
+      loginForm.classList.add('opacity-50', 'pointer-events-none');
+      
+      setTimeout(() => {
+        loginForm.classList.add('hidden');
+        loginForm.classList.remove('opacity-50', 'pointer-events-none');
+        dashboard.classList.remove('hidden');
+      }, 500);
+    }
+
+    function portalLogout() {
+      const loginForm = document.getElementById('portal-login-form');
+      const dashboard = document.getElementById('portal-dashboard');
+      
+      dashboard.classList.add('hidden');
+      loginForm.classList.remove('hidden');
+    }
+
+    // Ticket Simulation inside client portal
+    function handleSimulatedTicketSubmit(e) {
+      e.preventDefault();
+      const cat = document.getElementById('ticket-category').value;
+      const text = document.getElementById('ticket-text').value;
+      const logContainer = document.getElementById('ticket-log-container');
+
+      if(!text) return;
+
+      const newLog = document.createElement('div');
+      newLog.className = "p-2.5 rounded-lg border border-brand-100 dark:border-brand-900 bg-brand-50/20 dark:bg-brand-950/20 text-[11px] flex justify-between items-center animate-pulse";
+      newLog.innerHTML = `
+        <div class="flex items-center space-x-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+          <span class="font-bold text-slate-800 dark:text-slate-200">[${cat}]</span>
+          <span class="text-slate-500 dark:text-slate-400">${text}</span>
+        </div>
+        <span class="text-[9px] text-amber-500">Assigned</span>
+      `;
+
+      logContainer.insertBefore(newLog, logContainer.firstChild);
+      document.getElementById('ticket-text').value = '';
+
+      setTimeout(() => {
+        newLog.classList.remove('animate-pulse');
+      }, 1500);
+    }
   </script>
 </body>
 </html>
