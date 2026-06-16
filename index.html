@@ -233,27 +233,43 @@
     }
 
     /* ── MOBILE / TOUCH ANIMATION FIXES ──
-       :hover never fires reliably on touch devices, so anything gated
-       behind :hover (industry card text reveal, team card lift/rotate)
-       was effectively "broken" on phones. These rules give touch users
-       an equivalent experience via :active (tap) and sensible defaults. */
-    @media (hover: none) {
-      .overlay h3 { transform: translateY(0); }
-      .overlay p { opacity: 1; transform: translateY(0); max-height: 250px; }
-      .industry-card::after { opacity: 1; }
+       The CSS "@media (hover:none)" feature query is unreliable in practice —
+       Android Chrome actually reports "hover:hover" on touchscreens for
+       legacy-site compatibility, so that query silently failed to match on
+       the most common mobile browser. These rules are instead driven by a
+       JS feature-detected ".touch-device" class on <html>, plus real
+       touchstart/touchend listeners (added in the script below) and a
+       scroll-triggered IntersectionObserver reveal animation that fires on
+       its own the moment a card scrolls into view — no hover/tap required,
+       so it is guaranteed to animate on every phone. */
+    html.touch-device .overlay h3 { transform: translateY(0); }
+    html.touch-device .overlay p { opacity: 1; transform: translateY(0); max-height: 250px; }
+    html.touch-device .industry-card::after { opacity: 1; }
 
-      .adv-team-card:active .adv-team-inner {
-        transform: translateY(-8px);
-        box-shadow: 0 24px 48px rgba(115,109,179,0.18), 0 0 0 1.5px #736db340;
-        border-color: #c0b8dc;
-        background: linear-gradient(145deg, #ffffff 60%, #f4f3f9 100%);
-      }
-      .adv-team-card:active .adv-team-num { opacity: 0.09; transform: scale(1.05); }
-      .adv-team-card:active .adv-icon-wrap { transform: scale(1.08) rotate(-5deg); box-shadow: 0 18px 36px rgba(115,109,179,0.36); }
-      .adv-team-card:active .adv-team-inner::after { transform: scale(1.4); border-color: #736db325; }
+    .adv-team-card.tap-active .adv-team-inner {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px rgba(115,109,179,0.18), 0 0 0 1.5px #736db340;
+      border-color: #c0b8dc;
+      background: linear-gradient(145deg, #ffffff 60%, #f4f3f9 100%);
+    }
+    .adv-team-card.tap-active .adv-team-num { opacity: 0.09; transform: scale(1.05); }
+    .adv-team-card.tap-active .adv-icon-wrap { transform: scale(1.08) rotate(-5deg); box-shadow: 0 18px 36px rgba(115,109,179,0.36); }
+    .adv-team-card.tap-active .adv-team-inner::after { transform: scale(1.4); border-color: #736db325; }
 
-      .vm-card:active { transform: translateY(-6px); }
-      .vm-card:active::before { transform: scale(1.2); }
+    .vm-card.tap-active { transform: translateY(-6px); }
+    .vm-card.tap-active::before { transform: scale(1.2); }
+
+    /* Scroll-reveal entrance — fires automatically as cards enter the
+       viewport, so there's always a visible animation on mobile even if
+       a browser's touch/hover handling misbehaves. */
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .65s cubic-bezier(.23,1,.32,1), transform .65s cubic-bezier(.23,1,.32,1);
+    }
+    .reveal-up.revealed {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 480px) {
@@ -877,6 +893,42 @@
         listEl.innerHTML = selected.components.map(comp => `<li>${comp}</li>`).join('');
       }
     }
+
+    /* ── MOBILE ANIMATION FIX ──
+       Feature-detect touch (don't trust the CSS hover media query — Android
+       Chrome reports hover:hover on touchscreens) and wire up real touch
+       events plus a scroll-triggered reveal so cards visibly animate on
+       phones whether or not the device cooperates with :hover/:active. */
+    (function () {
+      const isTouch = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+      if (isTouch) document.documentElement.classList.add('touch-device');
+
+      // Tap feedback for team + vision/mission cards (mirrors the hover effect)
+      document.querySelectorAll('.adv-team-card, .vm-card').forEach((el) => {
+        el.addEventListener('touchstart', () => el.classList.add('tap-active'), { passive: true });
+        el.addEventListener('touchend', () => {
+          setTimeout(() => el.classList.remove('tap-active'), 400);
+        }, { passive: true });
+      });
+
+      // Scroll-triggered entrance animation — guaranteed to play on mobile
+      const revealEls = document.querySelectorAll('.adv-team-card, .vm-card, .industry-card');
+      revealEls.forEach((el) => el.classList.add('reveal-up'));
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+        revealEls.forEach((el) => observer.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('revealed'));
+      }
+    })();
   </script>
 </body>
 </html>
