@@ -1,328 +1,849 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RHenova tech</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RHenova Tech - Interactive Corporate Brochure</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f3f9',
+              100: '#e9e7f4',
+              200: '#dad6eb',
+              300: '#c0b8dc',
+              400: '#a195ca',
+              500: '#8374b7',
+              600: '#736db3',
+              700: '#5e549d',
+              800: '#4e4583',
+              900: '#413a6c',
+              950: '#262143',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+    body { font-family: 'Plus+Jakarta+Sans', 'Plus Jakarta Sans', sans-serif; }
 
-<script src="https://cdn.tailwindcss.com"></script>
+    /* ── INDUSTRY CARDS ── */
+    .industry-card { position:relative; height:420px; border-radius:32px; overflow:hidden; cursor:pointer; box-shadow:0 20px 50px rgba(0,0,0,0.12); transition:.5s ease; }
+    .industry-card img { width:100%; height:100%; object-fit:cover; transition:.7s ease; }
+    .industry-card::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.2) 40%,rgba(0,0,0,.85) 100%); z-index:1; }
+    .overlay { position:absolute; inset:0; z-index:2; display:flex; align-items:flex-end; padding:35px; transition:.5s ease; }
+    .category { display:inline-block; padding:8px 18px; background:rgba(255,255,255,.15); backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,.3); border-radius:100px; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:white; margin-bottom:18px; }
+    .overlay h3 { font-size:32px; font-weight:900; color:white; margin-bottom:15px; transform:translateY(50px); transition:.5s ease; }
+    .overlay p { font-size:14px; line-height:28px; color:#e2e8f0; opacity:0; transform:translateY(50px); transition:.5s ease; max-height:0; overflow:hidden; }
+    .industry-card:hover { transform:translateY(-10px); }
+    .industry-card:hover img { transform:scale(1.1); }
+    .industry-card:hover h3 { transform:translateY(0); }
+    .industry-card:hover p { opacity:1; transform:translateY(0); max-height:250px; }
+    .industry-card::after { content:"↗"; position:absolute; top:25px; right:25px; width:55px; height:55px; border-radius:50%; background:rgba(255,255,255,.15); backdrop-filter:blur(20px); display:flex; justify-content:center; align-items:center; font-size:26px; font-weight:900; color:white; z-index:3; opacity:0; transition:.5s ease; }
+    .industry-card:hover::after { opacity:1; transform:rotate(-45deg); }
 
-<style>
-body{
-    margin:0;
-    overflow:hidden;
-    font-family:Inter,Arial,sans-serif;
-    background:#050816;
-    transition:1.4s;
-}
+    /* ── VISION / MISSION CARDS ── */
+    .vm-card { position:relative; display:flex; align-items:flex-start; gap:30px; padding:45px; border-radius:32px; background:#fff; border:1px solid #e2e8f0; overflow:hidden; transition:.4s ease; box-shadow:0 10px 35px rgba(0,0,0,.06); }
+    .vm-card::before { content:""; position:absolute; width:250px; height:250px; top:-120px; right:-120px; border-radius:50%; background:#736db315; transition:.4s ease; }
+    .vm-card:hover { transform:translateY(-8px); }
+    .vm-card:hover::before { transform:scale(1.2); }
+    .vm-icon { width:80px; height:80px; flex-shrink:0; border-radius:24px; background:#736db3; display:flex; align-items:center; justify-content:center; color:white; box-shadow:0 10px 30px rgba(115,109,179,.25); }
+    .vm-icon svg { width:38px; height:38px; }
+    .vm-label { font-size:11px; font-weight:800; letter-spacing:4px; text-transform:uppercase; color:#736db3; }
+    .vm-card h3 { font-size:34px; font-weight:900; margin-top:10px; margin-bottom:18px; color:#0f172a; line-height:1.2; }
+    .vm-card p { font-size:15px; line-height:32px; color:#64748b; max-width:500px; }
+    .shape { width:14px; height:14px; background:#736db3; border-radius:50%; opacity:.7; }
+    .shape.large { width:70px; height:10px; border-radius:100px; }
 
-/* FULL CENTER FIX */
-.min-h-screen{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0 16px;
-}
+    /* ══════════════════════════════════════════════
+       ADVANCED TEAM SECTION
+    ══════════════════════════════════════════════ */
 
-/* AURORA */
-.aurora{
-    position:fixed;
-    inset:-20%;
-    filter:blur(120px);
-    background:
-    radial-gradient(circle at 20% 20%,rgba(139,92,246,.35),transparent 35%),
-    radial-gradient(circle at 80% 50%,rgba(255,255,255,.15),transparent 35%);
-    animation:spin 20s linear infinite;
-}
+    /* floating decorative blobs */
+    .team-blob { position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none; }
 
-@keyframes spin{
-    to{transform:rotate(360deg)}
-}
-
-/* LOGO */
-#mainLogo{
-    height:90px;
-    width:auto;
-    animation: float 4s ease-in-out infinite, glow 2.5s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%{transform:translateY(0)}
-    50%{transform:translateY(-15px)}
-    100%{transform:translateY(0)}
-}
-
-@keyframes glow{
-    0%,100%{filter:drop-shadow(0 0 10px #8b5cf6)}
-    50%{filter:drop-shadow(0 0 40px #a78bfa)}
-}
-
-.logo-wrap{
-    display:flex;
-    justify-content:center;
-    margin-bottom:30px;
-}
-
-.logo-fade{opacity:0}
-
-/* CONNECTION */
-.connection{
-    position:relative;
-    width:100%;
-    max-width:900px;
-    height:140px;
-    margin:auto;
-}
-
-.line{
-    position:absolute;
-    left:10%;
-    right:10%;
-    top:50%;
-    height:4px;
-    background:rgba(139,92,246,.3);
-    transform:translateY(-50%);
-    border-radius:999px;
-}
-
-.energy{
-    position:absolute;
-    height:100%;
-    width:120px;
-    background:linear-gradient(90deg,transparent,#fff,#8b5cf6,#fff,transparent);
-    animation:flow 1.8s linear infinite;
-}
-
-@keyframes flow{
-    from{left:-120px}
-    to{left:100%}
-}
-
-/* PLUG FIX (IMPORTANT) */
-.plug{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    transition:2s ease;
-}
-
-#left{left:5%}
-#right{right:5%}
-
-.plug svg{
-    width:180px;
-    height:auto;
-}
-
-/* CONTACT BUTTON */
-.contact{
-    position:fixed;
-    left:50%;
-    bottom:30px;
-    transform:translateX(-50%) translateY(40px);
-    opacity:0;
-    padding:16px 48px;
-    border-radius:999px;
-    color:#111;
-    font-weight:700;
-    text-decoration:none;
-    background:linear-gradient(135deg,#8B5CF6,#C4B5FD,#FFF);
-    transition:.6s;
-    box-shadow:0 10px 40px rgba(139,92,246,.35);
-}
-
-.contact.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-}
-
-/* CONTENT */
-.content{
-    opacity:0;
-    transform:translateY(20px);
-    transition:1s;
-}
-.content.show{
-    opacity:1;
-    transform:none;
-}
-
-/* FLASH */
-.flash{
-    position:fixed;
-    inset:0;
-    background:#fff;
-    opacity:0;
-    pointer-events:none;
-}
-.flash.active{animation:f .8s}
-@keyframes f{50%{opacity:1}}
-
-/* ================= MOBILE FIX ================= */
-@media (max-width:768px){
-
-    body{overflow:hidden;}
-
-    #mainLogo{height:65px;}
-
-    #title{
-        font-size:2.2rem !important;
-        line-height:1.1;
+    /* Grid background for team section */
+    .team-section-bg {
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
     }
 
-    #sub{
-        font-size:0.95rem;
-        padding:0 10px;
+    /* TEAM CARD — advanced floating card design */
+    .adv-team-card {
+      position: relative;
+      cursor: pointer;
     }
 
-    .connection{
-        height:120px;
+    .adv-team-inner {
+      position: relative;
+      background: #ffffff;
+      border: 1.5px solid #e9e7f4;
+      border-radius: 28px;
+      padding: 40px 32px 36px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+      box-shadow: 0 8px 32px rgba(115,109,179,0.08);
+      z-index: 1;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
     }
 
-    .plug svg{
-        width:120px;
-        max-width:42vw;
+    /* Animated top accent bar */
+    .adv-team-inner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #736db3, #a195ca, #736db3);
+      background-size: 200% 100%;
+      border-radius: 28px 28px 0 0;
+      transition: all 0.5s;
+      animation: shimmer 3s linear infinite;
     }
 
-    #left{left:0%}
-    #right{right:0%}
+    @keyframes shimmer { 0%{background-position:0% 0%} 100%{background-position:200% 0%} }
 
-    .line{
-        left:5%;
-        right:5%;
-        height:3px;
+    /* Large decorative number */
+    .adv-team-num {
+      position: absolute;
+      top: -10px;
+      right: 22px;
+      font-size: 120px;
+      font-weight: 900;
+      color: #736db3;
+      opacity: 0.05;
+      line-height: 1;
+      letter-spacing: -6px;
+      pointer-events: none;
+      transition: opacity 0.4s, transform 0.4s;
+      user-select: none;
     }
 
-    .contact{
-        width:calc(100% - 24px);
-        max-width:340px;
-        padding:14px 20px;
-        font-size:14px;
-        bottom:16px;
-        text-align:center;
+    /* Diagonal stripe decoration */
+    .adv-team-inner::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 28px solid #736db315;
+      transition: all 0.5s;
     }
-}
-</style>
+
+    .adv-team-card:hover .adv-team-inner {
+      transform: translateY(-12px);
+      box-shadow: 0 32px 64px rgba(115,109,179,0.18), 0 0 0 1.5px #736db340;
+      border-color: #c0b8dc;
+      background: linear-gradient(145deg, #ffffff 60%, #f4f3f9 100%);
+    }
+
+    .adv-team-card:hover .adv-team-num {
+      opacity: 0.09;
+      transform: scale(1.05);
+    }
+
+    .adv-team-card:hover .adv-team-inner::after {
+      transform: scale(1.4);
+      border-color: #736db325;
+    }
+
+    /* Icon container */
+    .adv-icon-wrap {
+      width: 68px;
+      height: 68px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #736db3 0%, #a195ca 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 28px rgba(115,109,179,0.28);
+      transition: transform 0.4s, box-shadow 0.4s;
+      flex-shrink: 0;
+    }
+    .adv-icon-wrap svg { width: 32px; height: 32px; stroke-width: 2; }
+
+    .adv-team-card:hover .adv-icon-wrap {
+      transform: scale(1.1) rotate(-5deg);
+      box-shadow: 0 18px 36px rgba(115,109,179,0.36);
+    }
+
+    .adv-team-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #736db3;
+      background: #f4f3f9;
+      border: 1px solid #dad6eb;
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 14px;
+    }
+
+    .adv-team-inner h3 {
+      font-size: 26px;
+      font-weight: 900;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .adv-team-inner p {
+      font-size: 14px;
+      line-height: 26px;
+      color: #64748b;
+      flex: 1;
+    }
+
+    /* Bottom pill row */
+    .adv-team-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 24px;
+    }
+
+    .adv-pill {
+      font-size: 10px;
+      font-weight: 700;
+      color: #736db3;
+      background: #e9e7f4;
+      border-radius: 100px;
+      padding: 4px 12px;
+    }
+
+    /* Section floating shapes */
+    .deco-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid #736db320;
+      pointer-events: none;
+    }
+
+    .deco-dot {
+      position: absolute;
+      border-radius: 50%;
+      background: #736db3;
+      pointer-events: none;
+    }
+
+    .deco-cross {
+      position: absolute;
+      pointer-events: none;
+    }
+
+
+    
+    .deco-cross::before, .deco-cross::after {
+      content: "";
+      position: absolute;
+      background: #736db3;
+      border-radius: 2px;
+    }
+    .deco-cross::before { width: 2px; height: 20px; top: 0; left: 9px; }
+    .deco-cross::after { width: 20px; height: 2px; top: 9px; left: 0; }
+
+    .deco-square {
+      position: absolute;
+      border-radius: 6px;
+      background: #736db308;
+      border: 1.5px solid #736db320;
+      pointer-events: none;
+    }
+
+    /* animated floating dots in team header */
+    @keyframes floatUp { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+    @keyframes floatDown { 0%,100%{transform:translateY(0)} 50%{transform:translateY(14px)} }
+    @keyframes spin-slow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+    .float-a { animation: floatUp 4s ease-in-out infinite; }
+    .float-b { animation: floatDown 5s ease-in-out infinite; }
+    .float-c { animation: floatUp 6s ease-in-out infinite; }
+    .spin-ring { animation: spin-slow 18s linear infinite; transform-origin: center; }
+
+    /* ── NO SCROLLBAR ── */
+    .no-scrollbar::-webkit-scrollbar { display:none; }
+    .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+
+    @media print {
+      body { background:#ffffff!important; color:#000000!important; }
+      .no-print { display:none!important; }
+      .print-page { page-break-after:always; width:100%!important; max-width:100%!important; box-shadow:none!important; border:none!important; background:#ffffff!important; }
+    }
+  </style>
 </head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col selection:bg-brand-600 selection:text-white">
 
-<body>
+  <!-- Hidden file inputs -->
+  <input type="file" id="logo-image-input" accept="image/*" class="hidden" onchange="handleLogoUpload(event)">
+  <input type="file" id="screenshot-image-input" accept="image/*" class="hidden" onchange="handleScreenshotUpload(event)">
 
-<div class="aurora"></div>
-<div id="flash" class="flash"></div>
+  <main class="flex-grow flex flex-col items-center justify-start p-3 sm:p-8 md:p-12 w-full max-w-7xl mx-auto">
 
-<div class="min-h-screen">
+    <!-- ══ BROCHURE SPREAD ══ -->
+    <div id="brochure-container" class="w-full grid grid-cols-1 gap-10 items-start">
 
-    <div class="text-center w-full max-w-5xl">
+    <section class="print-page bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 relative overflow-hidden flex flex-col justify-between min-h-[75vh] lg:min-h-[85vh] shadow-xl w-full text-slate-900">
+        <div class="absolute inset-0 opacity-5 pointer-events-none">
+          <svg width="100%" height="100%"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#736db3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid)"/></svg>
+        </div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-brand-100/40 blur-3xl pointer-events-none"></div>
 
-        <div class="logo-wrap">
-            <img id="mainLogo" src="logobefore.png">
+<div class="relative z-10 flex items-center justify-between">
+    <div class="flex items-center space-x-0">
+
+        <!-- Rhenova Logo -->
+        <img
+            src="rhenova combination logo.png"
+            alt="Rhenova Tech"
+            class="h-20 sm:h-36 w-auto object-contain"
+        />
+
+        <!-- Separator -->
+        <div class="px-6">
+            <span class="text-3xl font-light text-[#736db3]">|</span>
         </div>
 
-        <h1 id="title" class="text-white text-5xl font-black mb-4">
-            We're Upgrading
-        </h1>
-
-        <p id="sub" class="text-gray-300 text-lg mb-14">
-            We are preparing a better experience for you.
-        </p>
-
-        <div id="connection" class="connection">
-
-            <div class="line">
-                <div class="energy"></div>
-            </div>
-
-            <div id="left" class="plug">
-                <svg viewBox="0 0 200 100">
-                    <rect x="40" y="15" width="90" height="50" rx="10"
-                    fill="none" stroke="#8B5CF6" stroke-width="4"/>
-                    <line x1="130" y1="30" x2="170" y2="30"
-                    stroke="#8B5CF6" stroke-width="4"/>
-                    <line x1="130" y1="50" x2="170" y2="50"
-                    stroke="#8B5CF6" stroke-width="4"/>
-                </svg>
-            </div>
-
-            <div id="right" class="plug">
-                <svg viewBox="0 0 200 100">
-                    <rect x="50" y="15" width="90" height="50" rx="10"
-                    fill="none" stroke="#8B5CF6" stroke-width="4"/>
-                    <line x1="10" y1="30" x2="50" y2="30"
-                    stroke="#8B5CF6" stroke-width="4"/>
-                    <line x1="10" y1="50" x2="50" y2="50"
-                    stroke="#8B5CF6" stroke-width="4"/>
-                </svg>
-            </div>
-
-        </div>
-
-        <div id="final" class="content mt-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-3">
-                Maintenance In Progress
-            </h2>
-            <p class="text-gray-600">
-                Our team is improving performance, reliability and security.
-            </p>
-        </div>
+        <!-- Zoho Logo -->
+        <img
+            src="give.png"
+            alt="Zoho"
+            class="h-10 sm:h-8 w-auto object-contain"
+        />
 
     </div>
 </div>
 
-<a id="contact" class="contact"
-href="https://wa.me/917306201900?text=Hello%20I%20need%20assistance"
-target="_blank">
-WhatsApp Us
-</a>
+        <div class="relative z-10 my-8 sm:my-10">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-none mb-4 text-slate-900">
+            Where <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-purple-600">CHAOS</span> MEETS CLARITY.
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 font-light max-w-xl leading-relaxed mb-6 sm:mb-8">
+            Are manual workflows and Excel complexity breaking your operational scalability? RHenova Tech designs intelligent business architectures to give you flawless clarity.
+          </p>
+          <div class="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-brand-50 to-slate-100 border border-slate-200 flex items-center justify-between gap-4">
+            <div>
+              <span class="block text-[10px] uppercase tracking-wider text-brand-700 font-bold">WHY US?</span>
+              <span class="text-sm sm:text-lg font-bold text-slate-900 leading-tight">THE BEST SERVICE PROVIDER EVER IN THE MARKET!</span>
+            </div>
+            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-100 border border-brand-200 flex items-center justify-center text-brand-600 flex-shrink-0 animate-pulse">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+          </div>
+        </div>
 
-<script>
-const left = document.getElementById('left');
-const right = document.getElementById('right');
-const flash = document.getElementById('flash');
-const title = document.getElementById('title');
-const sub = document.getElementById('sub');
-const line = document.querySelector('.line');
-const final = document.getElementById('final');
-const contact = document.getElementById('contact');
-const connection = document.getElementById('connection');
-const logo = document.getElementById('mainLogo');
+        <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
+          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
+            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="layers" class="w-5 h-5"></i></div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-800">CRM & Zoho Automation Systems</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
+            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="code-2" class="w-5 h-5"></i></div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-800">Custom Web & Mobile Applications</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
+            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="smartphone" class="w-5 h-5"></i></div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-800">AI-Powered Workflows & Smart Systems</span>
+          </div>
+          <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center space-x-3">
+            <div class="p-2 rounded-lg bg-brand-100 text-brand-700 flex-shrink-0"><i data-lucide="network" class="w-5 h-5"></i></div>
+            <span class="text-xs sm:text-sm font-semibold text-slate-800">Integrated Digital Ecosystems</span>
+          </div>
+        </div>
 
-setTimeout(() => {
-    left.style.left = '38%';
-    right.style.right = '38%';
-}, 1000);
+        <div class="relative z-10 border-t border-slate-200/80 pt-6 mt-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div class="flex flex-col">
+            <span class="text-[10px] text-slate-500">FOUNDED BY SYSTEM ARCHITECTS</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-800">Reshma M Mathews & Hrishikesh Krishna</span>
+          </div>
+          <div class="flex flex-col text-left md:text-right text-xs space-y-1.5 text-slate-500 font-medium">
+            <a href="mailto:ceo@rhenovatech.com" class="flex items-center md:justify-end gap-1.5 hover:text-brand-600 transition-colors"><i data-lucide="mail" class="w-3.5 h-3.5 text-brand-500"></i> ceo@rhenovatech.com</a>
+            <a href="https://www.rhenovatech.com" class="flex items-center md:justify-end gap-1.5 hover:text-brand-600 transition-colors"><i data-lucide="globe" class="w-3.5 h-3.5 text-brand-500"></i> www.rhenovatech.com</a>
+            <span class="flex items-center md:justify-end gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-500"></i> India | Middle East</span>
+          </div>
+        </div>
+      </section>
 
-/* ✅ ADDED: WHITE LOADING EFFECT AFTER CONNECTION */
-setTimeout(() => {
-    flash.classList.add('active');
-    document.body.style.background = "#fff";
-}, 2200);
+      <!-- PAGE 2 -->
+      <section class="print-page bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 relative overflow-hidden flex flex-col justify-between min-h-[75vh] lg:min-h-[85vh] shadow-xl w-full text-slate-900">
+        <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-brand-100/20 blur-3xl pointer-events-none"></div>
+        <div class="relative z-10">
+          <span class="inline-block text-[10px] uppercase tracking-widest text-brand-700 font-bold bg-brand-50 px-3 py-1.5 rounded-full border border-brand-100 mb-4">Scale Milestones</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2 leading-tight">Engineered for Lasting Traction</h2>
+          <p class="text-slate-500 font-light text-sm max-w-xl mb-6">Unlike standard services partners, our clients don't get passed to sales agents. We lead directly with technology architectures built to withstand rapid expansion.</p>
 
-setTimeout(() => {
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
+              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">3+</span>
+              <span class="text-[10px] sm:text-xs text-slate-500">Years Experience</span>
+            </div>
+            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
+              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">20+</span>
+              <span class="text-[10px] sm:text-xs text-slate-500">Systems Done</span>
+            </div>
+            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
+              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">12+</span>
+              <span class="text-[10px] sm:text-xs text-slate-500">Industries</span>
+            </div>
+            <div class="p-3 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 text-center">
+              <span class="block text-2xl sm:text-3xl font-extrabold text-brand-600">200+</span>
+              <span class="text-[10px] sm:text-xs text-slate-500">Active Users</span>
+            </div>
+          </div>
 
-    flash.classList.add('active');
-    logo.classList.add('logo-fade');
+          <h3 class="text-base sm:text-lg font-bold text-slate-800 mb-3 sm:mb-4">Why RHenova Tech Differentiates</h3>
+          <div class="space-y-3 mb-6 sm:mb-8">
+            <div class="p-3 sm:p-4 rounded-xl bg-slate-50/50 border border-slate-200 flex items-start space-x-3 hover:border-brand-500/50 transition-all duration-300">
+              <div class="p-1.5 rounded-lg bg-brand-50 text-brand-600 mt-0.5 flex-shrink-0"><i data-lucide="eye" class="w-4 h-4"></i></div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-slate-900">Prototype First Approach</h4>
+                <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">We present custom working prototype screens aligned with your logic in our first discussion.</p>
+              </div>
+            </div>
+            <div class="p-3 sm:p-4 rounded-xl bg-slate-50/50 border border-slate-200 flex items-start space-x-3 hover:border-brand-500/50 transition-all duration-300">
+              <div class="p-1.5 rounded-lg bg-brand-50 text-brand-600 mt-0.5 flex-shrink-0"><i data-lucide="users" class="w-4 h-4"></i></div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-slate-900">No Intermediary Sales Chains</h4>
+                <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">Your core project leads are the actual software developers and system architects behind the code.</p>
+              </div>
+            </div>
+            <div class="p-3 sm:p-4 rounded-xl bg-slate-50/50 border border-slate-200 flex items-start space-x-3 hover:border-brand-500/50 transition-all duration-300">
+              <div class="p-1.5 rounded-lg bg-brand-50 text-brand-600 mt-0.5 flex-shrink-0"><i data-lucide="zap" class="w-4 h-4"></i></div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-slate-900">Proven System Rescue Operations</h4>
+                <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">Specialists at turning around broken, unresponsive, and un-optimized Zoho ecosystems from previous vendors.</p>
+              </div>
+            </div>
+          </div>
 
-    setTimeout(() => {
-        logo.src = 'logoafter.png';
-        logo.onload = () => logo.classList.remove('logo-fade');
-    }, 300);
+          <h3 class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-3">TRUSTED CLIENT DEPLOYMENTS</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">Valluvassery Builders</span>
+            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">3A Advertising (Riyadh)</span>
+            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">Metx360 Study Abroad</span>
+            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">R2S Realtors</span>
+            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">Unicorn Power</span>
+            <span class="px-2.5 py-1 rounded bg-slate-50 border border-slate-200 text-[10px] font-semibold hover:border-brand-600 hover:bg-brand-50 transition-colors">And More</span>
+          </div>
+        </div>
+        <div class="relative z-10 pt-4 border-t border-slate-200/80 mt-6 text-center lg:text-left">
+          <span class="text-[11px] italic text-slate-500 tracking-wider font-medium">"Transforming manual operations into scalable, future-ready business intelligence systems."</span>
+        </div>
+      </section>
+    </div>
 
-    title.classList.replace('text-white','text-gray-900');
-    sub.classList.replace('text-gray-300','text-gray-600');
+    <!-- ══ INDUSTRY SECTION ══ -->
+    <section class="w-full mt-20">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold uppercase tracking-[4px]">Industry Specialization</span>
+        <h2 class="mt-5 text-5xl font-black text-slate-900">Solutions Across Industries</h2>
+        <p class="mt-4 max-w-3xl mx-auto text-slate-500">Hover to explore the systems we engineered for different businesses.</p>
+      </div>
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div class="industry-card">
+          <img src="image (27).png" alt="Construction">
+          <div class="overlay"><div><span class="category">Construction ERP</span><h3>Valluvassery Builders</h3><p>Project management ecosystem handling quotations, clients, site tracking, materials and finance operations.</p></div></div>
+        </div>
+        <div class="industry-card">
+          <img src="interior.png" alt="Interior">
+          <div class="overlay"><div><span class="category">Interior ERP</span><h3>IBO Interior Studio</h3><p>Manage design approvals, quotations, procurement, execution timelines and customer collaboration.</p></div></div>
+        </div>
+        <div class="industry-card">
+          <img src="realestate.png" alt="Real Estate">
+          <div class="overlay"><div><span class="category">Real Estate CRM</span><h3>R2S Realtors</h3><p>Lead management, broker tracking, customer journey monitoring and sales analytics.</p></div></div>
+        </div>
+        <div class="industry-card">
+          <img src="ChatGPT Image Jun 12, 2026, 12_45_30 PM.png" alt="Education">
+          <div class="overlay"><div><span class="category">Education ERP</span><h3>LMS Platform</h3><p>Admissions, attendance, exams, assignments and communication automation.</p></div></div>
+        </div>
+      </div>
+    </section>
 
-    left.style.opacity = '0';
-    right.style.opacity = '0';
-    line.style.opacity = '0';
+    <!-- ══════════════════════════════════════════════
+         ADVANCED TEAM SECTION
+    ══════════════════════════════════════════════ -->
+    <section class="team-section-bg w-full mt-24 mb-4 rounded-[48px] py-24 px-6 sm:px-12 relative overflow-hidden border border-brand-100/60">
 
-    setTimeout(() => {
-        connection.remove();
-        final.classList.add('show');
-        contact.classList.add('show');
-    }, 700);
+      <!-- Large decorative rings -->
+      <!-- <div class="deco-ring float-a" style="width:500px;height:500px;top:-200px;left:-200px;opacity:0.4;"></div>
+      <div class="deco-ring float-b" style="width:320px;height:320px;bottom:-100px;right:-100px;opacity:0.3;border-color:#736db330;"></div>
+      <div class="deco-ring" style="width:180px;height:180px;top:40px;right:15%;opacity:0.2;border-color:#736db340;border-width:1px;"></div> -->
 
-}, 3800);
-</script>
+      <!-- Spinning ring -->
+      <!-- <svg class="absolute top-0 right-0 w-64 h-64 opacity-5 spin-ring" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" stroke="#736db3" stroke-width="1" stroke-dasharray="8 12"/>
+      </svg>
+      <svg class="absolute bottom-10 left-10 w-40 h-40 opacity-5 spin-ring" style="animation-direction:reverse;" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" stroke="#736db3" stroke-width="1" stroke-dasharray="4 8"/>
+      </svg> -->
 
+      <!-- Floating dots -->
+      <!-- <div class="deco-dot float-a" style="width:8px;height:8px;top:60px;left:8%;opacity:0.4;"></div>
+      <div class="deco-dot float-b" style="width:12px;height:12px;top:120px;right:12%;opacity:0.3;"></div>
+      <div class="deco-dot float-c" style="width:6px;height:6px;bottom:80px;left:20%;opacity:0.35;"></div>
+      <div class="deco-dot float-a" style="width:10px;height:10px;bottom:60px;right:25%;opacity:0.3;"></div> -->
+
+      <!-- Cross decorations -->
+      <!-- <div class="deco-cross float-b" style="top:80px;left:40%;opacity:0.12;transform:scale(1.5);"></div>
+      <div class="deco-cross float-c" style="bottom:100px;right:40%;opacity:0.12;transform:scale(1.2);"></div> -->
+
+      <!-- Diagonal squares -->
+      <!-- <div class="deco-square float-a" style="width:48px;height:48px;top:100px;right:8%;transform:rotate(24deg);"></div>
+      <div class="deco-square float-b" style="width:32px;height:32px;bottom:120px;left:7%;transform:rotate(-18deg);"></div>
+      <div class="deco-square" style="width:24px;height:24px;top:50%;left:5%;transform:rotate(45deg);opacity:0.06;"></div> -->
+
+      <!-- Grid background subtle -->
+      <!-- <div class="absolute inset-0 opacity-[0.025] pointer-events-none">
+        <svg width="100%" height="100%"><defs><pattern id="team-grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="#736db3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#team-grid)"/></svg>
+      </div> -->
+
+      <!-- Section Header -->
+      <div class="relative z-10 text-center mb-20">
+        <!-- Floating shape cluster above heading -->
+        <!-- <div class="flex justify-center items-center gap-5 mb-8">
+          <div class="deco-dot float-c" style="position:relative;width:8px;height:8px;opacity:0.5;"></div>
+          <div style="width:48px;height:2px;background:linear-gradient(90deg,transparent,#736db3,transparent);border-radius:2px;"></div>
+          <div class="w-10 h-10 rounded-xl bg-brand-50 border border-brand-200 flex items-center justify-center float-a" style="position:relative;">
+            <i data-lucide="users" class="w-5 h-5 text-brand-600"></i>
+          </div>
+          <div style="width:48px;height:2px;background:linear-gradient(90deg,transparent,#736db3,transparent);border-radius:2px;"></div>
+          <div class="deco-dot float-b" style="position:relative;width:8px;height:8px;opacity:0.5;"></div>
+        </div> -->
+
+        <span class="inline-block px-5 py-2 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-bold uppercase tracking-[4px] mb-6">Our Team</span>
+
+        <h2 class="text-5xl font-black text-slate-900 mb-5 leading-tight">
+          People Behind<br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-purple-600">RHenova</span>
+        </h2>
+        <p class="max-w-2xl mx-auto text-slate-500 text-base leading-relaxed">
+          Technology, research, and business experts working together to build systems that last.
+        </p>
+      </div>
+
+      <!-- TEAM CARDS GRID -->
+      <div class="relative z-10 grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+
+        <!-- Card 1: Development -->
+        <div class="adv-team-card">
+          <div class="adv-team-inner">
+            <div class="adv-team-num">01</div>
+            <div class="adv-icon-wrap">
+              <i data-lucide="code-2"></i>
+            </div>
+            <span class="adv-team-tag">Engineering</span>
+            <h3>Development Team</h3>
+            <p>ERP, CRM, Mobile Apps and AI systems engineered for scale, stability and performance.</p>
+            <div class="adv-team-pills">
+              <span class="adv-pill">Zoho</span>
+              <span class="adv-pill">Flutter</span>
+              <span class="adv-pill">React</span>
+              <span class="adv-pill">AI/ML</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Research -->
+        <div class="adv-team-card">
+          <div class="adv-team-inner">
+            <div class="adv-team-num">02</div>
+            <div class="adv-icon-wrap">
+              <i data-lucide="brain"></i>
+            </div>
+            <span class="adv-team-tag">Intelligence</span>
+            <h3>Research Team</h3>
+            <p>Studies workflows deeply and creates intelligent business solutions grounded in process reality.</p>
+            <div class="adv-team-pills">
+              <span class="adv-pill">Workflow</span>
+              <span class="adv-pill">Analytics</span>
+              <span class="adv-pill">Strategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Sales -->
+        <div class="adv-team-card">
+          <div class="adv-team-inner">
+            <div class="adv-team-num">03</div>
+            <div class="adv-icon-wrap">
+              <i data-lucide="briefcase-business"></i>
+            </div>
+            <span class="adv-team-tag">Business</span>
+            <h3>Sales Team</h3>
+            <p>Transforms client requirements into clear project roadmaps and actionable system blueprints.</p>
+            <div class="adv-team-pills">
+              <span class="adv-pill">CRM</span>
+              <span class="adv-pill">Roadmap</span>
+              <span class="adv-pill">BD</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Support -->
+        <div class="adv-team-card">
+          <div class="adv-team-inner">
+            <div class="adv-team-num">04</div>
+            <div class="adv-icon-wrap">
+              <i data-lucide="headset"></i>
+            </div>
+            <span class="adv-team-tag">Operations</span>
+            <h3>Support Team</h3>
+            <p>Provides continuous, expert assistance after deployment to ensure systems run at peak efficiency.</p>
+            <div class="adv-team-pills">
+              <span class="adv-pill">24/7</span>
+              <span class="adv-pill">Training</span>
+              <span class="adv-pill">Maintenance</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom decorative shape row -->
+      <!-- <div class="relative z-10 flex justify-center items-center gap-6 mt-20">
+        <div class="deco-dot" style="position:relative;width:10px;height:10px;opacity:0.5;"></div>
+        <div style="width:28px;height:28px;border-radius:6px;background:#736db310;border:1.5px solid #736db330;transform:rotate(45deg);"></div>
+        <div style="width:60px;height:3px;border-radius:2px;background:linear-gradient(90deg,#736db3,#a195ca);opacity:0.4;"></div>
+        <div style="width:20px;height:20px;border-radius:50%;border:2px solid #736db340;"></div>
+        <div style="width:60px;height:3px;border-radius:2px;background:linear-gradient(90deg,#a195ca,#736db3);opacity:0.4;"></div>
+        <div style="width:28px;height:28px;border-radius:6px;background:#736db310;border:1.5px solid #736db330;transform:rotate(45deg);"></div>
+        <div class="deco-dot" style="position:relative;width:10px;height:10px;opacity:0.5;"></div>
+      </div> -->
+
+    </section>
+
+    <!-- ══ CONSULTATION PLANNER ══ -->
+    <div class="no-print w-full mt-12 bg-white border border-slate-200 rounded-3xl p-5 sm:p-10 shadow-md overflow-hidden relative">
+      <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-brand-50/20 blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <span class="inline-block text-[10px] uppercase tracking-widest text-brand-600 font-bold bg-brand-50 px-3 py-1.5 rounded-full border border-brand-100 mb-3">Custom Consultation Planner</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Identify Your Core Friction Point</h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1.5">Select one of the structural business problems below to instantly generate a custom-tailored system blueprint strategy proposed by RHenova Tech.</p>
+      </div>
+      <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-8">
+        <button onclick="generateStrategy('excel')" class="friction-btn p-5 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-brand-500/50 hover:shadow-lg transition-all duration-300 focus:outline-none flex flex-col justify-between">
+          <div>
+            <div class="p-3 rounded-xl bg-brand-50 text-brand-600 w-fit mb-4"><i data-lucide="sheet" class="w-6 h-6"></i></div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Excel & Manual Chaos</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Your administration spends hours copying data across sheets and manual checks, leading to severe computational errors.</p>
+          </div>
+        </button>
+        <button onclick="generateStrategy('leads')" class="friction-btn p-5 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-brand-500/50 hover:shadow-lg transition-all duration-300 focus:outline-none flex flex-col justify-between">
+          <div>
+            <div class="p-3 rounded-xl bg-brand-50 text-brand-600 w-fit mb-4"><i data-lucide="user-x" class="w-6 h-6"></i></div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Lost Pipeline & Leads</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">No tracking records are actively retained. Sales agents are unresponsive, and key follow-ups are completely inconsistent.</p>
+          </div>
+        </button>
+        <button onclick="generateStrategy('silo')" class="friction-btn p-5 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50 text-left hover:border-brand-500/50 hover:shadow-lg transition-all duration-300 focus:outline-none flex flex-col justify-between">
+          <div>
+            <div class="p-3 rounded-xl bg-brand-50 text-brand-600 w-fit mb-4"><i data-lucide="unlink" class="w-6 h-6"></i></div>
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-2">Siloed Software Systems</h3>
+            <p class="text-xs text-slate-500 leading-relaxed">Your database tracking software does not talk with your analytical finance tools, rendering real-time business metrics invisible.</p>
+          </div>
+        </button>
+      </div>
+      <div id="strategy-output-panel" class="relative z-10 hidden p-5 sm:p-6 rounded-2xl bg-white border border-brand-200 transition-all duration-300 shadow-sm">
+        <div class="flex items-center space-x-3 mb-4">
+          <div class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></div>
+          <span class="text-[10px] uppercase tracking-widest text-brand-600 font-bold">RHenova Tech Strategy Architecture Blueprint</span>
+        </div>
+        <h4 id="output-title" class="text-lg sm:text-xl font-bold text-slate-900 mb-2">Loading Strategy...</h4>
+        <p id="output-description" class="text-xs sm:text-sm text-slate-500 leading-relaxed mb-4"></p>
+        <div class="p-4 rounded-xl bg-slate-50 border border-slate-150 space-y-2.5">
+          <span class="text-xs text-slate-500 uppercase tracking-widest font-bold">Engineered Solution Components:</span>
+          <ul id="output-list" class="list-disc list-inside text-xs text-slate-700 space-y-1.5 leading-relaxed font-semibold"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ VISION & MISSION ══ -->
+    <section class="w-full mt-24 mb-24">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-2 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-xs font-bold uppercase tracking-[4px]">Our Direction</span>
+        <h2 class="mt-5 text-5xl font-black text-slate-900">Vision & Mission</h2>
+        <p class="mt-4 max-w-3xl mx-auto text-slate-500">Building intelligent systems that transform complexity into clarity.</p>
+      </div>
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div class="vm-card">
+          <div class="vm-icon"><i data-lucide="telescope"></i></div>
+          <div>
+            <span class="vm-label">Vision</span>
+            <h3>Engineering The Future Of Business</h3>
+            <p>To become a global technology partner that empowers businesses through intelligent digital ecosystems, automation and data-driven decision making.</p>
+          </div>
+        </div>
+        <div class="vm-card">
+          <div class="vm-icon"><i data-lucide="rocket"></i></div>
+          <div>
+            <span class="vm-label">Mission</span>
+            <h3>Transform Chaos Into Clarity</h3>
+            <p>We design scalable ERP, CRM and AI-powered systems that simplify operations and create measurable business growth.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center items-center gap-6 mt-16">
+        <div class="shape"></div>
+        <div class="shape large"></div>
+        <div class="shape"></div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <div class="w-full mt-12 bg-gradient-to-r from-brand-50 to-indigo-50/50 border border-slate-200 rounded-3xl p-6 sm:p-12 text-center relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none"><svg width="100%" height="100%"><rect width="100%" height="100%" fill="url(#grid)"/></svg></div>
+      <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">Let's Gain Complete Business Visibility.</h2>
+        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed font-semibold">Ready to scale your systems seamlessly without operations breaking? Schedule an introductory system architectural consultation with our founders and developers directly.</p>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-3 pt-4">
+          <a href="mailto:ceo@rhenovatech.com" class="w-full sm:w-auto justify-center px-6 py-3 rounded-xl bg-brand-700 hover:bg-brand-600 text-white font-bold text-sm transition-all duration-300 shadow-md shadow-brand-200 flex items-center gap-2 min-h-[48px]">
+            <i data-lucide="mail" class="w-4 h-4"></i><span>Schedule A Founder Call</span>
+          </a>
+          <!-- <a href="https://www.rhenovatech.com" target="_blank" class="w-full sm:w-auto justify-center px-6 py-3 rounded-xl bg-white border border-slate-200 text-slate-700 hover:text-slate-900 hover:border-slate-400 text-sm font-semibold transition-all duration-300 flex items-center gap-2 min-h-[48px] shadow-sm">
+            <i data-lucide="globe" class="w-4 h-4"></i><span>Visit Our Hub</span>
+          </a> -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="border-t border-slate-100 bg-white py-8 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col items-center justify-center gap-4">
+      <!-- Logo + wordmark -->
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-brand-600">
+          <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+            <rect width="512" height="512" rx="120" fill="#736db3"/>
+            <path d="M 160,225 C 160,195 180,175 210,175 C 180,175 160,155 160,125 C 160,155 140,175 110,175 C 140,175 160,195 160,225 Z" fill="#ffffff"/>
+            <path d="M 127,362 L 127,302 H 190 C 240,302 280,260 330,208 L 192,208 L 192,150 H 385 V 362 H 325 V 270 C 280,310 240,362 210,362 H 127 Z" fill="#ffffff"/>
+          </svg>
+        </div>
+        <span class="text-xs font-semibold text-slate-400 tracking-wider uppercase">Powered by <span class="text-brand-600 font-bold">RHenova Tech</span></span>
+      </div>
+      <!-- Decorative dots -->
+      <div class="flex items-center gap-2">
+        <div style="width:4px;height:4px;border-radius:50%;background:#736db340;"></div>
+        <div style="width:24px;height:1px;background:#736db320;border-radius:1px;"></div>
+        <div style="width:6px;height:6px;border-radius:50%;background:#736db360;"></div>
+        <div style="width:24px;height:1px;background:#736db320;border-radius:1px;"></div>
+        <div style="width:4px;height:4px;border-radius:50%;background:#736db340;"></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    let customLogoBase64 = localStorage.getItem('rhenova_logo_b64') || null;
+    let screenshotStore = JSON.parse(localStorage.getItem('rhenova_screenshots') || '{}');
+    let currentActiveSystemKey = 'builders';
+
+    window.onload = function() {
+      applyStoredLogo();
+    };
+
+    function applyStoredLogo() {
+      if (customLogoBase64) {
+        document.getElementById('default-cover-logo-svg').classList.add('hidden');
+        const cImg = document.getElementById('cover-logo-img');
+        cImg.src = customLogoBase64;
+        cImg.classList.remove('hidden');
+      }
+    }
+
+    function triggerLogoUpload() {
+      document.getElementById('logo-image-input').click();
+    }
+
+    function handleLogoUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        customLogoBase64 = e.target.result;
+        localStorage.setItem('rhenova_logo_b64', customLogoBase64);
+        applyStoredLogo();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function handleScreenshotUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        screenshotStore[currentActiveSystemKey] = e.target.result;
+        localStorage.setItem('rhenova_screenshots', JSON.stringify(screenshotStore));
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function generateStrategy(frictionKey) {
+      const outputPanel = document.getElementById('strategy-output-panel');
+      const titleEl = document.getElementById('output-title');
+      const descEl = document.getElementById('output-description');
+      const listEl = document.getElementById('output-list');
+
+      document.querySelectorAll('.friction-btn').forEach(btn => {
+        btn.classList.remove('border-brand-500', 'ring-2', 'ring-brand-500/30');
+      });
+
+      outputPanel.classList.remove('hidden');
+
+      const strategyData = {
+        excel: {
+          title: "Zoho Creator Customized Ledger & Operational Hub",
+          description: "We design cloud databases that completely replace messy Excel manual worksheets, enforcing strict data validating rules, automated backups, and instant cross-sheet math validation.",
+          components: [
+            "Continuous automated script syncing to enforce strict role-based data entries.",
+            "Unified database instances that automatically feed into Zoho Books.",
+            "Interactive system alerts when site execution values deviate from structural benchmarks."
+          ]
+        },
+        leads: {
+          title: "Unified Zoho CRM Automation Pipeline with Lead Cadences",
+          description: "We optimize and reconstruct your CRM setup to consolidate leads coming in from Social Ads, Referral forms, or Direct sites immediately without lag, coupled with instant owner assignments.",
+          components: [
+            "Instant automated WhatsApp and email follow-up cadences on lead creation.",
+            "Custom workflow rules preventing leads from hanging stale for more than 4 hours.",
+            "Real-time visual graphs mapping sales-agent response speeds and pipeline conversion metrics."
+          ]
+        },
+        silo: {
+          title: "Multi-Platform System Orchestrations (API Integration Hub)",
+          description: "We bridge the gap using Zoho Creator as an orchestrator, connecting external mobile dashboards, financial platforms, and warehouse tracking services cleanly into a singular interface.",
+          components: [
+            "Advanced Flutter components reading directly from Zoho Creator endpoints.",
+            "Live system status reports synchronizing inventories, vendor accounts, and sales dashboards.",
+            "Unified executive command console tracking active systems and analytics simultaneously."
+          ]
+        }
+      };
+
+      const selected = strategyData[frictionKey];
+      if (selected) {
+        titleEl.innerText = selected.title;
+        descEl.innerText = selected.description;
+        listEl.innerHTML = selected.components.map(comp => `<li>${comp}</li>`).join('');
+      }
+    }
+  </script>
 </body>
 </html>
