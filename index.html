@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="logo.png.png">
-  <title>RHenova Tech</title>
+  <title>RHenova Tech | Enterprise Architecture & Zoho Systems</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,24 +74,122 @@
     .spotlight-card:hover::before { opacity: 1; }
 
     /* ── Premium service card ── */
-    .service-card {
+
+.service-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.5rem;
+}
+
+@media(min-width:640px){
+
+.service-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+
+}
+
+@media(min-width:1024px){
+
+.service-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+
+}
+
+.reveal-card{
+
+opacity:0;
+
+transform:
+
+translateY(80px)
+
+scale(.95);
+
+transition:
+
+opacity .8s ease,
+
+transform .9s cubic-bezier(.22,1,.36,1);
+
+}
+
+.reveal-card.active{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+
+scale(1);
+
+}
+
+.reveal-card:nth-child(1){
+
+transition-delay:.1s;
+
+}
+
+.reveal-card:nth-child(2){
+
+transition-delay:.2s;
+
+}
+
+.reveal-card:nth-child(3){
+
+transition-delay:.3s;
+
+}
+
+.reveal-card:nth-child(4){
+
+transition-delay:.4s;
+
+}
+
+.reveal-card:nth-child(5){
+
+transition-delay:.5s;
+
+}
+
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    #services-track::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    #services-track {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .apple-card {
       position: relative;
       overflow: hidden;
-      background: #ffffff;
-      border: 1.5px solid #e9e7f4;
-      border-radius: 28px;
-      transition: transform 0.35s cubic-bezier(0.25,1,0.5,1), box-shadow 0.35s ease, border-color 0.3s;
+      background: #f5f5f7;
+      border-radius: 30px;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
     }
-    .dark .service-card {
-      background: #111827;
-      border-color: #1f2937;
+    .dark .apple-card {
+      background: #1c1c1e;
     }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 48px -16px rgba(115,109,179,0.22);
-      border-color: #736db3;
+    .apple-card:hover {
+      transform: scale(1.015);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
     }
-    .dark .service-card:hover { box-shadow: 0 24px 48px -16px rgba(0,0,0,0.5); border-color: #736db3; }
+    .dark .apple-card:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .apple-card-mockup {
+      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .apple-card:hover .apple-card-mockup {
+      transform: scale(1.035) translateY(-3px);
+    }
 
     /* Decorative shapes inside cards */
     .card-shape-tl {
@@ -156,6 +254,27 @@
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Twinkle star animation */
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.15; transform: scale(0.75); }
+      50% { opacity: 0.95; transform: scale(1.25); }
+    }
+    .animate-twinkle {
+      animation: twinkle 4s ease-in-out infinite;
+    }
+    
+    /* Slow wave animation */
+    @keyframes wave-move {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(0.8deg); }
+    }
+    .animate-wave-slow {
+      animation: wave-move 14s ease-in-out infinite;
+    }
+    .animate-wave-reverse {
+      animation: wave-move 18s ease-in-out infinite reverse;
     }
 
     /* ── Mobile Menu ── */
@@ -427,131 +546,637 @@
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
 
     <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
-    <section class="relative py-16 sm:py-24 lg:py-32 flex flex-col items-center text-center max-w-4xl mx-auto space-y-6 sm:space-y-8 z-10">
-      <div class="opacity-0 translate-y-4 animate-fade-in-up inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 shadow-sm">
-        <div class="w-1.5 h-1.5 rounded-full bg-brand-600 dark:bg-brand-400 animate-pulse"></div>
-        <span class="text-[9px] sm:text-[10px] font-black text-brand-700 dark:text-brand-300 tracking-widest uppercase">ZOHO PARTNER & DIGITAL ARCHITECTS</span>
+    <!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+    <section class="relative py-12 sm:py-20 lg:py-28 flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto z-10">
+      <!-- Sweeping Blending Wave Lines Background (Matching Scribbled Drawing) -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40 dark:opacity-75" viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="hero-wave-1" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0" />
+            <stop offset="25%" stop-color="#8b5cf6" stop-opacity="0.3" />
+            <stop offset="50%" stop-color="#4f46e5" stop-opacity="0.4" />
+            <stop offset="75%" stop-color="#06b6d4" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#06b6d4" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="hero-wave-2" x1="0%" y1="80%" x2="100%" y2="20%">
+            <stop offset="0%" stop-color="#6366f1" stop-opacity="0" />
+            <stop offset="35%" stop-color="#a855f7" stop-opacity="0.35" />
+            <stop offset="65%" stop-color="#6366f1" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+          </linearGradient>
+          <filter id="hero-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur1" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2" />
+            <feMerge>
+              <feMergeNode in="blur1" />
+              <feMergeNode in="blur2" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        
+        <!-- Sweeping line 1 -->
+        <path class="animate-wave-slow" d="M -100 550 C 300 450, 600 150, 1100 120 C 1300 100, 1500 250, 1600 300" stroke="url(#hero-wave-1)" stroke-width="8" fill="none" filter="url(#hero-glow)" />
+        <path class="animate-wave-slow" d="M -100 550 C 300 450, 600 150, 1100 120 C 1300 100, 1500 250, 1600 300" stroke="url(#hero-wave-1)" stroke-width="2.5" fill="none" />
+        
+        <!-- Sweeping line 2 -->
+        <path class="animate-wave-reverse" d="M -50 480 C 250 520, 550 220, 1050 180 C 1250 160, 1450 320, 1550 360" stroke="url(#hero-wave-2)" stroke-width="6" fill="none" filter="url(#hero-glow)" />
+        <path class="animate-wave-reverse" d="M -50 480 C 250 520, 550 220, 1050 180 C 1250 160, 1450 320, 1550 360" stroke="url(#hero-wave-2)" stroke-width="1.5" fill="none" />
+      </svg>
+      
+      <!-- Left Column: Copy -->
+      <div class="flex-1 space-y-6 sm:space-y-8 text-left max-w-2xl relative z-10">
+        <!-- Floating Tag with Violet Glow Accent -->
+        <div class="opacity-0 translate-y-4 animate-fade-in-up inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 shadow-sm">
+          <div class="w-1.5 h-1.5 rounded-full bg-brand-600 dark:bg-brand-400 animate-pulse"></div>
+          <span class="text-[9px] sm:text-[10px] font-black text-brand-700 dark:text-brand-300 tracking-widest uppercase">ZOHO PARTNER & DIGITAL ARCHITECTS</span>
+        </div>
+        
+        <!-- Typography with Violet Line & Subtle Shadow -->
+        <div class="relative space-y-4">
+          <!-- Premium Left Violet Accent Line -->
+          <div class="absolute -left-4 top-2 bottom-2 w-1 bg-gradient-to-b from-brand-600 to-indigo-500 rounded-full shadow-[0_0_12px_rgba(115,109,179,0.5)]"></div>
+          
+          <h1 class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-100 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-none text-slate-900 dark:text-white pl-4">
+            Where <span class="bg-gradient-to-r from-brand-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(115,109,179,0.15)]">Chaos</span><br>Meets Clarity.
+          </h1>
+        </div>
+
+        <p class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-200 text-sm sm:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-xl pl-4">
+          Your vision deserves more than spreadsheets and workarounds. We build the operational backbone that turns ambition into scalable execution.
+        </p>
+
+        <div class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto pl-4">
+          <a href="#planner" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 transition-all text-center">
+            Interactive System Planner
+          </a>
+        </div>
       </div>
-      <h1 class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-100 text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-slate-900 dark:text-white">
-        Where <span class="bg-gradient-to-r from-brand-600 via-indigo-500 to-purple-600 bg-clip-text text-transparent">Chaos</span><br>Meets Clarity.
-      </h1>
-      <p class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-200 text-sm sm:text-lg text-slate-600 dark:text-slate-400 font-light leading-relaxed max-w-2xl px-2">
-        Your vision deserves more than spreadsheets and workarounds. We build the operational backbone that turns ambition into scalable execution.
-      </p>
-      <div class="opacity-0 translate-y-4 animate-fade-in-up animation-delay-300 flex flex-col sm:flex-row gap-4 pt-4 justify-center items-center w-full px-4 sm:px-0">
-        <a href="#planner" class="w-full sm:w-auto px-6 sm:px-8 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-brand-700 to-brand-600 hover:from-brand-800 hover:to-brand-700 rounded-xl shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 transition-all text-center">
-          Interactive System Planner
-        </a>
+
+      <!-- Right Column: Visual (Merged Visual Composition) -->
+      <div class="flex-1 w-full lg:max-w-xl relative flex justify-center items-center z-10">
+        <!-- Floating abstract light waves / grid backing -->
+        <div class="absolute -inset-4 bg-gradient-to-tr from-brand-600/10 to-indigo-500/10 rounded-full blur-3xl opacity-40 dark:opacity-60 pointer-events-none animate-pulse-slow"></div>
+        
+        <!-- Tech grid lines background -->
+        <div class="absolute w-[120%] h-[120%] opacity-[0.03] dark:opacity-[0.06] pointer-events-none">
+          <svg width="100%" height="100%"><defs><pattern id="hero-pattern" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M 30 0 L 0 0 0 30" fill="none" stroke="#736db3" stroke-width="1.5"/></pattern></defs></svg>
+        </div>
+
+        <!-- Merged HUD elements behind the image -->
+        <div class="absolute w-[80%] h-[80%] rounded-full border border-brand-500/10 animate-spin-slow pointer-events-none" style="animation-duration: 30s;"></div>
+        <div class="absolute w-[60%] h-[60%] rounded-full border border-dashed border-indigo-500/10 animate-spin-slow pointer-events-none" style="animation-duration: 20s; animation-direction: reverse;"></div>
+
+        <!-- Premium Technology Image with Soft Edge Blend Mask -->
+        <div class="relative w-full aspect-square max-w-[500px] group animate-float"
+             style="mask-image: radial-gradient(circle at center, black 40%, rgba(0,0,0,0.85) 65%, transparent 80%); -webkit-mask-image: radial-gradient(circle at center, black 40%, rgba(0,0,0,0.85) 65%, transparent 80%);">
+          <img src="hero-vr.png" alt="RHenova Tech - Operational Future" 
+               class="w-full h-full object-contain dark:mix-blend-screen opacity-95 "/>
+        </div>
+
+        <!-- Decorative Floating Badges/Dots matching the VR user interface theme -->
+
+
       </div>
+
     </section>
 
     <!-- ═══════════════════════════════════ SERVICES ═══════════════════════════════════ -->
-    <section id="services" class="py-16 sm:py-24 border-t border-slate-200/50 dark:border-slate-800/40">
-      <div class="text-center mb-12 sm:mb-16 space-y-4">
-        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">WHAT WE ENGINEER</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Core Digital Architectures</h2>
-        <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm px-4">We construct full-stack operational solutions, bridging custom logic directly to your enterprise database systems.</p>
+    <section id="services" class="py-16 sm:py-24 border-t border-slate-200/50 dark:border-slate-800/40 relative overflow-hidden">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="space-y-4 max-w-2xl text-left">
+          <span class="inline-block px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800/40 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-widest">WHAT WE ENGINEER</span>
+          <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-none">Core Digital Architectures</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">We construct full-stack operational solutions, bridging custom logic directly to your enterprise database systems.</p>
+        </div>
+        <!-- Arrow Navigation Buttons (Apple Style) -->
+        <div class="flex gap-2.5 mt-6 md:mt-0">
+          <button onclick="scrollServices('left')" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-905 dark:hover:bg-slate-800 border border-slate-200/40 dark:border-slate-800/30 text-slate-700 dark:text-slate-350 flex items-center justify-center transition-all focus:outline-none shadow-sm" aria-label="Previous service">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <button onclick="scrollServices('right')" class="w-11 h-11 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-905 dark:hover:bg-slate-800 border border-slate-200/40 dark:border-slate-800/30 text-slate-700 dark:text-slate-350 flex items-center justify-center transition-all focus:outline-none shadow-sm" aria-label="Next service">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-
-        <!-- Card 1: Zoho -->
-        <div class="service-card p-6 min-h-[230px] flex flex-col">
-          <div class="card-bg-img" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80')"></div>
-          <div class="card-shape-tl"></div>
-          <div class="card-shape-br"></div>
-          <div class="card-shape-dot"></div>
-          <!-- extra decorative ring -->
-          <div style="position:absolute;top:-40px;right:60px;width:90px;height:90px;border:1px solid rgba(115,109,179,0.08);border-radius:50%;pointer-events:none;"></div>
-          <div class="card-content flex flex-col flex-1">
-            <div class="w-11 h-11 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-5 border border-brand-100 dark:border-brand-900/40">
-              <i data-lucide="layers" class="w-5 h-5"></i>
+      <!-- Scrollable Snap Track -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="services-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 pt-2 px-1 -mx-2" style="scrollbar-width: none; -ms-overflow-style: none;">
+          
+          <!-- Card 1: Zoho -->
+          <div class="service-card apple-card snap-start flex-shrink-0 w-[290px] sm:w-[350px] md:w-[385px] h-[480px] flex flex-col p-8 sm:p-10 group">
+            <div class="flex flex-col text-left">
+              <span class="text-[9px] font-black text-brand-650 dark:text-brand-400 tracking-widest uppercase mb-2">Enterprise Software</span>
+              <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Zoho Implementation</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">CRM, Books, Creator, Desk, and Analytics custom configurations that automate workflow streams.</p>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Zoho Implementation</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex-1">From CRM and Books to Creator, Desk, Analytics, and beyond - fully connected Zoho ecosystems that automate workflows, unify data, integrate with third-party platforms, and leverage AI at scale.</p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Zoho CRM</span>
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Creator</span>
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Analytics</span>
+            <!-- Mockup dashboard interface -->
+            <div class="apple-card-mockup mt-auto w-full aspect-[4/3] relative overflow-hidden rounded-2xl shadow-sm border border-slate-200/40 dark:border-slate-800/30">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Zoho Dashboard" class="w-full h-full object-cover">
             </div>
           </div>
-        </div>
 
-        <!-- Card 2: Mobile -->
-        <div class="service-card p-6 min-h-[230px] flex flex-col">
-          <div class="card-bg-img" style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80')"></div>
-          <div class="card-shape-tl"></div>
-          <div class="card-shape-br"></div>
-          <div class="card-shape-dot"></div>
-          <div style="position:absolute;bottom:30px;right:-25px;width:70px;height:70px;border:1px solid rgba(115,109,179,0.10);border-radius:50%;pointer-events:none;"></div>
-          <div class="card-content flex flex-col flex-1">
-            <div class="w-11 h-11 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-5 border border-brand-100 dark:border-brand-900/40">
-              <i data-lucide="smartphone" class="w-5 h-5"></i>
+          <!-- Card 2: Mobile -->
+          <div class="service-card apple-card snap-start flex-shrink-0 w-[290px] sm:w-[350px] md:w-[385px] h-[480px] flex flex-col p-8 sm:p-10 group">
+            <div class="flex flex-col text-left">
+              <span class="text-[9px] font-black text-brand-650 dark:text-brand-400 tracking-widest uppercase mb-2">Native Client Portals</span>
+              <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Mobile Application</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">Workforce monitoring, customer accounts, and logistics logs built natively with Flutter.</p>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Custom Mobile Application</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex-1">Whether it's workforce management, customer engagement, approvals, or reporting - we design mobile solutions tailored to how your business actually works.</p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Flutter</span>
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">iOS & Android</span>
+            <!-- Mockup phone interface -->
+            <div class="apple-card-mockup mt-auto w-full aspect-[4/3] relative overflow-hidden rounded-2xl shadow-sm border border-slate-200/40 dark:border-slate-800/30">
+              <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80" alt="Mobile Dashboard" class="w-full h-full object-cover">
             </div>
           </div>
-        </div>
 
-        <!-- Card 3: Plugins -->
-        <div class="service-card p-6 min-h-[230px] flex flex-col">
-          <div class="card-bg-img" style="background-image:url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=80')"></div>
-          <div class="card-shape-tl"></div>
-          <div class="card-shape-br"></div>
-          <div class="card-shape-dot"></div>
-          <div class="card-content flex flex-col flex-1">
-            <div class="w-11 h-11 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-5 border border-brand-100 dark:border-brand-900/40">
-              <i data-lucide="puzzle" class="w-5 h-5"></i>
+          <!-- Card 3: Plugins -->
+          <div class="service-card apple-card snap-start flex-shrink-0 w-[290px] sm:w-[350px] md:w-[385px] h-[480px] flex flex-col p-8 sm:p-10 group">
+            <div class="flex flex-col text-left">
+              <span class="text-[9px] font-black text-brand-650 dark:text-brand-400 tracking-widest uppercase mb-2">API Connectivity</span>
+              <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Plugins & Extensions</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">Custom plugin frameworks and secure JSON API bridges connecting isolated software.</p>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Custom Plugins & Extensions</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex-1">When standard software falls short, we build the missing pieces - from custom plugins and integrations to specialized business functionality that works exactly your way.</p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">API</span>
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Webhooks</span>
+            <!-- Mockup plugins interface -->
+            <div class="apple-card-mockup mt-auto w-full aspect-[4/3] relative overflow-hidden rounded-2xl shadow-sm border border-slate-200/40 dark:border-slate-800/30">
+              <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&q=80" alt="Plugins Dashboard" class="w-full h-full object-cover">
             </div>
           </div>
-        </div>
 
-        <!-- Card 4: AI Workflows -->
-        <div class="service-card p-6 min-h-[230px] flex flex-col">
-          <div class="card-bg-img" style="background-image:url('https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80')"></div>
-          <div class="card-shape-tl"></div>
-          <div class="card-shape-br"></div>
-          <div class="card-shape-dot"></div>
-          <div style="position:absolute;top:50%;right:-30px;width:80px;height:80px;border:1px solid rgba(115,109,179,0.08);border-radius:50%;pointer-events:none;"></div>
-          <div class="card-content flex flex-col flex-1">
-            <div class="w-11 h-11 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-5 border border-brand-100 dark:border-brand-900/40">
-              <i data-lucide="brain" class="w-5 h-5"></i>
+          <!-- Card 4: AI Workflows -->
+          <div class="service-card apple-card snap-start flex-shrink-0 w-[290px] sm:w-[350px] md:w-[385px] h-[480px] flex flex-col p-8 sm:p-10 group">
+            <div class="flex flex-col text-left">
+              <span class="text-[9px] font-black text-brand-650 dark:text-brand-400 tracking-widest uppercase mb-2">Operational Logic</span>
+              <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">AI-Powered Workflows</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">Algorithmic workflow routing, data validation checks, and AI pattern processing engines.</p>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">AI-Powered Workflows</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex-1">Move beyond automation. We build AI-powered ecosystems that streamline operations, augment decision-making, and unlock new levels of efficiency and growth.</p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">AI / ML</span>
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Automation</span>
+            <!-- Mockup AI interface -->
+            <div class="apple-card-mockup mt-auto w-full aspect-[4/3] relative overflow-hidden rounded-2xl shadow-sm border border-slate-200/40 dark:border-slate-800/30">
+              <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80" alt="AI Dashboard" class="w-full h-full object-cover">
             </div>
           </div>
+
+          <!-- Card 5: Ecosystems -->
+          <div class="service-card apple-card snap-start flex-shrink-0 w-[290px] sm:w-[350px] md:w-[385px] h-[480px] flex flex-col p-8 sm:p-10 group">
+            <div class="flex flex-col text-left">
+              <span class="text-[9px] font-black text-brand-650 dark:text-brand-400 tracking-widest uppercase mb-2">Systems Orchestration</span>
+              <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight">Unified Ecosystems</h3>
+              <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-2.5 leading-relaxed">Coordinated multi-device sync logic providing executive oversight across your digital assets.</p>
+            </div>
+            <!-- Mockup ecosystems interface -->
+            <div class="apple-card-mockup mt-auto w-full aspect-[4/3] relative overflow-hidden rounded-2xl shadow-sm border border-slate-200/40 dark:border-slate-800/30">
+              <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&q=80" alt="Ecosystems Dashboard" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════ PRODUCT SHOWCASE ═══════════════════════════════════ -->
+    <section id="showcase" class="py-16 sm:py-24 border-t border-slate-200/50 dark:border-slate-800/40 overflow-hidden relative">
+      <!-- Background elegant organic lines -->
+        <path class="animate-wave-slow" d="M -100 450 C 400 350, 800 150, 1200 250 C 1300 280, 1400 200, 1500 180" stroke="#736db3" stroke-width="2.5" fill="none" />
+        <path class="animate-wave-reverse" d="M -50 350 C 350 200, 750 400, 1150 180 C 1280 120, 1380 220, 1480 240" stroke="#8b5cf6" stroke-width="1.2" fill="none" />
+      </svg>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-7xl mx-auto relative z-10">
+        
+        <!-- Left: Product Copy -->
+        <!-- Left : Our Process -->
+
+<div class="lg:col-span-5 px-4 sm:px-0">
+
+  <div class="space-y-10">
+
+    <!-- Badge -->
+
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+
+    border border-[#D9D1FF]
+
+    bg-[#F5F3FF]
+
+    dark:bg-[#22193F]">
+
+      <i data-lucide="workflow"
+
+      class="w-4 h-4 text-[#736DB3]"></i>
+
+      <span class="text-[10px]
+
+      font-black
+
+      uppercase
+
+      tracking-[3px]
+
+      text-[#736DB3]">
+
+        Our Process
+
+      </span>
+
+    </div>
+
+
+
+    <!-- Heading -->
+
+    <div class="space-y-4">
+
+      <h2 class="text-4xl sm:text-5xl font-black
+
+      text-slate-900 dark:text-white
+
+      leading-tight">
+
+        Built With Purpose
+
+
+      </h2>
+
+
+
+      <p class="max-w-lg
+
+      text-slate-500
+
+      dark:text-slate-400
+
+      leading-relaxed">
+
+We transform ideas into intelligent systems through a simple, proven process focused on speed, precision, and long-term growth.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- Steps -->
+
+    <div class="space-y-6">
+
+
+
+      <!-- 01 -->
+
+      <div class="flex gap-4">
+
+        <div class="w-12 h-12 rounded-2xl
+
+        border border-[#D9D1FF]
+
+        flex items-center justify-center
+
+        flex-shrink-0">
+
+          <i data-lucide="search"
+
+          class="w-5 h-5 text-[#736DB3]"></i>
+
         </div>
 
-        <!-- Card 5: Ecosystems -->
-        <div class="service-card p-6 min-h-[230px] flex flex-col sm:col-span-2 lg:col-span-1">
-          <div class="card-bg-img" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80')"></div>
-          <div class="card-shape-tl"></div>
-          <div class="card-shape-br"></div>
-          <div class="card-shape-dot"></div>
-          <div class="card-content flex flex-col flex-1">
-            <div class="w-11 h-11 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-5 border border-brand-100 dark:border-brand-900/40">
-              <i data-lucide="git-merge" class="w-5 h-5"></i>
+
+
+        <div>
+
+          <div class="flex items-center gap-3">
+
+            <span class="text-sm
+
+            font-black
+
+            text-[#736DB3]">
+
+              01
+
+            </span>
+
+
+
+            <h3 class="font-bold
+
+            text-slate-900
+
+            dark:text-white">
+
+              Discovery
+
+            </h3>
+
+          </div>
+
+
+
+          <p class="mt-1 text-sm
+
+          text-slate-500
+
+          dark:text-slate-400">
+
+            Analyze operations and identify opportunities.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 02 -->
+
+      <div class="flex gap-4">
+
+        <div class="w-12 h-12 rounded-2xl
+
+        border border-[#D9D1FF]
+
+        flex items-center justify-center
+
+        flex-shrink-0">
+
+          <i data-lucide="layout-template"
+
+          class="w-5 h-5 text-[#736DB3]"></i>
+
+        </div>
+
+
+
+        <div>
+
+          <div class="flex items-center gap-3">
+
+            <span class="text-sm
+
+            font-black
+
+            text-[#736DB3]">
+
+              02
+
+            </span>
+
+
+
+            <h3 class="font-bold
+
+            text-slate-900
+
+            dark:text-white">
+
+              Architecture
+
+            </h3>
+
+          </div>
+
+
+
+          <p class="mt-1 text-sm
+
+          text-slate-500
+
+          dark:text-slate-400">
+
+            Design systems tailored to your workflow.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 03 -->
+
+      <div class="flex gap-4">
+
+        <div class="w-12 h-12 rounded-2xl
+
+        border border-[#D9D1FF]
+
+        flex items-center justify-center
+
+        flex-shrink-0">
+
+          <i data-lucide="code-2"
+
+          class="w-5 h-5 text-[#736DB3]"></i>
+
+        </div>
+
+
+
+        <div>
+
+          <div class="flex items-center gap-3">
+
+            <span class="text-sm
+
+            font-black
+
+            text-[#736DB3]">
+
+              03
+
+            </span>
+
+
+
+            <h3 class="font-bold
+
+            text-slate-900
+
+            dark:text-white">
+
+              Development
+
+            </h3>
+
+          </div>
+
+
+
+          <p class="mt-1 text-sm
+
+          text-slate-500
+
+          dark:text-slate-400">
+
+            Build integrations and intelligent automation.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- 04 -->
+
+      <div class="flex gap-4">
+
+        <div class="w-12 h-12 rounded-2xl
+
+        border border-[#D9D1FF]
+
+        flex items-center justify-center
+
+        flex-shrink-0">
+
+          <i data-lucide="rocket"
+
+          class="w-5 h-5 text-[#736DB3]"></i>
+
+        </div>
+
+
+
+        <div>
+
+          <div class="flex items-center gap-3">
+
+            <span class="text-sm
+
+            font-black
+
+            text-[#736DB3]">
+
+              04
+
+            </span>
+
+
+
+            <h3 class="font-bold
+
+            text-slate-900
+
+            dark:text-white">
+
+              Scale
+
+            </h3>
+
+          </div>
+
+
+
+          <p class="mt-1 text-sm
+
+          text-slate-500
+
+          dark:text-slate-400">
+
+            Launch, monitor, and continuously improve.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+        <!-- Right: Isometric Screens Showcase (Responsive scaled container for mobile overflow fix) -->
+        <div class="lg:col-span-7 relative flex justify-center items-center w-full min-h-[350px] sm:min-h-[500px]">
+          <!-- Grid backdrop matching visual -->
+          <div class="absolute inset-0 bg-slate-100/40 dark:bg-slate-900/10 rounded-[40px] pointer-events-none"></div>
+          
+          <!-- Isometric Container Wrapper for Mobile Scaling -->
+          <div class="relative w-[310px] h-[310px] sm:w-[480px] sm:h-[480px] lg:w-[520px] lg:h-[520px] flex items-center justify-center scale-[0.62] sm:scale-95 lg:scale-100 origin-center transition-all duration-500" style="perspective: 1200px; transform-style: preserve-3d;">
+            
+            <!-- Screen 1: The Main Analytics Display (Top Left) -->
+            <div class="absolute w-[240px] sm:w-[290px] bg-white dark:bg-slate-900 border border-brand-100 dark:border-slate-800 rounded-2xl shadow-[0_15px_30px_rgba(22,19,43,0.08)] p-4 sm:p-5 transition-all duration-500 hover:scale-[1.03] z-20"
+                 style="transform: rotateX(40deg) rotateY(-10deg) rotateZ(-30deg) translate3d(-60px, -50px, 40px); transform-style: preserve-3d;">
+              <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
+                <div class="flex items-center space-x-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-red-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-green-400"></span>
+                </div>
+                <span class="text-[9px] font-bold text-slate-400">ANALYTICS ENGINE</span>
+              </div>
+              <span class="text-[10px] text-slate-400 block">Weekly Transactions</span>
+              <span class="text-xl sm:text-2xl font-black text-slate-855 dark:text-white mt-1 block">99.98% Sync</span>
+              <!-- Dummy bar charts -->
+              <div class="flex items-end gap-1.5 h-20 sm:h-24 mt-4 bg-slate-50 dark:bg-slate-950 p-2 rounded-xl">
+                <div class="bg-brand-200 dark:bg-brand-900/60 w-full h-[30%] rounded-sm"></div>
+                <div class="bg-brand-300 dark:bg-brand-800/60 w-full h-[55%] rounded-sm"></div>
+                <div class="bg-brand-400 dark:bg-brand-700/60 w-full h-[40%] rounded-sm"></div>
+                <div class="bg-brand-500 dark:bg-brand-600/60 w-full h-[85%] rounded-sm"></div>
+                <div class="bg-brand-600 dark:bg-brand-500 w-full h-[98%] rounded-sm shadow-[0_0_10px_rgba(115,109,179,0.4)] animate-pulse"></div>
+              </div>
             </div>
-            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2">Orchestrated Ecosystems</h3>
-            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed flex-1">Modern businesses depend on dozens of technologies. We transform them into a unified ecosystem that operates with clarity, intelligence, and precision.</p>
-            <div class="mt-4 flex flex-wrap gap-1.5">
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Integration</span>
-              <span class="px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-bold border border-brand-100 dark:border-brand-900/40">Sync</span>
+
+            <!-- Screen 2: System Health Sync (Bottom Right) -->
+            <div class="absolute w-[220px] sm:w-[270px] bg-white dark:bg-slate-900 border border-brand-100 dark:border-slate-800 rounded-2xl shadow-[0_20px_40px_rgba(22,19,43,0.12)] p-4 sm:p-5 transition-all duration-500 hover:scale-[1.03] z-10"
+                 style="transform: rotateX(40deg) rotateY(-10deg) rotateZ(-30deg) translate3d(80px, 60px, -20px); transform-style: preserve-3d;">
+              <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3 mb-3">
+                <div class="flex items-center space-x-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
+                  <span class="text-[9px] font-bold text-slate-800 dark:text-slate-200">ZOHO LOG STREAM</span>
+                </div>
+                <span class="px-2 py-0.5 rounded bg-green-50 dark:bg-green-950/30 text-green-600 text-[8px] font-extrabold uppercase">ACTIVE</span>
+              </div>
+              <div class="space-y-2 mt-2">
+                <div class="p-2 rounded-lg bg-slate-50 dark:bg-slate-950 text-[9px] text-slate-500 flex justify-between">
+                  <span>Contact Sync Executed</span>
+                  <span class="text-green-500 font-bold">SUCCESS</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-50 dark:bg-slate-950 text-[9px] text-slate-500 flex justify-between">
+                  <span>Invoice API Ledger Sync</span>
+                  <span class="text-green-500 font-bold">SUCCESS</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-50 dark:bg-slate-950 text-[9px] text-slate-500 flex justify-between">
+                  <span>Materials DB Trigger</span>
+                  <span class="text-green-500 font-bold">SUCCESS</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Screen 3: Mobile Layout mockup (Far Right / Overlapping) -->
+            <div class="absolute w-[130px] sm:w-[160px] aspect-[0.5] bg-white dark:bg-slate-900 border border-brand-200 dark:border-slate-800 rounded-3xl shadow-[0_25px_50px_rgba(22,19,43,0.14)] p-3 transition-all duration-500 hover:scale-[1.03] z-30 flex flex-col justify-between"
+                 style="transform: rotateX(40deg) rotateY(-10deg) rotateZ(-30deg) translate3d(150px, -60px, 70px); transform-style: preserve-3d;">
+              <!-- Camera Notch -->
+              <div class="self-center w-12 h-3.5 bg-slate-900 dark:bg-slate-950 rounded-full flex items-center justify-center mb-2">
+                <div class="w-1.5 h-1.5 bg-slate-800 rounded-full"></div>
+              </div>
+              
+              <!-- Screen Body -->
+              <div class="flex-1 flex flex-col justify-between bg-slate-50 dark:bg-slate-950 rounded-2xl p-2.5 border border-slate-100 dark:border-slate-800 overflow-hidden">
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[8px] font-bold text-slate-400">RHenova Console</span>
+                    <i data-lucide="bell" class="w-2.5 h-2.5 text-brand-500"></i>
+                  </div>
+                  <div class="h-10 bg-brand-600 rounded-lg p-1.5 flex flex-col justify-between">
+                    <span class="text-[6px] text-white/70 block uppercase">SYSTEM STATE</span>
+                    <span class="text-[9px] text-white font-bold block">OPERATIONAL</span>
+                  </div>
+                  <div class="p-1.5 bg-white dark:bg-slate-900 rounded-lg border border-slate-200/50 dark:border-slate-800/80">
+                    <span class="text-[6px] text-slate-400 block">Open Support Tickets</span>
+                    <span class="text-[10px] text-slate-700 dark:text-slate-300 font-bold block mt-0.5">0 Issues</span>
+                  </div>
+                </div>
+                
+                <div class="h-6 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800/80 flex items-center justify-center text-[7px] font-bold text-brand-600 dark:text-brand-400">
+                  Secure Workspace
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -559,9 +1184,62 @@
     </section>
 
     <!-- ═══════════════════════════════════ STATS ═══════════════════════════════════ -->
-    <section class="py-10 sm:py-16 bg-slate-900 text-slate-100 rounded-[28px] sm:rounded-[32px] px-6 sm:px-12 relative overflow-hidden mb-16 sm:mb-24 shadow-xl">
-      <div class="absolute inset-0 opacity-5 pointer-events-none">
-        <svg width="100%" height="100%"><defs><pattern id="grid-dark" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#736db3" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid-dark)"/></svg>
+    <section class="py-10 sm:py-16 bg-[#040815] border border-brand-500/20 text-slate-100 rounded-[28px] sm:rounded-[32px] px-6 sm:px-12 relative overflow-hidden mb-16 sm:mb-24 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      <!-- Ambient Glow Blobs -->
+      <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-72 h-72 rounded-full bg-brand-600/10 blur-[80px] pointer-events-none"></div>
+      <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 rounded-full bg-blue-600/10 blur-[90px] pointer-events-none"></div>
+      
+      <!-- Glowing Animated Waves -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-80" viewBox="0 0 1440 400" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="wave-grad-1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0" />
+            <stop offset="30%" stop-color="#6366f1" stop-opacity="0.25" />
+            <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.45" />
+            <stop offset="70%" stop-color="#06b6d4" stop-opacity="0.3" />
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="wave-grad-2" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0" />
+            <stop offset="40%" stop-color="#4f46e5" stop-opacity="0.25" />
+            <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.35" />
+            <stop offset="85%" stop-color="#3b82f6" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+          </linearGradient>
+          <filter id="glow-wave" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="8" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        <!-- Wave 1 (Blurred + Sharp Overlay) -->
+        <path class="animate-wave-slow" d="M -100 220 C 300 40, 700 360, 1100 130 C 1300 30, 1500 110, 1600 160" stroke="url(#wave-grad-1)" stroke-width="8" fill="none" opacity="0.8" filter="url(#glow-wave)" />
+        <path class="animate-wave-slow" d="M -100 220 C 300 40, 700 360, 1100 130 C 1300 30, 1500 110, 1600 160" stroke="url(#wave-grad-1)" stroke-width="2" fill="none" opacity="0.95" />
+
+        <!-- Wave 2 (Blurred + Sharp Overlay) -->
+        <path class="animate-wave-reverse" d="M -50 140 C 250 260, 650 60, 1050 240 C 1250 320, 1450 180, 1550 160" stroke="url(#wave-grad-2)" stroke-width="6" fill="none" opacity="0.7" filter="url(#glow-wave)" />
+        <path class="animate-wave-reverse" d="M -50 140 C 250 260, 650 60, 1050 240 C 1250 320, 1450 180, 1550 160" stroke="url(#wave-grad-2)" stroke-width="1.5" fill="none" opacity="0.85" />
+      </svg>
+
+      <!-- Star Particles (twinkling) -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute w-1 h-1 rounded-full bg-white animate-twinkle" style="top: 15%; left: 12%; animation-delay: 0.5s; filter: drop-shadow(0 0 2px #fff);"></div>
+        <div class="absolute w-1.5 h-1.5 rounded-full bg-indigo-300 animate-twinkle" style="top: 35%; left: 28%; animation-delay: 2.3s; filter: drop-shadow(0 0 3px #a5b4fc);"></div>
+        <div class="absolute w-2 h-2 rounded-full bg-white animate-twinkle" style="top: 20%; left: 45%; animation-delay: 1.1s; filter: drop-shadow(0 0 4px #fff);"></div>
+        <div class="absolute w-1 h-1 rounded-full bg-blue-300 animate-twinkle" style="top: 65%; left: 18%; animation-delay: 3.2s;"></div>
+        <div class="absolute w-1.5 h-1.5 rounded-full bg-white animate-twinkle" style="top: 75%; left: 38%; animation-delay: 0.8s; filter: drop-shadow(0 0 2px #fff);"></div>
+        <div class="absolute w-1 h-1 rounded-full bg-purple-300 animate-twinkle" style="top: 25%; left: 62%; animation-delay: 1.7s;"></div>
+        <div class="absolute w-2 h-2 rounded-full bg-white animate-twinkle" style="top: 45%; left: 78%; animation-delay: 2.9s; filter: drop-shadow(0 0 4px #fff);"></div>
+        <div class="absolute w-1 h-1 rounded-full bg-indigo-200 animate-twinkle" style="top: 80%; left: 68%; animation-delay: 0.2s;"></div>
+        <div class="absolute w-1.5 h-1.5 rounded-full bg-white animate-twinkle" style="top: 55%; left: 55%; animation-delay: 1.4s; filter: drop-shadow(0 0 3px #fff);"></div>
+        <div class="absolute w-1 h-1 rounded-full bg-blue-200 animate-twinkle" style="top: 12%; left: 88%; animation-delay: 2.5s;"></div>
+        <div class="absolute w-1.5 h-1.5 rounded-full bg-white animate-twinkle" style="top: 72%; left: 84%; animation-delay: 3.7s; filter: drop-shadow(0 0 2px #fff);"></div>
+        <div class="absolute w-1 h-1 rounded-full bg-white animate-twinkle" style="top: 38%; left: 93%; animation-delay: 0.9s;"></div>
+        <div class="absolute w-2 h-2 rounded-full bg-indigo-300 animate-twinkle" style="top: 85%; left: 5%; animation-delay: 2.1s; filter: drop-shadow(0 0 3px #a5b4fc);"></div>
+        <div class="absolute w-1 h-1 rounded-full bg-white animate-twinkle" style="top: 50%; left: 24%; animation-delay: 1.8s;"></div>
       </div>
       <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-10">
         <div class="max-w-md space-y-4 text-center lg:text-left">
@@ -591,33 +1269,32 @@
     </section>
 
     <!-- ═══════════════════════════════════ INDUSTRIES ═══════════════════════════════════ -->
-    <section id="industries" class="py-10 sm:py-12">
+    <section id="industries" class="py-16 sm:py-24">
       <div class="text-center mb-12 sm:mb-16 space-y-4">
         <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">SECTOR EXPERTISE</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Built for Industry Leaders</h2>
         <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm px-4">Explore specialized operational workflows designed for enterprise sectors.</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-        <!-- Industry macro: reusable pattern -->
-        <!-- BUILDERS -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Builders">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 1: BUILDERS -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Builders">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">BUILDERS & DEVELOPMENT</span>
             <div>
               <h3 class="text-xl sm:text-2xl font-bold text-white">Smart ERP For Modern Construction</h3>
-              <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">Built for developers and contractors managing large-scale projects - complete visibility across procurement, execution, materials, and finances.</p>
+              <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">Built for developers and contractors managing large-scale projects — complete visibility across procurement, execution, materials, and finances.</p>
             </div>
           </div>
         </div>
 
-        <!-- REAL ESTATE -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Real Estate">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 2: REAL ESTATE -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Real Estate">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">REAL ESTATE</span>
             <div>
@@ -627,10 +1304,10 @@
           </div>
         </div>
 
-        <!-- INTERIOR DESIGN -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Interior">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 3: INTERIOR DESIGN -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Interior">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">INTERIOR DESIGN</span>
             <div>
@@ -640,10 +1317,10 @@
           </div>
         </div>
 
-        <!-- SCHOOL -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="School">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 4: SCHOOL -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="School">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">SCHOOL MANAGEMENT</span>
             <div>
@@ -653,10 +1330,10 @@
           </div>
         </div>
 
-        <!-- GYM -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Gym">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 5: GYM -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Gym">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">GYM MANAGEMENT</span>
             <div>
@@ -666,10 +1343,10 @@
           </div>
         </div>
 
-        <!-- FACILITY -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Facility">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 6: FACILITY -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Facility">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">FACILITIES MANAGEMENT</span>
             <div>
@@ -679,10 +1356,10 @@
           </div>
         </div>
 
-        <!-- EVENT -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Event">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 7: EVENT -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Event">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">EVENT MANAGEMENT</span>
             <div>
@@ -692,10 +1369,10 @@
           </div>
         </div>
 
-        <!-- OPTICAL -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Optical">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 8: OPTICAL -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30">
+          <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Optical">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">OPTICAL RETAIL</span>
             <div>
@@ -705,10 +1382,10 @@
           </div>
         </div>
 
-        <!-- JEWELLERY -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl">
-          <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Jewellery">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 9: JEWELLERY (Spans 2 columns on desktop only) -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30 xl:col-span-2">
+          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Jewellery">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">JEWELLERY RETAIL</span>
             <div>
@@ -718,10 +1395,10 @@
           </div>
         </div>
 
-        <!-- SUPPLY CHAIN -->
-        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl sm:col-span-2 lg:col-span-1">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Supply Chain">
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent"></div>
+        <!-- Card 10: SUPPLY CHAIN (Spans 3 columns on laptop, 2 columns on desktop) -->
+        <div class="industry-card-adv group relative h-[380px] sm:h-[440px] overflow-hidden rounded-3xl shadow-xl border border-slate-200/20 dark:border-slate-800/30 lg:col-span-3 xl:col-span-2">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="Supply Chain">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent"></div>
           <div class="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between">
             <span class="violet-badge self-start">SUPPLY CHAIN</span>
             <div>
@@ -739,7 +1416,7 @@
       <div class="text-center mb-12 sm:mb-16 space-y-4">
         <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">WHO WE ARE</span>
         <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Direct Engineering Capabilities</h2>
-        <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm px-4">Most firms put layers between ideas and execution. We remove them - giving you direct access to the experts who architect, build, and scale your solution.</p>
+        <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 text-sm px-4">Most firms put layers between ideas and execution. We remove them — giving you direct access to the experts who architect, build, and scale your solution.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         <!-- Card 1 -->
@@ -807,41 +1484,51 @@
     </section>
 
     <!-- ═══════════════════════════════════ PLANNER ═══════════════════════════════════ -->
-    <section id="planner" class="py-16 sm:py-20 border-t border-slate-200/50 dark:border-slate-800/40">
-      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-4">
-        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">BLUEPRINT GENERATOR</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Identify Your Core Friction Point</h2>
-        <p class="text-slate-500 dark:text-slate-400 text-sm px-4">Select an operational bottle-neck below to instantly construct a customized architectural solution blueprint.</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10">
-        <button onclick="generateStrategy('excel', this)" class="planner-btn p-5 sm:p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-brand-500/50 hover:shadow-lg dark:hover:shadow-black/20 transition-all flex flex-col justify-between min-h-[150px] sm:min-h-[160px] group focus:outline-none">
-          <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-transform">
-            <i data-lucide="sheet" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1.5">Excel & Manual Chaos</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">Administrators spend hours copying numbers across rows, triggering critical errors and missing updates.</p>
-          </div>
-        </button>
-        <button onclick="generateStrategy('leads', this)" class="planner-btn p-5 sm:p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-brand-500/50 hover:shadow-lg dark:hover:shadow-black/20 transition-all flex flex-col justify-between min-h-[150px] sm:min-h-[160px] group focus:outline-none">
-          <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-transform">
-            <i data-lucide="user-minus" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1.5">Lost Lead Pipelines</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">No customer history records are logged. Sales reps forget client calls, and leads drop off without follow-ups.</p>
-          </div>
-        </button>
-        <button onclick="generateStrategy('silo', this)" class="planner-btn p-5 sm:p-6 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-left hover:border-brand-500/50 hover:shadow-lg dark:hover:shadow-black/20 transition-all flex flex-col justify-between min-h-[150px] sm:min-h-[160px] group focus:outline-none">
-          <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-transform">
-            <i data-lucide="unplug" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1.5">Siloed Software Tools</h3>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">Lead pipelines don't link with inventory or billing, obscuring real-time business metrics.</p>
-          </div>
-        </button>
-      </div>
+    <section id="planner" class="py-16 sm:py-20 border-t border-slate-200/50 dark:border-slate-800/40 relative overflow-hidden">
+      <!-- Background elegant organic lines -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-[0.08] dark:opacity-[0.15] z-0" viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="animate-wave-slow" d="M -100 200 C 400 350, 800 50, 1200 300 C 1300 350, 1400 250, 1500 220" stroke="#736db3" stroke-width="2.2" fill="none" />
+        <path class="animate-wave-reverse" d="M -50 350 C 350 150, 750 450, 1150 250 C 1280 180, 1380 280, 1480 300" stroke="#8b5cf6" stroke-width="1.2" fill="none" />
+      </svg>
+      
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-4">
+          <span class="inline-block px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800/40 text-slate-700 dark:text-slate-300 text-[10px] font-black uppercase tracking-widest">BLUEPRINT GENERATOR</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Identify Your Core Friction Point</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-sm px-4">Select an operational bottle-neck below to instantly construct a customized architectural solution blueprint.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mb-8 sm:mb-10">
+          <button onclick="generateStrategy('excel', this)" class="planner-btn p-6 sm:p-7 rounded-3xl border border-slate-200/50 dark:border-slate-800/40 bg-[#f5f5f7] dark:bg-[#1c1c1e] text-left hover:scale-[1.02] transition-all flex flex-col justify-between min-h-[170px] sm:min-h-[180px] group focus:outline-none">
+            <div class="icon-wrapper w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-all duration-300">
+              <i data-lucide="sheet" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Excel & Manual Chaos</h3>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">Administrators spend hours copying numbers across rows, triggering critical errors and missing updates.</p>
+            </div>
+          </button>
+          
+          <button onclick="generateStrategy('leads', this)" class="planner-btn p-6 sm:p-7 rounded-3xl border border-slate-200/50 dark:border-slate-800/40 bg-[#f5f5f7] dark:bg-[#1c1c1e] text-left hover:scale-[1.02] transition-all flex flex-col justify-between min-h-[170px] sm:min-h-[180px] group focus:outline-none">
+            <div class="icon-wrapper w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-all duration-300">
+              <i data-lucide="user-minus" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Lost Lead Pipelines</h3>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">No customer history records are logged. Sales reps forget client calls, and leads drop off without follow-ups.</p>
+            </div>
+          </button>
+          
+          <button onclick="generateStrategy('silo', this)" class="planner-btn p-6 sm:p-7 rounded-3xl border border-slate-200/50 dark:border-slate-800/40 bg-[#f5f5f7] dark:bg-[#1c1c1e] text-left hover:scale-[1.02] transition-all flex flex-col justify-between min-h-[170px] sm:min-h-[180px] group focus:outline-none">
+            <div class="icon-wrapper w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 border border-brand-100 dark:border-brand-900/40 group-hover:scale-110 transition-all duration-300">
+              <i data-lucide="unplug" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mb-1.5">Siloed Software Tools</h3>
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">Lead pipelines don't link with inventory or billing, obscuring real-time business metrics.</p>
+            </div>
+          </button>
+        </div>
       <div id="strategy-panel" class="hidden p-5 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-brand-200 dark:border-brand-900/80 shadow-md">
         <div class="flex items-center space-x-3 mb-4">
           <span class="w-2.5 h-2.5 rounded-full bg-brand-600 dark:bg-brand-400 animate-pulse"></span>
@@ -857,43 +1544,514 @@
     </section>
 
     <!-- ═══════════════════════════════════ VISION & MISSION ═══════════════════════════════════ -->
-    <section class="py-16 sm:py-20 border-t border-slate-200/50 dark:border-slate-800/40">
-      <div class="text-center mb-12 sm:mb-16 space-y-4">
-        <span class="inline-block px-3 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-100 dark:border-brand-900/60 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">OUR DIRECTION</span>
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">Structured Vision & Mission</h2>
-      </div>
-      <div class="grid lg:grid-cols-2 gap-6 sm:gap-8">
-        <div class="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
-          <div class="absolute -right-16 -top-16 w-40 h-40 bg-brand-500/5 dark:bg-brand-400/5 rounded-full"></div>
-          <div class="flex items-start gap-4 sm:gap-5 relative z-10">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0 border border-brand-100 dark:border-brand-900/40">
-              <i data-lucide="eye" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-            </div>
-            <div class="space-y-3 sm:space-y-4">
-              <span class="text-[10px] font-extrabold text-brand-600 dark:text-brand-400 tracking-[2px] uppercase">Our Vision</span>
-              <h3 class="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white">Shaping The Future Of Intelligent Businesses</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">We envision a future where traditional businesses harness intelligent technology, automation, and AI to operate with clarity, confidence, and limitless potential.</p>
-            </div>
-          </div>
-        </div>
-        <div class="p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 relative overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500">
-          <div class="absolute -right-16 -top-16 w-40 h-40 bg-brand-500/5 dark:bg-brand-400/5 rounded-full"></div>
-          <div class="flex items-start gap-4 sm:gap-5 relative z-10">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-50 dark:bg-brand-950 text-brand-600 dark:text-brand-400 flex items-center justify-center flex-shrink-0 border border-brand-100 dark:border-brand-900/40">
-              <i data-lucide="rocket" class="w-5 h-5 sm:w-6 sm:h-6"></i>
-            </div>
-            <div class="space-y-3 sm:space-y-4">
-              <span class="text-[10px] font-extrabold text-brand-600 dark:text-brand-400 tracking-[2px] uppercase">Our Mission</span>
-              <h3 class="text-lg sm:text-2xl font-bold text-slate-900 dark:text-white">Building Intelligent Digital Ecosystems</h3>
-              <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">Our mission is to help businesses evolve beyond manual operations by building intelligent, tailor-made digital ecosystems that simplify complexity and create lasting competitive advantage.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+ <!-- PURPOSE & DIRECTION -->
+
+<!-- PURPOSE & DIRECTION -->
+
+<section class="py-24 sm:py-32 border-t border-slate-200/50 dark:border-slate-800/40 overflow-hidden">
+
+<div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+<!-- Header -->
+
+<div class="text-center mb-20 space-y-5">
+
+<span class="inline-flex items-center px-4 py-2 rounded-full
+
+bg-[#F5F3FF]
+
+dark:bg-[#22193F]
+
+border border-[#D9D1FF]
+
+dark:border-[#4A3D7A]
+
+text-[#736DB3]
+
+text-[11px]
+
+font-black
+
+tracking-[3px]
+
+uppercase">
+
+Purpose & Direction
+
+</span>
+
+<h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white">
+
+Vision & Mission
+
+</h2>
+
+<p class="max-w-3xl mx-auto text-base sm:text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+
+We help organizations evolve into intelligent enterprises by combining technology, automation, data, and AI into one unified ecosystem.
+
+</p>
+
+</div>
+
+
+
+<div class="grid lg:grid-cols-2 gap-10 xl:gap-16 items-start">
+
+
+
+
+<!-- MISSION -->
+
+<div class="relative overflow-hidden
+
+p-10
+
+rounded-3xl
+
+border border-[#E7E2FF]
+
+dark:border-[#32285A]
+
+bg-white/95
+
+dark:bg-slate-900/95
+
+backdrop-blur-xl
+
+shadow-[0_10px_40px_rgba(115,109,179,0.08)]
+
+hover:shadow-[0_25px_70px_rgba(115,109,179,0.18)]
+
+hover:-translate-y-2
+
+transition-all duration-700">
+
+
+
+<!-- Glow -->
+
+<div class="absolute inset-0 pointer-events-none">
+
+<div class="absolute -top-28 -left-28
+
+w-80 h-80
+
+rounded-full
+
+bg-[#736DB3]/10
+
+blur-[90px]"></div>
+
+
+<div class="absolute -bottom-24 -right-24
+
+w-80 h-80
+
+rounded-full
+
+bg-[#8B84D9]/10
+
+blur-[100px]"></div>
+
+</div>
+
+
+
+<!-- Background Circles -->
+
+<div class="absolute left-0 top-8
+
+w-72 h-72
+
+rounded-full
+
+bg-[#F3F0FF]/80"></div>
+
+
+<div class="absolute left-20 top-36
+
+w-36 h-36
+
+rounded-full
+
+bg-[#E5DEFF]/80"></div>
+
+
+<div class="absolute left-56 top-12
+
+w-24 h-24
+
+rounded-full
+
+bg-[#D9D1FF]/60"></div>
+
+
+
+<div class="relative z-10">
+
+<!-- Icon -->
+
+<div class="mb-10">
+
+<div class="w-28 h-28
+
+rounded-full
+
+border-2 border-[#D9D1FF]
+
+flex items-center justify-center
+
+bg-white
+
+dark:bg-slate-900
+
+shadow-[0_0_35px_rgba(115,109,179,0.18)]">
+
+<i data-lucide="target"
+
+class="w-12 h-12 text-[#736DB3]">
+
+</i>
+
+</div>
+
+</div>
+
+
+
+<span class="text-xs
+
+font-black
+
+tracking-[4px]
+
+uppercase
+
+text-[#736DB3]">
+
+Mission
+
+</span>
+
+
+
+<h3 class="mt-5
+
+text-3xl
+
+lg:text-4xl
+
+font-black
+
+text-slate-900
+
+dark:text-white
+
+leading-tight">
+
+Empower Businesses Through Intelligent Systems
+
+</h3>
+
+
+
+<p class="mt-8
+
+text-base
+
+text-slate-500
+
+dark:text-slate-400
+
+leading-9">
+
+Our mission is to eliminate operational complexity by building intelligent digital ecosystems that connect people, processes, data, and automation into one seamless experience.
+
+</p>
+
+
+
+<div class="mt-10 space-y-4">
+
+<div class="flex items-center gap-3">
+
+<div class="w-2 h-2 rounded-full bg-[#736DB3]"></div>
+
+<span class="text-slate-700 dark:text-slate-300">
+
+Intelligent Process Automation
+
+</span>
+
+</div>
+
+
+<div class="flex items-center gap-3">
+
+<div class="w-2 h-2 rounded-full bg-[#736DB3]"></div>
+
+<span class="text-slate-700 dark:text-slate-300">
+
+Unified Digital Ecosystems
+
+</span>
+
+</div>
+
+
+<div class="flex items-center gap-3">
+
+<div class="w-2 h-2 rounded-full bg-[#736DB3]"></div>
+
+<span class="text-slate-700 dark:text-slate-300">
+
+Scalable Business Solutions
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- VISION -->
+
+<div class="relative overflow-hidden
+
+p-10
+
+rounded-3xl
+
+border border-[#E7E2FF]
+
+dark:border-[#32285A]
+
+bg-white/95
+
+dark:bg-slate-900/95
+
+backdrop-blur-xl
+
+shadow-[0_10px_40px_rgba(115,109,179,0.08)]
+
+hover:shadow-[0_25px_70px_rgba(115,109,179,0.18)]
+
+hover:-translate-y-2
+
+transition-all duration-700">
+
+
+
+<!-- Glow -->
+
+<div class="absolute inset-0 pointer-events-none">
+
+<div class="absolute -top-28 -right-28
+
+w-80 h-80
+
+rounded-full
+
+bg-[#736DB3]/10
+
+blur-[90px]"></div>
+
+
+<div class="absolute -bottom-24 -left-24
+
+w-80 h-80
+
+rounded-full
+
+bg-[#8B84D9]/10
+
+blur-[100px]"></div>
+
+</div>
+
+
+
+<!-- Background Circles -->
+
+<div class="absolute right-0 top-8
+
+w-72 h-72
+
+rounded-full
+
+bg-[#F3F0FF]/80"></div>
+
+
+<div class="absolute right-20 top-36
+
+w-36 h-36
+
+rounded-full
+
+bg-[#E5DEFF]/80"></div>
+
+
+<div class="absolute right-56 top-12
+
+w-24 h-24
+
+rounded-full
+
+bg-[#D9D1FF]/60"></div>
+
+
+
+<div class="relative z-10">
+
+<!-- Icon -->
+
+<div class="mb-10">
+
+<div class="w-28 h-28
+
+rounded-full
+
+border-2 border-[#D9D1FF]
+
+flex items-center justify-center
+
+bg-white
+
+dark:bg-slate-900
+
+shadow-[0_0_35px_rgba(115,109,179,0.18)]">
+
+<i data-lucide="eye"
+
+class="w-12 h-12 text-[#736DB3]">
+
+</i>
+
+</div>
+
+</div>
+
+
+
+<span class="text-xs
+
+font-black
+
+tracking-[4px]
+
+uppercase
+
+text-[#736DB3]">
+
+Vision
+
+</span>
+
+
+
+<h3 class="mt-5
+
+text-3xl
+
+lg:text-4xl
+
+font-black
+
+text-slate-900
+
+dark:text-white
+
+leading-tight">
+
+Build The Future Of Intelligent Enterprises
+
+</h3>
+
+
+
+<p class="mt-8
+
+text-base
+
+text-slate-500
+
+dark:text-slate-400
+
+leading-9">
+
+We envision a world where every organization operates through intelligent systems that seamlessly integrate technology, automation, and AI.
+
+</p>
+
+
+
+<div class="mt-10 space-y-4">
+
+<div class="flex items-center gap-3">
+
+<div class="w-2 h-2 rounded-full bg-[#736DB3]"></div>
+
+<span class="text-slate-700 dark:text-slate-300">
+
+AI Driven Decision Making
+
+</span>
+
+</div>
+
+
+<div class="flex items-center gap-3">
+
+<div class="w-2 h-2 rounded-full bg-[#736DB3]"></div>
+
+<span class="text-slate-700 dark:text-slate-300">
+
+Connected Enterprise Platforms
+
+</span>
+
+</div>
+
+
+<div class="flex items-center gap-3">
+
+<div class="w-2 h-2 rounded-full bg-[#736DB3]"></div>
+
+<span class="text-slate-700 dark:text-slate-300">
+
+Future Ready Organizations
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
     <!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
-    <section id="about" class="py-16 sm:py-20 border-t border-slate-200/50 dark:border-slate-800/40">
+    <section id="about" class="py-16 sm:py-20 border-t border-slate-200/50 dark:border-slate-800/40 relative overflow-hidden">
+      <!-- Background elegant organic lines -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-[0.08] dark:opacity-[0.15]" viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="animate-wave-slow" d="M -100 300 C 400 100, 800 500, 1200 200 C 1300 150, 1400 250, 1500 280" stroke="#736db3" stroke-width="3" fill="none" />
+        <path class="animate-wave-reverse" d="M -50 200 C 350 400, 750 150, 1150 350 C 1280 420, 1380 300, 1480 320" stroke="#8b5cf6" stroke-width="1.5" fill="none" />
+      </svg>
       <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
         <div class="lg:col-span-5">
           <div class="bg-white dark:bg-slate-900 shadow-2xl rounded-3xl p-8 sm:p-12 border border-slate-200 dark:border-slate-800">
@@ -906,7 +2064,7 @@
             </p>
             <div class="mt-8 space-y-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               <p>The founders began their journey as developer interns, writing code and understanding systems from the ground up.</p>
-              <p>Over time, they evolved into developers, lead developers, and eventually project managers - leading teams and delivering complex digital transformations.</p>
+              <p>Over time, they evolved into developers, lead developers, and eventually project managers — leading teams and delivering complex digital transformations.</p>
               <p class="font-semibold text-slate-900 dark:text-white">Along that journey, one thing became clear.</p>
               <p>Most businesses weren't struggling because they lacked ambition. They were struggling because their systems couldn't keep up with their vision.</p>
             </div>
@@ -920,7 +2078,7 @@
             <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">Why RHenova Exists</h3>
             <div class="mt-4 space-y-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               <p>Great companies were being slowed down by spreadsheets, disconnected software, and operational complexity.</p>
-              <p>RHenova was founded to change that - helping traditional businesses embrace the future with confidence.</p>
+              <p>RHenova was founded to change that — helping traditional businesses embrace the future with confidence.</p>
               <p class="font-semibold text-slate-900 dark:text-white">Growth should never be limited by the systems behind it.</p>
             </div>
           </div>
@@ -929,12 +2087,17 @@
       <div class="mt-20 sm:mt-32 max-w-4xl mx-auto text-center">
         <div class="inline-block px-5 py-2 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-bold tracking-[3px] uppercase">Our Philosophy</div>
         <h3 class="mt-8 text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-tight">Business Growth Should Never Be Limited By The Systems Behind It.</h3>
-        <p class="mt-6 text-base sm:text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto px-4">Every solution we create is driven by the same philosophy - helping businesses simplify complexity and unlock their true potential.</p>
+        <p class="mt-6 text-base sm:text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto px-4">Every solution we create is driven by the same philosophy — helping businesses simplify complexity and unlock their true potential.</p>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════ CTA ═══════════════════════════════════ -->
     <section class="py-10 sm:py-16 bg-gradient-to-r from-brand-50 to-indigo-50/50 dark:from-slate-900 dark:to-indigo-950/20 border border-slate-200 dark:border-slate-800 rounded-[28px] sm:rounded-[32px] p-6 sm:p-12 text-center relative overflow-hidden shadow-sm mb-4">
+      <!-- Subtle Wave Lines Inside CTA -->
+      <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20 dark:opacity-40" viewBox="0 0 1000 200" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="animate-wave-slow" d="M -50 120 C 200 40, 450 180, 700 80 C 850 30, 950 110, 1050 130" stroke="#8374b7" stroke-width="2" fill="none" />
+        <path class="animate-wave-reverse" d="M -20 80 C 220 160, 480 30, 720 130 C 880 170, 960 90, 1040 100" stroke="#736db3" stroke-width="1" fill="none" />
+      </svg>
       <div class="relative z-10 max-w-2xl mx-auto space-y-5 sm:space-y-6">
         <h2 class="text-xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Let's Establish Absolute System Visibility.</h2>
         <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm leading-relaxed px-2">Establish structured workflow architectures before operations split. Speak directly to our founders and senior software engineering developers.</p>
@@ -984,6 +2147,43 @@
     // ── Theme Toggle ──
 
 
+
+const observer = new IntersectionObserver(
+
+(entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add('active');
+
+}
+
+});
+
+},
+
+{
+
+threshold:0.2
+
+}
+
+);
+
+document
+
+.querySelectorAll('.reveal-card')
+
+.forEach(card=>{
+
+observer.observe(card);
+
+});
+
+
+
     // ── Mobile Menu ──
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -991,6 +2191,18 @@
       hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
     }
     function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+
+    // ── Services Carousel Scroll ──
+    window.scrollServices = function(dir) {
+      const track = document.getElementById('services-track');
+      if (!track) return;
+      const cardWidth = track.firstElementChild.getBoundingClientRect().width + 24; // width + gap
+      if (dir === 'left') {
+        track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    };
 
     // ── Lucide Init ──
     lucide.createIcons();
@@ -1006,8 +2218,26 @@
 
     // ── Blueprint Planner ──
     function generateStrategy(key, btn) {
-      document.querySelectorAll('.planner-btn').forEach(b => b.classList.remove('border-brand-500','ring-2','ring-brand-500/20','shadow-md'));
-      btn.classList.add('border-brand-500','ring-2','ring-brand-500/20','shadow-md');
+      document.querySelectorAll('.planner-btn').forEach(b => {
+        b.classList.remove('active-planner-btn', 'border-brand-500', 'ring-2', 'ring-brand-500/20', 'bg-white', 'dark:bg-[#111827]', 'shadow-md');
+        b.classList.add('bg-[#f5f5f7]', 'dark:bg-[#1c1c1e]', 'border-slate-200/50', 'dark:border-slate-800/40');
+        // Reset icon wrapper
+        const iconWrap = b.querySelector('.icon-wrapper');
+        if (iconWrap) {
+          iconWrap.classList.remove('bg-gradient-to-r', 'from-brand-600', 'to-indigo-600', 'text-white');
+          iconWrap.classList.add('bg-brand-50', 'dark:bg-brand-950', 'text-brand-600', 'dark:text-brand-400');
+        }
+      });
+      
+      btn.classList.add('active-planner-btn', 'border-brand-500', 'ring-2', 'ring-brand-500/20', 'bg-white', 'dark:bg-[#111827]', 'shadow-md');
+      btn.classList.remove('bg-[#f5f5f7]', 'dark:bg-[#1c1c1e]', 'border-slate-200/50', 'dark:border-slate-800/40');
+      // Set active icon wrapper
+      const iconWrap = btn.querySelector('.icon-wrapper');
+      if (iconWrap) {
+        iconWrap.classList.remove('bg-brand-50', 'dark:bg-brand-950', 'text-brand-600', 'dark:text-brand-400');
+        iconWrap.classList.add('bg-gradient-to-r', 'from-brand-600', 'to-indigo-600', 'text-white');
+      }
+      
       const data = {
         excel: {
           title: "Customized Ledger Database & Zoho Creator Hub",
@@ -1037,5 +2267,10 @@
       lucide.createIcons();
     }
   </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+<script>
+lucide.createIcons();
+</script>
 </body>
 </html>
