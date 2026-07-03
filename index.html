@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" href="logo.png.png">
   
   <!-- SEO & Social Media Metadata -->
-  <title>RHenova Tech</title>
+  <title>RHenova Tech | Enterprise Architecture & Zoho Systems Partner</title>
   <meta name="description" content="RHenova Tech constructs enterprise architecture, custom APIs, custom mobile portals, and unified Zoho automation workflows for builders, real estate, interior design, and retail.">
   <link rel="canonical" href="https://www.rhenovatech.com">
   
@@ -153,6 +153,7 @@
       width: 100%;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     /* ── Scrollbar ── */
@@ -2379,7 +2380,7 @@
 </head>
 </head>
 <body class="text-slate-800 dark:text-slate-100 min-h-[100dvh] font-sans antialiased transition-colors duration-300 bg-white dark:bg-slate-950">
-  <div id="site-scroll-wrapper" class="w-full overflow-x-hidden relative">
+  <div id="site-scroll-wrapper" class="w-full relative">
   <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SCROLL PROGRESS INDICATOR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <div id="progress-indicator"></div>
 
@@ -5728,6 +5729,8 @@
               end: "+=" + ((rows.length - 1) * 100) + "%", 
               pin: true,
               scrub: 1,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
            }
         });
         
@@ -5821,6 +5824,8 @@
           end: "+=" + (cinematicBlocks.length * 100) + "%",
           pin: true,
           scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
         }
       });
 
@@ -5884,6 +5889,8 @@
             end: "+=" + (bpCards.length * 120) + "%", // Extend scroll distance
             pin: true,
             scrub: 1, // Smooth scrubbing
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
           }
         });
 
