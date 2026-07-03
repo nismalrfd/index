@@ -2838,7 +2838,7 @@
     <style>
       #trusted-clients {
         position: relative;
-        background: #736db3;
+        background: radial-gradient(circle at center, #151029 0%, #070412 100%);
         overflow: hidden;
         width: 100%;
         z-index: 10;
@@ -2920,18 +2920,18 @@
         height: auto;
         width: auto;
         flex-shrink: 0;
-        opacity: 0.6;
         transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1), 
-                    opacity 300ms cubic-bezier(0.25, 1, 0.5, 1), 
                     box-shadow 300ms cubic-bezier(0.25, 1, 0.5, 1), 
-                    border-color 300ms cubic-bezier(0.25, 1, 0.5, 1),
-                    filter 300ms cubic-bezier(0.25, 1, 0.5, 1);
+                    border-color 300ms cubic-bezier(0.25, 1, 0.5, 1);
       }
 
       .logo-svg {
         height: 36px; /* Mobile height: 34-38px */
         width: auto;
         object-fit: contain;
+        filter: brightness(0) invert(1);
+        transition: filter 300ms cubic-bezier(0.25, 1, 0.5, 1), 
+                    opacity 300ms cubic-bezier(0.25, 1, 0.5, 1);
       }
 
       @media (min-width: 640px) {
@@ -2960,11 +2960,14 @@
 
       /* Logo Hover glow & scale effects */
       .logo-card:hover {
-        transform: scale(1.03); /* Scale to 1.03 */
+        transform: scale(1.04); /* Scale to 1.04 */
+        border-color: rgba(115, 109, 179, 0.35);
+        box-shadow: 0 0 25px rgba(115, 109, 179, 0.2), inset 0 0 12px rgba(115, 109, 179, 0.08);
+      }
+
+      .logo-card:hover .logo-svg {
+        filter: none; /* Restore original color on hover */
         opacity: 1;
-        filter: brightness(1.2); /* Slight brightness increase */
-        border-color: rgba(115, 109, 179, 0.3);
-        box-shadow: 0 0 25px rgba(115, 109, 179, 0.25), inset 0 0 12px rgba(115, 109, 179, 0.10);
       }
     </style>
 
@@ -2974,20 +2977,20 @@
     <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 text-center relative z-20">
       
       <!-- Small Badge -->
-      <!-- <div class="client-badge opacity-0 translate-y-4 inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 shadow-sm mb-6">
+      <div class="client-badge opacity-0 translate-y-4 inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 shadow-sm mb-6">
         <div class="w-1.5 h-1.5 rounded-full bg-[#ffffff] animate-pulse"></div>
         <span class="text-[9px] sm:text-[10px] font-bold text-[#A19DD0] tracking-widest uppercase">TRUSTED BY CLIENTS</span>
-      </div> -->
+      </div>
 
       <!-- Main Heading -->
-      <!-- <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
         Powering Businesses Across Industries
-      </h2> -->
+      </h2>
 
       <!-- Description -->
-      <!-- <p class="text-white/60 text-sm sm:text-base lg:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-16">
+      <p class="text-white/60 text-sm sm:text-base lg:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-16">
         We're proud to partner with ambitious businesses across multiple industries, delivering intelligent Zoho-powered solutions that streamline operations, accelerate growth, and drive digital transformation.
-      </p> -->
+      </p>
 
       <!-- Logo Rows -->
       <div class="marquee-container space-y-6 sm:space-y-8 mb-16">
@@ -2998,60 +3001,43 @@
             <!-- Group A -->
             <div class="marquee-group">
               <div class="logo-card">
-                <!-- SVG Logo 1: Acme Corp -->
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/1.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- Image Logo: Apex Tech -->
-                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
+                <img src="New folder (3)/2.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 3: Nova Global -->
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/3.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 4: Vortex -->
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/4.png" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 5: Quantum -->
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/5.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 6: Summit -->
-                             <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/6.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
             </div>
             <!-- Group B (Duplicate) -->
             <div class="marquee-group" aria-hidden="true">
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/1.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/2.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/3.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/4.png" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/5.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/6.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
             </div>
           </div>
@@ -3063,60 +3049,43 @@
             <!-- Group A -->
             <div class="marquee-group">
               <div class="logo-card">
-                <!-- SVG Logo 6: Summit -->
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/7.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 5: Quantum -->
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/8.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 4: Vortex -->
-                             <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/9.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 3: Nova Global -->
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/10.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- Image Logo: Apex Tech -->
-                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
+                <img src="New folder (3)/11.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- SVG Logo 1: Acme Corp -->
-                              <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/R2S_LOGO.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
             </div>
             <!-- Group B (Duplicate) -->
             <div class="marquee-group" aria-hidden="true">
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/7.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/8.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/9.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/10.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                <!-- Image Logo: Apex Tech -->
-                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
+                <img src="New folder (3)/11.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
               <div class="logo-card">
-                                <img src="download.png" alt="Apex Tech" class="logo-svg object-contain">
-
+                <img src="New folder (3)/R2S_LOGO.png" alt="Apex Tech" class="logo-svg object-contain">
               </div>
             </div>
           </div>
