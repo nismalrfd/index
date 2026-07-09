@@ -108,16 +108,30 @@
         .reveal-section {
             opacity: 0;
             transform: translateY(60px) scale(0.96);
-            filter: blur(10px);
             transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                         transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                         filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: opacity, transform, filter;
+            will-change: opacity, transform;
+        }
+        @media (min-width: 768px) {
+            .reveal-section {
+                filter: blur(10px);
+                will-change: opacity, transform, filter;
+            }
         }
         .reveal-section.active {
             opacity: 1;
             transform: translateY(0) scale(1);
             filter: blur(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-section, .stagger-card, .animate-float-1, .animate-float-2, .animate-bubble {
+                transition: none !important;
+                animation: none !important;
+                transform: none !important;
+                filter: none !important;
+                opacity: 1 !important;
+            }
         }
 
         /* Hero Section Entrance Animations */
@@ -262,7 +276,7 @@
                 <div class="flex flex-col items-center text-center opacity-0 translate-y-8 duration-700 transition-all stagger-card">
                     <!-- Phone Screen View -->
                   
-                        <img src="img/moc sal1.png" class="w-full h-full object-cover rounded-[24px]" alt="App Screen">
+                        <img src="img/moc-sal1.png" class="w-full h-full object-cover rounded-[24px]" alt="App Screen">
                     <!-- Caption Copy -->
                     <h4 class="text-lg font-bold text-white mb-2">Salesman App<br><span class="text-violet-500 font-extrabold text-sm uppercase">Android and Ios</span></h4>
                     <p class="text-xs text-slate-400 max-w-xs leading-relaxed">
@@ -273,7 +287,7 @@ Empower your sales team with a powerful mobile solution. The Salesman App enable
                 <div class="flex flex-col items-center text-center opacity-0 translate-y-8 duration-700 transition-all stagger-card">
                     <!-- Phone Mockup View -->
                     
-                        <img src="img/moc ow1.png" class="w-full h-full object-cover rounded-[30px]" alt="App Screen">
+                        <img src="img/moc-ow1.png" class="w-full h-full object-cover rounded-[30px]" alt="App Screen">
                     
                     <!-- Caption Copy -->
                     <h4 class="text-lg font-bold text-white mb-2">Owner App<br><span class="text-violet-500 font-extrabold text-sm uppercase">Android and Ios</span></h4>
@@ -285,7 +299,7 @@ Stay connected to your business anytime, anywhere. The Owner App provides a real
                 <div class="flex flex-col items-center text-center opacity-0 translate-y-8 duration-700 transition-all stagger-card">
                     <!-- Phone Screen View -->
   
-                        <img src="img/moc cus1.png" class="w-full h-full object-cover rounded-[24px]" alt="App Screen">
+                        <img src="img/moc-cus1.png" class="w-full h-full object-cover rounded-[24px]" alt="App Screen">
                     
                     <!-- Caption Copy -->
                     <h4 class="text-lg font-bold text-white mb-2">Customer App<br><span class="text-violet-500 font-extrabold text-sm uppercase">Android and Ios</span></h4>
@@ -300,7 +314,7 @@ Deliver a seamless digital jewelry experience with our Customer App. Customers c
     <!-- ==========================================
          HERO SECTION: NEXT-GEN INTERFACE
          ========================================== -->
-    <header class="relative w-full min-h-[800px] bg-cover bg-center bg-no-repeat overflow-hidden flex flex-col justify-center p-6 md:p-12 lg:p-24 text-white reveal-section" style="background-image: url('img/ChatGPT Image Jul 9, 2026, 11_48_07 AM.png');">
+    <header class="relative w-full min-h-[800px] bg-cover bg-center bg-no-repeat overflow-hidden flex flex-col justify-center p-6 md:p-12 lg:p-24 text-white reveal-section" style="background-image: url('img/hero-bg.png');">
         
         <!-- Dark Gradient Overlays for Text Readability -->
         <div class="absolute inset-0 bg-gradient-to-r from-[#0a0f1d]/95 via-[#0a0f1d]/70 to-transparent z-0 pointer-events-none"></div>
@@ -373,7 +387,7 @@ Deliver a seamless digital jewelry experience with our Customer App. Customers c
             <!-- Right Column: Visual Stack (6 Columns) -->
             <div class="lg:col-span-6 image-column-container relative flex justify-center items-center h-[500px] w-full mt-8 lg:mt-0" style="perspective: 1500px; transform-style: preserve-3d;">
                 <!-- Main Glass Panel -->
-                <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-amber-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
+                <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-amber-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-[5%] md:left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
                     <!-- Floating decorative elements -->
                     <div class="absolute -top-6 -right-6 text-amber-500/50" style="transform: translateZ(60px);"><i data-lucide="sparkles" class="w-16 h-16 drop-shadow-lg"></i></div>
                     <div class="absolute bottom-12 -right-8 w-16 h-16 rounded-full bg-gradient-to-tr from-amber-500 to-orange-400 z-30" style="transform: translateZ(100px); box-shadow: 0 20px 40px rgba(245,158,11,0.6);"></div>
@@ -382,7 +396,7 @@ Deliver a seamless digital jewelry experience with our Customer App. Customers c
                     <p class="text-[10px] md:text-xs text-slate-300 w-[50%] leading-relaxed" style="transform: translateZ(20px);">Virtual showroom <br>experience</p>
                 </div>
                 <!-- Customer App Image with Advanced Animation -->
-                    <img src="img/moc cus.png" alt="Customer App" class="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)] rounded-[28px]">
+                    <img src="img/moc-cus.png" alt="Customer App" class="w-full h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.7)] rounded-[28px] transform scale-[1.25] md:scale-100 transition-transform duration-700 hover:scale-[1.3] md:hover:scale-[1.05]">
             </div>
         </section>
 
@@ -433,15 +447,16 @@ Deliver a seamless digital jewelry experience with our Customer App. Customers c
             <!-- Right Column: Visual Stack (6 Columns) -->
             <div class="lg:col-span-6 image-column-container relative flex justify-center items-center w-full mt-8 lg:mt-0">
                 <div class="relative w-full max-w-lg transition-transform duration-700 hover:scale-[1.04] hover:-rotate-1">
-                                    <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-amber-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
+                                    <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-amber-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-[5%] md:left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
                     <!-- Floating decorative elements -->
                     <div class="absolute -top-6 -right-6 text-amber-500/50" style="transform: translateZ(60px);"><i data-lucide="sparkles" class="w-16 h-16 drop-shadow-lg"></i></div>
                     <div class="absolute bottom-12 -right-8 w-16 h-16 rounded-full bg-gradient-to-tr from-amber-500 to-orange-400 z-30" style="transform: translateZ(100px); box-shadow: 0 20px 40px rgba(245,158,11,0.6);"></div>
                     <!-- Text inside glass -->
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight w-[50%]" style="transform: translateZ(30px);">Try-On<br>AR Suite<br>Active</h3>
-                    <p class="text-[10px] md:text-xs text-slate-300 w-[50%] leading-relaxed" style="transform: translateZ(20px);">Virtual showroom <br>experience</p>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight w-[50%]" style="transform: translateZ(30px);">Sell faster 
+Serve better</h3>
+                    <p class="text-[10px] md:text-xs text-slate-300 w-[50%] leading-relaxed" style="transform: translateZ(20px);"></p>
                 </div>
-                    <img src="img/moc sales.png" alt="Salesman App Image" class="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(139,92,246,0.35)] rounded-[28px]">
+                    <img src="img/moc-sales.png" alt="Salesman App Image" class="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(139,92,246,0.35)] rounded-[28px] transform scale-[1.25] md:scale-100 transition-transform duration-700 hover:scale-[1.3] md:hover:scale-[1.05]">
                 </div>
             </div>
         </section>
@@ -493,15 +508,15 @@ Deliver a seamless digital jewelry experience with our Customer App. Customers c
             <!-- Right Column: Visual Stack (6 Columns) -->
             <div class="lg:col-span-6 image-column-container relative flex justify-center items-center w-full mt-8 lg:mt-0">
                 <div class="relative w-full max-w-lg transition-transform duration-700 hover:scale-[1.04] hover:rotate-1">
-                                    <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-amber-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
+                                    <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-amber-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-[5%] md:left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
                     <!-- Floating decorative elements -->
                     <div class="absolute -top-6 -right-6 text-amber-500/50" style="transform: translateZ(60px);"><i data-lucide="sparkles" class="w-16 h-16 drop-shadow-lg"></i></div>
                     <div class="absolute bottom-12 -right-8 w-16 h-16 rounded-full bg-gradient-to-tr from-amber-500 to-orange-400 z-30" style="transform: translateZ(100px); box-shadow: 0 20px 40px rgba(245,158,11,0.6);"></div>
                     <!-- Text inside glass -->
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight w-[50%]" style="transform: translateZ(30px);">Try-On<br>AR Suite<br>Active</h3>
-                    <p class="text-[10px] md:text-xs text-slate-300 w-[50%] leading-relaxed" style="transform: translateZ(20px);">Virtual showroom <br>experience</p>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight w-[50%]" style="transform: translateZ(30px);">Your Business. In Your Pocket.</h3>
+                    <p class="text-[10px] md:text-xs text-slate-300 w-[50%] leading-relaxed" style="transform: translateZ(20px);"></p>
                 </div>
-                    <img src="img/moc ow.png" alt="Admin Dashboard Image" class="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(16,185,129,0.3)] rounded-[28px] transform scale-[1.3] md:scale-[1.4] lg:scale-[1.5]">
+                    <img src="img/moc-ow.png" alt="Admin Dashboard Image" class="w-full h-auto object-contain drop-shadow-[0_25px_60px_rgba(16,185,129,0.3)] rounded-[28px] transform scale-[1.3] md:scale-[1.4] lg:scale-[1.5]">
                 </div>
             </div>
         </section>
@@ -523,7 +538,7 @@ Deliver a seamless digital jewelry experience with our Customer App. Customers c
                 <div class="absolute inset-0 bg-violet-500 rounded-[40px] md:rounded-[2.5rem] overflow-hidden shadow-xl">
                     <!-- The Integrated Background Model -->
                     <!-- Using an Unsplash image with blend modes to simulate a seamless cutout integration -->
-                    <img src="img/WhatsApp_Image_2026-05-31_at_9.23.59_PM__1_-removebg-preview.png" alt="Smiling Model" class="absolute right-0 bottom-0 h-full w-[80%] md:w-[45%] object-cover object-top mix-blend-multiply opacity-60 grayscale filter contrast-125">
+                    <img src="img/model-backdrop.png" alt="Smiling Model" class="absolute right-0 bottom-0 h-full w-[80%] md:w-[45%] object-cover object-top mix-blend-multiply opacity-60 grayscale filter contrast-125">
                     <!-- Gradient overlay to soften the edge -->
                     <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-violet-500/80 to-transparent w-full md:w-[60%]"></div>
                 </div>
@@ -537,8 +552,8 @@ Deliver a seamless digital jewelry experience with our Customer App. Customers c
                 </div>
 
                 <!-- Overlapping Angled Smartphone Mockup Image -->
-                <div class="absolute left-1/2 top-0 -translate-x-[60%] md:-translate-x-[70%] -translate-y-[25%] md:-translate-y-[20%] z-30 w-[260px] md:w-[340px] transform -rotate-[28deg] hover:-rotate-[25deg] hover:scale-[1.05] transition-all duration-700">
-                    <img src="img/moc rh.png" alt="RHenovatech Masterpiece App" class="w-full h-auto object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.5)]">
+                <div class="absolute left-1/2 top-0 -translate-x-[60%] md:-translate-x-[70%] -translate-y-[25%] md:-translate-y-[20%] z-30 w-[300px] md:w-[380px] transform -rotate-[28deg] hover:-rotate-[25deg] transition-all duration-700">
+                    <img src="img/moc-rh.png" alt="RHenovatech Masterpiece App" class="w-full h-auto object-contain drop-shadow-[0_40px_80px_rgba(0,0,0,0.5)] transform scale-[1.1] md:scale-100 hover:scale-[1.15] md:hover:scale-[1.05]">
                 </div>
             </div>
 
@@ -574,7 +589,7 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full opacity-25 pointer-events-none" style="background: radial-gradient(circle, rgba(16,185,129,0.5) 0%, transparent 70%);"></div>
                             
                             <!-- Payment Image -->
-                                <img src="img/moc pay.png" alt="Payment Successful Image" class="w-full h-auto object-contain drop-shadow-[0_30px_50px_rgba(16,185,129,0.2)] rounded-[28px]">
+                                <img src="img/moc-pay.png" alt="Payment Successful Image" class="w-full h-auto object-contain drop-shadow-[0_30px_50px_rgba(16,185,129,0.2)] rounded-[28px] transform scale-[1.25] md:scale-100 transition-transform duration-700 hover:scale-[1.3] md:hover:scale-[1.05]">
                           <!-- Text below -->
                             <div class="relative z-10 text-center mt-8">
                                 <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Unified Payment Infrastructure</h4>
@@ -590,7 +605,7 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
                             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-20 pointer-events-none" style="background: radial-gradient(circle, rgba(59,130,246,0.6) 0%, transparent 70%);"></div>
                             
                             <!-- Flutter Image -->
-                                <img src="img/moc flutter.png" alt="Flutter Framework Image" class="w-full h-auto object-contain drop-shadow-[0_30px_50px_rgba(59,130,246,0.2)] rounded-[28px]">
+                                <img src="img/moc-flutter.png" alt="Flutter Framework Image" class="w-full h-auto object-contain drop-shadow-[0_30px_50px_rgba(59,130,246,0.2)] rounded-[28px] transform scale-[1.25] md:scale-100 transition-transform duration-700 hover:scale-[1.3] md:hover:scale-[1.05]">
 
                          
                         </div>
@@ -648,6 +663,9 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
 
                         <!-- Divider -->
                         <div class="mx-10 md:mx-12 my-6 h-px" style="background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), rgba(139,92,246,0.3), transparent);"></div>
+<br>
+<br>
+<br>
 
                         <!-- Flutter Technology Section -->
                         <div class="px-10 md:px-12 pb-4 z-20">
@@ -715,7 +733,9 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
                 </div>
             </div>
         </section>
-
+<section class="w-full flex justify-center pb-12">
+    <img src="img/bg-sec.png" alt="Analytics Background" class="w-full">
+</section>
         <!-- ==========================================
              SECTION: CTA BANNER
              ========================================== -->
@@ -731,7 +751,6 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
                 <p class="text-sm md:text-base text-gray-400 max-w-xl leading-relaxed mb-10">
                     Unlock the full potential of your data with our comprehensive SaaS analytics platform.
                 </p>
-
                 <!-- CTA Button -->
                 <a href="mailto:ceo@rhenovatech.com" class="group relative inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-white text-sm md:text-base transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_rgba(109,40,217,0.5)] active:scale-[0.98]" style="background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 50%, #5B21B6 100%); box-shadow: 0 4px 25px rgba(109,40,217,0.4), inset 0 1px 0 rgba(255,255,255,0.1);">
                     <span>Schedule a demo</span>
@@ -795,7 +814,11 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { root: null, threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            }, { 
+                root: null, 
+                threshold: window.innerWidth < 768 ? 0.05 : 0.15, 
+                rootMargin: window.innerWidth < 768 ? "0px 0px -20px 0px" : "0px 0px -50px 0px" 
+            });
             
             cards.forEach(card => cardObserver.observe(card));
 
@@ -804,8 +827,8 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
             
             const observerOptions = {
                 root: null,
-                threshold: 0.1,
-                rootMargin: "0px 0px -60px 0px"
+                threshold: window.innerWidth < 768 ? 0.02 : 0.1,
+                rootMargin: window.innerWidth < 768 ? "0px 0px -20px 0px" : "0px 0px -60px 0px"
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
