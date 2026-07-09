@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden w-full max-w-[100vw]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Mobile & Showroom Suite</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        royal: {
+                            50: '#F0F5FF',
+                            100: '#E1EBFF',
+                            500: '#2563EB',
+                            600: '#1D4ED8',
+                            900: '#1E3A8A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        /* RhenovaTech Custom animations */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+        @keyframes float-mid {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(-4deg); }
+        }
+        @keyframes bubble-rotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .animate-float-1 {
+            animation: float-slow 6s ease-in-out infinite;
+        }
+        .animate-float-2 {
+            animation: float-mid 5s ease-in-out infinite;
+        }
+        .animate-bubble {
+            animation: bubble-rotate 25s linear infinite;
+        }
+        .glass-shard {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+        .mockup-phone-border {
+            box-shadow: 
+                0px 0px 0px 4px #2e3039,
+                0px 0px 0px 10px #1e2026,
+                0px 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Phone layout 3D rotations */
+        .phone-stack-1 {
+            transform: translateX(-65px) translateY(15px) rotate(-16deg) scale(0.92);
+            z-index: 2;
+        }
+        .phone-stack-2 {
+            transform: translateY(-20px) rotate(-6deg) scale(0.95);
+            z-index: 1;
+        }
+        .phone-stack-3 {
+            transform: translateX(65px) translateY(20px) rotate(-12deg) scale(1.0);
+            z-index: 3;
+        }
+
+        /* Hover interaction expansions */
+        .image-column-container:hover .phone-stack-1 {
+            transform: translateX(-85px) translateY(5px) rotate(-20deg) scale(0.94);
+        }
+        .image-column-container:hover .phone-stack-2 {
+            transform: translateY(-35px) rotate(-3deg) scale(0.98);
+        }
+        .image-column-container:hover .phone-stack-3 {
+            transform: translateX(85px) translateY(10px) rotate(-8deg) scale(1.02);
+        }
+        .image-column-container:hover .fluid-backdrop {
+            transform: translate(-50%, -50%) rotate(4deg) scale(1.05);
+        }
+
+        /* Mockup phone border styling */
+        .phone-frame-luxe {
+            box-shadow: 
+                0px 0px 0px 4px #2b2d35,
+                0px 0px 0px 8px #1c1e22,
+                0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Scroll reveal transition (Premium) */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(60px) scale(0.96);
+            filter: blur(10px);
+            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+                        filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform, filter;
+        }
+        .reveal-section.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        /* Hero Section Entrance Animations */
+        @keyframes slideUpPhone {
+            from { transform: translate(-50%, 150px); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+        @keyframes slideUpBanner {
+            from { transform: translate(-50%, 80px); opacity: 0; }
+            to { transform: translate(-50%, 0); opacity: 1; }
+        }
+        @keyframes floatOutLeft {
+            from { transform: translateX(30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes floatOutRight {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .animate-hero-phone {
+            opacity: 0;
+            animation: slideUpPhone 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+        }
+        .animate-hero-banner {
+            opacity: 0;
+            animation: slideUpBanner 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+        }
+        .animate-hero-card-left {
+            opacity: 0;
+            animation: floatOutLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        }
+        .animate-hero-card-right {
+            opacity: 0;
+            animation: floatOutRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        }
+    </style>
+</head>
+<body class="bg-[#0a0712] text-slate-300 antialiased overflow-x-hidden w-full max-w-[100vw] relative m-0 p-0">
+
+    <!-- Wrapper to preserve RhenovaTech gradient background -->
+    <div class="bg-gradient-to-b from-[#110e1a] via-[#0a0712] to-[#0a0712] w-full overflow-hidden relative">
+        <!-- 1. HERO SECTION -->
+        <header class="relative pt-20 pb-32 flex flex-col items-center">
+            <!-- Centered Header -->
+            <div class="text-center z-10 px-4 mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-violet-500 block mb-3">OUR APPLICATION</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight max-w-2xl mx-auto leading-tight">
+                    Explore jewelry innovation with RhenovaTech!
+                </h1>
+            </div>
+
+            <!-- Visual Mockup Showcase Container -->
+            <div class="relative w-full max-w-5xl mx-auto h-[480px] flex justify-center items-center">
+                
+                <!-- Hero Layer Background Watermark -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center pointer-events-none select-none z-0">
+                    <span class="text-[12vw] font-black text-white/5 tracking-widest uppercase whitespace-nowrap">
+                        RHENOVATECH
+                    </span>
+                </div>
+
+                <!-- Geometric Canvas Blob Background -->
+                <div class="absolute w-[400px] md:w-[550px] h-[400px] md:h-[550px] rounded-full pointer-events-none z-0 opacity-80 mix-blend-screen blur-3xl bg-gradient-to-tr from-violet-600 via-purple-600/40 to-transparent animate-bubble"></div>
+                
+                <!-- Glowing Floating Ring -->
+                <div class="absolute w-[280px] md:w-[420px] h-[280px] md:h-[420px] rounded-full pointer-events-none z-0 opacity-90 animate-bubble border-4 border-white/40 shadow-[0_0_50px_rgba(139,92,246,0.3)] bg-gradient-to-br from-white/20 to-transparent backdrop-blur-[2px]"></div>
+                
+                <!-- Floating Glassmorphic Ornaments (Stars) -->
+                <div class="absolute top-4 left-10 md:left-20 w-12 h-12 flex items-center justify-center animate-float-1 z-10 opacity-70">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-white drop-shadow-md" fill="currentColor">
+                        <path d="M50 0 C50 35 65 50 100 50 C65 50 50 65 50 100 C50 65 35 50 0 50 C35 50 50 35 50 0 Z" />
+                    </svg>
+                </div>
+                <div class="absolute bottom-12 right-6 md:right-16 w-16 h-16 flex items-center justify-center animate-float-2 z-10 opacity-60">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-white drop-shadow-lg" fill="currentColor">
+                        <path d="M50 0 C50 35 65 50 100 50 C65 50 50 65 50 100 C50 65 35 50 0 50 C35 50 50 35 50 0 Z" />
+                    </svg>
+                </div>
+                <div class="absolute top-1/4 right-1/4 w-8 h-8 flex items-center justify-center animate-float-1 z-10 opacity-50 transform rotate-12">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-white drop-shadow" fill="currentColor">
+                        <path d="M50 0 C50 35 65 50 100 50 C65 50 50 65 50 100 C50 65 35 50 0 50 C35 50 50 35 50 0 Z" />
+                    </svg>
+                </div>
+                <div class="absolute bottom-1/4 left-1/4 w-10 h-10 flex items-center justify-center animate-float-2 z-10 opacity-75 transform -rotate-12">
+                    <svg viewBox="0 0 100 100" class="w-full h-full text-white drop-shadow-sm" fill="currentColor">
+                        <path d="M50 0 C50 35 65 50 100 50 C65 50 50 65 50 100 C50 65 35 50 0 50 C35 50 50 35 50 0 Z" />
+                    </svg>
+                </div>
+
+                <!-- Phone Stack -->
+                <div class="relative w-full max-w-lg h-full flex justify-center items-center z-10 hover:scale-[1.02] transition-transform duration-700">
+                    <img src="img/hr.png" class="max-w-[120%] md:max-w-full h-auto object-contain drop-shadow-2xl" style="image-rendering: high-quality; -webkit-font-smoothing: antialiased; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.7));" alt="Hero Dark Mobile Mockup">
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. ONBOARDING SECTION -->
+        <section class="max-w-6xl mx-auto px-4 py-20 flex flex-col items-center">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-violet-500 block mb-3">ONBOARDING</span>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight mb-4 max-w-xl mx-auto leading-tight">
+                    Helping you understand the service / Start RhenovaTech with onboarding
+                </h2>
+                <p class="text-slate-400 text-sm max-w-lg mx-auto">
+                    To help with the understanding of the service, start our application with a brief introduction.
+                </p>
+            </div>
+
+            <!-- The Process Timeline Line -->
+            <div class="relative w-full max-w-2xl flex items-center justify-between mb-20 px-8">
+                <!-- Background Dotted Line -->
+                <div class="absolute left-10 right-10 top-1/2 -translate-y-1/2 border-t border-dashed border-white/20 z-0"></div>
+                
+                <!-- Step 01 -->
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="w-7 h-7 rounded-full bg-violet-600 text-white font-extrabold flex items-center justify-center text-[10px] shadow-sm ring-8 ring-[#0a0712] backdrop-blur-sm">
+                        01
+                    </div>
+                </div>
+                
+                <!-- Step 02 -->
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="w-7 h-7 rounded-full bg-violet-600 text-white font-extrabold flex items-center justify-center text-[10px] shadow-sm ring-8 ring-[#0a0712] backdrop-blur-sm">
+                        02
+                    </div>
+                </div>
+                
+                <!-- Step 03 -->
+                <div class="relative z-10 flex flex-col items-center">
+                    <div class="w-7 h-7 rounded-full bg-violet-600 text-white font-extrabold flex items-center justify-center text-[10px] shadow-sm ring-8 ring-[#0a0712] backdrop-blur-sm">
+                        03
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3-Screen Grid Columns -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-end w-full max-w-5xl">
+                
+                <!-- Card 01 (Left - 3D Ring Screen) -->
+                <div class="flex flex-col items-center text-center opacity-0 translate-y-8 duration-700 transition-all stagger-card">
+                    <!-- Phone Screen View -->
+                    <div class="w-[185px] h-[370px] bg-[#101216] rounded-[32px] p-1.5 shadow-xl border-[3px] border-[#222] relative overflow-hidden mb-8">
+                        <div class="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-[#101216] rounded-b-lg z-20"></div>
+                        <img src="img/sl.png" class="w-full h-full object-cover rounded-[24px]" alt="App Screen">
+                    </div>
+                    <!-- Caption Copy -->
+                    <h4 class="text-lg font-bold text-white mb-2">Salesman App<br><span class="text-violet-500 font-extrabold text-sm uppercase">Android and Ios</span></h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed">
+Empower your sales team with a powerful mobile solution. The Salesman App enables customer registration, scheme enrollment, due collection, stock checking, estimation, and mobile billing, helping your team serve customers faster and more efficiently.                    </p>
+                </div>
+
+                <!-- Card 02 (Center - Prominent Vertical Phone) -->
+                <div class="flex flex-col items-center text-center opacity-0 translate-y-8 duration-700 transition-all stagger-card">
+                    <!-- Phone Mockup View -->
+                    <div class="w-[195px] h-[395px] bg-[#101216] rounded-[38px] p-2.5 mockup-phone-border relative overflow-hidden mb-8 shadow-2xl">
+                        <div class="absolute top-1 left-1/2 -translate-x-1/2 w-14 h-4 bg-[#101216] rounded-b-xl z-20"></div>
+                        <img src="img/ow.png" class="w-full h-full object-cover rounded-[30px]" alt="App Screen">
+                    </div>
+                    
+                    <!-- Caption Copy -->
+                    <h4 class="text-lg font-bold text-white mb-2">Owner App<br><span class="text-violet-500 font-extrabold text-sm uppercase">Android and Ios</span></h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed">
+Stay connected to your business anytime, anywhere. The Owner App provides a real-time dashboard with sales insights, inventory status, branch performance, financial reports, and business analytics, giving you complete control from your mobile device.                    </p>
+                </div>
+
+                <!-- Card 03 (Right - Calculate/Quote Screen) -->
+                <div class="flex flex-col items-center text-center opacity-0 translate-y-8 duration-700 transition-all stagger-card">
+                    <!-- Phone Screen View -->
+                    <div class="w-[185px] h-[370px] bg-[#101216] rounded-[32px] p-1.5 shadow-xl border-[3px] border-[#222] relative overflow-hidden mb-8">
+                        <div class="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-[#101216] rounded-b-lg z-20"></div>
+                        <img src="img/cus.png" class="w-full h-full object-cover rounded-[24px]" alt="App Screen">
+                    </div>
+                    
+                    <!-- Caption Copy -->
+                    <h4 class="text-lg font-bold text-white mb-2">Customer App<br><span class="text-violet-500 font-extrabold text-sm uppercase">Android and Ios</span></h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed">
+Deliver a seamless digital jewelry experience with our Customer App. Customers can join savings schemes, pay installments online, track due dates, view live gold rates, browse jewelry collections, and shop securely—all from their Android or iOS device.                    </p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- ==========================================
+         HERO SECTION: NEXT-GEN INTERFACE
+         ========================================== -->
+    <header class="relative w-full min-h-[800px] bg-cover bg-center bg-no-repeat overflow-hidden flex flex-col justify-center p-6 md:p-12 lg:p-24 text-white reveal-section" style="background-image: url('img/ChatGPT Image Jul 9, 2026, 11_48_07 AM.png');">
+        
+        <!-- Dark Gradient Overlays for Text Readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0a0f1d]/95 via-[#0a0f1d]/70 to-transparent z-0 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-[#0a0f1d]/40 z-0 pointer-events-none"></div>
+
+        <!-- Content Area -->
+        <div class="w-full max-w-2xl flex flex-col gap-6 z-10 text-left relative">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-blue-400 block drop-shadow-md">FUTURISTIC DESIGN</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extralight text-white leading-tight tracking-tight drop-shadow-lg">
+                Intelligent.<br>
+                <span class="font-extrabold text-blue-500 drop-shadow-lg">Secure.</span><br>
+                Seamless.
+            </h1>
+            <p class="text-white/90 text-sm md:text-base mt-4 max-w-md leading-relaxed drop-shadow-md font-medium">
+                Experience the next evolution of mobile interfaces. Our premium architecture blends advanced glassmorphism with enterprise-grade security for an unmatched user experience.
+            </p>
+            
+
+        </div>
+        
+    </header>
+
+    <main class="max-w-7xl mx-auto px-8 py-20 space-y-40">
+        
+        <!-- ==========================================
+             SECTION 1: THE LUXURY CUSTOMER APP
+             ========================================== -->
+        <section id="customer-app" class="reveal-section grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Copy & Features (6 Columns) -->
+            <div class="lg:col-span-6 flex flex-col gap-6">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-amber-600">CUSTOMER APP</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">The Luxury Customer App</h2>
+                <div class="h-0.5 w-16 bg-amber-500 my-2"></div>
+                <h3 class="text-lg font-bold text-slate-300">For Your Buyers</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-amber-900/30 text-amber-600"><i data-lucide="sparkles" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Virtual Try-On</h4>
+                            <p class="text-xs text-slate-400 mt-1">AR try-on & test your virtual try-on instantly.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-amber-900/30 text-amber-600"><i data-lucide="gem" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Custom Ring Builder</h4>
+                            <p class="text-xs text-slate-400 mt-1">Create a catalog, custom ring jewelry, and diamond settings.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-amber-900/30 text-amber-600"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Secure Payments</h4>
+                            <p class="text-xs text-slate-400 mt-1">Secure payment gateways and a secure payment pipeline.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-amber-900/30 text-amber-600"><i data-lucide="bell" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Gold Rate Alerts</h4>
+                            <p class="text-xs text-slate-400 mt-1">Gold rate alerts for checking spot prices and gold metrics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Visual Stack (6 Columns) -->
+            <!-- Right Column: Visual Stack (6 Columns) -->
+            <div class="lg:col-span-6 image-column-container relative flex justify-center items-center h-[500px] w-full mt-8 lg:mt-0" style="perspective: 1500px; transform-style: preserve-3d;">
+                <!-- Main Glass Panel -->
+                <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-amber-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
+                    <!-- Floating decorative elements -->
+                    <div class="absolute -top-6 -right-6 text-amber-500/50" style="transform: translateZ(60px);"><i data-lucide="sparkles" class="w-16 h-16 drop-shadow-lg"></i></div>
+                    <div class="absolute bottom-12 -right-8 w-16 h-16 rounded-full bg-gradient-to-tr from-amber-500 to-orange-400 z-30" style="transform: translateZ(100px); box-shadow: 0 20px 40px rgba(245,158,11,0.6);"></div>
+                    <!-- Text inside glass -->
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight w-[50%]" style="transform: translateZ(30px);">Try-On<br>AR Suite<br>Active</h3>
+                    <p class="text-[10px] md:text-xs text-slate-300 w-[50%] leading-relaxed" style="transform: translateZ(20px);">Virtual showroom <br>experience</p>
+                </div>
+                <!-- Phone 1 (Back/Left - Dark) -->
+                <div class="absolute right-[25%] top-[5%] w-40 h-[340px] bg-[#101216] rounded-[32px] p-1.5 border-[3px] border-[#111] border-t-[#333] border-l-[#333] z-10 overflow-hidden group transition-all duration-700" style="transform: rotateY(18deg) rotateX(12deg) rotateZ(-12deg) translateZ(40px); box-shadow: -30px 40px 60px rgba(0,0,0,0.9);">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 pointer-events-none"></div>
+                    <div class="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-[#101216] rounded-b-lg z-20 group-hover:w-16 transition-all duration-300"></div>
+                    <img src="img/cs1.png" alt="Customer App Dark" class="w-full h-full object-cover rounded-[24px]">
+                </div>
+                <!-- Phone 2 (Front/Right - Light) -->
+                <div class="absolute right-[5%] bottom-[5%] w-44 h-[380px] bg-[#FAF9F6] rounded-[36px] p-1.5 border-[3px] border-[#ccc] border-t-[#fff] border-l-[#fff] z-20 overflow-hidden group transition-all duration-700" style="transform: rotateY(-22deg) rotateX(8deg) rotateZ(8deg) translateZ(140px); box-shadow: -50px 60px 80px rgba(0,0,0,1);">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-50 z-30 pointer-events-none"></div>
+                    <div class="absolute top-1 left-1/2 -translate-x-1/2 w-14 h-4 bg-[#FAF9F6] rounded-b-xl z-20 shadow-sm group-hover:w-20 transition-all duration-300"></div>
+                    <img src="img/cs2.png" alt="Customer App Light" class="w-full h-full object-cover rounded-[28px]">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 2: THE POWERFUL SALESMAN APP
+             ========================================== -->
+        <section id="salesman-app" class="reveal-section grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Copy & Features (6 Columns) -->
+            <div class="lg:col-span-6 flex flex-col gap-6">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-violet-600">SALESMAN APP</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">The Powerful Salesman App</h2>
+                <div class="h-0.5 w-16 bg-violet-500 my-2"></div>
+                <h3 class="text-lg font-bold text-slate-300">For Your Counter Staff</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-violet-900/30 text-violet-600"><i data-lucide="scan-barcode" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">RFID/Barcode Scan</h4>
+                            <p class="text-xs text-slate-400 mt-1">Scan physical tags on the floor to instantly check weight and purity specs.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-violet-900/30 text-violet-600"><i data-lucide="calculator" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Instant Quote</h4>
+                            <p class="text-xs text-slate-400 mt-1">Automated calculators, real-time inventory, and interactive quote calculators.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-violet-900/30 text-violet-600"><i data-lucide="user-check" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Wishlist Sync</h4>
+                            <p class="text-xs text-slate-400 mt-1">Wishlist: sync and create smooth experiences for customers and associates.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-violet-900/30 text-violet-600"><i data-lucide="trending-up" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Sales Tracker</h4>
+                            <p class="text-xs text-slate-400 mt-1">Dashboards for tracking your sales metrics and inventory analytics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Visual Stack (6 Columns) -->
+            <div class="lg:col-span-6 image-column-container relative flex justify-center items-center h-[500px] w-full mt-8 lg:mt-0" style="perspective: 1500px; transform-style: preserve-3d;">
+                <!-- Main Glass Panel -->
+                <div class="absolute w-[90%] md:w-[85%] h-[380px] bg-violet-900/10 backdrop-blur-xl border-t border-l border-white/20 border-r border-b border-black/20 rounded-[40px] p-8 flex flex-col justify-end items-start left-0 top-1/2 -translate-y-1/2 z-0 overflow-visible transition-transform duration-700 hover:rotate-y-[2deg] hover:rotate-x-[-2deg]" style="transform: rotateY(-12deg) rotateX(8deg) translateZ(-80px); box-shadow: -20px 30px 60px rgba(0,0,0,0.8), inset 2px 2px 20px rgba(255,255,255,0.05);">
+                    <!-- Floating decorative elements -->
+                    <div class="absolute -top-6 -right-6 text-violet-400/50" style="transform: translateZ(60px);"><i data-lucide="crosshair" class="w-16 h-16 drop-shadow-lg"></i></div>
+                    <div class="absolute bottom-12 -right-8 w-16 h-16 rounded-full bg-gradient-to-tr from-violet-500 to-indigo-500 z-30" style="transform: translateZ(100px); box-shadow: 0 20px 40px rgba(139,92,246,0.6);"></div>
+                    <!-- Text inside glass -->
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2 leading-tight w-[50%]" style="transform: translateZ(30px);">Sell Smarter,<br> Anywhere, Anytime</h3>
+                    <p class="text-[10px] md:text-xs text-slate-300 w-[50%] leading-relaxed" style="transform: translateZ(20px);"> <br></p>
+                </div>
+                <!-- Phone 1 (Back/Left - Dark) -->
+                <div class="absolute right-[25%] top-[5%] w-40 h-[340px] bg-[#101216] rounded-[32px] p-1.5 border-[3px] border-[#111] border-t-[#333] border-l-[#333] z-10 overflow-hidden group transition-all duration-700" style="transform: rotateY(18deg) rotateX(12deg) rotateZ(-12deg) translateZ(40px); box-shadow: -30px 40px 60px rgba(0,0,0,0.9);">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30 pointer-events-none"></div>
+                    <div class="absolute top-1 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-[#101216] rounded-b-lg z-20 group-hover:w-16 transition-all duration-300"></div>
+                    <img src="img/sl2.png" alt="Salesman Dashboard" class="w-full h-full object-cover rounded-[24px]">
+                </div>
+                <!-- Phone 2 (Front/Right - Light) -->
+                <div class="absolute right-[5%] bottom-[5%] w-44 h-[380px] bg-[#FAF9F6] rounded-[36px] p-1.5 border-[3px] border-[#ccc] border-t-[#fff] border-l-[#fff] z-20 overflow-hidden group transition-all duration-700" style="transform: rotateY(-22deg) rotateX(8deg) rotateZ(8deg) translateZ(140px); box-shadow: -50px 60px 80px rgba(0,0,0,1);">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent opacity-50 z-30 pointer-events-none"></div>
+                    <div class="absolute top-1 left-1/2 -translate-x-1/2 w-14 h-4 bg-[#FAF9F6] rounded-b-xl z-20 shadow-sm group-hover:w-20 transition-all duration-300"></div>
+                    <img src="img/sl3.png" alt="Salesman Estimation" class="w-full h-full object-cover rounded-[28px]">
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: THE ADMIN & INVENTORY DASHBOARD
+             ========================================== -->
+        <section id="admin-dashboard" class="reveal-section grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Copy & Features (6 Columns) -->
+            <div class="lg:col-span-6 flex flex-col gap-6">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-emerald-600">ADMIN DASHBOARD</span>
+                <h2 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">The Central Operations Engine</h2>
+                <div class="h-0.5 w-16 bg-emerald-500 my-2"></div>
+                <h3 class="text-lg font-bold text-slate-300">For Your Store Managers</h3>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-emerald-900/30 text-emerald-600"><i data-lucide="box" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Stock Reconciliation</h4>
+                            <p class="text-xs text-slate-400 mt-1">Automatically audit vault assets and track incoming supplier batches.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-emerald-900/30 text-emerald-600"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Smart Analytics</h4>
+                            <p class="text-xs text-slate-400 mt-1">Machine-learning insights predicting which jewelry designs will trend next season.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-emerald-900/30 text-emerald-600"><i data-lucide="key" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Staff Permissions</h4>
+                            <p class="text-xs text-slate-400 mt-1">Granular access controls, monitoring transaction logs and shift updates.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div class="p-2.5 rounded-lg bg-emerald-900/30 text-emerald-600"><i data-lucide="store" class="w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Multi-Store Control</h4>
+                            <p class="text-xs text-slate-400 mt-1">Unified dashboard to manage pricing adjustments across multiple branches instantly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Visual Stack (6 Columns) -->
+            <div class="lg:col-span-6 image-column-container relative flex justify-center items-center h-[460px]">
+                <!-- Fluid Background Accent Shape -->
+                <div class="fluid-backdrop absolute w-72 h-72 rounded-[48px] bg-gradient-to-tr from-emerald-100 to-emerald-300/30 transform rotate-12 z-0 transition-transform duration-700"></div>
+                
+                <!-- Phone Stack -->
+                <div class="relative w-full max-w-[360px] h-full flex justify-center items-center z-10">
+                    
+                    <!-- Phone 1 (Left) -->
+                    <div class="absolute zero-phone-device phone-stack-1 phone-frame-luxe w-36 h-72 bg-[#101216] rounded-[24px] p-1.5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                        <div class="w-full h-full rounded-[18px] overflow-hidden relative">
+                            <img src="img/admin-phone-1.png" alt="Arjun Jewellers - Wallet & Transactions" class="w-full h-full object-cover object-top">
+                            <div class="absolute inset-0 rounded-[18px] shadow-[inset_0_0_15px_rgba(0,0,0,0.2)] pointer-events-none"></div>
+                        </div>
+                    </div>
+
+                    <!-- Phone 2 (Center) -->
+                    <div class="absolute zero-phone-device phone-stack-2 phone-frame-luxe w-36 h-72 bg-[#101216] rounded-[24px] p-1.5 overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.7)]">
+                        <div class="w-full h-full rounded-[18px] overflow-hidden relative">
+                            <img src="img/admin-phone-2.png" alt="Business Overview - Orders & Sales Analytics" class="w-full h-full object-cover object-top">
+                            <div class="absolute inset-0 rounded-[18px] shadow-[inset_0_0_15px_rgba(0,0,0,0.2)] pointer-events-none"></div>
+                        </div>
+                    </div>
+
+                    <!-- Phone 3 (Right) -->
+                    <div class="absolute zero-phone-device phone-stack-3 phone-frame-luxe w-36 h-72 bg-[#101216] rounded-[24px] p-1.5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+                        <div class="w-full h-full rounded-[18px] overflow-hidden relative">
+                            <img src="img/admin-phone-3.png" alt="Collections & Recent Activity Dashboard" class="w-full h-full object-cover object-top">
+                            <div class="absolute inset-0 rounded-[18px] shadow-[inset_0_0_15px_rgba(0,0,0,0.2)] pointer-events-none"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ==========================================
+             SECTION 4: PLATFORM OVERVIEW
+             ========================================== -->
+        <section id="masterpiece-app" class="reveal-section flex flex-col pt-32 pb-20">
+            <!-- Top Giant Typographic Headline -->
+            <div class="w-full text-center mb-24 md:mb-32">
+                <h2 class="text-5xl md:text-[5.5rem] font-black text-white tracking-tight leading-[0.95]">
+                    A Masterpiece<br>on your wrist
+                </h2>
+            </div>
+            
+            <!-- Central Layered Hero Block -->
+            <div class="relative w-full max-w-6xl mx-auto h-[400px] md:h-[500px] mt-12 md:mt-24">
+                
+                <!-- The Backdrop Card Panel -->
+                <div class="absolute inset-0 bg-violet-500 rounded-[40px] md:rounded-[2.5rem] overflow-hidden shadow-xl">
+                    <!-- The Integrated Background Model -->
+                    <!-- Using an Unsplash image with blend modes to simulate a seamless cutout integration -->
+                    <img src="img/WhatsApp_Image_2026-05-31_at_9.23.59_PM__1_-removebg-preview.png" alt="Smiling Model" class="absolute right-0 bottom-0 h-full w-[80%] md:w-[45%] object-cover object-top mix-blend-multiply opacity-60 grayscale filter contrast-125">
+                    <!-- Gradient overlay to soften the edge -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-violet-500 via-violet-500/80 to-transparent w-full md:w-[60%]"></div>
+                </div>
+
+                <!-- Lower Left Floating Brand Mark -->
+                <div class="absolute left-6 md:left-12 bottom-6 md:bottom-12 z-20 text-white max-w-xs">
+                    <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-2">RHENOVATECH<sup class="text-sm">™</sup></h3>
+                    <p class="text-[9px] md:text-xs text-violet-100 leading-relaxed font-medium">
+                        RHENOVATECH™ is a digital luxury project to support<br>premium catalog management for elite showrooms.
+                    </p>
+                </div>
+
+                <!-- Overlapping Angled Smartphone Mockup -->
+                <div class="absolute left-1/2 top-0 -translate-x-[60%] md:-translate-x-[70%] -translate-y-[25%] md:-translate-y-[20%] z-30 w-[220px] md:w-[280px] h-[450px] md:h-[580px] bg-[#111111] rounded-[35px] md:rounded-[40px] p-1.5 md:p-2 border-[4px] md:border-[5px] border-[#2d2d35] shadow-[0_40px_80px_rgba(0,0,0,0.5),0_0_120px_rgba(139,92,246,0.15)] flex flex-col overflow-hidden transform -rotate-[28deg] hover:-rotate-[25deg] hover:scale-[1.02] transition-all duration-700">
+                    <!-- Dynamic Island / Notch -->
+                    <div class="absolute top-2 left-1/2 -translate-x-1/2 w-20 md:w-24 h-5 md:h-6 bg-[#111111] rounded-full z-20 flex items-center justify-center">
+                        <div class="w-2.5 h-2.5 rounded-full bg-[#1a1a2e] border border-[#2d2d35]"></div>
+                    </div>
+                    
+                    <!-- Phone Screen with RHenovatech Brand Image -->
+                    <div class="w-full h-full rounded-[25px] md:rounded-[30px] overflow-hidden relative">
+                        <img src="img/rhenova-mobile.png" alt="RHenovatech - Unlock your potential" class="w-full h-full object-cover object-center">
+                        <!-- Subtle inner glow overlay -->
+                        <div class="absolute inset-0 rounded-[25px] md:rounded-[30px] shadow-[inset_0_0_30px_rgba(0,0,0,0.3)] pointer-events-none"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Two-Column Detail Row -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 pt-16 md:pt-24 pb-8 max-w-6xl mx-auto w-full px-6 md:px-0">
+                <!-- Left Column (6 Columns) -->
+                <div class="lg:col-span-6 flex flex-col justify-center">
+                    <h3 class="text-xl md:text-3xl font-bold text-white tracking-tight leading-[1.15]">
+RHENOVATECH™: Digital Luxury Architecture for Jewelry Enterprise                    </h3>
+                </div>
+
+                <!-- Right Column (6 Columns) -->
+                <div class="lg:col-span-6 flex flex-col justify-center mt-6 lg:mt-0">
+                    <span class="text-[10px] font-extrabold tracking-widest text-slate-400 uppercase mb-3">[OVERVIEW]</span>
+                    <p class="text-xs md:text-sm text-slate-400 leading-relaxed max-w-md font-medium">
+RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem, built exclusively to power elite boutique jewelry showrooms, high-end manufacturers, and private diamond collectors. Through deep-dive operational research into the high-jewelry sector, we identified the unique technical friction points and security liabilities that traditional ERP and retail software fail to solve.                    </p>
+                </div>
+            </div>
+        </section>
+
+                <!-- Masonry Grid Architecture -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+                    
+                    <!-- LEFT COLUMN (Cards 1 & 2) -->
+                    <div class="flex flex-col gap-6 lg:gap-8 h-full">
+                        
+                        <!-- Card 1: Payment Successful Phone Mockup -->
+                        <div class="rounded-[2rem] bg-slate-900/40 border border-slate-800/80 overflow-hidden relative flex-1 min-h-[520px] md:min-h-[580px] flex flex-col justify-center items-center stagger-card opacity-0 translate-y-8 duration-700">
+                            <!-- Background -->
+                            <div class="absolute inset-0 bg-gradient-to-b from-[#100d1c] to-[#1c182a]"></div>
+                            <!-- Subtle pattern overlay -->
+                            <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 12px);"></div>
+                            <!-- Ambient glow behind phone -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full opacity-25 pointer-events-none" style="background: radial-gradient(circle, rgba(16,185,129,0.5) 0%, transparent 70%);"></div>
+                            
+                            <!-- Concrete Podium -->
+                            <div class="absolute bottom-10 w-64 h-14 rounded-[100%] bg-slate-800/80 border-t-2 border-slate-600 shadow-[0_30px_50px_rgba(0,0,0,0.9)] z-0 flex items-center justify-center">
+                                <div class="w-56 h-10 rounded-[100%] border-t border-slate-500/50"></div>
+                            </div>
+                            
+                            <!-- Payment Phone Mockup -->
+                            <div class="relative z-10 w-[240px] md:w-[260px] h-[490px] md:h-[530px] bg-black rounded-[42px] md:rounded-[46px] p-[6px] md:p-2 border-[4px] border-slate-700/80 transform rotate-3 -translate-y-4 shadow-[0_50px_100px_rgba(0,0,0,0.9),0_0_80px_rgba(16,185,129,0.12)] overflow-hidden transition-transform duration-700 hover:rotate-0 hover:-translate-y-8 hover:scale-[1.03]">
+                                <!-- Dynamic Island -->
+                                <div class="absolute top-3 left-1/2 -translate-x-1/2 w-24 md:w-28 h-[22px] md:h-[26px] bg-black rounded-full z-20 flex items-center justify-center gap-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-[#1a1a2e]"></div>
+                                </div>
+                                <!-- Screen with Image -->
+                                <div class="w-full h-full rounded-[34px] md:rounded-[38px] overflow-hidden relative">
+                                    <img src="img/flutter.png" alt="Payment Successful - ₹350.98" class="w-full h-full object-cover object-top">
+                                    <div class="absolute inset-0 rounded-[34px] md:rounded-[38px] shadow-[inset_0_0_30px_rgba(0,0,0,0.15)] pointer-events-none"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Flutter Phone Mockup -->
+                        <div class="rounded-[2rem] bg-[#13101d] border border-slate-800/60 p-8 md:p-10 flex flex-col justify-center items-center min-h-[480px] md:min-h-[540px] overflow-hidden relative stagger-card opacity-0 translate-y-8 duration-700" style="transition-delay: 150ms;">
+                            <!-- Ambient blue glow -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full opacity-20 pointer-events-none" style="background: radial-gradient(circle, rgba(59,130,246,0.6) 0%, transparent 70%);"></div>
+                            
+                            <!-- Flutter Phone -->
+                            <div class="relative w-[240px] md:w-[260px] h-[420px] md:h-[460px] bg-black rounded-[42px] md:rounded-[46px] p-[6px] md:p-2 border-[4px] border-slate-700/80 shadow-[0_30px_70px_rgba(0,0,0,0.7),0_0_80px_rgba(59,130,246,0.12)] overflow-hidden z-10 transition-transform duration-700 hover:-translate-y-3 hover:scale-[1.03]">
+                                <!-- Dynamic Island -->
+                                <div class="absolute top-3 left-1/2 -translate-x-1/2 w-24 md:w-28 h-[22px] md:h-[26px] bg-black rounded-full z-20 flex items-center justify-center gap-2">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-[#1a1a2e]"></div>
+                                </div>
+                                <div class="w-full h-full rounded-[34px] md:rounded-[38px] overflow-hidden relative">
+                                    <img src="img/pay.png" alt="Flutter Development Framework" class="w-full h-full object-cover object-center">
+                                    <div class="absolute inset-0 rounded-[34px] md:rounded-[38px] shadow-[inset_0_0_25px_rgba(0,0,0,0.15)] pointer-events-none"></div>
+                                </div>
+                            </div>
+
+                            <!-- Text below phone -->
+                            <div class="relative z-10 text-center mt-8">
+                                <h4 class="text-xl md:text-2xl font-bold text-white mb-2">Unified Payment Infrastructure</h4>
+                                <p class="text-[13px] md:text-sm text-slate-400 leading-relaxed max-w-[320px]">
+                                    Achieve faster release cycles with a powerful Flutter-based architecture.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN (Card 3) - Text Content -->
+                    <div class="rounded-[2rem] bg-[#13101d] border border-slate-800/60 flex flex-col h-full overflow-hidden stagger-card opacity-0 translate-y-8 duration-700 relative" style="transition-delay: 300ms;">
+                        
+                        <!-- Payment Gateway Section -->
+                        <div class="p-10 md:p-12 pb-6 z-20">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 mb-5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(16,185,129,0.6)]"></span>
+                                <span class="text-[10px] font-semibold text-emerald-400 uppercase tracking-wider">Payment Gateway</span>
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-bold text-white mb-5 leading-[1.15] max-w-sm">Secure Payment<br><span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Infrastructure</span></h3>
+                            <p class="text-[13px] md:text-sm text-slate-400 leading-relaxed max-w-md">
+                                A robust, enterprise-grade payment gateway engineered for seamless multi-currency processing. Accept payments globally with real-time transaction tracking, instant settlements, and bank-level security — all from a single unified dashboard.
+                            </p>
+                        </div>
+                        
+                        <!-- Payment Gateway Features -->
+                        <div class="relative w-full px-10 md:px-12 py-4 z-10 flex flex-col gap-6">
+                            
+                            <!-- Fraud Detection -->
+                            <div class="flex gap-5 items-start">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-base font-bold text-white mb-2">Fraud Detection & Security</h4>
+                                    <p class="text-[12px] md:text-[13px] text-slate-400 leading-relaxed">
+                                        AI-powered anomaly detection monitors every transaction in real time. Multi-layered security with 3D Secure authentication, PCI DSS compliance, and tokenized card storage keeps your customers' data protected.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Multi-Currency -->
+                            <div class="flex gap-5 items-start">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-base font-bold text-white mb-2">Multi-Currency & Instant Settlements</h4>
+                                    <p class="text-[12px] md:text-[13px] text-slate-400 leading-relaxed">
+                                        Accept INR, USD, EUR, and 100+ currencies with automatic conversion. Instant settlement ensures funds reach your account faster, with detailed reconciliation reports for every transaction.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="mx-10 md:mx-12 my-6 h-px" style="background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), rgba(139,92,246,0.3), transparent);"></div>
+
+                        <!-- Flutter Technology Section -->
+                        <div class="px-10 md:px-12 pb-4 z-20">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-500/20 bg-blue-500/5 mb-5">
+                                <span class="w-2 h-2 rounded-full bg-blue-400 shadow-[0_0_6px_rgba(59,130,246,0.6)]"></span>
+                                <span class="text-[10px] font-semibold text-blue-400 uppercase tracking-wider">Flutter Technology</span>
+                            </div>
+                            <h3 class="text-2xl md:text-3xl font-bold text-white mb-5 leading-[1.15] max-w-sm">Built with <span class="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Flutter</span><br>for Mobile Excellence</h3>
+                            <p class="text-[13px] md:text-sm text-slate-400 leading-relaxed max-w-md">
+                                Our mobile applications are crafted using Google's Flutter framework — delivering pixel-perfect, natively compiled apps for both iOS and Android from a single codebase. Experience blazing-fast performance with beautiful, fluid animations.
+                            </p>
+                        </div>
+
+                        <!-- Flutter Features -->
+                        <div class="relative w-full px-10 md:px-12 py-4 z-10 flex flex-col gap-6">
+                            
+                            <!-- Cross-Platform -->
+                            <div class="flex gap-5 items-start">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-base font-bold text-white mb-2">One Codebase, All Platforms</h4>
+                                    <p class="text-[12px] md:text-[13px] text-slate-400 leading-relaxed">
+                                        Write once, deploy everywhere. A single Dart codebase powers iOS, Android, and web — reducing development time by up to 40% while maintaining native-level performance and platform-specific design patterns.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Hot Reload -->
+                            <div class="flex gap-5 items-start">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="text-base font-bold text-white mb-2">Hot Reload & Rapid Iteration</h4>
+                                    <p class="text-[12px] md:text-[13px] text-slate-400 leading-relaxed">
+                                        See changes instantly with Flutter's hot reload. Build, test, and refine features in real time — accelerating the development lifecycle from ideation to production-ready releases.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Component Panel -->
+                        <div class="bg-[#13101d] p-10 md:p-12 pt-6 z-20 relative mt-auto">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="flex -space-x-2">
+                                    <div class="w-7 h-7 rounded-full bg-emerald-500/20 border-2 border-[#13101d] flex items-center justify-center"><svg class="w-3 h-3 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25l7.5-7.5 7.5 7.5M6 12l6-6 6 6"/></svg></div>
+                                    <div class="w-7 h-7 rounded-full bg-blue-500/20 border-2 border-[#13101d] flex items-center justify-center"><svg class="w-3 h-3 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></div>
+                                    <div class="w-7 h-7 rounded-full bg-violet-500/20 border-2 border-[#13101d] flex items-center justify-center"><svg class="w-3 h-3 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+                                </div>
+                                <span class="text-xs text-slate-500 font-medium">Trusted by 500+ businesses worldwide</span>
+                            </div>
+                            <h4 class="text-lg md:text-xl font-bold text-white mb-3">Two pillars. One powerful platform.</h4>
+                            <p class="text-[13px] md:text-sm text-slate-400 leading-relaxed max-w-md">
+                                RHenovatech combines a secure, scalable payment gateway with Flutter-powered mobile apps — giving jewelry businesses a complete digital ecosystem that's fast to build and reliable to operate.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION: CTA BANNER
+             ========================================== -->
+        <section id="cta-banner" class="reveal-section relative w-full overflow-hidden py-28 md:py-36" style="background: #07060E;">       
+
+            <!-- Ambient glow spots -->
+            <div class="absolute left-[10%] top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full opacity-20 pointer-events-none" style="background: radial-gradient(circle, rgba(139,92,246,0.6) 0%, transparent 70%);"></div>
+            <div class="absolute right-[8%] top-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full opacity-15 pointer-events-none" style="background: radial-gradient(circle, rgba(124,58,237,0.7) 0%, transparent 70%);"></div>
+
+            <!-- Centered Content -->
+            <div class="relative z-10 flex flex-col items-center justify-center px-6 text-center">
+                <!-- Description -->
+                <p class="text-sm md:text-base text-gray-400 max-w-xl leading-relaxed mb-10">
+                    Unlock the full potential of your data with our comprehensive SaaS analytics platform.
+                </p>
+
+                <!-- CTA Button -->
+                <a href="mailto:ceo@rhenovatech.com" class="group relative inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-white text-sm md:text-base transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_rgba(109,40,217,0.5)] active:scale-[0.98]" style="background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 50%, #5B21B6 100%); box-shadow: 0 4px 25px rgba(109,40,217,0.4), inset 0 1px 0 rgba(255,255,255,0.1);">
+                    <span>Schedule a demo</span>
+                    <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                </a>
+
+                <!-- Contact Info -->
+                <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 mt-12">
+                    <a href="mailto:ceo@rhenovatech.com" class="flex items-center gap-2.5 text-slate-400 hover:text-violet-400 transition-colors duration-300 group">
+                        <div class="w-9 h-9 rounded-full border border-[#31265c] flex items-center justify-center group-hover:border-violet-500/50 group-hover:bg-violet-500/10 transition-all duration-300" style="background: rgba(21,18,38,0.6);">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <span class="text-sm font-medium">ceo@rhenovatech.com</span>
+                    </a>
+                    <div class="hidden sm:block w-px h-5 bg-[#31265c]"></div>
+                    <a href="tel:+917306201900" class="flex items-center gap-2.5 text-slate-400 hover:text-violet-400 transition-colors duration-300 group">
+                        <div class="w-9 h-9 rounded-full border border-[#31265c] flex items-center justify-center group-hover:border-violet-500/50 group-hover:bg-violet-500/10 transition-all duration-300" style="background: rgba(21,18,38,0.6);">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <span class="text-sm font-medium">+91 73062 01900</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bottom fade line -->
+            <div class="absolute bottom-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent);"></div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         FOOTER (Advanced Quality)
+         ========================================== -->
+    <footer class="relative w-full py-8 border-t border-white/5 bg-[#05040a] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.08)_0%,transparent_70%)] pointer-events-none"></div>
+        <p class="text-[11px] md:text-xs text-slate-500 tracking-widest uppercase font-semibold flex flex-col md:flex-row items-center gap-1 md:gap-2 relative z-10">
+            Powered by 
+            <span class="text-white font-extrabold flex items-center gap-1.5 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
+                RhenovaTech Private Limited
+            </span>
+        </p>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Optimized Intersection Observer reveal script
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // Setup stagger cards from RhenovaTech
+            const cards = document.querySelectorAll(".stagger-card");
+            const cardObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const index = Array.from(cards).indexOf(entry.target);
+                        setTimeout(() => {
+                            entry.target.classList.remove("opacity-0", "translate-y-8");
+                            entry.target.classList.add("opacity-100", "translate-y-0");
+                        }, index * 200);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            
+            cards.forEach(card => cardObserver.observe(card));
+
+            // Setup Suite sections
+            const sections = document.querySelectorAll(".reveal-section");
+            
+            const observerOptions = {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -60px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target); // Trigger animation once
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
