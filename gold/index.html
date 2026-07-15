@@ -1336,5 +1336,187 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 <!-- ====== AOS Script ====== -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init({duration: 1000, once: true, offset: 50});</script>
+
+<!-- REX POPUP FUNCTION -->
+<style>
+.rex-popup-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99999;
+    animation: slideUpRex 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rex-popup-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 30px 160px 45px 35px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    width: 480px;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: bottom right;
+}
+
+.rex-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #444;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.rex-close-btn:hover {
+    background: rgba(0,0,0,0.05);
+    color: #000;
+}
+
+.rex-popup-text, .rex-demo-btn, .rex-close-btn {
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.rex-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.2;
+}
+
+.rex-subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #7928CA;
+    letter-spacing: -0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.rex-demo-btn {
+    position: absolute;
+    bottom: -22px;
+    left: 35px;
+    background: #7928CA;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 8px 20px rgba(121, 40, 202, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.rex-demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(121, 40, 202, 0.45);
+}
+
+.rex-popup-img {
+    position: absolute;
+    bottom: 10px;
+    right: -20px;
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(-5px 10px 15px rgba(0,0,0,0.15));
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+/* MINIMIZED STATE */
+.rex-popup-container.minimized .rex-popup-card {
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.rex-popup-container.minimized .rex-popup-text,
+.rex-popup-container.minimized .rex-demo-btn,
+.rex-popup-container.minimized .rex-close-btn {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.rex-popup-container.minimized .rex-popup-img {
+    right: 0px;
+    bottom: 0px;
+    width: 120px;
+    pointer-events: auto;
+}
+.rex-popup-container.minimized .rex-popup-card:hover .rex-popup-img {
+    transform: scale(1.08);
+}
+
+@keyframes slideUpRex {
+    0% { transform: translateY(100px) scale(0.9); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .rex-popup-container {
+        right: 20px;
+        bottom: 50px;
+        left: 20px;
+    }
+    .rex-popup-container.minimized {
+        left: auto;
+    }
+    .rex-popup-card {
+        width: 100%;
+        padding: 25px 120px 40px 20px;
+    }
+    .rex-title { font-size: 22px; }
+    .rex-subtitle { font-size: 18px; }
+    .rex-popup-img {
+        width: 160px;
+        right: -10px;
+    }
+    .rex-demo-btn {
+        left: 20px;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+</style>
+<div class="rex-popup-container" id="rexPopup">
+    <div class="rex-popup-card" onclick="if(document.getElementById('rexPopup').classList.contains('minimized')) document.getElementById('rexPopup').classList.remove('minimized')">
+        <button class="rex-close-btn" onclick="event.stopPropagation(); document.getElementById('rexPopup').classList.add('minimized')">
+            &times;
+        </button>
+        
+        <div class="rex-popup-text">
+            <div class="rex-title">New to<br>Rhenovatech?</div>
+            <div class="rex-subtitle">Talk to our experts</div>
+        </div>
+        
+        <a href="https://wa.me/917306201900?text=Hi,%20I%20would%20like%20to%20request%20a%20demo%20of%20your%20software." target="_blank" class="rex-demo-btn" onclick="event.stopPropagation();">Schedule a free demo</a>
+        
+        <img src="img/rex.png" alt="Rex Mascot" class="rex-popup-img">
+    </div>
+</div>
+<!-- END REX POPUP FUNCTION -->
 </body>
 </html>
