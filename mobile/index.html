@@ -987,6 +987,14 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
 }
+.rex-blink-overlay {
+    opacity: 0;
+    animation: rexEyeBlink 4.5s infinite;
+}
+@keyframes rexEyeBlink {
+    0%, 94%, 98%, 100% { opacity: 0; }
+    95%, 97% { opacity: 1; }
+}
 
 /* MINIMIZED STATE */
 .rex-popup-container.minimized .rex-popup-card {
@@ -1017,6 +1025,10 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
 }
 .rex-popup-container.minimized .rex-popup-card:hover .rex-popup-img {
     transform: scale(1.08);
+}
+.rex-popup-container.minimized .rex-popup-card:hover .rex-blink-overlay {
+    animation: none;
+    opacity: 0;
 }
 
 @keyframes slideUpRex {
@@ -1064,6 +1076,7 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
         <a href="https://wa.me/917306201900?text=Hi,%20I%20would%20like%20to%20request%20a%20demo%20of%20your%20software." target="_blank" class="rex-demo-btn" onclick="event.stopPropagation();">Schedule a free demo</a>
         
         <img src="img/rex.png" alt="Rex Mascot" class="rex-popup-img">
+        <img src="img/rex_blink.png" alt="Rex Mascot Blink" class="rex-popup-img rex-blink-overlay">
     </div>
 </div>
 <script>

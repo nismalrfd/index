@@ -5899,6 +5899,24 @@
 
 <!-- REX POPUP FUNCTION -->
 <style>
+.rex-popup-img {
+    position: absolute;
+    bottom: 10px;
+    right: -20px;
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(-5px 10px 15px rgba(0,0,0,0.15));
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+.rex-blink-overlay {
+    opacity: 0;
+    animation: rexEyeBlink 4.5s infinite;
+}
+@keyframes rexEyeBlink {
+    0%, 94%, 98%, 100% { opacity: 0; }
+    95%, 97% { opacity: 1; }
+}
 .rex-popup-container {
     position: fixed;
     bottom: 40px;
@@ -6076,6 +6094,7 @@
         <a href="https://wa.me/917306201900?text=Hi,%20I%20would%20like%20to%20request%20a%20demo%20of%20your%20software." target="_blank" class="rex-demo-btn" onclick="event.stopPropagation();">Schedule a free demo</a>
         
         <img src="rex.png" alt="Rex Mascot" class="rex-popup-img">
+        <img src="rex_blink.png" alt="Rex Mascot Blink" class="rex-popup-img rex-blink-overlay">
     </div>
 </div>
 <script>
