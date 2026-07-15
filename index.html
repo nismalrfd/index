@@ -3297,385 +3297,333 @@
     </div>
 
     <!-- Pinned Cards wrapper (Only this container pins/freezes on scroll) -->
-    <div class="sector-cards-pin-wrap w-full relative z-20">
-      <!-- Cards Area -->
-      <div class="relative w-full max-w-[1200px] mx-auto h-[400px] sm:h-[450px] md:h-[500px] lg:h-[560px] perspective-[1200px] z-10 px-4 md:px-6">
-        <div class="relative w-full h-full">
-          <!-- Generate 12 Cards -->
-          <!-- Card 1: Builders & Development -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="Revolução Digital na Construção_ BIM e Impressão 3D Transformando o Setor.jpg" alt="Builders & Development" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+            <div class="sector-cards-grid-wrap w-full relative z-20 pb-24">
+      <div class="w-full max-w-[1200px] mx-auto px-4 md:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <!-- Card: BUILDERS & DEVELOPMENT -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="Revolução Digital na Construção_ BIM e Impressão 3D Transformando o Setor.jpg" alt="BUILDERS & DEVELOPMENT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   BUILDERS & DEVELOPMENT
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Smart ERP For Modern Construction
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Built for developers and contractors managing large-scale projects, integrating subcontracts, resources, and progress schedules.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Inventory Management</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Subcontractor Portal</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Progress Billing</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button (floating bottom-right) -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Smart ERP For Modern Construction
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Built for developers and contractors managing large-scale projects, integrating subcontracts, resources, and progress schedules.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Inventory Management</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Subcontractor Portal</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Progress Billing</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 2: Real Estate -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80" alt="Real Estate" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: REAL ESTATE -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80" alt="REAL ESTATE" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   REAL ESTATE
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Intelligent CRM For Real Estate Growth
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Streamline lead management, automate follow-ups, and track site visits to maximize broker productivity and scale sales pipelines.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Lead Pipeline</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Property Database</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Automated Reminders</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Intelligent CRM For Real Estate Growth
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Streamline lead management, automate follow-ups, and track site visits to maximize broker productivity and scale sales pipelines.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Lead Pipeline</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Property Database</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Automated Reminders</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 3: Interior Design -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Interior Design" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: INTERIOR DESIGN -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="INTERIOR DESIGN" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   INTERIOR DESIGN
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  End-To-End Interior Project Management
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Simplify BOQ creation, procurement, and project execution. Bridge the gap between designers, vendors, and clients.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Project Schedules</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Client Approvals</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Vendor Orders</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                End-To-End Interior Project Management
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Simplify BOQ creation, procurement, and project execution. Bridge the gap between designers, vendors, and clients.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Project Schedules</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Client Approvals</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Vendor Orders</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 4: School Management -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="fotos-4Esx7ll8JJw-unsplash.jpg" alt="School Management" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: SCHOOL MANAGEMENT -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="fotos-4Esx7ll8JJw-unsplash.jpg" alt="SCHOOL MANAGEMENT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   SCHOOL MANAGEMENT
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Unified Digital Campus Ecosystem
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Digitize admissions, academics, examinations, fee collection, and parent-teacher communication in one cohesive hub.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Student Records</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Fee Automation</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Parent Portal</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Unified Digital Campus Ecosystem
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Digitize admissions, academics, examinations, fee collection, and parent-teacher communication in one cohesive hub.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Student Records</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Fee Automation</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Parent Portal</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 5: Gym Management -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Gym Management" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: GYM MANAGEMENT -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="GYM MANAGEMENT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   GYM MANAGEMENT
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Connected Fitness Business Platform
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Streamline membership subscriptions, trainer scheduling, automated door access, and retail product sales.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Membership Plans</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Access Control</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Trainer Booking</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Connected Fitness Business Platform
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Streamline membership subscriptions, trainer scheduling, automated door access, and retail product sales.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Membership Plans</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Access Control</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Trainer Booking</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 6: Facilities Management -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Facilities Management" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: FACILITIES MANAGEMENT -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="FACILITIES MANAGEMENT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   FACILITIES MANAGEMENT
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Centralized Facility Operations Hub
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Centralize scheduled maintenance, asset health records, technician dispatches, SLA tracking, and vendor portals.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Work Orders</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Asset Tracking</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Preventative SLA</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Centralized Facility Operations Hub
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Centralize scheduled maintenance, asset health records, technician dispatches, SLA tracking, and vendor portals.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Work Orders</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Asset Tracking</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Preventative SLA</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 7: Event Management -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Event Management" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: EVENT MANAGEMENT -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="EVENT MANAGEMENT" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   EVENT MANAGEMENT
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Intelligent Event Execution Platform
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Manage corporate events and weddings from inquiry to billing, covering bookings, floorplans, and vendor contracts.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Booking Timeline</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Vendor Contracts</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Budget Manager</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Intelligent Event Execution Platform
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Manage corporate events and weddings from inquiry to billing, covering bookings, floorplans, and vendor contracts.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Booking Timeline</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Vendor Contracts</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Budget Manager</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 8: Optical Retail -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80" alt="Optical Retail" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: OPTICAL RETAIL -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=800&q=80" alt="OPTICAL RETAIL" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   OPTICAL RETAIL
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Connected Optical Retail Experience
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Unify eye examination electronic health records, custom lens prescriptions, lab work orders, and frames inventory.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Rx History</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Barcode Inventory</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Zoho Integration</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Connected Optical Retail Experience
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Unify eye examination electronic health records, custom lens prescriptions, lab work orders, and frames inventory.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Rx History</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Barcode Inventory</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Zoho Integration</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 9: Jewellery Retail -->
-          <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" alt="Jewellery Retail" class="sector-img" />
-              <div class="sector-card-overlay"></div>
+          <!-- Card: JEWELLERY RETAIL -->
+          <div class="group relative flex flex-col bg-white rounded-[24px] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(115,109,179,0.2)] border border-gray-100 [&:nth-child(odd):last-child]:md:col-span-2">
+            <!-- Image Area -->
+            <div class="relative w-full h-[240px] md:h-[280px] overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80" alt="JEWELLERY RETAIL" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500"></div>
               
-              <!-- Content Wrapper -->
-              <div class="sector-card-content">
-                <!-- Industry Badge Label -->
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
+              <div class="absolute top-5 left-5 z-10">
+                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-[12px] font-black text-gray-900 tracking-widest uppercase shadow-sm">
                   JEWELLERY RETAIL
                 </span>
-                <!-- Heading -->
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Custom Jewellery Operating System
-                </h3>
-                <!-- Description -->
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Tailored digital solutions for raw material metal/stone inventory tracking, manufacturing workflows, and gold scheme customer schemes.
-                </p>
-                <!-- Feature Highlights Chips -->
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Inventory Automation</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Manufacturing Workflow</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Customer Loyalty</span>
-                </div>
               </div>
-
-              <!-- Premium Circular CTA Button -->
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
+            </div>
+            
+            <!-- Content Area -->
+            <div class="relative flex flex-col flex-1 p-6 md:p-8 bg-white">
+              <h3 class="text-[24px] md:text-[28px] font-bold text-gray-900 leading-tight mb-4 group-hover:text-[#736DB3] transition-colors duration-300">
+                Custom Jewellery Operating System
+              </h3>
+              <p class="text-gray-600 text-[15px] md:text-[16px] leading-relaxed mb-8 flex-1 font-medium">
+                Tailored digital solutions for raw material metal/stone inventory tracking, manufacturing workflows, and gold scheme customer schemes.
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mt-auto">
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Inventory Automation</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Manufacturing Workflow</span>
+                <span class="px-3 py-1.5 rounded-md bg-gray-100 border border-gray-200 text-gray-700 text-[13px] font-semibold tracking-wide">Customer Loyalty</span>
+              </div>
+              
+              <div class="absolute bottom-6 right-6 md:bottom-8 md:right-8 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                <div class="w-10 h-10 rounded-full bg-[#736DB3] flex items-center justify-center shadow-lg hover:bg-gray-900 hover:text-white transition-colors cursor-pointer">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </div>
               </div>
-
             </div>
           </div>
-
-          <!-- Card 10: Supply Chain -->
-          <!-- <div class="sector-card">
-            <div class="sector-card-inner group">
-              <img src="https://images.unsplash.com/photo-1586528116311-ad8ed7c663b0?auto=format&fit=crop&w=800&q=80" alt="Supply Chain" class="sector-img" />
-              <div class="sector-card-overlay"></div>
-              
-              <div class="sector-card-content">
-                <span class="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-[#736DB3]/12 border border-[#736DB3]/25 text-[13px] font-bold text-[#736DB3] tracking-[0.08em] uppercase mb-4 w-fit">
-                  SUPPLY CHAIN
-                </span>
-                <h3 class="text-[30px] md:text-[36px] lg:text-[44px] font-bold text-white leading-tight tracking-tight mb-3 max-w-[85%] lg:max-w-[75%]">
-                  Intelligent Supply Chain Command Center
-                </h3>
-                <p class="text-white/80 text-[16px] lg:text-[18px] leading-[1.7] max-w-[85%] lg:max-w-[70%] mb-5">
-                  Connect global procurement, multi-location warehouse operations, shipping logistics, and supplier collaboration networks.
-                </p>
-                <div class="flex flex-wrap gap-2.5 mt-2 max-w-[85%] lg:max-w-[75%]">
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Warehouse Management</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Vendor Integration</span>
-                  <span class="h-[34px] px-[16px] rounded-full bg-white/[0.06] border border-white/[0.08] text-[13px] sm:text-[14px] font-semibold text-white flex items-center justify-center backdrop-blur-md">Real-time Analytics</span>
-                </div>
-              </div>
-
-              <div class="absolute bottom-7 right-7 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-30">
-                <div class="sector-card-cta">
-                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </div>
-              </div>
-
-            </div>
-          </div> -->
-
         </div>
       </div>
     </div>
@@ -5948,6 +5896,202 @@
     });
   </script>
   </div> <!-- End site-scroll-wrapper -->
+
+<!-- REX POPUP FUNCTION -->
+<style>
+.rex-popup-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99999;
+    display: none;
+    animation: slideUpRex 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rex-popup-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 30px 160px 45px 35px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    width: 480px;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: bottom right;
+}
+
+.rex-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #444;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.rex-close-btn:hover {
+    background: rgba(0,0,0,0.05);
+    color: #000;
+}
+
+.rex-popup-text, .rex-demo-btn, .rex-close-btn {
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.rex-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.2;
+}
+
+.rex-subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #7928CA;
+    letter-spacing: -0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.rex-demo-btn {
+    position: absolute;
+    bottom: -22px;
+    left: 35px;
+    background: #7928CA;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 8px 20px rgba(121, 40, 202, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.rex-demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(121, 40, 202, 0.45);
+}
+
+.rex-popup-img {
+    position: absolute;
+    bottom: 10px;
+    right: -20px;
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(-5px 10px 15px rgba(0,0,0,0.15));
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+/* MINIMIZED STATE */
+.rex-popup-container.minimized .rex-popup-card {
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.rex-popup-container.minimized .rex-popup-text,
+.rex-popup-container.minimized .rex-demo-btn,
+.rex-popup-container.minimized .rex-close-btn {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.rex-popup-container.minimized .rex-popup-img {
+    right: 0px;
+    bottom: 0px;
+    width: 120px;
+    pointer-events: auto;
+}
+.rex-popup-container.minimized .rex-popup-card:hover .rex-popup-img {
+    transform: scale(1.08);
+}
+
+@keyframes slideUpRex {
+    0% { transform: translateY(100px) scale(0.9); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .rex-popup-container {
+        right: 20px;
+        bottom: 50px;
+        left: 20px;
+    }
+    .rex-popup-container.minimized {
+        left: auto;
+    }
+    .rex-popup-card {
+        width: 100%;
+        padding: 25px 120px 40px 20px;
+    }
+    .rex-title { font-size: 22px; }
+    .rex-subtitle { font-size: 18px; }
+    .rex-popup-img {
+        width: 160px;
+        right: -10px;
+    }
+    .rex-demo-btn {
+        left: 20px;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+</style>
+<div class="rex-popup-container" id="rexPopup">
+    <div class="rex-popup-card" onclick="if(document.getElementById('rexPopup').classList.contains('minimized')) document.getElementById('rexPopup').classList.remove('minimized')">
+        <button class="rex-close-btn" onclick="event.stopPropagation(); document.getElementById('rexPopup').classList.add('minimized')">
+            &times;
+        </button>
+        
+        <div class="rex-popup-text">
+            <div class="rex-title">New to<br>Rhenovatech?</div>
+            <div class="rex-subtitle">Talk to our experts</div>
+        </div>
+        
+        <a href="https://wa.me/917306201900?text=Hi,%20I%20would%20like%20to%20request%20a%20demo%20of%20your%20software." target="_blank" class="rex-demo-btn" onclick="event.stopPropagation();">Schedule a free demo</a>
+        
+        <img src="rex.png" alt="Rex Mascot" class="rex-popup-img">
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        var popup = document.getElementById('rexPopup');
+        if (popup) {
+            popup.style.display = 'block';
+            setTimeout(function() {
+                if (!popup.classList.contains('minimized')) {
+                    popup.classList.add('minimized');
+                }
+            }, 5000);
+        }
+    }, 10000);
+</script>
+<!-- END REX POPUP FUNCTION -->
 </body>
 </html>
 

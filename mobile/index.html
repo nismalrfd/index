@@ -892,6 +892,7 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
     bottom: 40px;
     right: 40px;
     z-index: 99999;
+    display: none;
     animation: slideUpRex 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -1065,6 +1066,19 @@ RHENOVATECH™ engineers the world’s premier digital luxury software ecosystem
         <img src="img/rex.png" alt="Rex Mascot" class="rex-popup-img">
     </div>
 </div>
+<script>
+    setTimeout(function() {
+        var popup = document.getElementById('rexPopup');
+        if (popup) {
+            popup.style.display = 'block';
+            setTimeout(function() {
+                if (!popup.classList.contains('minimized')) {
+                    popup.classList.add('minimized');
+                }
+            }, 5000);
+        }
+    }, 10000);
+</script>
 <!-- END REX POPUP FUNCTION -->
 </body>
 </html>
