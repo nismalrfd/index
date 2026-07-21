@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+ <base href="/gold/">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <title>Rhenovatech</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="icon" type="image/png" href="img/logobefore.png">
+
+ <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ 
+ <script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ fontFamily: {
+    sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"'],
+    cinzel: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"'],
+},
+ colors: {
+ brand: {
+ purple: '#6C5CE7',
+ dark: '#1a1a1a',
+ bg: '#0a0a0a',
+ card: '#111111',
+ 50: '#F0EFFF', 100: '#E8E7FF', 200: '#D4D3FF', 300: '#B0AEFF', 400: '#8583F5', 500: '#6366F1', 600: '#5D5FEF', 700: '#4F46E5', 800: '#3730A3', 900: '#312E81', primary: '#6366F1', accent: '#7C3AED',
+ },
+ accent: {
+ 400: '#FFB74D', 500: '#FF9F43', 600: '#F2994A',
+ },
+ royal: {
+ 50: '#EFF6FF', 100: '#DBEAFE', 200: '#BFDBFE', 300: '#93C5FD', 400: '#60A5FA', 500: '#3B82F6', 600: '#2563EB', 700: '#1D4ED8', 800: '#1E40AF', 900: '#1E3A8A',
+ },
+ violet: {
+ 500: '#8B5CF6', 600: '#7C3AED', 700: '#6D28D9',
+ },
+ np: {
+ 50: '#F5F3FF', 100: '#EDE9FE', 200: '#DDD6FE', 300: '#C4B5FD', 400: '#A78BFA', 500: '#8B5CF6', 600: '#6D28D9', 700: '#5B21B6', 800: '#4C1D95', 900: '#3B0764',
+ }
+ }
+ }
+ }
+ }
+ </script>
+
+ <style>
+ .perspective-1000 { perspective: 1000px; }
+ 
+ /* Floating animations for mockups */
+ @keyframes float-main {
+ 0% { transform: translateY(0px) rotateX(15deg) rotateY(-15deg) rotateZ(5deg); }
+ 50% { transform: translateY(-20px) rotateX(17deg) rotateY(-12deg) rotateZ(3deg); }
+ 100% { transform: translateY(0px) rotateX(15deg) rotateY(-15deg) rotateZ(5deg); }
+ }
+ .animate-float-main {
+ animation: float-main 7s ease-in-out infinite;
+ transform-style: preserve-3d;
+ }
+
+ /* Abstract fluid shape for the hero section background */
+ .fluid-shape {
+ border-radius: 40px;
+ }
+ @media (min-width: 1024px) {
+ .fluid-shape {
+ border-radius: 60px 40px 100px 40px;
+ }
+ }
+ 
+ .mask-gradient {
+ -webkit-mask-image: linear-gradient(to right, transparent, black 80%);
+ mask-image: linear-gradient(to right, transparent, black 80%);
+ }
+ 
+ /* Hide scrollbar */
+ .no-scrollbar::-webkit-scrollbar {
+ display: none;
+ }
+ .no-scrollbar {
+ -ms-overflow-style: none;
+ scrollbar-width: none;
+ }
+ 
+ /* Carbon Fiber Texture */
+ .bg-[#1C1C20] {
+ background-color: #050505;
+ background-image: 
+ radial-gradient(#222 1px, transparent 1px),
+ radial-gradient(#222 1px, transparent 1px);
+ background-size: 8px 8px;
+ background-position: 0 0, 4px 4px;
+ box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
+ }
+ .btn-3d { 
+      box-shadow: 0 4px 14px rgba(212, 180, 131, 0.15); 
+      border: 1px solid #D4B483; 
+      background-color: #D4B483; 
+      color: #0B0B0D;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+    .btn-3d:hover {
+      background-color: #B99B6A; /* Deeper champagne */
+      border-color: #B99B6A;
+      box-shadow: 0 6px 20px rgba(212, 180, 131, 0.25);
+      transform: translateY(-2px);
+    }
+ 
+
+ /* Custom Floating Animations */
+ @keyframes floating {
+ 0% { transform: translateY(0px); }
+ 50% { transform: translateY(-15px); }
+ 100% { transform: translateY(0px); }
+ }
+ @keyframes floating-delayed {
+ 0% { transform: translateY(0px); }
+ 50% { transform: translateY(-12px); }
+ 100% { transform: translateY(0px); }
+ }
+ .animate-floating {
+ animation: floating 6s ease-in-out infinite;
+ }
+ .animate-floating-delayed {
+ animation: floating-delayed 7s ease-in-out infinite;
+ animation-delay: 2s;
+ }
+ 
+</style>
+ <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-[#0B0B0D] text-[#F8F6F0] overflow-x-hidden antialiased">
+
+ 
+ <!-- Cinematic Hero Section -->
+ <section data-aos="fade-up" class="w-full min-h-[70vh] md:min-h-[600px] flex flex-col lg:flex-row items-center justify-between relative rounded-[2rem] overflow-hidden bg-[#0B0B0D] shadow-2xl mb-32 group py-20 md:py-32">
+ 
+ <!-- Dark textured charcoal black background simulation -->
+ <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#050508] to-black z-0 opacity-80 pointer-events-none"></div>
+ <!-- Subtle noise texture overlay -->
+ <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-30 mix-blend-overlay z-0 pointer-events-none"></div>
+ 
+ <!-- Simulated glowing sapphire blue light source for the pawn (focal point) -->
+ <div class="absolute left-1/4 lg:left-1/3 top-1/2 -translate-y-1/2 w-[300px] h-[500px] bg-blue-600/30 blur-[120px] rounded-[100%] mix-blend-screen z-0 pointer-events-none transition-all duration-1000 group-hover:bg-[#D4B483]/40 group-hover:scale-105"></div>
+ <div class="absolute left-1/4 lg:left-1/3 top-1/2 -translate-y-1/2 w-[150px] h-[300px] bg-blue-400/20 blur-[60px] rounded-[100%] mix-blend-screen z-0 pointer-events-none"></div>
+
+ <!-- Centered Image (Chess Pawns) -->
+ <div class="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
+ <img src="img/chess-pawns.png" alt="Chess Pawns" class="max-h-[90%] md:max-h-[100%] lg:max-h-[110%] w-auto object-contain drop-shadow-[0_20px_40px_rgba(45,43,42,0.08)]">
+ </div>
+
+ <!-- Left: Logo Area (Blank area designated for company logo placement) -->
+ <div class="relative z-10 w-full lg:w-1/2 h-full flex flex-col justify-center items-start px-10 md:px-16 lg:px-24 py-16">
+ <!-- Logo Placement -->
+ <div class="flex items-center text-[#F8F6F0]/50 cursor-default hover:text-[#F8F6F0] transition-colors duration-300">
+
+ <div class="flex flex-col justify-center">
+ <span class="text-xs font-light tracking-[0.4em] uppercase opacity-80 leading-none">The Viral</span>
+ <span class="text-2xl font-bold tracking-widest uppercase leading-none mt-1.5">REX</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Right: Typography & Logos -->
+ <div class="relative z-10 w-full lg:w-1/2 h-full flex flex-col justify-center items-end text-right px-10 md:px-16 lg:px-24 py-16">
+ 
+ <h1 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-4 leading-[1.1] drop-shadow-2xl" >
+ Don't Just Exist
+ </h1>
+ 
+ <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-10 opacity-95 drop-shadow-lg" >
+ Be Unmissable
+ </h2>
+
+ <p class="text-lg md:text-xl lg:text-2xl font-light text-[#B8B8B8] max-w-sm tracking-[0.15em] leading-relaxed opacity-80 mb-12">
+ Your Brand Deserves<br/>To Be Viral.
+ </p>
+ 
+ <!-- Logos: Rhenova Tech | Zoho -->
+ <div class="flex flex-col items-end mt-2">
+ <p class="text-[#B8B8B8] text-xs font-bold tracking-[0.3em] uppercase mb-4 opacity-80 mr-4">Powered by</p>
+ <div class="flex items-center px-4 py-2 transition-transform hover:-translate-y-1 duration-300">
+ <img src="img/rhenova-full-white-logo.png" alt="Rhenova Tech" class="h-16 md:h-20 w-auto object-contain pr-8 border-r border-[#2A2A2E]">
+ <img src="img/zoho-logo.png" alt="Zoho" class="h-16 md:h-20 w-auto object-contain pl-8">
+ </div>
+ </div>
+ 
+ </div>
+ </section>
+
+
+
+ 
+ <!-- ===================== SCROLL DRIVEN IMMERSIVE SECTION ===================== -->
+ <div id="scroll-story-container" class="relative w-full mt-20 md:mt-32" style="height: 400vh;">
+ 
+ <div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-[#0B0B0D]">
+ 
+ <!-- Parallax Background Image -->
+ <div class="absolute inset-0 z-0 overflow-hidden">
+ <img id="scene-bg" src="showroom_bg.png" alt="Luxury Jewellery Showroom" class="w-full h-full object-cover will-change-transform opacity-30 transform scale-110" />
+ <!-- Soft overlay to preserve readability -->
+ <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/70 to-[#0a0a0a]/90"></div>
+ </div>
+ 
+ <!-- Background ambient glows -->
+ <div id="ambient-glow" class="absolute w-[60vw] h-[60vw] bg-[#D4B483]/40 rounded-full blur-[120px] mix-blend-screen opacity-0 transition-opacity duration-1000 z-0"></div>
+
+ <!-- Scene 1: The Question -->
+ <div id="scene-1" class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10 will-change-transform opacity-0">
+ <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-10 leading-tight" >
+ Are you a jewellery <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">business owner?</span>
+ </h2>
+ <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+ <button class="px-8 py-4 bg-[#D4B483] text-[#0B0B0D] rounded-full font-bold text-sm tracking-widest uppercase hover:bg-[#B99B6A] transition-all transform hover:-translate-y-1 shadow-[0_10px_30px_rgba(212,180,131,0.2)]">Retail</button>
+ <button class="px-8 py-4 bg-[#D4B483] text-[#0B0B0D] rounded-full font-bold text-sm tracking-widest uppercase hover:bg-[#B99B6A] transition-all transform hover:-translate-y-1 shadow-[0_10px_30px_rgba(212,180,131,0.2)]">Wholesale</button>
+ <button class="px-8 py-4 bg-[#D4B483] text-[#0B0B0D] rounded-full font-bold text-sm tracking-widest uppercase hover:bg-[#B99B6A] transition-all transform hover:-translate-y-1 shadow-[0_10px_30px_rgba(212,180,131,0.2)]">Manufacturing</button>
+ </div>
+ </div>
+
+ <!-- Scene 2: The Agitation -->
+ <div id="scene-2" class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10 will-change-transform opacity-0 translate-y-12">
+ <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#B8B8B8] mb-6 leading-relaxed max-w-5xl" >
+ Still relying on a <span class="text-[#F8F6F0] font-bold italic">basic system?</span>
+ </h2>
+ <p class="text-clamp-xl-3xl text-[#B8B8B8] max-w-4xl font-light leading-relaxed" style="font-size: clamp(1.25rem, 2vw + 0.5rem, 1.875rem);">
+ Don’t worry-we have a smarter path to growth, efficiency, and customer delight.
+ </p>
+ </div>
+
+ <!-- Scene 3: The Reveal -->
+                <div id="scene-3" class="absolute inset-0 flex items-center justify-center z-10 will-change-transform opacity-0 scale-110 overflow-hidden bg-[#0B0B0D]">
+                    
+                    <div class="w-full max-w-[1440px] mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-20">
+                        
+                        <!-- Left-Aligned Content -->
+                        <div class="text-left">
+                            <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-6 drop-shadow-2xl leading-tight">
+                                Introducing the <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">Advanced Jewellery Ecosystem</span>
+                            </h2>
+                            <p class="text-lg md:text-xl text-[#B8B8B8] font-medium leading-relaxed drop-shadow-md mb-10 max-w-lg">
+                                Unify retail, wholesale, manufacturing, inventory, CRM, and analytics in one intelligent platform designed exclusively for modern jewellers.
+                            </p>
+                        </div>
+
+                        <!-- Right-Aligned Image Mockup -->
+                        <div class="relative flex justify-center lg:justify-end">
+                            <div class="absolute inset-0 bg-blue-600/10 blur-[100px] rounded-full scale-110 z-0"></div>
+                            <!-- Parallax attached to scene-bg -->
+                            <img src="img/zoho-sec.png" onerror="this.src='laptop-charts.png'" alt="Advanced Dashboard" class="w-full h-auto max-w-xl xl:max-w-2xl object-contain drop-shadow-[0_20px_40px_rgba(45,43,42,0.08)] relative z-10" id="scene-bg" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+ document.addEventListener('DOMContentLoaded', () => {
+ const container = document.getElementById('scroll-story-container');
+ const scene1 = document.getElementById('scene-1');
+ const scene2 = document.getElementById('scene-2');
+ const scene3 = document.getElementById('scene-3');
+ const glow = document.getElementById('ambient-glow');
+ const bgImage = document.getElementById('scene-bg');
+ 
+ if(!container || !scene1 || !scene2 || !scene3) return;
+
+ const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+ const mapRange = (val, in_min, in_max, out_min, out_max) => {
+ const clamped = clamp(val, in_min, in_max);
+ return (clamped - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+ };
+
+ const updateScroll = () => {
+ const rect = container.getBoundingClientRect();
+ const windowHeight = window.innerHeight;
+ 
+ let progress = (windowHeight - rect.top) / (rect.height);
+ progress = clamp(progress, 0, 1);
+
+ if(rect.top > windowHeight || rect.bottom < 0) return;
+
+ // Parallax Background
+ const bgScale = mapRange(progress, 0, 1, 1.1, 1.0);
+ const bgY = mapRange(progress, 0, 1, 0, -50);
+ bgImage.style.transform = `scale(${bgScale}) translateY(${bgY}px)`;
+
+ // Scene 1: 0.0 -> 0.3
+ let s1Op = 0, s1Y = 0;
+ if(progress < 0.1) { s1Op = mapRange(progress, 0.0, 0.1, 0, 1); s1Y = mapRange(progress, 0.0, 0.1, 50, 0); }
+ else if (progress < 0.25) { s1Op = 1; s1Y = 0; }
+ else { s1Op = mapRange(progress, 0.25, 0.35, 1, 0); s1Y = mapRange(progress, 0.25, 0.35, 0, -100); }
+ 
+ scene1.style.opacity = s1Op;
+ scene1.style.transform = `translateY(${s1Y}px)`;
+ scene1.style.pointerEvents = s1Op > 0.5 ? 'auto' : 'none';
+
+ // Scene 2: 0.35 -> 0.65
+ let s2Op = 0, s2Y = 0;
+ if(progress < 0.35) { s2Op = 0; s2Y = 50; }
+ else if(progress < 0.45) { s2Op = mapRange(progress, 0.35, 0.45, 0, 1); s2Y = mapRange(progress, 0.35, 0.45, 50, 0); }
+ else if(progress < 0.55) { s2Op = 1; s2Y = 0; }
+ else { s2Op = mapRange(progress, 0.55, 0.65, 1, 0); s2Y = mapRange(progress, 0.55, 0.65, 0, -100); }
+
+ scene2.style.opacity = s2Op;
+ scene2.style.transform = `translateY(${s2Y}px)`;
+ scene2.style.pointerEvents = s2Op > 0.5 ? 'auto' : 'none';
+
+ // Scene 3: 0.65 -> 1.0
+ let s3Op = 0, s3Scale = 1.1, s3Y = 0;
+ if(progress < 0.65) { s3Op = 0; s3Scale = 1.1; s3Y = 100; }
+ else if(progress < 0.8) { 
+ s3Op = mapRange(progress, 0.65, 0.8, 0, 1); 
+ s3Scale = mapRange(progress, 0.65, 0.8, 1.1, 1.0); 
+ s3Y = mapRange(progress, 0.65, 0.8, 100, 0);
+ }
+ else { 
+ s3Op = 1; 
+ s3Scale = 1.0; 
+ s3Y = 0;
+ }
+
+ scene3.style.opacity = s3Op;
+ scene3.style.transform = `translateY(${s3Y}px) scale(${s3Scale})`;
+ scene3.style.pointerEvents = s3Op > 0.5 ? 'auto' : 'none';
+
+ // Glow effect linked to scene 3
+ glow.style.opacity = s3Op * 0.8;
+ };
+
+ // Request animation frame for hyper-smooth scrolling
+ let ticking = false;
+ const onScroll = () => {
+ if (!ticking) {
+ window.requestAnimationFrame(() => {
+ updateScroll();
+ ticking = false;
+ });
+ ticking = true;
+ }
+ };
+
+ window.addEventListener('scroll', onScroll, {passive: true});
+ window.addEventListener('resize', onScroll, {passive: true});
+ updateScroll(); // init
+ });
+ </script>
+
+ 
+<!-- ===================== SECTION: HOME EASE ===================== -->
+<section class="w-full bg-[#0B0B0D] py-20 md:py-32 relative overflow-hidden z-20">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 xl:px-24 relative z-10">
+        
+        <!-- Top Half (Grid) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16 relative z-10">
+            <!-- Left: Empty (Laptop floats over this space) -->
+            <div class="hidden lg:block relative h-[80px]"></div>
+            
+            <!-- Right: Branding -->
+            <div class="flex flex-col justify-center lg:items-start items-center text-center lg:text-left z-20">
+                <h4 class="font-cinzel text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 leading-[1.1]">
+                    <span class="text-[#D4B483]">Engineered for the</span> <br class="hidden md:block"/> <span class="text-[#F8F6F0]">Modern Enterprise</span>
+                </h4>
+
+            </div>
+        </div>
+
+        <!-- Bottom Half (Purple Container) -->
+        <div class="bg-[#1C1C20] border border-[#2A2A2E] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-10 lg:p-12 relative shadow-[0_20px_40px_rgba(45,43,42,0.08)] flex flex-col lg:flex-row min-h-[350px] overflow-hidden lg:overflow-visible">
+            
+            <!-- Left: Text Content -->
+            <div class="w-full lg:w-5/12 relative z-20 pt-48 lg:pt-10">
+                <!-- Massive Number Watermark -->
+                <div class="text-[120px] md:text-[180px] leading-none font-black text-[#F8F6F0]/50 absolute top-[-20px] lg:top-[-40px] left-0 md:left-[-20px] pointer-events-none select-none tracking-tighter">
+                    01
+                </div>
+                <div class="relative z-10">
+                    <h3 class="font-cinzel text-3xl md:text-4xl font-extrabold text-[#F8F6F0] mb-6 tracking-tight drop-shadow-sm">Overview</h3>
+                    <p class="text-[#F8F6F0]/50 text-lg md:text-xl leading-relaxed font-medium">
+Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the first cloud-native platform designed with consumer-grade UI and enterprise-grade power. Beautifully intuitive, unbreakably fast, and built to move at the speed of your business.                    </p>
+                </div>
+            </div>
+            
+            <!-- Right: Desktop/Tablet Mockups -->
+            <div class="w-full lg:w-7/12 relative mt-16 lg:mt-0 flex justify-end items-end z-10 animate-floating-delayed">
+                <img src="img/home_ease_desktop_tablet.png" alt="Desktop and Tablet Mockup" class="w-full max-w-lg lg:max-w-md transform lg:translate-x-[10%] lg:translate-y-[10%] transition-transform duration-700 hover:scale-105" />
+            </div>
+
+            <!-- Absolute Laptop Mockup (Breaking out of the box) -->
+            <div class="absolute top-[-80px] md:top-[-150px] lg:top-[-200px] left-[5%] lg:left-[8%] w-[75%] md:w-[60%] lg:w-[35%] z-30 pointer-events-none animate-floating">
+                <img src="img/home_ease_laptop.png" alt="Home Ease Laptop" class="w-full h-auto drop-shadow-[0_20px_40px_rgba(45,43,42,0.08)]" />
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+
+
+ 
+<!-- ===================== PROBLEM & SOLUTION SECTION ===================== -->
+<section class="bg-[#0B0B0D] py-20 md:py-32 overflow-hidden w-full relative z-20">
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 xl:px-24 flex flex-col gap-32">
+        
+        <!-- Row 1: The Problem -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Left: Graphics (Image field with Blobs) -->
+            <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-[600px] flex items-center justify-center">
+                <!-- Blobs (Opacity reduced for dark theme) -->
+                <div class="absolute w-[90%] h-[90%] bg-[#FFD100] rounded-[60%_40%_50%_50%/40%_50%_60%_50%] top-[-5%] left-[-15%] -rotate-12 z-0 opacity-10 blur-xl"></div>
+                <div class="absolute w-[80%] h-[80%] bg-[#C942FF] rounded-[40%_60%_50%_40%/50%_40%_60%_50%] bottom-[-5%] left-[5%] rotate-45 z-0 opacity-10 blur-xl"></div>
+                
+                <!-- Image Field -->
+                <div class="relative z-10 w-[90%] rounded-2xl overflow-hidden group">
+                    <img src="img/war.png" onerror="this.src='laptop-charts.png'" alt="The Problem" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                    <div class="absolute inset-0 group-hover:bg-transparent transition-colors duration-500"></div>
+                </div>
+            </div>
+
+            <!-- Right: Text Content -->
+            <div class="flex flex-col items-start lg:pl-16">
+                <!-- Icon -->
+                <div class="w-14 h-14 mb-8 relative">
+                    <div class="absolute inset-0 bg-red-500/20 rounded-xl transform -rotate-6"></div>
+                    <div class="absolute inset-0 bg-[#111] border border-red-500/30 rounded-xl flex items-center justify-center text-red-500 shadow-sm">
+                         <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    </div>
+                </div>
+                
+                <h3 class="font-cinzel text-3xl md:text-5xl font-extrabold text-[#F8F6F0] mb-8 tracking-tight leading-snug">
+                    The Problem
+                </h3>
+                
+                <ul class="text-[#B8B8B8] leading-relaxed mb-8 font-medium text-sm md:text-base space-y-4">
+                    <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Slow application performance during peak business hours.</li>
+                    <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Server downtime affecting daily operations and customer satisfaction.</li>
+                    <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Frequent software bugs impacting overall productivity.</li>
+                    <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Long loading times for essential reports and dashboards.</li>
+                    <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Manual processes causing repetitive work and data duplication.</li>
+                    <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Difficulty scaling architecture as the business grows.</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <!-- Row 2: The Solution -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-12">
+            
+            <!-- Left: Text Content -->
+            <div class="flex flex-col items-start lg:pr-16 order-2 lg:order-1">
+                <!-- Icon -->
+                <div class="w-14 h-14 mb-8 relative">
+                    <div class="absolute inset-0 bg-[#BFC5CC]/40 rounded-xl transform rotate-6"></div>
+                    <div class="absolute inset-0 bg-[#111] border border-[#D4AF37]/30 rounded-xl flex items-center justify-center text-[#D4AF37] shadow-sm">
+                         <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                </div>
+
+                <h3 class="font-cinzel text-3xl md:text-5xl font-extrabold text-[#F8F6F0] mb-8 tracking-tight leading-snug">
+                    The Solution
+                </h3>
+                
+                <ul class="text-[#B8B8B8] leading-relaxed mb-8 font-medium text-sm md:text-base space-y-4">
+                    <li class="flex items-start gap-3"><span class="text-[#D4AF37] mt-1 font-bold">✓</span> Cloud-based infrastructure with high availability.</li>
+                    <li class="flex items-start gap-3"><span class="text-[#D4AF37] mt-1 font-bold">✓</span> Optimized application performance using Zoho Creator best practices.</li>
+                    <li class="flex items-start gap-3"><span class="text-[#D4AF37] mt-1 font-bold">✓</span> Automated workflows to eliminate manual tasks and duplication.</li>
+                    <li class="flex items-start gap-3"><span class="text-[#D4AF37] mt-1 font-bold">✓</span> Real-time data synchronization across all users.</li>
+                    <li class="flex items-start gap-3"><span class="text-[#D4AF37] mt-1 font-bold">✓</span> Scalable architecture that grows with your business.</li>
+                </ul>
+            </div>
+
+            <!-- Right: Graphics (Image field with Blobs) -->
+            <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-[600px] flex items-center justify-center order-1 lg:order-2">
+                <!-- Blobs -->
+                <div class="absolute w-[80%] h-[80%] bg-[#1EC2A4] rounded-[50%_50%_40%_60%/40%_60%_50%_50%] top-[5%] left-[-10%] z-0 opacity-10 blur-xl"></div>
+                <div class="absolute w-[75%] h-[75%] bg-[#4285F4] rounded-[60%_40%_50%_50%/50%_40%_60%_50%] bottom-[-5%] right-[-5%] z-0 opacity-10 blur-xl"></div>
+                
+                <!-- Image Field -->
+                <div class="relative z-10 w-[90%] overflow-hidden group">
+                    <img src="img/why-zoho.png" onerror="this.src='laptop-charts.png'" alt="The Solution" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ===================== CROSS PLATFORM SECTION ===================== -->
+<section class="bg-[#DCD7D0] py-10 overflow-hidden relative font-sans">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div class="flex flex-col md:flex-row justify-between items-start mb-8 gap-8">
+            <!-- Left: Heading -->
+            <div class="w-full md:w-1/2">
+                <h2 class="text-[#333333] text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+                    Seamless System<br/>Use With Any<br/>Device
+                </h2>
+            </div>
+            <!-- Right: Description & Button -->
+            <div class="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right space-y-6 pt-2">
+                <button class="bg-white text-[#333333] px-6 py-2 rounded-full font-bold text-xs tracking-widest uppercase shadow-sm border border-gray-200 hover:bg-gray-50 transition-colors">
+                    CROSS-PLATFORM
+                </button>
+                <p class="text-[#555555] text-sm md:text-base max-w-md leading-relaxed">
+                    Access your entire software environment, including tablet, mobile, mac, iOS, and Android applications. Your operations never experience stuck.
+                </p>
+            </div>
+        </div>
+        <!-- Bottom: Devices Image -->
+        <div class="w-full flex justify-center items-center relative mt-8">
+            <!-- Background Text -->
+            <div class="absolute inset-0 flex justify-center items-center z-0 pointer-events-none select-none overflow-hidden mt-4">
+                <h2 class="font-cinzel text-[60px] md:text-[120px] lg:text-[180px] font-bold text-[#333333]/[0.05] whitespace-nowrap leading-none tracking-tighter">
+                    SEAMLESS SYSTEM
+                </h2>
+            </div>
+            <img src="img/cross_platform_devices_1783780719779.png" alt="Cross Platform Devices" class="w-full max-w-3xl h-auto object-contain transform hover:scale-[1.02] transition-transform duration-700 drop-shadow-2xl relative z-10" />
+        </div>
+    </div>
+</section>
+
+<!-- ===================== REAL ESTATE MOCKUP SECTION ===================== -->
+<section class="relative bg-[#0B0B0D] py-20 md:py-32 overflow-hidden z-20">
+    
+    <!-- Large out-of-focus background text -->
+    <div class="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center z-0 pointer-events-none select-none overflow-hidden">
+        <h2 class="font-cinzel text-[80px] md:text-[250px] font-bold text-[#F8F6F0]/[0.1] whitespace-nowrap leading-none tracking-tighter filter blur-sm">
+            AI DASHBOARD
+        </h2>
+    </div>
+
+    <div class="max-w-[1440px] mx-auto px-6 md:px-12 xl:px-24 flex flex-col items-center relative z-10">
+        
+        <!-- Headline Block -->
+        <div class="text-center mb-16 relative">
+            <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] leading-none flex flex-col md:flex-row items-center justify-center gap-4">
+ Predict Before It Happens
+            </h2>
+        </div>
+        
+        <!-- The Generated Desktop Mockup Image -->
+        <div class="relative w-full max-w-2xl lg:max-w-4xl mx-auto mb-20 group px-4 md:px-0">
+             <!-- Deep ambient glow for dark mode -->
+             <div class="absolute inset-0 blur-[120px] rounded-full z-0 pointer-events-none"></div>
+             <img src="img/desktop-mockup.png" onerror="this.src='laptop-charts.png'" alt="Desktop Real Estate Mockup" class="w-full h-auto object-contain rounded-2xl transform transition-transform hover:scale-[1.02] relative z-10" />
+        </div>
+
+        <!-- Three Glassmorphism Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto relative z-20 -mt-24 md:-mt-32 lg:-mt-48 px-4">
+            
+            <!-- Card 1 -->
+            <div class="bg-[#1C1C20]/80 backdrop-blur-xl border border-[#2A2A2E] rounded-3xl p-8 shadow-[0_20px_40px_rgba(45,43,42,0.08)] hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-12 h-12 bg-[#D4B483]/40 text-[#D4AF37] rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="font-cinzel text-xl font-bold text-[#F8F6F0] mb-3 tracking-tight">Stop reacting. Start predicting.</h3>
+                <p class="text-[#B8B8B8] text-sm leading-relaxed mb-6">
+                    Our AI continuously analyzes your enterprise data to forecast sales trends, inventory demand, and client behavior, empowering you to make brilliant decisions before opportunities are lost.
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 text-[#B8B8B8] font-bold text-sm hover:text-[#D4AF37] transition-colors">
+                    Find more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-[#1C1C20]/80 backdrop-blur-xl border border-[#2A2A2E] rounded-3xl p-8 shadow-[0_20px_40px_rgba(45,43,42,0.08)] hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-12 h-12 bg-[#D4B483]/40 text-[#D4AF37] rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>
+                </div>
+                <h3 class="font-cinzel text-xl font-bold text-[#F8F6F0] mb-3 tracking-tight">Transform Data Into Growth</h3>
+                <p class="text-[#B8B8B8] text-sm leading-relaxed mb-6">
+                    Every number tells a story. Our AI converts raw operational data into strategic insights that drive revenue, flawless efficiency, and elite operations.
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 text-[#B8B8B8] font-bold text-sm hover:text-[#D4AF37] transition-colors">
+                    Find more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-[#1C1C20]/80 backdrop-blur-xl border border-[#2A2A2E] rounded-3xl p-8 shadow-[0_20px_40px_rgba(45,43,42,0.08)] hover:-translate-y-2 transition-transform duration-300">
+                <div class="w-12 h-12 bg-[#D4B483]/40 text-[#D4AF37] rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="font-cinzel text-xl font-bold text-[#F8F6F0] mb-3 tracking-tight">Your Competitive Edge</h3>
+                <p class="text-[#B8B8B8] text-sm leading-relaxed mb-6">
+                    <strong>Stay One Step Ahead of the Market.</strong> While others rely on yesterday’s reports, your business is guided by tomorrow’s insights. Identify growth opportunities, reduce risks, and outperform competitors with predictive intelligence.
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 text-[#B8B8B8] font-bold text-sm hover:text-[#D4AF37] transition-colors">
+                    Find more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+            
+        </div>
+        
+    </div>
+</section>
+
+
+
+ <section data-aos="fade-up" class="w-full min-h-[350px] lg:h-[400px] mt-20 relative flex items-center bg-[#0B0B0D] overflow-hidden py-20 md:py-32">
+ 
+ <!-- Background Image -->
+ <div class="absolute inset-0 z-0">
+ <img src="img/ai-sec.png" alt="AI Background" class="w-full h-full object-cover object-center opacity-90">
+ <!-- Gradient overlay to ensure text is perfectly readable on all devices -->
+ <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80 lg:from-black/70 lg:via-transparent lg:to-black/70"></div>
+ <!-- Bottom gradient for smooth blending into the page -->
+ <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent"></div>
+ </div>
+
+ <!-- Content Overlay -->
+ <div class="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 flex flex-col lg:flex-row items-center justify-between py-20 md:py-32">
+ 
+ <!-- Left Side: Large Title & Subtitle -->
+ <div class="w-full lg:w-1/2 flex flex-col justify-center mb-8 lg:mb-0">
+ <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] leading-[0.9] mb-4 drop-shadow-[0_20px_40px_rgba(45,43,42,0.08)] uppercase" >
+ Beyond<br/>Automation
+ </h2>
+ 
+ <div class="flex flex-wrap items-center gap-3 text-[#F8F6F0]/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
+ <span>Automation Follows Rules</span>
+ <span class="text-[#F8F6F0]/50">✦</span>
+ <span>AI Creates Results</span>
+ </div>
+ </div>
+
+ <!-- Right Side: Paragraph -->
+ <div class="w-full lg:w-1/2 flex flex-col justify-center lg:items-end text-left lg:text-right mt-4 lg:mt-0 lg:pt-12">
+ <p class="text-[#B8B8B8]/95 text-xs md:text-sm lg:text-[13px] font-semibold leading-relaxed tracking-wider drop-shadow-lg max-w-[340px]">
+ STOP BUILDING WORKFLOWS THAT BREAK.<br/><br/>
+ START DEPLOYING INTELLIGENCE THAT ADAPTS, LEARNS, AND IMPROVES WITH EVERY INTERACTION.
+ </p>
+ </div>
+ 
+ </div>
+ </section>
+
+
+ <!-- ===================== OUR SERVICES ===================== -->
+ <section data-aos="fade-up" id="services" class="bg-[#0B0B0D] py-20 md:py-32">
+ <div class="max-w-6xl mx-auto px-6">
+ <!-- Ecosystem Section Header -->
+ <div class="text-center mb-16">
+ <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-6">
+ More Than Software.<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-600">A Complete Digital Ecosystem.</span>
+ </h2>
+ <p class="text-base md:text-lg text-[#B8B8B8] max-w-3xl mx-auto leading-relaxed">
+ Our platform is not just another jewellery management software. It is a complete business ecosystem built on the powerful Zoho platform, connecting every department into one intelligent, secure, and automated environment.
+ </p>
+ </div>
+
+ <!-- Advanced Bento Grid -->
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 relative z-20 perspective-[2000px]">
+
+ 
+ <!-- 1. ERP & Operations (Large: 2x2) -->
+ <div data-aos="fade-up" class="relative group rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.7)] transform-gpu hover:-translate-y-2 transition-all duration-500 border border-white/5 h-[400px] bg-black">
+     
+     <!-- AI Background Image -->
+    <img src="img/erp_card_right.png" alt="Jewellery ERP & Operations" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-[1.03] transition-transform duration-700 ease-in-out" />
+     
+     <!-- Subtle Gradient Overlay to ensure text readability if needed -->
+     <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10 pointer-events-none"></div>
+     
+     <!-- Hover Glow Effect -->
+     <div class="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none"></div>
+     
+     <!-- Invisible Overlay Link to make entire card clickable if needed -->
+     <a href="#" class="absolute inset-0 z-30"></a>
+ </div>
+
+<!-- 2. Financial Management (Large: 2x1) -->
+ <div data-aos="fade-up" data-aos-delay="100" class="relative group rounded-[2rem] overflow-hidden border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-carbon flex items-center justify-center">
+    <!-- Fallback background glow matching the image -->
+    <div class="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+    <img src="img/finance-card.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 relative z-10" alt="Financial Management Dashboard" />
+ </div>
+ 
+ <!-- 3. HRMS -->
+ <div data-aos="fade-up" data-aos-delay="200" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/hrm.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <!-- <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/laptop-charts.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div> -->
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">HRMS & Payroll Auto</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Elevate staff management with seamless oversight of your teams, performance, and boutique operations.Flawless, automated compensation management ensuring precise payroll execution.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">14 Features</p>
+     </div>
+ </div>
+
+ <!-- 4. Payroll -->
+ <!-- <div data-aos="fade-up" data-aos-delay="300" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10 bg-gray-900">
+             <img src="img/desktop-mockup.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20 bg-gray-900">
+             <img src="img/zoho-sec.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div>
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">Payroll Auto</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Fast, accurate & fully automated salary calculations.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">12 Features</p>
+     </div>
+ </div> -->
+
+ <!-- 5. Marketing Automation -->
+ <div data-aos="fade-up" data-aos-delay="400" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/mark.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <!-- <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/laptop-charts.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div> -->
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">Marketing</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Orchestrate bespoke marketing campaigns and deliver highly personalized client communications.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">12 Features</p>
+     </div>
+ </div>
+
+ <!-- 6. AI Predictive Analytics -->
+ <div data-aos="fade-up" data-aos-delay="500" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/ai-a.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <!-- <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div> -->
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">AI Analytics</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Distill complex enterprise data into immediately actionable, visionary insights.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">14 Features</p>
+     </div>
+ </div>
+
+ <!-- 7. Internal Communication -->
+ <div data-aos="fade-up" data-aos-delay="100" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-white/30 transition-all duration-500 shadow-xl flex flex-col items-center gap-8 overflow-hidden perspective-[1000px] justify-between text-center">
+     <div class="absolute inset-0 bg-gray-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-48 flex items-center justify-center">
+         <div class="absolute inset-0 bg-gray-500/20 blur-[60px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[80%] right-[5%] top-[10%] rounded-xl overflow-hidden shadow-2xl transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/inter.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <div class="absolute w-[40%] left-[5%] bottom-[10%] rounded-lg overflow-hidden shadow-2xl transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:-rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/inter.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+     </div>
+     <div class="relative z-10 w-full flex flex-col items-center text-center">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);">Internal Communication</h3>
+         <p class="text-sm text-[#B8B8B8] mb-5 leading-relaxed">Foster seamless, secure collaboration across all echelons of your organization.</p>
+         <div class="flex gap-3 text-[10px] font-bold text-[#9A9A9A] tracking-widest uppercase"><span>Chat</span>•<span>Files</span>•<span>Announcements</span></div>
+     </div>
+ </div>
+
+ <!-- 8. Zoho Workplace -->
+ <div data-aos="fade-up" data-aos-delay="200" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl flex flex-col items-center gap-8 overflow-hidden perspective-[1000px] justify-between text-center">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative z-10 w-full flex flex-col items-center text-center order-2">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);">Zoho Workplace</h3>
+         <p class="text-sm text-[#B8B8B8] mb-5 leading-relaxed">A unified, enterprise-grade suite of elite productivity tools.</p>
+         <div class="flex gap-3 text-[10px] font-bold text-[#9A9A9A] tracking-widest uppercase"><span>Mail</span>•<span>Calendar</span>•<span>Drive</span></div>
+     </div>
+     <div class="relative w-full h-48 flex items-center justify-center order-1">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[60px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[80%] left-[5%] top-[10%] rounded-xl overflow-hidden shadow-2xl transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/wrk-space.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <!-- <div class="absolute w-[40%] right-[5%] bottom-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/wrk-space.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div> -->
+     </div>
+ </div>
+
+ <!-- Remaining standard cards -->
+ <div data-aos="fade-up" data-aos-delay="100" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/crm.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/crm.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div>
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">CRM</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Cultivate enduring, high-net-worth client relationships with sophisticated engagement tools.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">10 Features</p>
+     </div>
+ </div>
+
+ <div data-aos="fade-up" data-aos-delay="200" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/moc-cus.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/moc-sal1.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div>
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">Mobile Apps</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Command your global enterprise from anywhere with our flawless mobile ecosystem.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">10 Features</p>
+     </div>
+ </div>
+
+ <div data-aos="fade-up" data-aos-delay="300" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/cat.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/cat.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div>
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">eCommerce</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Deploy a luxurious digital storefront, perfectly synchronized with your backend ERP.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">10 Features</p>
+     </div>
+ </div>
+
+ <div data-aos="fade-up" data-aos-delay="400" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-40 mb-6 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/sec1.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <!-- <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/sec2.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
+         </div> -->
+     </div>
+     <div class="relative z-10">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.5rem, 2.5vw, 2rem);">Security & Scalability</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed mb-6">Uncompromising enterprise-grade protection, engineered for infinite scalability and flawless uptime.</p>
+         <p class="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mt-auto">10 Features</p>
+     </div>
+ </div>
+
+ <!-- Final large blocks -->
+ <div data-aos="fade-up" data-aos-delay="500" class="relative group bg-gradient-to-br from-brand-900/40 to-[#0a0a0a] rounded-[2rem] p-8 border border-[#D4AF37]/30 hover:border-[#D4AF37] transition-all duration-500 shadow-xl flex flex-col items-center gap-8 overflow-hidden perspective-[1000px] justify-between text-center">
+     <div class="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative w-full h-48 flex items-center justify-center">
+         <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[60px] rounded-full z-0 pointer-events-none"></div>
+         <div class="absolute w-[80%] right-[5%] top-[10%] rounded-xl overflow-hidden shadow-2xl transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/aii.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <!-- <div class="absolute w-[40%] left-[5%] bottom-[10%] rounded-lg overflow-hidden shadow-2xl transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:-rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/laptop-charts.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div> -->
+     </div>
+     <div class="relative z-10 w-full flex flex-col items-center text-center">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);">AI Business Assistant</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed">Provide sophisticated, 24/7 intelligent support driven by state-of-the-art predictive AI models.</p>
+     </div>
+ </div>
+
+ <!-- <div data-aos="fade-up" data-aos-delay="600" class="lg:col-span-2 relative group bg-carbon rounded-[2rem] p-8 border border-[#D4AF37]/20 hover:border-[#D4AF37] transition-all duration-500 shadow-xl flex flex-col md:flex-row items-center gap-8 overflow-hidden perspective-[1000px]">
+     <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+     <div class="relative z-10 md:w-1/2 order-2 md:order-1">
+         <h3 class="font-cinzel font-bold text-[#F8F6F0] mb-2 tracking-tight" style="font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);">Security & Scalability</h3>
+         <p class="text-sm text-[#B8B8B8] leading-relaxed">Uncompromising enterprise-grade protection, engineered for infinite scalability and flawless uptime.</p>
+     </div>
+     <div class="relative w-full md:w-1/2 h-48 flex items-center justify-center order-1 md:order-2">
+         <div class="absolute w-[80%] left-[5%] top-[10%] rounded-xl overflow-hidden shadow-2xl transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700 z-10">
+             <img src="img/sec1.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+         <div class="absolute w-[40%] right-[5%] bottom-[10%] rounded-lg overflow-hidden transform group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
+             <img src="img/sec2.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+         </div>
+     </div>
+ </div> -->
+
+ </div>
+ </div>
+ 
+ </section>
+
+
+<!-- ===================== SECTION: PORTFOLIO / CREATIONS ===================== -->
+<section class="bg-[#0A0A0A] py-24 md:py-32 overflow-hidden relative border-t border-white/5">
+    
+    <!-- Subtle Background Gold Accent -->
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4B483]/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
+
+    <!-- Top Header Area -->
+    <div class="max-w-7xl mx-auto px-6 mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-12 relative z-20">
+        <!-- Left Side: Sub-paragraph -->
+        <div class="md:w-1/3 text-left">
+            <h3 class="font-cinzel text-xl md:text-2xl font-bold text-[#D4B483] mb-4 tracking-wide uppercase">Digital Catalogue</h3>
+            <p class="text-[#B8B8B8] text-base md:text-lg leading-relaxed">
+                Discover our complete, beautifully organized digital jewellery catalogue. We make it easy for you to browse, showcase, and manage your stunning collections in one place.
+            </p>
+        </div>
+        
+        <!-- Right Side: Massive Heading -->
+        <div class="md:w-2/3 md:text-right">
+            <h2 class="font-cinzel text-4xl md:text-6xl lg:text-[6rem] font-black tracking-widest text-[#F8F6F0] uppercase leading-none">
+              OUR CREATIONS
+            </h2>
+        </div>
+    </div>
+
+    <!-- Simple Catalogue Grid -->
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-20">
+        
+        <!-- Catalogue Card 1 -->
+        <div class="bg-[#111111] rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(212,180,131,0.15)] hover:-translate-y-2 transition-all duration-500 group border border-white/5">
+            <div class="relative h-80 overflow-hidden bg-[#050505]">
+                <img src="img/1.jpg" onerror="this.src='laptop-charts.png'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Jewellery Item" />
+                <div class="absolute top-4 right-4 bg-[#111111]/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-[#D4B483] tracking-widest uppercase shadow-sm">New</div>
+            </div>
+            <div class="p-6 text-center">
+                <h4 class="font-cinzel text-lg font-bold text-[#F8F6F0] tracking-wider uppercase mb-2">The Roseline</h4>
+                <div class="w-8 h-[2px] bg-[#D4B483] mx-auto mb-4"></div>
+                <p class="text-sm text-[#9A9A9A] mb-4 font-medium">Diamond & 18K Gold</p>
+                <a href="#" class="inline-block text-xs font-bold tracking-widest uppercase text-[#F8F6F0] hover:text-[#D4B483] transition-colors">View Details</a>
+            </div>
+        </div>
+
+        <!-- Catalogue Card 2 -->
+        <div class="bg-[#111111] rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(212,180,131,0.15)] hover:-translate-y-2 transition-all duration-500 group border border-white/5">
+            <div class="relative h-80 overflow-hidden bg-[#050505]">
+                <img src="img/2.webp" onerror="this.src='laptop-charts.png'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Jewellery Item" />
+            </div>
+            <div class="p-6 text-center">
+                <h4 class="font-cinzel text-lg font-bold text-[#F8F6F0] tracking-wider uppercase mb-2">Zoë Earrings</h4>
+                <div class="w-8 h-[2px] bg-[#D4B483] mx-auto mb-4"></div>
+                <p class="text-sm text-[#9A9A9A] mb-4 font-medium">Pearl & Rose Gold</p>
+                <a href="#" class="inline-block text-xs font-bold tracking-widest uppercase text-[#F8F6F0] hover:text-[#D4B483] transition-colors">View Details</a>
+            </div>
+        </div>
+
+        <!-- Catalogue Card 3 -->
+        <div class="bg-[#111111] rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(212,180,131,0.15)] hover:-translate-y-2 transition-all duration-500 group border border-white/5">
+            <div class="relative h-80 overflow-hidden bg-[#050505]">
+                <img src="img/3.webp" onerror="this.src='laptop-charts.png'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Jewellery Item" />
+                <div class="absolute top-4 right-4 bg-[#111111]/90 backdrop-blur-sm px-3 py-1 rounded-full text-[10px] font-bold text-[#D4B483] tracking-widest uppercase shadow-sm">Popular</div>
+            </div>
+            <div class="p-6 text-center">
+                <h4 class="font-cinzel text-lg font-bold text-[#F8F6F0] tracking-wider uppercase mb-2">Hibiscus II</h4>
+                <div class="w-8 h-[2px] bg-[#D4B483] mx-auto mb-4"></div>
+                <p class="text-sm text-[#9A9A9A] mb-4 font-medium">Ruby Signature</p>
+                <a href="#" class="inline-block text-xs font-bold tracking-widest uppercase text-[#F8F6F0] hover:text-[#D4B483] transition-colors">View Details</a>
+            </div>
+        </div>
+
+        <!-- Catalogue Card 4 -->
+        <div class="bg-[#111111] rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(212,180,131,0.15)] hover:-translate-y-2 transition-all duration-500 group border border-white/5">
+            <div class="relative h-80 overflow-hidden bg-[#050505]">
+                <img src="img/4.jpg" onerror="this.src='laptop-charts.png'" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Jewellery Item" />
+            </div>
+            <div class="p-6 text-center">
+                <h4 class="font-cinzel text-lg font-bold text-[#F8F6F0] tracking-wider uppercase mb-2">Chubby Hoops</h4>
+                <div class="w-8 h-[2px] bg-[#D4B483] mx-auto mb-4"></div>
+                <p class="text-sm text-[#9A9A9A] mb-4 font-medium">Solid 24K Gold</p>
+                <a href="#" class="inline-block text-xs font-bold tracking-widest uppercase text-[#F8F6F0] hover:text-[#D4B483] transition-colors">View Details</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Centered View All Button -->
+    <div class="mt-16 text-center relative z-20">
+        <a href="#" class="inline-flex items-center gap-3 px-8 py-4 bg-[#D4AF37] text-[#F8F6F0] rounded-full font-bold tracking-widest uppercase text-sm hover:bg-[#F8F6F0] hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            Explore Collection
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+    </div>
+
+</section>
+
+
+<!-- ===================== SECTION 2: EXPERT ZOHO CONSULTANTS ===================== -->
+ <section data-aos="fade-up" id="hygeia-why-choose" class="max-w-7xl mx-auto px-6 py-20 md:py-32">
+
+ <!-- Section Header -->
+ <div class="text-center mb-16">
+ <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] leading-tight mb-6" >
+ Expert <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F8F6F0] to-[#D4AF37]">Zoho Consultants</span>
+ </h2>
+ <p class="text-base md:text-lg text-[#B8B8B8] max-w-2xl mx-auto leading-relaxed">
+ Certified Zoho specialists with deep expertise in implementation, customization, and automation.
+ </p>
+ </div>
+
+ <!-- 2-Column Layout -->
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+ <!-- Left Column: Attached Image -->
+ <div class="lg:col-span-6 rounded-[2.5rem] overflow-hidden relative shadow-[0_0_50px_rgba(37,99,235,0.1)] group">
+ <div class="absolute inset-0 bg-gradient-to-tr from-[#D4B483]/40 to-green-500/10 mix-blend-overlay z-10 opacity-50 group-hover:opacity-0 transition-opacity duration-500"></div>
+ <!-- Make sure the image filename matches your uploaded image! -->
+ <img src="img/zoho2.png" alt="Zoho Dashboard" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 relative z-0" onerror="this.src='attached-image.png'" />
+ </div>
+
+ <!-- Right Column: Feature Cards Grid -->
+ <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+
+ <!-- Card 3 (Yellow) -->
+ <div class="feature-card bg-[#0B0B0D] border border-[#2A2A2E] rounded-[1.5rem] p-6 shadow-lg hover:border-[#2A2A2E] transition-all duration-300 group hover:-translate-y-1">
+ <div class="w-12 h-12 rounded-3xl bg-gray-700/10 text-[#B8B8B8] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+ <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+ </div>
+ <h4 class="font-cinzel text-base font-bold text-[#F8F6F0] mb-2">Seamless Integrations</h4>
+ <p class="text-xs text-[#B8B8B8] leading-relaxed">Connect Zoho with websites, eCommerce, payment gateways, ERP systems, APIs, and third-party applications.</p>
+ </div>
+
+ <!-- Card 4 (Red) -->
+ <div class="feature-card bg-[#0B0B0D] border border-[#2A2A2E] rounded-[1.5rem] p-6 shadow-lg hover:border-[#2A2A2E] transition-all duration-300 group hover:-translate-y-1">
+ <div class="w-12 h-12 rounded-3xl bg-gray-700/10 text-[#B8B8B8] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+ <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+ </div>
+ <h4 class="font-cinzel text-base font-bold text-[#F8F6F0] mb-2">Scalable & Secure</h4>
+ <p class="text-xs text-[#B8B8B8] leading-relaxed">Enterprise-grade security with a cloud platform that grows alongside your business, from startup to enterprise.</p>
+ </div>
+
+ <!-- Card 5 (Blue) -->
+ <div class="feature-card bg-[#0B0B0D] border border-[#2A2A2E] rounded-[1.5rem] p-6 shadow-lg hover:border-[#D4AF37]/50 transition-all duration-300 group hover:-translate-y-1">
+ <div class="w-12 h-12 rounded-3xl bg-[#D4B483]/40 text-[#D4AF37] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+ <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+ </div>
+ <h4 class="font-cinzel text-base font-bold text-[#F8F6F0] mb-2">AI-Powered Insights</h4>
+ <p class="text-xs text-[#B8B8B8] leading-relaxed">Monitor business performance using predictive analytics, intelligent dashboards, and real-time reporting.</p>
+ </div>
+
+ <!-- Card 6 (Green) -->
+ <div class="feature-card bg-[#0B0B0D] border border-[#2A2A2E] rounded-[1.5rem] p-6 shadow-lg hover:border-[#2A2A2E] transition-all duration-300 group hover:-translate-y-1">
+ <div class="w-12 h-12 rounded-3xl bg-gray-700/10 text-[#B8B8B8] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+ <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+ </div>
+ <h4 class="font-cinzel text-base font-bold text-[#F8F6F0] mb-2">Fully Customizable</h4>
+ <p class="text-xs text-[#B8B8B8] leading-relaxed">Every module can be tailored to match your business workflow, processes, and operational requirements.</p>
+ </div>
+
+ <!-- Card 7 (Yellow) - Spans 2 columns to complete the grid nicely -->
+ <div class="sm:col-span-2 feature-card bg-[#0B0B0D] border border-[#2A2A2E] rounded-[1.5rem] p-6 shadow-lg hover:border-[#2A2A2E] transition-all duration-300 group hover:-translate-y-1 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+ <div class="w-12 h-12 rounded-3xl bg-gray-700/10 text-[#B8B8B8] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+ <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+ </div>
+ <div>
+ <h4 class="font-cinzel text-base font-bold text-[#F8F6F0] mb-1">Future-Ready Platform</h4>
+ <p class="text-xs text-[#B8B8B8] leading-relaxed">Cloud-based, mobile-friendly, secure, and designed to scale as your business expands.</p>
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </section>
+
+ <!-- ═══════════════════ DIVIDER: HYGEIA ↔ NICEPAY ═══════════════════ -->
+ <div class="py-6"><div class="max-w-6xl mx-auto"><hr class="border-[#2A2A2E]" /></div></div>
+
+
+ <!-- ===================== MAIN CONTAINER ===================== -->
+ <div class="max-w-[1200px] mx-auto my-6 md:my-10">
+ </div>
+
+
+ <!-- ===================== MERGED JAVASCRIPT ===================== -->
+ <script>
+ // ===================================================================
+ // ANALYX: Scroll reveal for service cards
+ // ===================================================================
+ const revealObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.classList.add('visible');
+ }
+ });
+ }, { threshold: 0.1 });
+
+ document.querySelectorAll('.service-card').forEach((el, i) => {
+ el.classList.add('reveal');
+ el.style.transitionDelay = `${i * 120}ms`;
+ revealObserver.observe(el);
+ });
+
+
+ // ===================================================================
+ // HYGEIA: Animated Counters
+ // ===================================================================
+ function animateCounters() {
+ const counters = document.querySelectorAll('.stat-number');
+ counters.forEach(counter => {
+ const target = parseInt(counter.dataset.target);
+ const suffix = counter.dataset.suffix || '';
+ const duration = 2000;
+ const step = Math.ceil(target / (duration / 16));
+ let current = 0;
+
+ const updateCounter = () => {
+ current += step;
+ if (current >= target) {
+ current = target;
+ counter.textContent = current + suffix;
+ return;
+ }
+ counter.textContent = current + suffix;
+ requestAnimationFrame(updateCounter);
+ };
+
+ updateCounter();
+ });
+ }
+
+ // Intersection Observer for counters
+ const hygeiaStatsSection = document.getElementById('hygeia-stats');
+ let hygeiaHasAnimated = false;
+
+ const statsObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting && !hygeiaHasAnimated) {
+ hygeiaHasAnimated = true;
+ animateCounters();
+ }
+ });
+ }, { threshold: 0.3 });
+
+ statsObserver.observe(hygeiaStatsSection);
+
+ // Hygeia entrance animations
+ const hygeiaFadeObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.style.opacity = '1';
+ entry.target.style.transform = 'translateY(0)';
+ }
+ });
+ }, { threshold: 0.08 });
+
+ document.querySelectorAll('.step-card, .feature-card, .stat-card, .testimonial-card').forEach((el, i) => {
+ el.style.opacity = '0';
+ el.style.transform = 'translateY(24px)';
+ el.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${(i % 4) * 100}ms`;
+ hygeiaFadeObserver.observe(el);
+ });
+
+
+ // ===================================================================
+ // NICEPAY: Pricing toggle
+ // ===================================================================
+ let currentPlan = 'monthly';
+
+ function setToggle(plan) {
+ currentPlan = plan;
+ const btnMonthly = document.getElementById('btn-monthly');
+ const btnYearly = document.getElementById('btn-yearly');
+
+ if (plan === 'monthly') {
+ btnMonthly.classList.add('bg-brand-primary', 'text-[#F8F6F0]', 'shadow-md', 'shadow-indigo-300/30');
+ btnMonthly.classList.remove('text-[#B8B8B8]');
+ btnYearly.classList.remove('bg-brand-primary', 'text-[#F8F6F0]', 'shadow-md', 'shadow-indigo-300/30');
+ btnYearly.classList.add('text-[#B8B8B8]');
+ } else {
+ btnYearly.classList.add('bg-brand-primary', 'text-[#F8F6F0]', 'shadow-md', 'shadow-indigo-300/30');
+ btnYearly.classList.remove('text-[#B8B8B8]');
+ btnMonthly.classList.remove('bg-brand-primary', 'text-[#F8F6F0]', 'shadow-md', 'shadow-indigo-300/30');
+ btnMonthly.classList.add('text-[#B8B8B8]');
+ }
+
+ const amounts = document.querySelectorAll('.price-amount');
+ const periods = document.querySelectorAll('.price-period');
+
+ amounts.forEach(el => {
+ const price = plan === 'monthly' ? el.dataset.monthly : el.dataset.yearly;
+ el.style.opacity = '0';
+ el.style.transform = 'translateY(4px)';
+ el.style.transition = 'all 0.25s ease';
+ setTimeout(() => {
+ el.textContent = `$${price}`;
+ el.style.opacity = '1';
+ el.style.transform = 'translateY(0)';
+ }, 150);
+ });
+
+ periods.forEach(el => {
+ el.style.opacity = '0';
+ el.style.transition = 'opacity 0.25s ease';
+ setTimeout(() => {
+ el.textContent = plan === 'monthly' ? '/ month' : '/ year';
+ el.style.opacity = '1';
+ }, 150);
+ });
+ }
+
+ // Nicepay entrance animations
+ const nicepayObserver = new IntersectionObserver((entries) => {
+ entries.forEach(entry => {
+ if (entry.isIntersecting) {
+ entry.target.style.opacity = '1';
+ entry.target.style.transform = 'translateY(0)';
+ }
+ });
+ }, { threshold: 0.1 });
+
+ document.querySelectorAll('.pricing-card, .feature-item').forEach(el => {
+ el.style.opacity = '0';
+ el.style.transform = 'translateY(20px)';
+ el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+ nicepayObserver.observe(el);
+ });
+
+ document.querySelectorAll('.feature-item').forEach((el, i) => {
+ el.style.transitionDelay = `${i * 100}ms`;
+ });
+ document.querySelectorAll('.pricing-card').forEach((el, i) => {
+ el.style.transitionDelay = `${i * 120}ms`;
+ });
+ </script>
+
+
+
+
+
+
+<!-- ===================== SECTION: APP STORE RELEASE ===================== -->
+<a href="#appstore" class="block w-full bg-[#0B0B0D] relative overflow-hidden pt-12 md:pt-16 rounded-t-[3rem] transition-colors group border-t border-gray-200">
+    <div class="max-w-[1440px] mx-auto px-6 relative z-10 flex flex-col items-center">
+        <!-- Typography -->
+        <h2 class="font-cinzel text-xl md:text-3xl lg:text-4xl font-bold text-[#F8F6F0] tracking-tight text-center mb-6 md:mb-10 antialiased font-sans">
+            Experience the Mobile App – Click Here...
+        </h2>
+        
+        <!-- Mockup -->
+        <div class="w-full max-w-3xl mx-auto flex justify-center items-start relative mt-4 px-4 md:px-0">
+            <img src="img/platepay_laptop.png" alt="PlatePay App Store Preview" class="w-full h-auto object-contain transform group-hover:-translate-y-2 transition-transform duration-700 ease-out  drop-shadow-sm" />
+        </div>
+    </div>
+</a>
+
+
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#0B0B0D] border-t border-[#2A2A2E] pt-20 pb-10 mt-20 relative overflow-hidden">
+ 
+ <!-- Subtle ambient glow in the background -->
+ <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#D4B483]/40 via-transparent to-transparent rounded-full blur-[100px] pointer-events-none z-0"></div>
+
+ <div class="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
+ 
+ <!-- Top Section: Flex -->
+ <div class="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 mb-16">
+ 
+ <!-- Brand & Tagline -->
+ <div class="flex flex-col items-start lg:w-1/2">
+ <h3 class="font-cinzel font-extrabold text-[#F8F6F0] tracking-tight mb-4" style="font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);">
+ Rhenovatech Private Limited
+ </h3>
+ <p class="text-[#B8B8B8] font-medium leading-relaxed mb-8 max-w-sm" style="font-size: clamp(0.875rem, 1vw + 0.1rem, 1rem);">
+ Empowering the Future of Jewellery Operations.
+ </p>
+ <button class="px-8 py-3.5 bg-[#D4B483] text-[#0B0B0D] rounded-full font-bold text-xs tracking-widest uppercase hover:bg-[#B99B6A] transition-all transform hover:-translate-y-1 shadow-[0_10px_30px_rgba(212,180,131,0.2)] flex items-center gap-2 group">
+ <span>Book a Demo</span>
+ <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+ </button>
+ </div>
+
+ <!-- Contact & Socials -->
+ <div class="flex flex-col items-start lg:items-end lg:w-1/2">
+ <h4 class="font-cinzel text-sm font-bold text-[#F8F6F0] uppercase tracking-widest mb-6 lg:text-right">Connect</h4>
+ <ul class="space-y-4 mb-8 flex flex-col items-start lg:items-end">
+ <li class="flex items-center gap-3 lg:flex-row-reverse text-left lg:text-right">
+ <svg class="w-5 h-5 text-[#B8B8B8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+ <a href="https://www.rhenovatech.com" target="_blank" class="text-[#B8B8B8] hover:text-[#F8F6F0] transition-colors text-sm font-medium">www.rhenovatech.com</a>
+ </li>
+ <li class="flex items-center gap-3 lg:flex-row-reverse text-left lg:text-right">
+ <svg class="w-5 h-5 text-[#B8B8B8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+ <a href="mailto:ceo@rhenovatech.com" class="text-[#B8B8B8] hover:text-[#F8F6F0] transition-colors text-sm font-medium">ceo@rhenovatech.com</a>
+ </li>
+ <li class="flex items-center gap-3 lg:flex-row-reverse text-left lg:text-right">
+ <svg class="w-5 h-5 text-[#B8B8B8]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+ <a href="tel:+917306201900" class="text-[#B8B8B8] hover:text-[#F8F6F0] transition-colors text-sm font-medium">+91 73062 01900</a>
+ </li>
+ </ul>
+ 
+ <!-- Social Icons -->
+ <div class="flex items-center gap-4 lg:justify-end w-full">
+ <a href="https://www.linkedin.com/company/rhenova-tech/" target="_blank" class="w-10 h-10 rounded-full bg-[#2D2B2A]/5 border border-[#2A2A2E] flex items-center justify-center text-[#B8B8B8] hover:bg-[#D4B483] hover:text-[#0B0B0D] transition-all transform hover:-translate-y-1">
+ <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+ </a>
+ <a href="https://www.instagram.com/rhenova_tech?igsh=dGQ0Nmt5NjQxcDBy" target="_blank" class="w-10 h-10 rounded-full bg-[#2D2B2A]/5 border border-[#2A2A2E] flex items-center justify-center text-[#B8B8B8] hover:bg-[#D4B483] hover:text-[#0B0B0D] transition-all transform hover:-translate-y-1">
+ <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+ </a>
+ </div>
+ </div>
+ 
+ </div>
+
+ <!-- Bottom Divider & Copyright -->
+ <div class="pt-8 border-t border-[#2A2A2E] flex flex-col md:flex-row items-center justify-between gap-4">
+ <p class="text-[#B8B8B8] text-xs font-medium">
+ &copy; 2026 Rhenovatech Private Limited. All rights reserved.
+ </p>
+ </div>
+
+ </div>
+</footer>
+
+<!-- ====== AOS Script ====== -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({duration: 1000, once: true, offset: 50});</script>
+
+<!-- REX POPUP FUNCTION -->
+<style>
+.rex-popup-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 99999;
+    display: none;
+    animation: slideUpRex 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rex-popup-card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    padding: 30px 160px 45px 35px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    width: 480px;
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: bottom right;
+}
+
+.rex-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #444;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.rex-close-btn:hover {
+    background: rgba(0,0,0,0.05);
+    color: #000;
+}
+
+.rex-popup-text, .rex-demo-btn, .rex-close-btn {
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.rex-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.2;
+}
+
+.rex-subtitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #7928CA;
+    letter-spacing: -0.5px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.rex-demo-btn {
+    position: absolute;
+    bottom: -22px;
+    left: 35px;
+    background: #7928CA;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    box-shadow: 0 8px 20px rgba(121, 40, 202, 0.35);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.rex-demo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(121, 40, 202, 0.45);
+}
+
+.rex-popup-img {
+    position: absolute;
+    bottom: 10px;
+    right: -20px;
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(-5px 10px 15px rgba(0,0,0,0.15));
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+.rex-blink-overlay {
+    opacity: 0;
+    animation: rexEyeBlink 4.5s infinite;
+}
+@keyframes rexEyeBlink {
+    0%, 94%, 98%, 100% { opacity: 0; }
+    95%, 97% { opacity: 1; }
+}
+
+/* MINIMIZED STATE */
+.rex-popup-container.minimized .rex-popup-card {
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.rex-popup-container.minimized .rex-popup-text,
+.rex-popup-container.minimized .rex-demo-btn,
+.rex-popup-container.minimized .rex-close-btn {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.rex-popup-container.minimized .rex-popup-img {
+    right: 0px;
+    bottom: 0px;
+    width: 120px;
+    pointer-events: auto;
+}
+.rex-popup-container.minimized .rex-popup-card:hover .rex-popup-img {
+    transform: scale(1.08);
+}
+.rex-popup-container.minimized .rex-popup-card:hover .rex-blink-overlay {
+    animation: none;
+    opacity: 0;
+}
+
+@keyframes slideUpRex {
+    0% { transform: translateY(100px) scale(0.9); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .rex-popup-container {
+        right: 20px;
+        bottom: 50px;
+        left: 20px;
+    }
+    .rex-popup-container.minimized {
+        left: auto;
+    }
+    .rex-popup-card {
+        width: 100%;
+        padding: 25px 120px 40px 20px;
+    }
+    .rex-title { font-size: 22px; }
+    .rex-subtitle { font-size: 18px; }
+    .rex-popup-img {
+        width: 160px;
+        right: -10px;
+    }
+    .rex-demo-btn {
+        left: 20px;
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+</style>
+<div class="rex-popup-container" id="rexPopup">
+    <div class="rex-popup-card" onclick="if(document.getElementById('rexPopup').classList.contains('minimized')) document.getElementById('rexPopup').classList.remove('minimized')">
+        <button class="rex-close-btn" onclick="event.stopPropagation(); document.getElementById('rexPopup').classList.add('minimized')">
+            &times;
+        </button>
+        
+        <div class="rex-popup-text">
+            <div class="rex-title">New to<br>Rhenovatech?</div>
+            <div class="rex-subtitle">Talk to our experts</div>
+        </div>
+        
+        <a href="https://wa.me/917306201900?text=Hi,%20I%20would%20like%20to%20request%20a%20demo%20of%20your%20software." target="_blank" class="rex-demo-btn" onclick="event.stopPropagation();">Schedule a free demo</a>
+        
+        <img src="img/rex.png" alt="Rex Mascot" class="rex-popup-img">
+        <img src="img/rex_blink.png" alt="Rex Mascot Blink" class="rex-popup-img rex-blink-overlay">
+    </div>
+</div>
+<script>
+    setTimeout(function() {
+        var popup = document.getElementById('rexPopup');
+        if (popup) {
+            popup.style.display = 'block';
+            setTimeout(function() {
+                if (!popup.classList.contains('minimized')) {
+                    popup.classList.add('minimized');
+                }
+            }, 5000);
+        }
+    }, 10000);
+</script>
+<!-- END REX POPUP FUNCTION -->
+</body>
+</html>
