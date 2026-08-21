@@ -71,48 +71,21 @@
       theme: {
         extend: {
           fontFamily: { 
-            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Inter"', '"Segoe UI"', 'Roboto', 'sans-serif'] 
+            sans: ['Inter', 'sans-serif']
           },
           colors: {
             brand: {
-              50: '#FFFFFF', 100: '#FFFFFF', 200: '#FFFFFF', 300: '#FFFFFF',
-              400: '#736DB3', 500: '#736DB3', 600: '#736DB3', 700: '#736DB3',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
-            },
-            slate: {
-              50: '#FFFFFF', 100: '#FAFAFA', 200: '#FFFFFF', 300: '#D6D6D6',
-              400: '#A9A9B3', 500: '#A9A9B3', 600: '#3A3350', 700: '#251E38',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
-            },
-            gray: {
-              50: '#FFFFFF', 100: '#FAFAFA', 200: '#FFFFFF', 300: '#D6D6D6',
-              400: '#A9A9B3', 500: '#A9A9B3', 600: '#3A3350', 700: '#251E38',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
-            },
-            zinc: {
-              50: '#FFFFFF', 100: '#FAFAFA', 200: '#FFFFFF', 300: '#D6D6D6',
-              400: '#A9A9B3', 500: '#A9A9B3', 600: '#3A3350', 700: '#251E38',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
-            },
-            neutral: {
-              50: '#FFFFFF', 100: '#FAFAFA', 200: '#FFFFFF', 300: '#D6D6D6',
-              400: '#A9A9B3', 500: '#A9A9B3', 600: '#3A3350', 700: '#251E38',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
-            },
-            indigo: {
-              50: '#FFFFFF', 100: '#FFFFFF', 200: '#FFFFFF', 300: '#FFFFFF',
-              400: '#736DB3', 500: '#736DB3', 600: '#736DB3', 700: '#736DB3',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
-            },
-            purple: {
-              50: '#FFFFFF', 100: '#FFFFFF', 200: '#FFFFFF', 300: '#FFFFFF',
-              400: '#736DB3', 500: '#736DB3', 600: '#736DB3', 700: '#736DB3',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
-            },
-            violet: {
-              50: '#FFFFFF', 100: '#FFFFFF', 200: '#FFFFFF', 300: '#FFFFFF',
-              400: '#736DB3', 500: '#736DB3', 600: '#736DB3', 700: '#736DB3',
-              800: '#151029', 900: '#0B071A', 950: '#070412',
+              50: '#f5f4fc',
+              100: '#ebe9f9',
+              200: '#d7d4f3',
+              300: '#b7b1e8',
+              400: '#928ad7',
+              500: '#736DB3',
+              600: '#635ca5',
+              700: '#544d8c',
+              800: '#464074',
+              900: '#3a375e',
+              950: '#242239',
             }
           },
           fontSize: {
@@ -744,7 +717,7 @@
       width: 32px;
       height: 32px;
       border-radius: 8px;
-      background: rgba(115, 109, 179, 0.08);
+      background: transparent;
       color: #736DB3;
       display: flex;
       align-items: center;
@@ -819,7 +792,7 @@
       width: 100%;
       padding: 10px 0;
       border-radius: 12px;
-      border: 1px solid rgba(115, 109, 179, 0.15);
+      border: none;
       background: transparent;
       color: #736DB3;
       font-size: 12px;
@@ -910,7 +883,7 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: rgba(115, 109, 179, 0.2);
+        background: transparent;
         transition: all 0.3s ease;
         cursor: pointer;
       }
@@ -1065,8 +1038,8 @@
       font-size: 10px; font-weight: 800;
       letter-spacing: 0.2em; text-transform: uppercase;
       color: #736db3;
-      background: rgba(115,109,179,0.08);
-      border: 1px solid rgba(115,109,179,0.18);
+      background: transparent;
+      border: none;
       padding: 6px 18px; border-radius: 999px;
       margin-bottom: 20px;
     }
@@ -1166,11 +1139,11 @@
       pointer-events: none;
       transition: transform 0.6s ease;
     }
-    .story-panel:nth-child(1) .visual-circle { background: rgba(115, 109, 179, 0.08); }
-    .story-panel:nth-child(2) .visual-circle { background: rgba(115, 109, 179, 0.08); }
-    .story-panel:nth-child(3) .visual-circle { background: rgba(115, 109, 179, 0.08); }
-    .story-panel:nth-child(4) .visual-circle { background: rgba(115, 109, 179, 0.08); }
-    .story-panel:nth-child(5) .visual-circle { background: rgba(115, 109, 179, 0.08); }
+    .story-panel:nth-child(1) .visual-circle { background: transparent; }
+    .story-panel:nth-child(2) .visual-circle { background: transparent; }
+    .story-panel:nth-child(3) .visual-circle { background: transparent; }
+    .story-panel:nth-child(4) .visual-circle { background: transparent; }
+    .story-panel:nth-child(5) .visual-circle { background: transparent; }
 
     @keyframes blobPulse {
       0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.9; }
@@ -1259,10 +1232,10 @@
     /* ── Ambient Glows ── */
     .ambient-glow {
       position: absolute; width: 450px; height: 450px; border-radius: 50%;
-      background: rgba(115, 109, 179, 0.02);
+      background: transparent;
       filter: blur(60px); pointer-events: none; z-index: 0;
     }
-    .dark .ambient-glow { background: rgba(115, 109, 179, 0.02); }
+    .dark .ambient-glow { background: transparent; }
     @media(max-width:640px){ .ambient-glow{width:220px;height:220px;} }
 
     /* Twinkle Stars */
@@ -1288,9 +1261,9 @@
     .industry-card-adv:hover img { transform: scale(1.06) rotate(0.5deg); }
     .violet-badge {
       display: inline-block; padding: 4px 12px; border-radius: 999px;
-      background: rgba(115,109,179,0.85); border: 1px solid rgba(161,149,202,0.4);
+      background: transparent; border: none;
       font-size: 9px; font-weight: 800; letter-spacing: 1.5px; color: #ffffff;
-      backdrop-filter: blur(8px);
+      
     }
 
     /* Team Card Grid Styles */
@@ -1563,7 +1536,7 @@
 
     .vm-glow-1 {
       width: 500px; height: 500px;
-      background: rgba(115, 109, 179, 0.02);
+      background: transparent;
       top: -100px; left: 50%;
       transform: translateX(-50%);
       animation: glowPulse 5s ease-in-out infinite;
@@ -1571,7 +1544,7 @@
 
     .vm-glow-2 {
       width: 300px; height: 300px;
-      background: rgba(115, 109, 179, 0.02);
+      background: transparent;
       bottom: 80px; right: 15%;
       animation: glowPulse 7s ease-in-out infinite reverse;
     }
@@ -1654,7 +1627,7 @@
     .vm-card {
       width: 420px;
       min-height: 260px;
-      background: rgba(18,22,38,0.97);
+      background: transparent;
       border-radius: 28px;
       color: #fff;
       position: relative;
@@ -1680,11 +1653,11 @@
       position: absolute;
       bottom: 0; right: 0;
       width: 180px; height: 180px;
-      background: rgba(115, 109, 179, 0.02);
+      background: transparent;
       pointer-events: none;
     }
     .dark .vm-card::after {
-      background: rgba(115, 109, 179, 0.02);
+      background: transparent;
     }
 
     /* Floating tab on top of card */
@@ -1693,7 +1666,7 @@
       top: -18px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(18,22,38,0.97);
+      background: transparent;
       color: #fff;
       font-size: 11px;
       font-weight: 800;
@@ -1704,20 +1677,20 @@
       box-shadow: 0 4px 16px rgba(115,109,179,0.4);
     }
     .dark .vm-card-tab {
-      background: rgba(18,22,38,0.97);
+      background: transparent;
       box-shadow: 0 4px 16px rgba(131,116,183,0.3);
     }
 
     .vm-card-icon {
       width: 52px; height: 52px;
       border-radius: 16px;
-      background: rgba(115,109,179,0.08);
-      border: 1px solid rgba(115,109,179,0.15);
+      background: transparent;
+      border: none;
       display: flex; align-items: center; justify-content: center;
       margin-bottom: 20px;
     }
     .dark .vm-card-icon {
-      background: rgba(131,116,183,0.06);
+      background: transparent;
       border-color: rgba(131,116,183,0.2);
     }
 
@@ -1805,15 +1778,15 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #736db3;
-      background: rgba(115,109,179,0.06);
-      border: 1px solid rgba(115,109,179,0.15);
+      background: transparent;
+      border: none;
       padding: 5px 16px;
       border-radius: 999px;
       margin-bottom: 18px;
     }
     .dark .industries-eyebrow {
       color: #736DB3;
-      background: rgba(161,149,202,0.06);
+      background: transparent;
       border-color: rgba(161,149,202,0.15);
     }
 
@@ -1865,7 +1838,7 @@
     .bento-card {
       background: #ffffff;
       border-radius: 24px;
-      border: 1px solid rgba(115,109,179,0.08);
+      border: none;
       box-shadow: 0 4px 20px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.03);
       overflow: hidden;
       display: flex;
@@ -1965,7 +1938,7 @@
       font-weight: 700;
       color: #333333;
       box-shadow: 0 2px 12px rgba(115,109,179,0.12);
-      border: 1px solid rgba(115,109,179,0.12);
+      border: none;
     }
     .dark .ill-workflow .w-node {
       background: #1E1E1E;
@@ -2030,7 +2003,7 @@
       font-weight: 700;
       color: #333333;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.06);
+      border: none;
       margin-bottom: 16px;
       align-self: flex-end;
     }
@@ -2172,7 +2145,7 @@
       background: #fff;
       padding: 4px 12px;
       border-radius: 6px;
-      border: 1px solid rgba(0,0,0,0.06);
+      border: none;
     }
     .dark .ill-api .api-path {
       background: #1E1E1E;
@@ -2228,12 +2201,12 @@
 
     .ill-network .net-line {
       position: absolute;
-      background: rgba(115,109,179,0.25);
+      background: transparent;
       height: 1px;
       transform-origin: left center;
     }
     .dark .ill-network .net-line {
-      background: rgba(161, 149, 202, 0.25);
+      background: transparent;
     }
 
     .net-av-1 { background: #FFFFFF; }
@@ -2401,7 +2374,7 @@
           <a href="#" class="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
             <img src="WhatsApp_Image_2026-05-31_at_9.23.59_PM__1_-removebg-preview.png" alt="RHenova Tech" class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.style.display='none'">
             <div class="flex flex-col leading-none">
-              <span class="text-base sm:text-lg font-black tracking-tight text-slate-800 dark:text-white uppercase">
+              <span class="text-base sm:text-lg font-bold tracking-tight text-slate-800 dark:text-white uppercase">
                 RHenova <span class="text-brand-500 dark:text-brand-400">Tech</span>
               </span>
             </div>
@@ -2412,7 +2385,7 @@
               <img src="download.png" alt="ZOHO Partner" class="w-full h-full object-contain">
             </div>
             <div class="flex flex-col leading-none">
-              <span class="text-[8px] sm:text-[10px] font-black text-slate-850 dark:text-slate-200 tracking-wider uppercase">ZOHO</span>
+              <span class="text-[8px] sm:text-[10px] font-bold text-slate-850 dark:text-slate-200 tracking-wider uppercase">ZOHO</span>
               <span class="text-[6px] sm:text-[8px] font-semibold text-slate-500 dark:text-slate-400 tracking-wider">Partner</span>
             </div>
           </div>
@@ -2430,8 +2403,28 @@
         </nav>
 
         <!-- Right Tools -->
-        <div class="flex items-center gap-3 sm:gap-4">
-          <!-- Mobile Hamburger Toggle Menu -->
+          <div class="flex items-center gap-3 sm:gap-5">
+            <!-- Contact Info (Desktop) -->
+            <div class="hidden lg:flex flex-col items-end border-r border-slate-200 dark:border-slate-800 pr-5 gap-0.5">
+              <a href="mailto:ceo@rhenovatech.com" class="text-[11px] font-bold text-slate-500 hover:text-brand-500 transition-colors flex items-center gap-1.5">
+                <i data-lucide="mail" class="w-3 h-3"></i> ceo@rhenovatech.com
+              </a>
+              <a href="tel:+917306201900" class="text-[11px] font-bold text-slate-500 hover:text-brand-500 transition-colors flex items-center gap-1.5">
+                <i data-lucide="phone" class="w-3 h-3"></i> +91 73062 01900
+              </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="hidden sm:flex items-center gap-2">
+              <a href="https://www.linkedin.com/company/rhenova-tech/" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 text-slate-600 hover:bg-brand-500 hover:text-white transition-all">
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+              <a href="https://www.instagram.com/rhenova_tech?igsi=dmhydnIwNTY0N3E5&utm_source=qr" target="_blank" class="w-8 h-8 rounded-full flex items-center justify-center bg-slate-100 text-slate-600 hover:bg-brand-500 hover:text-white transition-all">
+                <i data-lucide="instagram" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <!-- Mobile Hamburger Toggle Menu -->
           <button id="hamburger" aria-label="Open navigation menu" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm transition-all hover:bg-slate-50 dark:hover:bg-slate-800">
             <i data-lucide="menu" id="hamburger-icon" class="w-5 h-5 text-slate-600 dark:text-slate-300"></i>
           </button>
@@ -2455,6 +2448,27 @@
       <a href="#team" class="mobile-nav-link block py-3 px-4 text-sm font-semibold rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/50 hover:text-brand-600">Team</a>
       <a href="#blueprint-generator" class="mobile-nav-link block py-3 px-4 text-sm font-semibold rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/50 hover:text-brand-600">Blueprint</a>
       <a href="#about" class="mobile-nav-link block py-3 px-4 text-sm font-semibold rounded-xl text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900/50 hover:text-brand-600">About</a>
+        
+        <!-- Mobile Contact & Socials -->
+        <div class="mt-auto pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-4">
+          <div class="flex flex-col gap-2">
+            <a href="mailto:ceo@rhenovatech.com" class="text-[13px] font-bold text-slate-600 dark:text-slate-400 flex items-center gap-2 hover:text-brand-500">
+              <i data-lucide="mail" class="w-4 h-4"></i> ceo@rhenovatech.com
+            </a>
+            <a href="tel:+917306201900" class="text-[13px] font-bold text-slate-600 dark:text-slate-400 flex items-center gap-2 hover:text-brand-500">
+              <i data-lucide="phone" class="w-4 h-4"></i> +91 73062 01900
+            </a>
+          </div>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://www.linkedin.com/company/rhenova-tech/" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-900 text-slate-600 hover:bg-brand-500 hover:text-white transition-all">
+              <i data-lucide="linkedin" class="w-5 h-5"></i>
+            </a>
+            <a href="https://www.instagram.com/rhenova_tech?igsi=dmhydnIwNTY0N3E5&utm_source=qr" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-900 text-slate-600 hover:bg-brand-500 hover:text-white transition-all">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
       <a href="mailto:ceo@rhenovatech.com" class="block py-3 px-4 mt-2 text-center text-sm font-bold text-white bg-brand-600 hover:bg-brand-500 rounded-xl transition-all">Schedule A Founder Call</a>
     </div>
   </header>
@@ -2520,17 +2534,17 @@
 
               <!-- Main Headline -->
               <div class="mb-[36px]">
-               <h1 class="w-full font-[900] text-[38px] sm:text-[46px] md:text-[64px] lg:text-[84px] leading-[0.9] tracking-[-0.06em] uppercase">
+               <h1 class="w-full font-bold text-[38px] sm:text-[46px] md:text-[64px] lg:text-[84px] leading-[0.9] tracking-tight uppercase">
   <span class="block whitespace-nowrap">
-    WHERE <span class="text-[#736DB3]">CHAOS</span>
+    WHERE <span class="text-brand-500">CHAOS</span>
   </span>
   <span class="block whitespace-nowrap">
-    MEETS <span class="text-[#736DB3]">CLARITY.</span>
+    MEETS <span class="text-brand-500">CLARITY.</span>
   </span>
 </h1>
               </div>
 
-              <p class="gsap-hero-reveal opacity-0 translate-y-[20px] text-[12px] md:text-[15px] lg:text-[24px] font-normal leading-[1.75] tracking-[-0.01em] text-[#5E6475] max-w-[620px]">
+              <p class="gsap-hero-reveal opacity-0 translate-y-[20px] text-[12px] md:text-[15px] lg:text-[24px] font-normal leading-[1.75] tracking-[-0.01em] text-slate-500 max-w-[620px]">
                 Your vision deserves more than spreadsheets and workarounds.We build the operational backbone that turns ambition into scalable execution.
               </p>
             </div>
@@ -2626,16 +2640,16 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- Left Column -->
         <div class="flex flex-col pt-2">
-          <span class="text-[#8b5cf6] text-[11px] font-bold uppercase tracking-wider mb-4 block">Operational Logic</span>
-          <h2 class="heading-font text-[#111111] text-[32px] md:text-[40px] font-medium leading-[1.1] mb-10 tracking-tight">
+          <span class="text-brand-500 text-[11px] font-bold uppercase tracking-wider mb-4 block">Operational Logic</span>
+          <h2 class="font-sans text-slate-900 text-[32px] md:text-[40px] font-medium leading-[1.1] mb-10 tracking-tight">
             AI-Powered Workflows
           </h2>
           
           <div class="pl-0 md:pl-[30%] flex flex-col gap-6">
-            <p class="text-[13px] text-[#8e98ab] leading-[1.8] font-medium">
+            <p class="text-[13px] text-slate-400 leading-[1.8] font-medium">
               Algorithmic workflow routing, real-time data validation, and AI pattern-processing engines that make your operations self-correcting and continuously intelligent. We leverage advanced machine learning models to detect anomalies before they happen, routing critical tasks instantly to the right departments while automating repetitive tasks entirely.
             </p>
-            <p class="text-[#8b5cf6] text-[13px] leading-[1.6] font-semibold mt-2 group cursor-pointer hover:opacity-80 transition-opacity">
+            <p class="text-brand-500 text-[13px] leading-[1.6] font-semibold mt-2 group cursor-pointer hover:opacity-80 transition-opacity">
               Intelligent AI solutions designed to automate workflows, deliver actionable insights, and help your business operate smarter, faster, and more efficiently. <span class="inline-block transform group-hover:translate-x-0.5 transition-transform">↘</span>
             </p>
           </div>
@@ -2651,17 +2665,17 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- Left Column -->
         <div class="flex flex-col pt-2">
-          <span class="text-[#8b5cf6] text-[11px] font-bold uppercase tracking-wider mb-4 block">Native Client Portals
+          <span class="text-brand-500 text-[11px] font-bold uppercase tracking-wider mb-4 block">Native Client Portals
 </span>
-          <h2 class="heading-font text-[#111111] text-[32px] md:text-[40px] font-medium leading-[1.1] mb-10 tracking-tight">
+          <h2 class="font-sans text-slate-900 text-[32px] md:text-[40px] font-medium leading-[1.1] mb-10 tracking-tight">
             Mobile Application
 
           </h2>
           
           <div class="pl-0 md:pl-[30%] flex flex-col gap-6">
-            <p class="text-[13px] text-[#8e98ab] leading-[1.8] font-medium">
+            <p class="text-[13px] text-slate-400 leading-[1.8] font-medium">
 Custom mobile applications engineered around your business requirements. We design secure, scalable, and high-performance Android and iOS solutions that integrate seamlessly with your Zoho ecosystem, empowering your teams and customers with real-time access, intelligent automation, and exceptional user experiences.            </p>
-            <p class="text-[#8b5cf6] text-[13px] leading-[1.6] font-semibold mt-2 group cursor-pointer hover:opacity-80 transition-opacity">
+            <p class="text-brand-500 text-[13px] leading-[1.6] font-semibold mt-2 group cursor-pointer hover:opacity-80 transition-opacity">
               Custom mobile applications that work seamlessly with your Zoho ecosystem. Access business data, automate workflows, and stay productive from anywhere. <span class="inline-block transform group-hover:translate-x-0.5 transition-transform">↘</span>
             </p>
           </div>
@@ -2678,9 +2692,9 @@ Custom mobile applications engineered around your business requirements. We desi
   <!-- WHAT WE ENGINEER SECTION -->
   <section class="w-full max-w-7xl mx-auto px-6 py-16 md:py-24 relative z-10">
     <div class="mb-12 md:mb-16 max-w-3xl">
-      <p class="text-[#8b5cf6] text-[11px] font-bold uppercase tracking-widest mb-4">What We Engineer</p>
-      <h2 class="heading-font text-[#111111] text-[36px] md:text-[48px] font-medium leading-[1.1] tracking-tight mb-6">Core Digital Architectures</h2>
-      <p class="text-[15px] text-[#6b7280] leading-[1.7] font-medium max-w-2xl">
+      <p class="text-brand-500 text-[11px] font-bold uppercase tracking-widest mb-4">What We Engineer</p>
+      <h2 class="font-sans text-slate-900 text-[36px] md:text-[48px] font-medium leading-[1.1] tracking-tight mb-6">Core Digital Architectures</h2>
+      <p class="text-[15px] text-slate-500 leading-[1.7] font-medium max-w-2xl">
         We construct full-stack operational solutions, bridging custom logic directly to your enterprise database systems.
       </p>
     </div>
@@ -2688,100 +2702,35 @@ Custom mobile applications engineered around your business requirements. We desi
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
       
       <!-- Card 1 -->
-      <div class="bg-white rounded-[24px] border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_12px_30px_rgb(0,0,0,0.06)] transition-all duration-300 transform hover:-translate-y-1">
-        <!-- Image Area -->
-        <div class="w-full h-[240px] bg-white flex items-center justify-center p-6">
-          <img src="zoho11.png" alt="Zoho CRM Dashboard" class="w-full h-full object-contain" />
+      <div class="bg-white border border-gray-200 group flex flex-col cursor-pointer transition-all duration-300 hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)]">
+        <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100">
+          <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" alt="Zoho Implementation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
-        <!-- Content Area -->
-        <div class="p-8 flex flex-col flex-grow">
-          <div class="mb-4">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-[#8b5cf6] mb-2 block">Enterprise Software</span>
-            <h3 class="heading-font text-[#111111] text-[22px] font-medium tracking-tight leading-[1.2]">Zoho Implementation</h3>
-          </div>
-          <p class="text-[13px] text-[#6b7280] leading-[1.7] mb-8 font-medium">
-            CRM, Books, Creator, Desk, and Analytics – custom configurations that automate workflow streams and eliminate manual bottlenecks across every department.
-          </p>
-          
-          <ul class="flex flex-col gap-3 mb-8 mt-auto">
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Direct database integrations
-            </li>
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Automated inventory sync schedules
-            </li>
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Custom analytics dashboards
-            </li>
-          </ul>
-
-
+        <div class="p-8 flex-grow flex flex-col justify-center">
+          <h3 class="text-slate-900 text-[20px] sm:text-[22px] font-medium tracking-tight leading-[1.3] mb-3">Zoho Implementation</h3>
+          <p class="text-[14px] text-gray-500 leading-[1.6]">CRM, Books, Creator, Desk, and Analytics - custom configurations that automate workflow streams and eliminate manual bottlenecks across every department.</p>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="bg-white rounded-[24px] border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_12px_30px_rgb(0,0,0,0.06)] transition-all duration-300 transform hover:-translate-y-1">
-        <!-- Image Area -->
-        <div class="w-full h-[240px] bg-white flex items-center justify-center p-6">
-          <img src="zoho12.png" alt="Native Client Portals" class="w-full h-full object-contain" />
+      <div class="bg-white border border-gray-200 group flex flex-col cursor-pointer transition-all duration-300 hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)]">
+        <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100">
+          <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" alt="Systems Orchestration" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
-        <!-- Content Area -->
-        <div class="p-8 flex flex-col flex-grow">
-          <div class="mb-4">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-[#8b5cf6] mb-2 block">Unified Ecosystems
-</span>
-            <h3 class="heading-font text-[#111111] text-[22px] font-medium tracking-tight leading-[1.2]">Systems Orchestration
-</h3>
-          </div>
-          <p class="text-[13px] text-[#6b7280] leading-[1.7] mb-8 font-medium">
-Coordinated multi-device sync logic providing executive oversight across your entire digital estate one coherent view, zero data silos, total operational clarity.          </p>
-          
-          <ul class="flex flex-col gap-3 mb-8 mt-auto">
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Real-time dashboard updates
-
-            </li>
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Zero isolated data silos
-
-            </li>
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Unified multi-device syncing
-            </li>
-          </ul>
-
-
+        <div class="p-8 flex-grow flex flex-col justify-center">
+          <h3 class="text-slate-900 text-[20px] sm:text-[22px] font-medium tracking-tight leading-[1.3] mb-3">Systems Orchestration</h3>
+          <p class="text-[14px] text-gray-500 leading-[1.6]">Coordinated multi-device sync logic providing executive oversight across your entire digital estate: one coherent view, zero data silos, total operational clarity.</p>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="bg-white rounded-[24px] border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] overflow-hidden flex flex-col hover:shadow-[0_12px_30px_rgb(0,0,0,0.06)] transition-all duration-300 transform hover:-translate-y-1">
-        <!-- Image Area -->
-        <div class="w-full h-[240px] bg-white flex items-center justify-center p-6">
-          <img src="zoho13.png" alt="Plugins & Extensions" class="w-full h-full object-contain" />
+      <div class="bg-white border border-gray-200 group flex flex-col cursor-pointer transition-all duration-300 hover:shadow-[0_10px_30px_rgb(0,0,0,0.08)]">
+        <div class="w-full aspect-[4/3] overflow-hidden bg-gray-100">
+          <img src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=800&auto=format&fit=crop" alt="Plugins & Extensions" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </div>
-        <!-- Content Area -->
-        <div class="p-8 flex flex-col flex-grow">
-          <div class="mb-4">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-[#8b5cf6] mb-2 block">API Connectivity</span>
-            <h3 class="heading-font text-[#111111] text-[22px] font-medium tracking-tight leading-[1.2]">Plugins & Extensions</h3>
-          </div>
-          <p class="text-[13px] text-[#6b7280] leading-[1.7] mb-8 font-medium">
-            Custom plugin frameworks and secure JSON API bridges connecting isolated software ecosystems – turning fragmented tools into a single, coherent data layer.
-          </p>
-          
-          <ul class="flex flex-col gap-3 mb-8 mt-auto">
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Secure API bridges
-            </li>
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Seamless third-party apps connection
-            </li>
-            <li class="flex items-start gap-3 text-[13px] text-[#4b5563] font-medium">
-              <span class="text-[#8b5cf6] font-bold mt-[-2px]">✓</span> Data format translation
-            </li>
-          </ul>
-
+        <div class="p-8 flex-grow flex flex-col justify-center">
+          <h3 class="text-slate-900 text-[20px] sm:text-[22px] font-medium tracking-tight leading-[1.3] mb-3">Plugins & Extensions</h3>
+          <p class="text-[14px] text-gray-500 leading-[1.6]">Custom plugin frameworks and secure JSON API bridges connecting isolated software ecosystems - turning fragmented tools into a single, coherent data layer.</p>
         </div>
       </div>
 
@@ -2789,11 +2738,11 @@ Coordinated multi-device sync logic providing executive oversight across your en
   </section>
   
   <!-- ══════════════════ TRUSTED BY INDUSTRY LEADERS (Client Marquee) ══════════════════ -->
-  <section id="trusted-clients" class="py-20 lg:py-32 bg-black border-t border-slate-900 overflow-hidden relative">
+  <section id="trusted-clients" class="py-16 lg:py-24 bg-white border-t border-gray-100 overflow-hidden relative">
     <style>
       #trusted-clients {
         position: relative;
-        background: radial-gradient(circle at center, #151029 0%, #070412 100%);
+        background: #ffffff;
         overflow: hidden;
         width: 100%;
         z-index: 10;
@@ -2861,37 +2810,32 @@ Coordinated multi-device sync logic providing executive oversight across your en
         animation-play-state: paused;
       }
 
-      /* Glassmorphic Logo Card Design */
-      .logo-card {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-radius: 14px;
-        padding: 12px 16px;
-        height: auto;
-        width: auto;
-        flex-shrink: 0;
-        transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1), 
-                    box-shadow 300ms cubic-bezier(0.25, 1, 0.5, 1), 
-                    border-color 300ms cubic-bezier(0.25, 1, 0.5, 1);
-      }
+              /* Clean Logo Card Design */
+        .logo-card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          border: none;
+          padding: 0;
+          height: auto;
+          width: auto;
+          flex-shrink: 0;
+          transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
+        }
 
-      .logo-svg {
+        .logo-svg {
         height: 36px; /* Mobile height: 34-38px */
         width: auto;
         object-fit: contain;
-        filter: brightness(0) invert(1);
+        filter: grayscale(100%) opacity(0.5);
         transition: filter 300ms cubic-bezier(0.25, 1, 0.5, 1), 
                     opacity 300ms cubic-bezier(0.25, 1, 0.5, 1);
       }
 
       @media (min-width: 640px) {
         .logo-card {
-          padding: 14px 18px;
+          padding: 0;
         }
         .logo-svg {
           height: 42px; /* Tablet height: 40-44px */
@@ -2903,7 +2847,7 @@ Coordinated multi-device sync logic providing executive oversight across your en
 
       @media (min-width: 1024px) {
         .logo-card {
-          padding: 16px 20px;
+          padding: 0;
         }
         .logo-svg {
           height: 48px; /* Desktop height: 44-52px */
@@ -2915,31 +2859,22 @@ Coordinated multi-device sync logic providing executive oversight across your en
 
       /* Logo Hover glow & scale effects */
       .logo-card:hover {
-        transform: scale(1.04); /* Scale to 1.04 */
-        border-color: rgba(115, 109, 179, 0.35);
-        box-shadow: 0 0 25px rgba(115, 109, 179, 0.2), inset 0 0 12px rgba(115, 109, 179, 0.08);
-      }
+          transform: scale(1.05);
+        }
 
       .logo-card:hover .logo-svg {
-        filter: none; /* Restore original color on hover */
-        opacity: 1;
-      }
+          filter: grayscale(0%) opacity(1);
+        }
     </style>
 
     <!-- Subtle Violet Ambient Glow background -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] h-[120%] rounded-full bg-[#736DB3]/5 blur-[120px] pointer-events-none -z-10"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] h-[120%] rounded-full bg-brand-500/5 blur-[120px] pointer-events-none -z-10"></div>
 
     <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 text-center relative z-20">
       
-      <!-- Main Heading -->
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight mb-6">
-        Powering Businesses Across Industries
-      </h2>
+      
 
-      <!-- Description -->
-      <p class="text-white/60 text-sm sm:text-base lg:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-16">
-        We're proud to partner with ambitious businesses across multiple industries, delivering intelligent Zoho-powered solutions that streamline operations, accelerate growth, and drive digital transformation.
-      </p>
+      
 
       <!-- Logo Rows -->
       <div class="marquee-container space-y-6 sm:space-y-8 mb-16">
@@ -3050,187 +2985,101 @@ Coordinated multi-device sync logic providing executive oversight across your en
     </div>
   </section>
 
-  <!-- INDUSTRY LEADERS SECTION -->
-  <section class="w-full max-w-7xl mx-auto px-6 py-16 md:py-24 mb-10 reveal">
-    <div class="mb-10">
-      <h2 class="text-[#111111] text-[40px] md:text-[48px] font-bold tracking-tight mb-3" style="letter-spacing: -0.04em;">Built for Industry Leaders</h2>
-      <p class="text-[15px] text-[#6b7280] font-medium max-w-[440px] leading-[1.6]">
-        Tailored digital solutions and intelligent ecosystems designed specifically for your industry's unique operational needs.
-      </p>
+    <!-- INDUSTRY LEADERS SECTION -->
+  <section class="w-full max-w-[1200px] mx-auto px-6 py-16 md:py-24 mb-10 reveal">
+    <div class="mb-12">
+      <h2 class="text-slate-900 text-[40px] md:text-[48px] font-bold tracking-tight mb-3" style="letter-spacing: -0.04em;">Built for Industry Leaders</h2>
     </div>
 
-    <!-- 4-Column Grid for 9 cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[360px]">
+    <!-- 3-Column Grid for cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
       
-      <!-- Card 1 (Wide: 2 cols) -->
-      <div class="lg:col-span-2 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="cun.png" class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[150%] object-cover mix-blend-multiply opacity-50 z-0 group-hover:scale-105 transition-transform duration-700" alt="Construction">
-        <div class="absolute inset-0 p-8 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">BUILDERS & DEVELOPMENT</span>
-            <h3 class="text-white text-[28px] font-bold leading-[1.2] max-w-[280px] drop-shadow-sm">Smart ERP For Modern Construction</h3>
-            <p class="text-white/90 text-[13px] leading-[1.6] mt-3 max-w-[280px] drop-shadow-sm font-medium">Built for developers and contractors managing large-scale projects, integrating subcontracts, resources, and progress schedules.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Inventory Management</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Subcontractor Portal</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Progress Billing</span>
-          </div>
+      <!-- Card 1 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="builders.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Construction">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Builders & Development</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Smart ERP For Modern Construction:</span> Built for developers and contractors managing large-scale projects, integrating subcontracts, resources, and progress schedules.</p>
       </div>
 
-      <!-- Card 2 (Tall: 1 col) -->
-      <div class="lg:col-span-1 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=400&auto=format&fit=crop" class="absolute bottom-0 w-full h-full object-cover mix-blend-overlay opacity-80 z-0 group-hover:scale-105 transition-transform duration-700" alt="Real Estate">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-0"></div>
-        <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/70 text-[10px] font-bold uppercase tracking-widest mb-2 block">REAL ESTATE</span>
-            <h3 class="text-white text-[22px] font-bold leading-[1.2] drop-shadow-sm">Intelligent CRM For Real Estate Growth</h3>
-            <p class="text-white/80 text-[12px] leading-[1.6] mt-3 drop-shadow-sm font-medium">Streamline lead management, automate follow-ups, and track site visits to maximize broker productivity and scale sales pipelines.</p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Lead Pipeline</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Property Database</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Automated Reminders</span>
-          </div>
+      <!-- Card 2 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Real Estate">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Real Estate</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Intelligent CRM For Real Estate Growth:</span> Streamline lead management, automate follow-ups, and track site visits to maximize broker productivity and scale sales pipelines.</p>
       </div>
 
-      <!-- Card 3 (Tall: 1 col) -->
-      <div class="lg:col-span-1 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=400&auto=format&fit=crop" class="absolute bottom-0 w-full h-full object-cover mix-blend-multiply opacity-40 z-0 group-hover:scale-105 transition-transform duration-700" alt="Interior Design">
-        <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">INTERIOR DESIGN</span>
-            <h3 class="text-white text-[22px] font-bold leading-[1.2] drop-shadow-sm">End-To-End Interior Project Management</h3>
-            <p class="text-white/90 text-[12px] leading-[1.6] mt-3 drop-shadow-sm font-medium">Simplify BOQ creation, procurement, and project execution. Bridge the gap between designers, vendors, and clients.</p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Project Schedules</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Client Approvals</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Vendor Orders</span>
-          </div>
+      <!-- Card 3 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Interior Design">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Interior Design</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">End-To-End Interior Project Management:</span> Simplify BOQ creation, procurement, and project execution. Bridge the gap between designers, vendors, and clients.</p>
       </div>
 
-      <!-- Card 4 (Tall: 1 col) -->
-      <div class="lg:col-span-1 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="fotos-4Esx7ll8JJw-unsplash.jpg" class="absolute bottom-0 w-full h-full object-cover mix-blend-multiply opacity-40 z-0 group-hover:scale-105 transition-transform duration-700" alt="School">
-        <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">SCHOOL MANAGEMENT</span>
-            <h3 class="text-white text-[22px] font-bold leading-[1.2] drop-shadow-sm">Unified Digital Campus Ecosystem</h3>
-            <p class="text-white/90 text-[12px] leading-[1.6] mt-3 drop-shadow-sm font-medium">Digitize admissions, academics, examinations, fee collection, and parent-teacher communication in one cohesive hub.</p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Student Records</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Fee Automation</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Parent Portal</span>
-          </div>
+      <!-- Card 4 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="school.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="School Management">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">School Management</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Unified Digital Campus Ecosystem:</span> Digitize admissions, academics, examinations, fee collection, and parent-teacher communication in one cohesive hub.</p>
       </div>
 
-      <!-- Card 5 (Tall: 1 col) -->
-      <div class="lg:col-span-1 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=400&auto=format&fit=crop" class="absolute bottom-0 w-full h-full object-cover mix-blend-multiply opacity-30 z-0 group-hover:scale-105 transition-transform duration-700" alt="Gym">
-        <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">GYM MANAGEMENT</span>
-            <h3 class="text-white text-[22px] font-bold leading-[1.2] drop-shadow-sm">Connected Fitness Business Platform</h3>
-            <p class="text-white/90 text-[12px] leading-[1.6] mt-3 drop-shadow-sm font-medium">Streamline membership subscriptions, trainer scheduling, automated door access, and retail product sales.</p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Membership Plans</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Access Control</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Trainer Booking</span>
-          </div>
+      <!-- Card 5 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Gym Management">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Gym Management</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Connected Fitness Business Platform:</span> Streamline membership subscriptions, trainer scheduling, automated door access, and retail product sales.</p>
       </div>
 
-      <!-- Card 6 (Wide: 2 cols) -->
-      <div class="lg:col-span-2 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=600&auto=format&fit=crop" class="absolute right-0 bottom-0 w-2/3 h-full object-cover mix-blend-multiply opacity-40 z-0 group-hover:scale-105 transition-transform duration-700" alt="Facilities">
-        <div class="absolute inset-0 p-8 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">FACILITIES MANAGEMENT</span>
-            <h3 class="text-white text-[28px] font-bold leading-[1.2] max-w-[280px] drop-shadow-sm">Centralized Facility Operations Hub</h3>
-            <p class="text-white/90 text-[13px] leading-[1.6] mt-3 max-w-[300px] drop-shadow-sm font-medium">Centralize scheduled maintenance, asset health records, technician dispatches, SLA tracking, and vendor portals.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Work Orders</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Asset Tracking</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Preventative SLA</span>
-          </div>
+      <!-- Card 6 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Facilities Management">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Facilities Management</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Centralized Facility Operations Hub:</span> Centralize scheduled maintenance, asset health records, technician dispatches, SLA tracking, and vendor portals.</p>
       </div>
 
-      <!-- Card 7 (Wide: 2 cols) -->
-      <div class="lg:col-span-2 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=600&auto=format&fit=crop" class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[150%] object-cover mix-blend-multiply opacity-40 z-0 group-hover:scale-105 transition-transform duration-700" alt="Events">
-        <div class="absolute inset-0 p-8 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">EVENT MANAGEMENT</span>
-            <h3 class="text-white text-[28px] font-bold leading-[1.2] max-w-[280px] drop-shadow-sm">Intelligent Event Execution Platform</h3>
-            <p class="text-white/90 text-[13px] leading-[1.6] mt-3 max-w-[300px] drop-shadow-sm font-medium">Manage corporate events and weddings from inquiry to billing, covering bookings, floorplans, and vendor contracts.</p>
-          </div>
-          <div class="flex flex-wrap gap-2 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Booking Timeline</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Vendor Contracts</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg border border-white/10">Budget Manager</span>
-          </div>
+      <!-- Card 7 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Event Management">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Event Management</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Intelligent Event Execution Platform:</span> Manage corporate events and weddings from inquiry to billing, covering bookings, floorplans, and vendor contracts.</p>
       </div>
 
-      <!-- Card 8 (Tall: 1 col) -->
-      <div class="lg:col-span-1 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=400&auto=format&fit=crop" class="absolute bottom-0 w-full h-full object-cover mix-blend-multiply opacity-30 z-0 group-hover:scale-105 transition-transform duration-700" alt="Optical">
-        <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">OPTICAL RETAIL</span>
-            <h3 class="text-white text-[22px] font-bold leading-[1.2] drop-shadow-sm">Connected Optical Retail Experience</h3>
-            <p class="text-white/90 text-[12px] leading-[1.6] mt-3 drop-shadow-sm font-medium">Unify eye examination electronic health records, custom lens prescriptions, lab work orders, and frames inventory.</p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Rx History</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Barcode Inventory</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Zoho Integration</span>
-          </div>
+      <!-- Card 8 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Optical Retail">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Optical Retail</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Connected Optical Retail Experience:</span> Unify eye examination electronic health records, custom lens prescriptions, lab work orders, and frames inventory.</p>
       </div>
 
-      <!-- Card 9 (Tall: 1 col) -->
-      <div class="lg:col-span-1 relative rounded-[32px] overflow-hidden shadow-sm group hover:shadow-lg transition-all duration-300">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#a394c8] to-[#d6cce2] z-0"></div>
-        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=400&auto=format&fit=crop" class="absolute bottom-0 w-full h-full object-cover mix-blend-multiply opacity-40 z-0 group-hover:scale-105 transition-transform duration-700" alt="Jewellery">
-        <div class="absolute inset-0 p-6 flex flex-col justify-between z-10">
-          <div>
-            <span class="text-white/90 text-[10px] font-bold uppercase tracking-widest mb-2 block">JEWELLERY RETAIL</span>
-            <h3 class="text-white text-[22px] font-bold leading-[1.2] drop-shadow-sm">Custom Jewellery Operating System</h3>
-            <p class="text-white/90 text-[12px] leading-[1.6] mt-3 drop-shadow-sm font-medium">Tailored digital solutions for raw material metal/stone inventory tracking, manufacturing workflows, and gold scheme customer schemes.</p>
-          </div>
-          <div class="flex flex-wrap gap-1.5 mt-auto">
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Inventory Automation</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Manufacturing Workflow</span>
-            <span class="bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">Customer Loyalty</span>
-          </div>
+      <!-- Card 9 -->
+      <div class="group flex flex-col">
+        <div class="overflow-hidden bg-gray-100 aspect-[4/3] mb-5">
+          <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Jewellery Retail">
         </div>
+        <p class="text-slate-900 text-[15px] font-semibold mb-2">Jewellery Retail</p>
+        <p class="text-slate-500 text-[15px] leading-[1.6]"><span class="text-slate-900 font-medium">Custom Jewellery Operating System:</span> Tailored digital solutions for raw material metal/stone inventory tracking, manufacturing workflows, and gold scheme customer schemes.</p>
       </div>
 
     </div>
   </section>
-
-
+    <br>
   <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• PREMIUM CINEMATIC VIDEO SCROLL SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <section id="cinematic-video-scroll" class="relative w-full bg-black">
+  <section id="cinematic-video-scroll" class="relative w-full bg-slate-950">
     <style>
       .cinematic-content-block {
         position: absolute;
@@ -3255,13 +3104,14 @@ Coordinated multi-device sync logic providing executive oversight across your en
       .video-overlay {
         position: absolute;
         inset: 0;
-        background: rgba(0, 0, 0, 0.45);
+        background: transparent;
         z-index: 20;
       }
       .cinematic-video {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transform: scale(1.15); /* Pushes the Gemini video watermark out of the visible area */
       }
     </style>
 
@@ -3271,6 +3121,8 @@ Coordinated multi-device sync logic providing executive oversight across your en
         <!-- High-quality placeholder video suitable for business/tech -->
         <video class="cinematic-video" autoplay muted loop playsinline src="download.mp4"></video>
         <div class="video-overlay"></div>
+        <!-- Blackout mask to erase any AI video watermarks -->
+        <div style="position: absolute; bottom: -2px; right: -2px; width: 180px; height: 180px; background: radial-gradient(circle at bottom right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%); z-index: 25; pointer-events: none;"></div>
       </div>
 
       <!-- Content Blocks -->
@@ -3278,10 +3130,10 @@ Coordinated multi-device sync logic providing executive oversight across your en
         <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 md:mb-6 backdrop-blur-md border border-white/20">
           The Future
         </span>
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-4 md:mb-6 drop-shadow-2xl">
-          Designed for <span class="text-[#736DB3]">Tomorrow</span>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-4 md:mb-6 drop-shadow-2xl">
+          Designed for <span class="text-brand-500">Tomorrow</span>
         </h2>
-        <p class="text-white/80 text-base md:text-xl lg:text-2xl leading-relaxed font-light mx-auto drop-shadow-md">
+        <p class="text-white/80 text-base md:text-xl lg:text-2xl leading-relaxed font-normal mx-auto drop-shadow-md">
           Experience seamless integration and unparalleled performance. We build systems that define the next generation of business.
         </p>
       </div>
@@ -3290,10 +3142,10 @@ Coordinated multi-device sync logic providing executive oversight across your en
         <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 md:mb-6 backdrop-blur-md border border-white/20">
           Intelligence
         </span>
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-4 md:mb-6 drop-shadow-2xl">
-          Powered by <span class="text-[#736DB3]">AI</span>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-4 md:mb-6 drop-shadow-2xl">
+          Powered by <span class="text-brand-500">AI</span>
         </h2>
-        <p class="text-white/80 text-base md:text-xl lg:text-2xl leading-relaxed font-light mx-auto drop-shadow-md">
+        <p class="text-white/80 text-base md:text-xl lg:text-2xl leading-relaxed font-normal mx-auto drop-shadow-md">
           Our intelligent algorithms adapt to your workflows, predicting bottlenecks before they happen and automating complex tasks instantly.
         </p>
       </div>
@@ -3302,190 +3154,29 @@ Coordinated multi-device sync logic providing executive oversight across your en
         <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 text-white text-[10px] md:text-xs font-bold tracking-widest uppercase mb-4 md:mb-6 backdrop-blur-md border border-white/20">
           Scale
         </span>
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-4 md:mb-6 drop-shadow-2xl">
-          Limitless <span class="text-[#736DB3]">Growth</span>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-4 md:mb-6 drop-shadow-2xl">
+          Limitless <span class="text-brand-500">Growth</span>
         </h2>
-        <p class="text-white/80 text-base md:text-xl lg:text-2xl leading-relaxed font-light mx-auto mb-8 drop-shadow-md">
+        <p class="text-white/80 text-base md:text-xl lg:text-2xl leading-relaxed font-normal mx-auto mb-8 drop-shadow-md">
           Built on scalable cloud architecture, your digital infrastructure grows effortlessly as your enterprise expands globally.
         </p>
-        <a href="#" class="inline-flex items-center justify-center px-8 py-4 text-sm md:text-base font-bold text-black bg-white rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+        <a href="#" class="inline-flex items-center justify-center px-8 py-4 text-sm md:text-base font-bold text-slate-900 bg-white rounded-full hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
           Discover More
         </a>
       </div>
     </div>
   </section>
-  <br>
-  <!-- 4-STEP PROCESS TIMELINE -->
-  <section id="process-section" class="w-full bg-[#fcfcfc] dark:bg-[#111111] py-12 md:py-20 mb-4 overflow-hidden border-t border-gray-100 dark:border-[#333333]">
-    <div class="max-w-7xl mx-auto px-6 relative w-full reveal">
-      <div class="text-center max-w-3xl mx-auto mb-20 relative z-20 reveal">
-        <p class="text-[#8b5cf6] text-[11px] font-bold uppercase tracking-widest mb-4">Our Methodology</p>
-        <h2 class="heading-font text-[#111111] dark:text-white text-[36px] md:text-[48px] font-medium leading-[1.1] tracking-tight mb-6">Built for Scale and Precision</h2>
-        <p class="text-[15px] text-[#6b7280] leading-[1.7] font-medium max-w-2xl mx-auto">
-          We follow a rigorous, step-by-step architectural process to ensure your digital systems are perfectly aligned with your business objectives from day one.
-        </p>
-      </div>
-
-      <!-- MOBILE VIEW: Vertical Timeline (Hidden on lg+) -->
-      <div class="lg:hidden flex flex-col gap-12 relative w-full mt-4">
-        <!-- Vertical Line -->
-        <div class="absolute left-[27px] top-4 bottom-4 w-[2px] bg-[#662d91]/20"></div>
-
-        <!-- Step 1 -->
-        <div class="relative pl-20 w-full group reveal reveal-delay-1">
-          <div class="absolute left-0 top-0 w-14 h-14 bg-white dark:bg-[#1e1e1e] rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z"></path></svg>
-          </div>
-          <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">01</span>
-          <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Discovery</h3>
-          <p class="text-gray-500 text-[15px] leading-[1.6]">Analyze operations and identify core opportunities for automation.</p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="relative pl-20 w-full group reveal reveal-delay-2">
-          <div class="absolute left-0 top-0 w-14 h-14 bg-white dark:bg-[#1e1e1e] rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-          </div>
-          <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">02</span>
-          <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Architecture</h3>
-          <p class="text-gray-500 text-[15px] leading-[1.6]">Design systems tailored to your existing workflow and database.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="relative pl-20 w-full group reveal reveal-delay-3">
-          <div class="absolute left-0 top-0 w-14 h-14 bg-white dark:bg-[#1e1e1e] rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-          </div>
-          <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">03</span>
-          <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Development</h3>
-          <p class="text-gray-500 text-[15px] leading-[1.6]">Build integrations and intelligent automation layers.</p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="relative pl-20 w-full group reveal reveal-delay-4">
-          <div class="absolute left-0 top-0 w-14 h-14 bg-white dark:bg-[#1e1e1e] rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center z-10 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          </div>
-          <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">04</span>
-          <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Scale</h3>
-          <p class="text-gray-500 text-[15px] leading-[1.6]">Launch, monitor, and continuously improve your system.</p>
-        </div>
-      </div>
-
-      <!-- DESKTOP VIEW: Flowing SVG Path Timeline (Hidden on tablet/mobile) -->
-      <div class="hidden lg:block relative w-full h-[550px] mt-8">
-        
-        <!-- The Flowing Path -->
-        <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 1000 600" preserveAspectRatio="none">
-          <!-- Perfectly balanced sine wave hitting P1(150,300), P2(380,450), P3(620,150), P4(850,300) -->
-          <path d="M -50 300 C 50 300, 100 300, 150 300 C 250 300, 280 450, 380 450 C 480 450, 520 150, 620 150 C 720 150, 750 300, 850 300 C 900 300, 950 300, 1050 300" 
-                fill="none" stroke="#662d91" stroke-width="2" vector-effect="non-scaling-stroke" />
-        </svg>
-
-        <!-- P1: Discovery (Left: 15%, Top: 50%, Text Above) -->
-        <div class="absolute left-[15%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] group z-10 reveal reveal-delay-1">
-          <div class="absolute bottom-[100%] left-1/2 -translate-x-1/2 mb-8 w-[250px] text-center">
-            <div class="absolute left-1/2 -translate-x-1/2 -top-16 text-[160px] font-black text-[#f3f4f6] dark:text-[#1a1a1a] leading-none -z-10 select-none pointer-events-none">1</div>
-            <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">01</span>
-            <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Discovery</h3>
-            <p class="text-gray-500 text-[15px] leading-[1.6]">Analyze operations and identify core opportunities for automation.</p>
-          </div>
-          <div class="w-full h-full bg-white dark:bg-[#1e1e1e] rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center cursor-pointer group-hover:scale-110 group-hover:shadow-[0_12px_40px_rgb(0,0,0,0.1)] transition-all duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z"></path></svg>
-          </div>
-        </div>
-
-        <!-- P2: Architecture (Left: 38%, Top: 75%, Text Below) -->
-        <div class="absolute left-[38%] top-[75%] -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] group z-10 reveal reveal-delay-2">
-          <div class="absolute top-[100%] left-1/2 -translate-x-1/2 mt-8 w-[280px] text-center">
-            <div class="absolute left-1/2 -translate-x-1/2 -top-20 text-[160px] font-black text-[#f3f4f6] dark:text-[#1a1a1a] leading-none -z-10 select-none pointer-events-none">2</div>
-            <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">02</span>
-            <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Architecture</h3>
-            <p class="text-gray-500 text-[15px] leading-[1.6]">Design systems tailored to your existing workflow and database.</p>
-          </div>
-          <div class="w-full h-full bg-white dark:bg-[#1e1e1e] rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center cursor-pointer group-hover:scale-110 group-hover:shadow-[0_12px_40px_rgb(0,0,0,0.1)] transition-all duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-          </div>
-        </div>
-
-        <!-- P3: Development (Left: 62%, Top: 25%, Text Above) -->
-        <div class="absolute left-[62%] top-[25%] -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] group z-10 reveal reveal-delay-3">
-          <div class="absolute bottom-[100%] left-1/2 -translate-x-1/2 mb-8 w-[280px] text-center">
-            <div class="absolute left-1/2 -translate-x-1/2 -bottom-10 text-[160px] font-black text-[#f3f4f6] dark:text-[#1a1a1a] leading-none -z-10 select-none pointer-events-none">3</div>
-            <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">03</span>
-            <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Development</h3>
-            <p class="text-gray-500 text-[15px] leading-[1.6]">Build integrations and intelligent automation layers.</p>
-          </div>
-          <div class="w-full h-full bg-white dark:bg-[#1e1e1e] rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center cursor-pointer group-hover:scale-110 group-hover:shadow-[0_12px_40px_rgb(0,0,0,0.1)] transition-all duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-          </div>
-        </div>
-
-        <!-- P4: Scale (Left: 85%, Top: 50%, Text Below) -->
-        <div class="absolute left-[85%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[72px] h-[72px] group z-10 reveal reveal-delay-4">
-          <div class="absolute top-[100%] left-1/2 -translate-x-1/2 mt-8 w-[250px] text-center">
-            <div class="absolute left-1/2 -translate-x-1/2 -top-20 text-[160px] font-black text-[#f3f4f6] dark:text-[#1a1a1a] leading-none -z-10 select-none pointer-events-none">4</div>
-            <span class="text-[#662d91] text-[11px] font-bold tracking-widest block mb-2">04</span>
-            <h3 class="text-[#111111] dark:text-white text-[24px] font-bold mb-3 tracking-tight">Scale</h3>
-            <p class="text-gray-500 text-[15px] leading-[1.6]">Launch, monitor, and continuously improve your system.</p>
-          </div>
-          <div class="w-full h-full bg-white dark:bg-[#1e1e1e] rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 dark:border-[#333333] flex items-center justify-center cursor-pointer group-hover:scale-110 group-hover:shadow-[0_12px_40px_rgb(0,0,0,0.1)] transition-all duration-300">
-            <svg class="w-6 h-6 text-[#662d91]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-  <!-- Constrained Page Layout Grid for Stats -->
-  <main class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
-
-    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• 5. ENGINEERED FOR SCALING (Stats) â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-    <section id="stats" class="reveal-card-anim py-12 sm:py-20 bg-[#000000] border border-[#333333] text-slate-100 rounded-2xl px-6 sm:px-12 relative overflow-hidden mb-20 sm:mb-28 shadow-sm">
-      <!-- Glow backdrops -->
-      <div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 rounded-full bg-[#736DB3]/5 blur-[90px] pointer-events-none"></div>
-      <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 rounded-full bg-[#736DB3]/5 blur-[100px] pointer-events-none"></div>
-      
-      <!-- Waves background -->
-      <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-20 z-0" viewBox="0 0 1440 400" preserveAspectRatio="none" fill="none">
-        <path class="animate-float" style="animation-duration: 12s;" d="M -100 240 C 300 60, 700 320, 1100 160 C 1300 60, 1500 120, 1600 180" stroke="#736db3" stroke-opacity="0.12" stroke-width="4" fill="none"/>
-      </svg>
-
-      <!-- Twinkling stars -->
-      <div class="absolute inset-0 pointer-events-none z-0">
-        <div class="absolute w-1.5 h-1.5 rounded-full bg-white animate-twinkle" style="top:20%; left:15%; animation-delay:0.5s;"></div>
-        <div class="absolute w-1.5 h-1.5 rounded-full bg-white animate-twinkle" style="top:40%; left:32%; animation-delay:2.3s;"></div>
-        <div class="absolute w-2 h-2 rounded-full bg-white animate-twinkle" style="top:25%; left:65%; animation-delay:1.1s;"></div>
-        <div class="absolute w-1.5 h-1.5 rounded-full bg-white animate-twinkle" style="top:65%; left:78%; animation-delay:1.5s;"></div>
-      </div>
-
-      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12">
-        <div class="max-w-md space-y-4 text-center lg:text-left">
-          <span class="text-[10px] font-bold text-indigo-100 tracking-widest uppercase">ENGINEERED FOR SCALING</span>
-          <h2 class="text-3xl sm:text-4xl font-bold leading-tight text-white">Scale-Tested Systems Built for <span class="text-indigo-900">Growth</span></h2>
-          <p class="text-sm sm:text-base text-indigo-50 leading-relaxed font-normal">We directly design structural database architectures that don't fail when transaction loads grow exponentially.</p>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 w-full lg:w-auto">
-          <div class="text-center p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl"><span class="block text-3xl sm:text-4xl font-bold text-white">3+</span><span class="text-[10px] text-indigo-100 block mt-2 uppercase tracking-wider font-bold">Years Experience</span></div>
-          <div class="text-center p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl"><span class="block text-3xl sm:text-4xl font-bold text-white">20+</span><span class="text-[10px] text-indigo-100 block mt-2 uppercase tracking-wider font-bold">Systems Deployed</span></div>
-          <div class="text-center p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl"><span class="block text-3xl sm:text-4xl font-bold text-white">12+</span><span class="text-[10px] text-indigo-100 block mt-2 uppercase tracking-wider font-bold">Industries Served</span></div>
-          <div class="text-center p-4 sm:p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl"><span class="block text-3xl sm:text-4xl font-bold text-white">200+</span><span class="text-[10px] text-indigo-100 block mt-2 uppercase tracking-wider font-bold">Active Users</span></div>
-        </div>
-      </div>
-    </section>
-
-  </main>
 
   <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TEAM PHOTO GRID SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <section id="team" class="py-[72px] md:py-[96px] lg:py-[120px] bg-[#111111] dark:bg-[#111111] border-t border-[#333333]">
+  <section id="team" class="py-[72px] md:py-[96px] lg:py-[120px] bg-slate-900 dark:bg-slate-900 border-t border-slate-900">
     <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
       <div class="team-header mb-16 sm:mb-20 text-center flex flex-col items-center justify-center">
         <span class="gsap-reveal inline-block px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white text-xs font-bold tracking-widest uppercase mb-6">Who We Are</span>
-        <h2 class="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">Direct Engineering <span class="text-[#736DB3]">Capabilities</span></h2>
+        <h2 class="gsap-reveal text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">Direct Engineering <span class="text-brand-500">Capabilities</span></h2>
       </div>
 
       <!-- Photo grid -->
-      <div class="team-grid border border-[#333333] rounded-2xl overflow-hidden shadow-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="team-grid border border-slate-900 rounded-2xl overflow-hidden shadow-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <!-- 1 -->
         <div class="team-card reveal-card-anim">
           <img class="team-card-img animate-lazy" src="ChatGPT%20Image%20Jun%2029,%202026,%2005_08_17%20PM.png" alt="RHenova Senior Developer" loading="lazy">
@@ -3540,11 +3231,11 @@ Coordinated multi-device sync logic providing executive oversight across your en
       <div class="lg:col-span-5 flex flex-col h-full">
         <!-- Tag -->
         
-        <h2 class="heading-font text-[#111111] text-[40px] md:text-[48px] font-medium leading-[1.05] tracking-tight mb-8" style="letter-spacing: -0.04em;">
+        <h2 class="font-sans text-slate-900 text-[40px] md:text-[48px] font-medium leading-[1.05] tracking-tight mb-8" style="letter-spacing: -0.04em;">
           Identify Your Core Friction Point
         </h2>
 
-        <p class="text-[15px] text-[#6b7280] leading-[1.7] mb-12 max-w-[95%] font-medium">
+        <p class="text-[15px] text-slate-500 leading-[1.7] mb-12 max-w-[95%] font-medium">
           Every growing business encounters operational bottlenecks. Select the challenge slowing your organization, and we'll generate a tailored database blueprint designed to eliminate inefficiencies, automate workflows, and create a scalable digital foundation.
         </p>
       </div>
@@ -3553,45 +3244,45 @@ Coordinated multi-device sync logic providing executive oversight across your en
       <div class="lg:col-span-7 flex flex-col gap-4">
         
         <!-- FAQ Item 1 (Expanded) -->
-        <div class="faq-item bg-[#f8f5ff] rounded-[20px] p-6 transition-colors duration-300 cursor-pointer">
+        <div class="faq-item bg-brand-50 rounded-[20px] p-6 transition-colors duration-300 cursor-pointer">
           <div class="flex justify-between items-center gap-4">
-            <h4 class="text-[18px] font-medium text-[#111111] leading-[1.4] pr-4">Excel & Manual Chaos</h4>
-            <div class="faq-icon bg-white text-[#8b5cf6] w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 transform rotate-180">
+            <h4 class="text-[18px] font-medium text-slate-900 leading-[1.4] pr-4">Excel & Manual Chaos</h4>
+            <div class="faq-icon bg-white text-brand-500 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300 transform rotate-180">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
           </div>
           <div class="faq-content mt-4 overflow-hidden transition-all duration-300" style="max-height: 200px; opacity: 1;">
-            <p class="text-[14px] text-[#6b7280] leading-[1.7] font-medium">
+            <p class="text-[14px] text-slate-500 leading-[1.7] font-medium">
               Disconnected spreadsheets, repetitive data entry, and manual reconciliation slow down your operations. Our custom database blueprint structures your data, eliminates redundancy, and automates tracking.
             </p>
           </div>
         </div>
 
         <!-- FAQ Item 2 (Collapsed) -->
-        <div class="faq-item bg-[#f8fafc] hover:bg-[#f1f5f9] rounded-[20px] p-6 transition-colors duration-300 cursor-pointer">
+        <div class="faq-item bg-slate-50 hover:bg-slate-50 rounded-[20px] p-6 transition-colors duration-300 cursor-pointer">
           <div class="flex justify-between items-center gap-4">
-            <h4 class="text-[18px] font-medium text-[#111111] leading-[1.4] pr-4">Lost Lead Pipelines</h4>
-            <div class="faq-icon bg-white text-[#8b5cf6] w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300">
+            <h4 class="text-[18px] font-medium text-slate-900 leading-[1.4] pr-4">Lost Lead Pipelines</h4>
+            <div class="faq-icon bg-white text-brand-500 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
           </div>
           <div class="faq-content mt-0 overflow-hidden transition-all duration-300" style="max-height: 0px; opacity: 0;">
-            <p class="text-[14px] text-[#6b7280] leading-[1.7] font-medium pt-4">
+            <p class="text-[14px] text-slate-500 leading-[1.7] font-medium pt-4">
               Sales opportunities are often lost because customer inquiries aren't tracked consistently. Our intelligent CRM blueprint centralizes every interaction, automates follow-ups, and gives your team complete visibility into the sales pipeline.
             </p>
           </div>
         </div>
 
         <!-- FAQ Item 3 (Collapsed) -->
-        <div class="faq-item bg-[#f8fafc] hover:bg-[#f1f5f9] rounded-[20px] p-6 transition-colors duration-300 cursor-pointer">
+        <div class="faq-item bg-slate-50 hover:bg-slate-50 rounded-[20px] p-6 transition-colors duration-300 cursor-pointer">
           <div class="flex justify-between items-center gap-4">
-            <h4 class="text-[18px] font-medium text-[#111111] leading-[1.4] pr-4">Siloed Software Systems</h4>
-            <div class="faq-icon bg-white text-[#8b5cf6] w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300">
+            <h4 class="text-[18px] font-medium text-slate-900 leading-[1.4] pr-4">Siloed Software Systems</h4>
+            <div class="faq-icon bg-white text-brand-500 w-10 h-10 rounded-lg flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
             </div>
           </div>
           <div class="faq-content mt-0 overflow-hidden transition-all duration-300" style="max-height: 0px; opacity: 0;">
-            <p class="text-[14px] text-[#6b7280] leading-[1.7] font-medium pt-4">
+            <p class="text-[14px] text-slate-500 leading-[1.7] font-medium pt-4">
               Disconnected applications prevent departments from sharing information, creating delays and double work. Our integration blueprint connects your accounting, CRM, and inventory into one unified ecosystem.
             </p>
           </div>
@@ -3601,13 +3292,72 @@ Coordinated multi-device sync logic providing executive oversight across your en
     </div>
   </section>
 
+    <!-- ENGINEERED FOR SCALING (Stats) -->
+<section
+  id="stats"
+  class="w-full bg-black relative py-16 lg:py-24"
+  style="
+    transition: transform 400ms cubic-bezier(0.25, 1, 0.5, 1), background-color;
+    will-change: transform, background-color, border-color, box-shadow;
+    background-color: #ffffff;
+  "
+>  <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8"> 
+     
+    <div class="bg-black rounded-[32px] overflow-hidden flex flex-col xl:flex-row items-center justify-between p-10 lg:p-16 gap-12 xl:gap-8 shadow-[0_20px_50px_rgba(255,255,255,0.15)]"> 
+       
+      <!-- Left: Typography --> 
+      <div class="w-full xl:w-5/12 flex flex-col justify-center"> 
+        <span class="text-white/70 text-[11px] font-bold tracking-widest uppercase mb-6 block">Engineered For Scaling</span> 
+        <h2 class="text-3xl sm:text-4xl lg:text-[46px] font-bold tracking-tight leading-[1.15] text-white mb-6"> 
+          Scale-Tested Systems Built for <span class="text-white">Growth</span> 
+        </h2> 
+        <p class="text-[15px] sm:text-[17px] text-white/90 leading-relaxed font-medium"> 
+          We directly design structural database architectures that don't fail when transaction loads grow exponentially. 
+        </p> 
+      </div> 
+ 
+      <!-- Right: Grid of numbers (Row of 4 cards) --> 
+      <div class="w-full xl:w-7/12 grid grid-cols-2 sm:grid-cols-4 gap-4 lg:gap-5 justify-end"> 
+         
+        <!-- Card 1 --> 
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 py-10 lg:py-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-sm"> 
+          <span class="text-4xl lg:text-5xl font-bold text-white mb-3 drop-shadow-sm">3+</span> 
+          <span class="text-[10px] text-white/90 uppercase tracking-wider font-bold leading-tight">Years<br>Experience</span> 
+        </div> 
+         
+        <!-- Card 2 --> 
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 py-10 lg:py-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-sm"> 
+          <span class="text-4xl lg:text-5xl font-bold text-white mb-3 drop-shadow-sm">20+</span> 
+          <span class="text-[10px] text-white/90 uppercase tracking-wider font-bold leading-tight">Systems<br>Deployed</span> 
+        </div> 
+         
+        <!-- Card 3 --> 
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 py-10 lg:py-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-sm"> 
+          <span class="text-4xl lg:text-5xl font-bold text-white mb-3 drop-shadow-sm">12+</span> 
+          <span class="text-[10px] text-white/90 uppercase tracking-wider font-bold leading-tight">Industries<br>Served</span> 
+        </div> 
+         
+        <!-- Card 4 --> 
+        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 py-10 lg:py-12 flex flex-col items-center justify-center text-center border border-white/10 shadow-sm"> 
+          <span class="text-4xl lg:text-5xl font-bold text-white mb-3 drop-shadow-sm">200+</span> 
+          <span class="text-[10px] text-white/90 uppercase tracking-wider font-bold leading-tight">Active<br>Users</span> 
+        </div> 
+ 
+      </div> 
+ 
+    </div> 
+ 
+  </div> 
+</section>
+
+
   <!-- ECLIPTICA SECTION (NEW) -->
   <section class="w-full max-w-7xl mx-auto px-6 py-24 bg-white">
     <!-- Top Part -->
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-gray-200 pb-16">
       <div class="max-w-4xl">
-        <h2 class="text-[40px] md:text-[56px] font-medium tracking-tight text-[#111111] mb-6 leading-[1.1]" style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;">
-          Systems That <span class="text-[#8b5cf6]">Think Together</span>
+        <h2 class="text-[40px] md:text-[56px] font-medium tracking-tight text-slate-900 mb-6 leading-[1.1]" style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;">
+          Systems That <span class="text-brand-500">Think Together</span>
         </h2>
         <p class="text-gray-500 max-w-2xl text-[15px] leading-[1.7] font-medium">
           Transform isolated processes into one connected ecosystem where every action flows seamlessly across your business.
@@ -3620,7 +3370,7 @@ Coordinated multi-device sync logic providing executive oversight across your en
     <div class="relative w-full flex flex-col md:flex-row items-center justify-center mt-12 md:mt-24">
       
       <!-- Left black box -->
-      <div class="bg-[#000000] text-white p-10 flex flex-col justify-between h-[360px] w-full md:w-[26%] relative z-10 transition-transform hover:-translate-y-1 duration-300">
+      <div class="bg-slate-950 text-white p-10 flex flex-col justify-between h-[360px] w-full md:w-[26%] relative z-10 transition-transform hover:-translate-y-1 duration-300">
         <div>
           <svg class="w-6 h-6 text-white mb-6 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           <h3 class="text-[17px] font-semibold leading-[1.4] tracking-wide mb-3">Less Complexity.<br>More Momentum.</h3>
@@ -3630,7 +3380,7 @@ Coordinated multi-device sync logic providing executive oversight across your en
       </div>
 
       <!-- Middle dark grey box -->
-      <div class="bg-[#1C1C1C] text-white p-10 flex flex-col justify-between h-[360px] w-full md:w-[26%] relative z-10 transition-transform hover:-translate-y-1 duration-300">
+      <div class="bg-slate-900 text-white p-10 flex flex-col justify-between h-[360px] w-full md:w-[26%] relative z-10 transition-transform hover:-translate-y-1 duration-300">
         <div>
           <svg class="w-6 h-6 text-white mb-6 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
           <h3 class="text-[17px] font-semibold leading-[1.4] tracking-wide text-gray-200 mb-3">Built Once.<br>Scaled Forever.</h3>
@@ -3645,10 +3395,10 @@ Coordinated multi-device sync logic providing executive oversight across your en
       </div>
 
       <!-- Right grey box -->
-      <div class="bg-[#333333] text-white p-10 flex flex-col justify-between h-[360px] w-full md:w-[24%] relative z-10 transition-transform hover:-translate-y-1 duration-300">
+      <div class="bg-slate-900 text-white p-10 flex flex-col justify-between h-[360px] w-full md:w-[24%] relative z-10 transition-transform hover:-translate-y-1 duration-300">
         <div>
           <svg class="w-5 h-5 text-white opacity-80 mb-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
-          <p class="text-[13px] text-gray-300 leading-[1.8] font-medium">"The right technology doesn't just support growth—it makes growth inevitable."</p>
+          <p class="text-[13px] text-gray-300 leading-[1.8] font-medium">"The right technology doesn't just support growth-it makes growth inevitable."</p>
         </div>
         <div class="mt-8 flex justify-between items-end">
           <div>
@@ -3661,12 +3411,12 @@ Coordinated multi-device sync logic providing executive oversight across your en
       
     </div>
   </section>
-  <section id="mission-section" class="relative w-full max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-36 md:pb-24 flex flex-col items-center text-center bg-white dark:bg-[#111111] z-10">
+  <section id="mission-section" class="relative w-full max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-36 md:pb-24 flex flex-col items-center text-center bg-white dark:bg-slate-900 z-10">
 
     
     <div class="relative z-10 w-full max-w-[900px]">
-      <p class="text-[#8b5cf6] text-[11px] font-bold uppercase tracking-wider mb-5">Our Mission</p>
-      <h1 class="heading-font text-[#111111] text-[32px] md:text-[44px] lg:text-[48px] font-medium leading-[1.1] tracking-tight" id="typing-text">
+      <p class="text-brand-500 text-[11px] font-bold uppercase tracking-wider mb-5">Our Mission</p>
+      <h1 class="font-sans text-slate-900 text-[32px] md:text-[44px] lg:text-[48px] font-medium leading-[1.1] tracking-tight" id="typing-text">
         We empower businesses with scalable Zoho solutions that automate operations, improve decision-making, and unlock new opportunities for growth. Every solution we deliver is designed for long-term business success.
       </h1>
     </div>
@@ -3691,13 +3441,13 @@ Coordinated multi-device sync logic providing executive oversight across your en
         
         <!-- Left details panel -->
         <div class="lg:col-span-5">
-          <div class="bg-white dark:bg-[#1E1E1E] shadow-sm rounded-2xl p-8 sm:p-12 border border-[#FFFFFF] dark:border-[#333333]">
-            <span class="inline-flex px-3.5 py-1.5 rounded-full bg-brand-600/10 text-brand-600 dark:text-brand-600 text-[10px] font-extrabold tracking-widest uppercase">About RHenova</span>
-            <h2 class="mt-6 text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 dark:text-white leading-tight">Built Through Experience,<span class="text-brand-600"> Not Pitch Decks.</span></h2>
+          <div class="bg-white dark:bg-slate-900 shadow-sm rounded-2xl p-8 sm:p-12 border border-white dark:border-slate-900">
+            <span class="inline-flex px-3.5 py-1.5 rounded-full bg-brand-600/10 text-brand-600 dark:text-brand-600 text-[10px] font-bold tracking-widest uppercase">About RHenova</span>
+            <h2 class="mt-6 text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 dark:text-white leading-tight">Built Through Experience,<span class="text-brand-600"> Not Pitch Decks.</span></h2>
             
             <p class="mt-6 text-sm sm:text-base italic font-medium text-slate-700 dark:text-slate-350 leading-relaxed border-l-4 border-brand-600 pl-4 sm:pl-6">RHenova wasn't born from investors, boardrooms, or startup pitch decks. It was engineered through years of coding, building, deploying, failing, and succeeding.</p>
             
-            <div class="mt-8 space-y-4 text-xs sm:text-sm text-slate-550 dark:text-slate-400 leading-relaxed font-light">
+            <div class="mt-8 space-y-4 text-xs sm:text-sm text-slate-550 dark:text-slate-400 leading-relaxed font-normal">
               <p>The founders began their operations journey as software developer interns, writing data code and structuring server databases from the ground up.</p>
               <p>Over the years, they evolved into full-stack developers, senior team leads, and system managers   coordinating enterprise transform scripts across departments.</p>
               <p class="font-semibold text-slate-900 dark:text-white">Along that journey, one reality became clear:</p>
@@ -3708,14 +3458,14 @@ Coordinated multi-device sync logic providing executive oversight across your en
 
         <!-- Right image and side card -->
         <div class="lg:col-span-7 relative">
-          <div class="rounded-2xl overflow-hidden shadow-sm border border-[#FFFFFF] dark:border-[#333333]">
+          <div class="rounded-2xl overflow-hidden shadow-sm border border-white dark:border-slate-900">
             <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="RHenova Developers team planning architecture" class="w-full h-[320px] sm:h-[500px] lg:h-[600px] object-cover" loading="lazy">
           </div>
           
           <!-- Absolute panel overlay on desktop -->
-          <div class="mt-6 lg:mt-0 lg:absolute lg:bottom-8 lg:-left-10 lg:w-[380px] bg-white dark:bg-[#1E1E1E] p-6 sm:p-8 rounded-2xl shadow-sm border border-[#FFFFFF] dark:border-[#333333]">
+          <div class="mt-6 lg:mt-0 lg:absolute lg:bottom-8 lg:-left-10 lg:w-[380px] bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-2xl shadow-sm border border-white dark:border-slate-900">
             <h3 class="text-xl font-bold text-slate-900 dark:text-white">Why RHenova Exists</h3>
-            <div class="mt-4 space-y-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+            <div class="mt-4 space-y-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-normal">
               <p>Successful companies were being slowed down by Excel ledgers, siloed software tools, and administrative bottlenecks.</p>
               <p>RHenova was created to bridge this gap   empowering industry leaders with clean enterprise systems and Zoho configurations.</p>
               <p class="font-semibold text-slate-900 dark:text-white">Workflow growth should never be throttled by database limits.</p>
@@ -3726,66 +3476,88 @@ Coordinated multi-device sync logic providing executive oversight across your en
 
     </section>
 
-    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• 11. OUR PHILOSOPHY â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-    <section id="philosophy" class="py-16 sm:py-24 border-t border-slate-200/50 dark:border-slate-850/40 relative overflow-hidden bg-white dark:bg-slate-950">
-      <style>
-        #philosophy {
-          position: relative !important;
-          background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1920&q=80') !important;
-          background-size: cover !important;
-          background-position: center !important;
-          background-attachment: fixed !important;
-          z-index: 1 !important;
-        }
-        #philosophy::before {
-          content: '' !important;
-          position: absolute !important;
-          inset: 0 !important;
-          background-color: rgba(255, 255, 255, 0.93) !important;
-          z-index: -1 !important;
-        }
-        .dark #philosophy::before {
-          background-color: rgba(7, 9, 19, 0.95) !important;
-        }
-      </style>
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-block px-4 py-2 rounded-full bg-brand-600/10 text-brand-600 text-xs font-bold tracking-[3px] uppercase">Our Philosophy</div>
-        <h3 class="mt-6 text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 dark:text-white leading-tight">Business Growth Should Never Be Limited By The Systems Behind It.</h3>
-        <p class="mt-6 text-sm sm:text-base font-normal text-slate-500 dark:text-slate-400 leading-relaxed max-w-3xl mx-auto px-4">Every script we write, database we design, and automation workflow we deploy is driven by the same fundamental directive to simplify operational complexity.</p>
-      </div>
-    </section>
-<br>
-<br>
-
-    <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• 12. CALL TO ACTION CARD â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-    <section class="py-12 sm:py-16 bg-[#FAFAFA] dark:bg-[#1E1E1E] border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 sm:p-12 text-center relative overflow-hidden shadow-md mb-8">
-      <div class="relative z-10 max-w-2xl mx-auto space-y-6">
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">Let's Establish Absolute System <span class="text-[#736DB3]">Visibility.</span></h2>
-        <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm leading-relaxed px-4 font-light">Resolve database complexity before operations divide. Consult directly with our founders and developers to map out your architecture.</p>
-        <div class="pt-2 flex justify-center">
-          <a href="mailto:ceo@rhenovatech.com?subject=Establish System Visibility" class="px-6 py-3.5 rounded-xl bg-[#736DB3] hover:opacity-90 text-white font-bold text-xs transition-all flex items-center space-x-2.5 hover:scale-[1.02]">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-            <span>Schedule A Founder Call</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  
-
-  </main>
-
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
-  <footer class="border-t border-slate-200/50 dark:border-slate-800/60 bg-white dark:bg-slate-950 py-8 sm:py-12 transition-colors duration-300">
-    <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-      <span class="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-        Powered by <span class="text-brand-600 dark:text-brand-400 font-bold">RHenova Tech</span>
-      </span>
-      <div class="flex flex-col sm:items-end text-xs text-slate-550 dark:text-slate-400 space-y-2">
-        <a href="mailto:ceo@rhenovatech.com" class="hover:text-brand-600 transition-colors font-medium">ceo@rhenovatech.com</a>
-        <a href="https://www.rhenovatech.com" target="_blank" class="hover:text-brand-600 transition-colors font-medium">www.rhenovatech.com</a>
+      
+  <!-- NEW CTA SECTION -->
+  <div class="px-5 md:px-6 lg:px-8 mt-24 mb-6 max-w-[1320px] mx-auto reveal">
+    <div class="bg-brand-500 rounded-[40px] text-white text-center py-20 px-6 md:px-12 relative overflow-hidden flex flex-col items-center justify-center shadow-xl">
+      <!-- Subtle top gradient glow -->
+      <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-5 drop-shadow-sm">Ready to transform your business?</h2>
+        <p class="text-white/90 text-[16px] md:text-[18px] font-medium leading-relaxed mb-10 max-w-lg mx-auto">
+          RHenova Tech makes it effortless to automate workflows, integrate enterprise systems, and scale operations.
+        </p>
+        <a href="mailto:ceo@rhenovatech.com" class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-brand-500 rounded-full text-[15px] font-bold hover:bg-gray-50 hover:scale-105 transition-all shadow-lg">
+          Contact Us
+        </a>
       </div>
     </div>
-  </footer>
+  </div>
+
+  <!-- NEW CARD-STYLE FOOTER -->
+  <div class="px-5 md:px-6 lg:px-8 max-w-[1320px] mx-auto mb-12">
+    <footer class="bg-white dark:bg-slate-900 rounded-[32px] border border-gray-100 dark:border-slate-900 shadow-[0_4px_40px_rgb(0,0,0,0.03)] px-8 md:px-16 py-12 md:py-16 transition-colors duration-300 relative overflow-hidden">
+      <!-- Optional massive background watermark -->
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[40%] text-[15vw] font-bold text-gray-50 dark:text-white/[0.02] tracking-tight select-none pointer-events-none whitespace-nowrap z-0">
+        RHenova
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 relative z-10">
+        
+        <!-- Brand & Text (Left) -->
+        <div class="md:col-span-12 lg:col-span-5 flex flex-col items-start">
+          <a href="#" class="flex items-center mb-6 group">
+            <img src="footer-logo.png" alt="RHenova Tech" class="h-12 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+          </a>
+          <p class="text-[14px] text-gray-500 dark:text-gray-400 leading-[1.8] font-medium max-w-sm">
+            RHenova Tech helps enterprise teams transform complex operations into clean, automated digital ecosystems - everything you need in one unified platform.
+          </p>
+        </div>
+
+        <!-- Links (Right) -->
+        <div class="md:col-span-12 lg:col-span-7 flex flex-wrap gap-12 sm:gap-24 md:justify-end">
+          
+          <!-- Navigation -->
+          <div class="flex flex-col gap-4">
+            <h4 class="text-[14px] font-bold text-slate-900 dark:text-white tracking-wide mb-1">Menu</h4>
+            <ul class="flex flex-col gap-3 text-[14px] text-gray-500 dark:text-gray-400 font-medium">
+              <li><a href="#services" class="hover:text-brand-500 transition-colors">Services</a></li>
+              <li><a href="#process-section" class="hover:text-brand-500 transition-colors">Process</a></li>
+              <li><a href="#showcase" class="hover:text-brand-500 transition-colors">Console</a></li>
+              <li><a href="#industries" class="hover:text-brand-500 transition-colors">Sectors</a></li>
+              <li><a href="#team" class="hover:text-brand-500 transition-colors">Team</a></li>
+              <li><a href="#about" class="hover:text-brand-500 transition-colors">About Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Social & Contact -->
+          <div class="flex flex-col gap-4">
+            <h4 class="text-[14px] font-bold text-slate-900 dark:text-white tracking-wide mb-1">Connect</h4>
+            <ul class="flex flex-col gap-3 text-[14px] text-gray-500 dark:text-gray-400 font-medium">
+              <li><a href="mailto:ceo@rhenovatech.com" class="hover:text-brand-500 transition-colors">Contact Us</a></li>
+              <li><a href="#" class="hover:text-brand-500 transition-colors">LinkedIn</a></li>
+              <li><a href="#" class="hover:text-brand-500 transition-colors">Instagram</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      
+      <!-- Divider -->
+      <div class="w-full h-px bg-gray-100 dark:bg-slate-900 my-8 relative z-10"></div>
+      
+      <!-- Bottom Row -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] font-medium text-gray-400 relative z-10">
+        <p>&copy; 2026 RHenova Tech. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-gray-600 dark:hover:text-gray-300 transition-colors">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
 
   <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• VANILLA JAVASCRIPT LOGIC â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <script>
@@ -5317,10 +5089,10 @@ Coordinated multi-device sync logic providing executive oversight across your en
 }
 
 .rex-popup-card {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    
+    -webkit-
+    border: none;
     border-radius: 16px;
     padding: 30px 160px 45px 35px;
     position: relative;
@@ -5351,7 +5123,7 @@ Coordinated multi-device sync logic providing executive oversight across your en
     z-index: 10;
 }
 .rex-close-btn:hover {
-    background: rgba(0,0,0,0.05);
+    background: transparent;
     color: #000;
 }
 
@@ -5510,7 +5282,7 @@ Coordinated multi-device sync logic providing executive oversight across your en
         textElement.textContent = ''; 
         
         const cursor = document.createElement('span');
-        cursor.className = 'inline-block w-[3px] h-8 md:h-10 bg-[#8b5cf6] ml-2 animate-[pulse_1s_ease-in-out_infinite] align-middle';
+        cursor.className = 'inline-block w-[3px] h-8 md:h-10 bg-brand-500 ml-2 animate-[pulse_1s_ease-in-out_infinite] align-middle';
         
         let i = 0;
         const typeWriter = () => {
@@ -5588,8 +5360,8 @@ Coordinated multi-device sync logic providing executive oversight across your en
               otherContent.style.opacity = '0';
             }
             if (otherIcon) otherIcon.classList.remove('rotate-180');
-            otherItem.classList.remove('bg-[#f8f5ff]');
-            otherItem.classList.add('bg-[#f8fafc]', 'hover:bg-[#f1f5f9]');
+            otherItem.classList.remove('bg-brand-50');
+            otherItem.classList.add('bg-slate-50', 'hover:bg-slate-50');
           });
 
           // Open clicked
@@ -5599,8 +5371,8 @@ Coordinated multi-device sync logic providing executive oversight across your en
               content.style.opacity = '1';
             }
             if (icon) icon.classList.add('rotate-180');
-            item.classList.add('bg-[#f8f5ff]');
-            item.classList.remove('bg-[#f8fafc]', 'hover:bg-[#f1f5f9]');
+            item.classList.add('bg-brand-50');
+            item.classList.remove('bg-slate-50', 'hover:bg-slate-50');
           }
         });
       });
