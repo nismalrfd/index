@@ -2596,31 +2596,66 @@
     
     <div class="flex flex-col gap-24 lg:gap-32">
       <!-- Row 1: AI-Powered Workflows -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-        <!-- Left Column -->
-        <div class="flex flex-col pt-2">
-          <span class="text-brand-500 text-[11px] font-bold uppercase tracking-wider mb-4 block">Operational Logic</span>
-          <h2 class="font-sans text-slate-900 text-[32px] md:text-[40px] font-medium leading-[1.1] mb-10 tracking-tight">
-            AI-Powered Workflows
-          </h2>
-          
-          <div class="pl-0 md:pl-[30%] flex flex-col gap-6">
-            <p class="text-[13px] text-slate-400 leading-[1.8] font-medium">
-              Algorithmic workflow routing, real-time data validation, and AI pattern-processing engines that make your operations self-correcting and continuously intelligent. We leverage advanced machine learning models to detect anomalies before they happen, routing critical tasks instantly to the right departments while automating repetitive tasks entirely.
-            </p>
-            <p class="text-brand-500 text-[13px] leading-[1.6] font-semibold mt-2 group cursor-pointer hover:opacity-80 transition-opacity">
-              Intelligent AI solutions designed to automate workflows, deliver actionable insights, and help your business operate smarter, faster, and more efficiently. <span class="inline-block transform group-hover:translate-x-0.5 transition-transform">↘</span>
-            </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative mb-24 lg:mb-32">
+          <!-- Background Watermark -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1] pointer-events-none select-none opacity-[0.03] dark:opacity-[0.02]">
+            <span class="text-[120px] md:text-[180px] lg:text-[240px] font-black tracking-tighter leading-none text-slate-900 dark:text-white uppercase whitespace-nowrap">LOGIC</span>
+          </div>
+
+          <!-- Left Column (Image Composition) -->
+          <div class="relative w-full h-[400px] md:h-[500px] flex items-center justify-center order-2 lg:order-1 mt-10 lg:mt-0">
+            <!-- Decorative Background Blob -->
+            <div class="absolute w-[80%] h-[80%] bg-gradient-to-tr from-brand-300 to-brand-100 dark:from-brand-600 dark:to-brand-900 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-[40px] opacity-60 animate-pulse-slow"></div>
+            
+            <!-- Main Image -->
+            <img src="moc2.png" alt="AI-Powered Workflows" class="relative z-10 w-[85%] h-[85%] object-cover rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] transform transition-transform duration-700 hover:scale-[1.02]" />
+            
+            <!-- Floating UI Card 1 -->
+            <div class="absolute top-[5%] -left-[2%] lg:-left-[8%] z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 dark:border-slate-700/50 flex items-center gap-4 animate-float">
+               <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                 <i data-lucide="check-circle" class="w-5 h-5 text-green-600 dark:text-green-400"></i>
+               </div>
+               <div>
+                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">System Status</p>
+                 <p class="text-[14px] font-bold text-slate-800 dark:text-white">Optimized 99.9%</p>
+               </div>
+            </div>
+
+            <!-- Floating UI Card 2 -->
+            <div class="absolute bottom-[10%] -right-[2%] lg:-right-[8%] z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 dark:border-slate-700/50 flex items-center gap-4 animate-float" style="animation-delay: 1.5s;">
+               <div class="w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center">
+                 <i data-lucide="cpu" class="w-5 h-5 text-brand-600 dark:text-brand-400"></i>
+               </div>
+               <div>
+                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">AI Processing</p>
+                 <p class="text-[14px] font-bold text-slate-800 dark:text-white">Active Routing</p>
+               </div>
+            </div>
+          </div>
+
+          <!-- Right Column (Typography) -->
+          <div class="flex flex-col pt-2 relative z-10 order-1 lg:order-2">
+            <span class="text-brand-500 text-[11px] font-bold uppercase tracking-widest mb-4 block">Operational Logic</span>
+            <h2 class="font-sans text-slate-900 dark:text-white text-[36px] md:text-[46px] lg:text-[54px] font-bold leading-[1.1] mb-6 tracking-tight drop-shadow-sm">
+              AI-Powered <br/>Workflows
+            </h2>
+            
+            <div class="flex flex-col gap-6 mb-10">
+              <p class="text-[15px] sm:text-[16px] text-slate-500 dark:text-slate-400 leading-[1.8] font-medium">
+                Algorithmic workflow routing, real-time data validation, and AI pattern-processing engines that make your operations self-correcting and continuously intelligent. We leverage advanced machine learning models to detect anomalies before they happen, routing critical tasks instantly while automating repetitive tasks entirely.
+              </p>
+            </div>
+
+            <div>
+              <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-brand-500 text-white rounded-xl font-bold text-[14px] hover:bg-brand-600 hover:shadow-lg hover:shadow-brand-500/30 transition-all duration-300 gap-2 group">
+                Explore Solutions
+                <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+              </a>
+            </div>
           </div>
         </div>
-        
-        <!-- Right Column (Image) -->
-        <div class="w-full h-[350px] md:h-[450px] lg:h-[500px]">
-          <img src="moc2.png" alt="AI-Powered Workflows" class="w-full h-full object-cover rounded-[32px]" />
-        </div>
-      </div>
 
-      <!-- Row 2: Systems Orchestration -->
+        <!-- Row 2: Systems Orchestration -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- Left Column -->
         <div class="flex flex-col pt-2">
