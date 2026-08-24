@@ -2655,35 +2655,69 @@
           </div>
         </div>
 
-        <!-- Row 2: Systems Orchestration -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-        <!-- Left Column -->
-        <div class="flex flex-col pt-2">
-          <span class="text-brand-500 text-[11px] font-bold uppercase tracking-wider mb-4 block">Native Client Portals
-</span>
-          <h2 class="font-sans text-slate-900 text-[32px] md:text-[40px] font-medium leading-[1.1] mb-10 tracking-tight">
-            Mobile Application
+        <!-- Row 2: Native Client Portals -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative mb-12">
+          <!-- Background Watermark -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-[-1] pointer-events-none select-none opacity-[0.03] dark:opacity-[0.02]">
+            <span class="text-[120px] md:text-[180px] lg:text-[240px] font-black tracking-tighter leading-none text-slate-900 dark:text-white uppercase whitespace-nowrap">MOBILE</span>
+          </div>
 
-          </h2>
-          
-          <div class="pl-0 md:pl-[30%] flex flex-col gap-6">
-            <p class="text-[13px] text-slate-400 leading-[1.8] font-medium">
-Custom mobile applications engineered around your business requirements. We design secure, scalable, and high-performance Android and iOS solutions that integrate seamlessly with your Zoho ecosystem, empowering your teams and customers with real-time access, intelligent automation, and exceptional user experiences.            </p>
-            <p class="text-brand-500 text-[13px] leading-[1.6] font-semibold mt-2 group cursor-pointer hover:opacity-80 transition-opacity">
-              Custom mobile applications that work seamlessly with your Zoho ecosystem. Access business data, automate workflows, and stay productive from anywhere. <span class="inline-block transform group-hover:translate-x-0.5 transition-transform">↘</span>
-            </p>
+          <!-- Left Column (Typography) -->
+          <div class="flex flex-col pt-2 relative z-10 order-1">
+            <span class="text-brand-500 text-[11px] font-bold uppercase tracking-widest mb-4 block">Native Client Portals</span>
+            <h2 class="font-sans text-slate-900 dark:text-white text-[36px] md:text-[46px] lg:text-[54px] font-bold leading-[1.1] mb-6 tracking-tight drop-shadow-sm">
+              Mobile <br/>Application
+            </h2>
+            
+            <div class="flex flex-col gap-6 mb-10">
+              <p class="text-[15px] sm:text-[16px] text-slate-500 dark:text-slate-400 leading-[1.8] font-medium">
+                Custom mobile applications engineered around your business requirements. We design secure, scalable, and high-performance Android and iOS solutions that integrate seamlessly with your Zoho ecosystem, empowering your teams and customers with real-time access, intelligent automation, and exceptional user experiences.
+              </p>
+            </div>
+
+            <div>
+              <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-xl font-bold text-[14px] hover:scale-105 hover:shadow-xl transition-all duration-300 gap-2 group">
+                View Capabilities
+                <i data-lucide="smartphone" class="w-4 h-4 transform group-hover:rotate-12 transition-transform"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column (Image Composition) -->
+          <div class="relative w-full h-[400px] md:h-[500px] flex items-center justify-center order-2 mt-10 lg:mt-0">
+            <!-- Decorative Background Blob -->
+            <div class="absolute w-[80%] h-[80%] bg-gradient-to-bl from-brand-200 to-brand-400 dark:from-brand-700 dark:to-brand-900 rounded-full mix-blend-multiply dark:mix-blend-lighten filter blur-[40px] opacity-60 animate-pulse-slow" style="animation-delay: 2s;"></div>
+            
+            <!-- Main Image -->
+            <img src="moccc1.png" alt="Mobile Application Systems" class="relative z-10 w-[85%] h-[85%] object-cover rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] transform transition-transform duration-700 hover:scale-[1.02]" />
+            
+            <!-- Floating UI Card 1 -->
+            <div class="absolute top-[8%] -right-[2%] lg:-right-[8%] z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 dark:border-slate-700/50 flex items-center gap-4 animate-float" style="animation-delay: 0.5s;">
+               <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
+                 <i data-lucide="refresh-cw" class="w-5 h-5 text-blue-600 dark:text-blue-400"></i>
+               </div>
+               <div>
+                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Sync Status</p>
+                 <p class="text-[14px] font-bold text-slate-800 dark:text-white">Real-time Access</p>
+               </div>
+            </div>
+
+            <!-- Floating UI Card 2 -->
+            <div class="absolute bottom-[8%] -left-[2%] lg:-left-[8%] z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-100 dark:border-slate-700/50 flex items-center gap-4 animate-float" style="animation-delay: 2.5s;">
+               <div class="w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center">
+                 <i data-lucide="zap" class="w-5 h-5 text-brand-600 dark:text-brand-400"></i>
+               </div>
+               <div>
+                 <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Performance</p>
+                 <p class="text-[14px] font-bold text-slate-800 dark:text-white">Native App Speed</p>
+               </div>
+            </div>
           </div>
         </div>
-        
-        <!-- Right Column (Image) -->
-        <div class="w-full h-[350px] md:h-[450px] lg:h-[500px]">
-          <img src="moccc1.png" alt="Systems Orchestration" class="w-full h-full object-cover rounded-[32px]" />
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WHAT WE ENGINEER SECTION -->
+    <!-- WHAT WE ENGINEER SECTION -->
   <section class="w-full max-w-7xl mx-auto px-6 py-16 md:py-24 relative z-10">
     <div class="mb-12 md:mb-16 max-w-3xl">
       <p class="text-brand-500 text-[11px] font-bold uppercase tracking-widest mb-4">What We Engineer</p>
