@@ -1,0 +1,9 @@
+﻿/* TEAM */
+Engineering: RHenova Tech
+Site: https://rhenovatech.com
+Location: Earth
+
+/* SITE */
+Last update: 2026
+Standards: HTML5, CSS3, ES6
+Components: TailwindCSS, GSAP
