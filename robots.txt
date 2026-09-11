@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.rhenovatech.com/sitemap.xml
+Sitemap: https://rhenovatech.com/sitemap.xml

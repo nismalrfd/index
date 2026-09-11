@@ -1,18 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.rhenovatech.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://rhenovatech.com/</loc>
   </url>
   <url>
-    <loc>https://www.rhenovatech.com/gold/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://rhenovatech.com/gold/</loc>
   </url>
   <url>
-    <loc>https://www.rhenovatech.com/mobile/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://rhenovatech.com/mobile/</loc>
   </url>
 </urlset>
