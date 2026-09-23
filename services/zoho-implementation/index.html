@@ -21,15 +21,15 @@
   <meta name="twitter:description" content="RHenova Tech provides Zoho implementation, customization, automation and integration services for businesses across India and the GCC." />
   <meta name="twitter:image" content="https://rhenovatech.com/logo.png.png" />
   
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/logo.png.png" />
   <link rel="apple-touch-icon" href="/logo.png.png" />
   <meta name="theme-color" content="#ffffff" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Structured Data: Service -->
   <script type="application/ld+json">
@@ -79,7 +79,7 @@
       theme: {
         extend: {
           fontFamily: { 
-            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Inter"', 'sans-serif']
           },
           colors: {
             brand: {
@@ -101,22 +101,43 @@
     }
   </script>
 
+  <!-- Global Typography & UI System -->
   <style>
+    :root {
+      --font-primary: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      --color-heading: #0f172a;
+      --color-body: #64748b;
+    }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+      font-family: var(--font-primary);
+      color: var(--color-body);
+      font-size: 16px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      background-color: #FAFAFA;
-      color: #334155;
+      text-rendering: optimizeLegibility;
     }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-primary);
+      color: var(--color-heading);
+    }
+    
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #ffffff; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #736db3; }
   </style>
 </head>
-<body class="bg-[#FAFAFA] m-0 p-0 w-full min-h-screen text-slate-800 antialiased overflow-x-hidden">
+<body class="bg-white text-slate-800 antialiased selection:bg-brand-500 selection:text-white font-sans overflow-x-hidden">
 
-  <!-- Header matching main site -->
-  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-slate-200/80 bg-white/95 backdrop-blur-md py-4">
+  <!-- ==================== HEADER (Matching Homepage) ==================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
     <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
-      <div class="flex items-center justify-between w-full">
+      <div class="flex items-center justify-between h-[72px]">
+        
         <!-- Logo Left -->
         <div class="flex items-center gap-4 sm:gap-5">
           <a href="/" class="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
@@ -149,12 +170,12 @@
           <a href="/#about" class="text-sm font-medium text-slate-600 hover:text-slate-950 transition-colors">About</a>
         </nav>
 
-        <!-- Right CTA & Hamburger -->
+        <!-- Right Tools -->
         <div class="flex items-center gap-3">
-          <a href="mailto:ceo@rhenovatech.com" class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white bg-slate-950 hover:bg-slate-800 rounded-full transition-all duration-200">
+          <a href="mailto:ceo@rhenovatech.com" class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-full transition-all duration-200">
             Consult Team
           </a>
-          <button id="hamburger" aria-label="Open navigation menu" class="lg:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-slate-200 bg-white hover:bg-slate-50">
+          <button id="hamburger" aria-label="Open navigation menu" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-slate-200 bg-white hover:bg-slate-50">
             <i data-lucide="menu" id="hamburger-icon" class="w-5 h-5 text-slate-700"></i>
           </button>
         </div>
@@ -162,7 +183,7 @@
     </div>
 
     <!-- Mobile Menu Backdrop -->
-    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-[98] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[98] opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
     <!-- Mobile Slide Drawer Menu Overlay -->
     <div id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-[290px] h-[100dvh] bg-white z-[99] translate-x-full shadow-2xl transition-transform duration-300 ease-in-out flex flex-col p-6 pt-20 gap-2 border-l border-slate-200">
@@ -175,476 +196,553 @@
       <a href="/#industries" class="block py-2.5 px-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm">Industries</a>
       <a href="/services/zoho-implementation/" class="block py-2.5 px-3 rounded-lg text-brand-600 bg-brand-50 font-semibold text-sm">Zoho Implementation</a>
       <a href="/#about" class="block py-2.5 px-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm">About</a>
-      <a href="mailto:ceo@rhenovatech.com" class="block py-2.5 px-3 mt-4 text-center text-white bg-slate-950 hover:bg-slate-800 rounded-lg font-semibold text-sm">Contact Us</a>
+      <a href="mailto:ceo@rhenovatech.com" class="block py-2.5 px-3 mt-4 text-center text-white bg-slate-900 hover:bg-slate-800 rounded-lg font-semibold text-sm">Contact Us</a>
     </div>
   </header>
 
-  <!-- Main Content Wrapper -->
-  <main class="relative z-10 pt-[76px] max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
+  <!-- ==================== 1. HERO SECTION ==================== -->
+  <section class="relative w-full flex items-center bg-white overflow-hidden pt-28 sm:pt-32 pb-14 md:pb-18 border-b border-slate-100">
+    <!-- Ambient Swoosh Backdrop matching Homepage -->
+    <div class="absolute inset-0 z-0 pointer-events-none flex items-center lg:justify-end overflow-hidden bg-white">
+      <img src="/hero-swoosh.png" alt="Abstract Background" class="w-[120vw] lg:w-full h-full object-contain lg:object-cover transform translate-x-0 lg:translate-x-[5%] opacity-90 mix-blend-multiply" onerror="this.style.display='none'">
+    </div>
     
-    <!-- 1. HERO SECTION: Editorial B2B Consulting Layout -->
-    <section class="pt-16 md:pt-24 pb-16 md:pb-20 border-b border-slate-200/80">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <!-- Ambient Glows -->
+    <div class="absolute top-[10%] right-[10%] w-[400px] h-[400px] rounded-full bg-cyan-400/10 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+    <div class="absolute bottom-[10%] right-[30%] w-[500px] h-[500px] rounded-full bg-fuchsia-400/10 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+
+    <div class="relative z-10 w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
         
-        <!-- Left: Editorial Headline & Overview -->
+        <!-- Left: Headline & Copy -->
         <div class="lg:col-span-7 flex flex-col items-start text-left">
-          <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-4">Enterprise Systems Architecture</p>
-          <h1 class="text-3xl sm:text-4xl lg:text-[46px] font-semibold text-slate-950 tracking-tight leading-[1.15] mb-6">
+          <p class="text-xs font-bold uppercase tracking-wider text-brand-500 mb-3">Zoho Implementation Partner</p>
+          <h1 class="text-slate-950 font-medium tracking-tight mb-5 leading-[1.12]" style="font-size: clamp(2.15rem, 3.6vw, 3.25rem);">
             Zoho Implementation Services Built Around Your Business
           </h1>
-          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl mb-8">
-            RHenova Tech configures, customizes and connects Zoho around the way a business actually operates. We ensure connected workflows, accurate data, and high user adoption across enterprises in India and the GCC.
+          <p class="text-slate-600 max-w-xl text-[15px] md:text-[17px] leading-relaxed mb-8">
+            We configure Zoho applications around how your company actually operates. From process mapping and Deluge customizations to clean data migration and user training, we build connected systems for businesses across India and the GCC.
           </p>
-          <div class="flex flex-wrap items-center gap-4">
-            <a href="#contact" class="px-6 py-3.5 bg-slate-950 hover:bg-slate-800 text-white text-sm font-semibold rounded-full transition-all duration-200 flex items-center gap-2">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+            <a href="#contact" class="px-7 py-3.5 bg-slate-900 text-white hover:bg-slate-800 rounded-full font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-[15px] flex items-center justify-center gap-2">
               Talk to Our Zoho Team <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
-            <a href="#solutions" class="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 text-sm font-semibold rounded-full transition-all duration-200">
-              Explore Our Solutions
+            <a href="#solutions" class="px-7 py-3.5 bg-white text-slate-800 hover:bg-slate-50 border border-slate-200 rounded-full font-semibold transition-all duration-300 text-[15px] text-center">
+              View Implementation Scope
             </a>
           </div>
         </div>
 
-        <!-- Right: Technical Delivery Framework Summary -->
-        <div class="lg:col-span-5 bg-white border border-slate-200 rounded-2xl p-7 sm:p-8 shadow-[0_2px_16px_rgba(0,0,0,0.03)]">
-          <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-100">
-            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Consulting Practice</span>
-            <span class="text-xs font-semibold text-slate-700 bg-slate-100 px-2.5 py-1 rounded">India & GCC</span>
-          </div>
-          
-          <div class="space-y-6">
-            <div class="flex items-start gap-3.5">
-              <span class="text-xs font-bold font-mono text-brand-600 bg-brand-50 w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5">01</span>
-              <div>
-                <h2 class="text-sm font-semibold text-slate-900 mb-1">Process-Led Configuration</h2>
-                <p class="text-xs text-slate-500 leading-relaxed">System architecture designed around physical operational flows, not rigid template constraints.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3.5">
-              <span class="text-xs font-bold font-mono text-brand-600 bg-brand-50 w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5">02</span>
-              <div>
-                <h2 class="text-sm font-semibold text-slate-900 mb-1">Custom Deluge & Integration</h2>
-                <p class="text-xs text-slate-500 leading-relaxed">Bespoke Creator widgets, Deluge automation scripts, and secure RESTful middleware.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3.5">
-              <span class="text-xs font-bold font-mono text-brand-600 bg-brand-50 w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5">03</span>
-              <div>
-                <h2 class="text-sm font-semibold text-slate-900 mb-1">Enterprise Adoption Focus</h2>
-                <p class="text-xs text-slate-500 leading-relaxed">Clean data migration, structured team training, and long-term systems management.</p>
-              </div>
-            </div>
+        <!-- Right: 3D Visual Composition matching homepage style -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-end">
+          <div class="relative w-full max-w-[380px] aspect-square flex items-center justify-center">
+            <div class="absolute inset-0 bg-brand-500/10 blur-[80px] rounded-full"></div>
+            <img src="/3d-cubes.png" alt="Connected Zoho Enterprise Systems" class="relative z-10 w-full h-full object-contain mix-blend-multiply drop-shadow-lg" onerror="this.src='/moccc1.png'">
           </div>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 2. WHY ZOHO IMPLEMENTATION NEEDS TO FIT -->
-    <section class="py-16 md:py-20 border-b border-slate-200/80">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-        
-        <div class="lg:col-span-5">
-          <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Operational Alignment</p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-slate-950 tracking-tight leading-snug">
-            Why Zoho Implementation Needs to Fit the Business
-          </h2>
-        </div>
+  <!-- ==================== 2. WHY ZOHO IMPLEMENTATION NEEDS TO FIT ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-20 border-b border-slate-100">
+    <div class="max-w-3xl mb-10">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Process Alignment</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-3">
+        Why Zoho Implementation Needs to Fit Your Business
+      </h2>
+      <p class="text-slate-500 text-base leading-relaxed">
+        Off-the-shelf software defaults rarely match real operational workflows.
+      </p>
+    </div>
 
-        <div class="lg:col-span-7 space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
-          <p>
-            Businesses need connected workflows, accurate data, automation, visibility, and user adoption rather than disconnected software configuration. Standard out-of-the-box setups often fail to capture the unique operational nuances of your team.
-          </p>
-          <p>
-            At RHenova Tech, we believe in understanding your business process first, before designing the system. Our architecture-driven approach ensures that your Zoho environment works for you, not the other way around.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 3. WHAT WE IMPLEMENT: Structured Solutions Hierarchy -->
-    <section id="solutions" class="py-16 md:py-20 border-b border-slate-200/80">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-        <div>
-          <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Capabilities</p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-slate-950 tracking-tight">What We Implement</h2>
-        </div>
-        <p class="text-sm text-slate-500 max-w-md">End-to-end implementation across the core Zoho enterprise ecosystem and custom extension layers.</p>
-      </div>
-
-      <!-- Flagship Core Platforms -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-        
-        <!-- Zoho One -->
-        <div class="bg-white border border-slate-200 rounded-xl p-7 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Enterprise Suite</span>
-              <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
-            </div>
-            <h3 class="text-xl font-semibold text-slate-900 mb-3">Zoho One</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6">
-              Comprehensive implementation of the Zoho One suite to run your entire enterprise. We strategically deploy applications to replace fragmented legacy systems.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
-            <span>Unified Operating Backbone</span>
-            <span>Multi-Department Setup</span>
-          </div>
-        </div>
-
-        <!-- Zoho Creator -->
-        <div class="bg-white border border-slate-200 rounded-xl p-7 sm:p-8 flex flex-col justify-between hover:border-slate-300 transition-colors">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">Custom Applications</span>
-              <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
-            </div>
-            <h3 class="text-xl font-semibold text-slate-900 mb-3">Zoho Creator</h3>
-            <p class="text-sm text-slate-600 leading-relaxed mb-6">
-              Custom business applications built on Zoho Creator to digitize unique operational processes. We develop apps that bridge the gap between standard software and your specific needs.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-medium">
-            <span>Deluge Scripting</span>
-            <span>Tailored ERP & Workflows</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Specialized Modules Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Zoho CRM -->
-        <div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Zoho CRM</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Tailored CRM implementations that capture leads, track pipelines, and automate sales follow-ups. We configure modules and fields to match your sales methodology.
-          </p>
-        </div>
-
-        <!-- Zoho Books -->
-        <div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Zoho Books</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Streamlined financial management configured for your reporting requirements. We ensure your accounting processes are seamlessly connected to your operations.
-          </p>
-        </div>
-
-        <!-- Zoho Analytics -->
-        <div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Zoho Analytics</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Powerful business intelligence dashboards that consolidate data across your organization. Get real-time visibility into KPIs for informed decision-making.
-          </p>
-        </div>
-
-        <!-- Zoho Integrations -->
-        <div class="bg-white border border-slate-200 rounded-xl p-6 hover:border-slate-300 transition-colors">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Zoho Integrations</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Connecting Zoho with your existing third-party software stack. We eliminate data silos through robust API integrations and middleware solutions.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 4. OUR IMPLEMENTATION PROCESS: Sequential Methodology -->
-    <section class="py-16 md:py-20 border-b border-slate-200/80">
-      <div class="mb-12">
-        <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Methodology</p>
-        <h2 class="text-2xl sm:text-3xl font-semibold text-slate-950 tracking-tight mb-3">Our Implementation Process</h2>
-        <p class="text-sm text-slate-500 max-w-xl">A structured, eight-stage deployment cycle engineered to eliminate operational disruption and guarantee user adoption.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        
-        <!-- Step 01 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 01</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Understand</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Mapping your existing business processes and pain points.</p>
-        </div>
-
-        <!-- Step 02 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 02</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Architect</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Designing the system structure and data flow.</p>
-        </div>
-
-        <!-- Step 03 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 03</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Configure</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Setting up standard modules, fields, and permissions.</p>
-        </div>
-
-        <!-- Step 04 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 04</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Customize</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Developing custom functions and bespoke interfaces.</p>
-        </div>
-
-        <!-- Step 05 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 05</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Migrate</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Safely transferring historical data into the new system.</p>
-        </div>
-
-        <!-- Step 06 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 06</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Automate</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Building workflows to eliminate manual repetitive tasks.</p>
-        </div>
-
-        <!-- Step 07 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 07</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Train</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Ensuring high user adoption through targeted training.</p>
-        </div>
-
-        <!-- Step 08 -->
-        <div class="border-t-2 border-slate-200 pt-4 hover:border-brand-500 transition-colors">
-          <span class="font-mono text-xs font-bold text-slate-400 block mb-2">PHASE 08</span>
-          <h3 class="text-base font-semibold text-slate-900 mb-1.5">Support</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Providing ongoing technical assistance and refinements.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 5. BUSINESS SYSTEMS & INDUSTRIES -->
-    <section class="py-16 md:py-20 border-b border-slate-200/80">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
-        
-        <!-- Business Systems -->
-        <div class="lg:col-span-6 bg-white border border-slate-200 rounded-2xl p-7 sm:p-9 flex flex-col justify-between">
-          <div>
-            <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Operations Scope</p>
-            <h2 class="text-xl sm:text-2xl font-semibold text-slate-950 tracking-tight mb-6">
-              Business Systems We Support
-            </h2>
-            <div class="divide-y divide-slate-100">
-              <div class="py-3 flex items-baseline justify-between text-sm">
-                <span class="font-semibold text-slate-900">Sales</span>
-                <span class="text-xs text-slate-500 text-right">Lead management, pipeline tracking, and quoting.</span>
-              </div>
-              <div class="py-3 flex items-baseline justify-between text-sm">
-                <span class="font-semibold text-slate-900">Finance</span>
-                <span class="text-xs text-slate-500 text-right">Invoicing, expense tracking, and accounting.</span>
-              </div>
-              <div class="py-3 flex items-baseline justify-between text-sm">
-                <span class="font-semibold text-slate-900">Operations</span>
-                <span class="text-xs text-slate-500 text-right">Inventory, project management, and fulfillment.</span>
-              </div>
-              <div class="py-3 flex items-baseline justify-between text-sm">
-                <span class="font-semibold text-slate-900">Management Reporting</span>
-                <span class="text-xs text-slate-500 text-right">Real-time dashboards and analytics.</span>
-              </div>
-              <div class="py-3 flex items-baseline justify-between text-sm">
-                <span class="font-semibold text-slate-900">Customer Support</span>
-                <span class="text-xs text-slate-500 text-right">Ticketing, SLAs, and customer portals.</span>
-              </div>
-              <div class="py-3 flex items-baseline justify-between text-sm">
-                <span class="font-semibold text-slate-900">Field Operations</span>
-                <span class="text-xs text-slate-500 text-right">Mobile data collection and scheduling.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Industries -->
-        <div class="lg:col-span-6 bg-slate-950 text-white rounded-2xl p-7 sm:p-9 border border-slate-900 flex flex-col justify-between">
-          <div>
-            <p class="text-xs font-bold uppercase tracking-widest text-brand-400 mb-2">Domain Expertise</p>
-            <h2 class="text-xl sm:text-2xl font-semibold text-white tracking-tight mb-2">
-              Industries
-            </h2>
-            <p class="text-xs text-slate-400 mb-6 leading-relaxed">
-              Domain-specific architectures tailored to industry compliance, sales structures, and operating models.
-            </p>
-            
-            <div class="grid grid-cols-2 gap-3">
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Jewellery</div>
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Construction</div>
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Real Estate</div>
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Interior Design</div>
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Education</div>
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Facilities Management</div>
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Events</div>
-              <div class="border border-slate-800 rounded-lg p-3 text-xs font-medium text-slate-200">Optical Retail</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 6. SERVING BUSINESSES ACROSS INDIA & GCC -->
-    <section class="py-16 md:py-20 border-b border-slate-200/80">
-      <div class="max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-3">Regional Coverage</p>
-        <h2 class="text-2xl sm:text-3xl font-semibold text-slate-950 tracking-tight mb-4">
-          Serving Businesses Across India and the GCC
-        </h2>
-        <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-          RHenova Tech serves businesses looking to implement connected Zoho-based systems across regional markets. We understand the operational environment and provide implementation strategies that align with your business dynamics in India and the GCC.
+    <!-- 2 Column Direct Comparison -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      <div class="bg-slate-50/80 p-7 sm:p-8 rounded-2xl border border-slate-200/80">
+        <h3 class="text-slate-900 text-lg font-semibold mb-3">The Risk of Generic Setup</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-3">
+          Stock templates leave departments working in silos. Data gets duplicated across spreadsheets, manual handoffs create bottlenecks, and staff resist adopting the system.
+        </p>
+        <p class="text-slate-500 text-xs leading-relaxed">
+          Without tailored field rules and workflow automations, software becomes an administrative burden instead of an efficiency driver.
         </p>
       </div>
-    </section>
 
-    <!-- 7. WHY RHENOVA TECH: Structured Advisory Matrix -->
-    <section class="py-16 md:py-20 border-b border-slate-200/80">
-      <div class="mb-12">
-        <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Practice Standard</p>
-        <h2 class="text-2xl sm:text-3xl font-semibold text-slate-950 tracking-tight">Why RHenova Tech</h2>
+      <div class="bg-white p-7 sm:p-8 rounded-2xl border border-brand-200 shadow-[0_6px_24px_rgb(115,109,179,0.06)]">
+        <h3 class="text-brand-700 text-lg font-semibold mb-3">How We Implement Zoho</h3>
+        <p class="text-slate-600 text-sm leading-relaxed mb-3">
+          We map your actual workflows, structure database relationships, and write custom logic before configuring modules.
+        </p>
+        <p class="text-slate-900 font-medium text-xs leading-relaxed">
+          Your team gets a unified system with automated handoffs, accurate reporting, and high day-one adoption.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. WHAT WE IMPLEMENT ==================== -->
+  <section id="solutions" class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24 border-b border-slate-100">
+    <div class="mb-12 max-w-3xl">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Scope of Services</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-3">
+        What We Implement
+      </h2>
+      <p class="text-slate-500 text-base">
+        Core platforms, customized business applications, and integrated software modules.
+      </p>
+    </div>
+
+    <!-- 2 Featured Large Cards (Zoho One & Zoho Creator) -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-6">
+      
+      <!-- Zoho One -->
+      <div class="bg-white border border-slate-200 group flex flex-col transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:border-brand-300 rounded-2xl p-7 sm:p-8">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-3 py-1 rounded-full">All-in-One Suite</span>
+          <i data-lucide="layers" class="w-5 h-5 text-brand-500"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">Zoho One Implementation</h3>
+        <p class="text-slate-500 text-sm leading-relaxed mb-5">
+          Full-suite deployment connecting sales, finance, operations, and analytics under a single admin console with centralized user permissions.
+        </p>
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded">Multi-Department Setup</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded">Cross-App Triggers</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded">Unified Identity</span>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">Business-First</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Implementation driven by operational logic.</p>
+      <!-- Zoho Creator -->
+      <div class="bg-white border border-slate-200 group flex flex-col transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.05)] hover:border-brand-300 rounded-2xl p-7 sm:p-8">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Custom Low-Code Apps</span>
+          <i data-lucide="code" class="w-5 h-5 text-brand-500"></i>
         </div>
-
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">Direct Engineering</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">In-house technical capability.</p>
+        <h3 class="text-xl font-semibold text-slate-900 mb-2 group-hover:text-brand-600 transition-colors">Zoho Creator Development</h3>
+        <p class="text-slate-500 text-sm leading-relaxed mb-5">
+          Custom applications built with Deluge script to digitize proprietary business logic, approval chains, and specialized operational workflows.
+        </p>
+        <div class="pt-4 border-t border-slate-100 flex flex-wrap gap-2">
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded">Deluge Scripting</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded">Customer Portals</span>
+          <span class="text-xs font-medium text-slate-600 bg-slate-100 px-2.5 py-1 rounded">Bespoke ERP Modules</span>
         </div>
-
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">System Architecture</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Designing for scalability and stability.</p>
-        </div>
-
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">Custom Development</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Building bespoke solutions.</p>
-        </div>
-
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">Integrations</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Connecting disparate systems.</p>
-        </div>
-
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">Automation</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Streamlining repetitive processes.</p>
-        </div>
-
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">Mobile Capability</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Field-ready application deployment.</p>
-        </div>
-
-        <div class="bg-white border border-slate-200 rounded-xl p-6">
-          <h3 class="text-sm font-semibold text-slate-900 mb-1.5">Long-Term Support</h3>
-          <p class="text-xs text-slate-500 leading-relaxed">Ongoing partnership and maintenance.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 8. FREQUENTLY ASKED QUESTIONS -->
-    <section class="py-16 md:py-20 border-b border-slate-200/80">
-      <div class="mb-10">
-        <p class="text-xs font-bold uppercase tracking-widest text-brand-600 mb-2">Advisory Q&A</p>
-        <h2 class="text-2xl sm:text-3xl font-semibold text-slate-950 tracking-tight">Frequently Asked Questions</h2>
       </div>
 
-      <div class="divide-y divide-slate-200">
-        
-        <div class="py-6">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">What is Zoho implementation?</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">It is the process of setting up, configuring, and deploying Zoho applications to match a business's operational workflows, ensuring data is captured accurately and processes run smoothly.</p>
-        </div>
+    </div>
 
-        <div class="py-6">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">What does a Zoho implementation partner do?</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">A partner analyzes your business requirements, architects the system, configures modules, customizes features, migrates data, integrates other software, and trains your team for maximum adoption.</p>
+    <!-- 4 Modular Extension Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      
+      <!-- Zoho CRM -->
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl group transition-all duration-300 hover:shadow-[0_6px_20px_rgb(0,0,0,0.04)] hover:border-slate-300">
+        <div class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+          <i data-lucide="users" class="w-4 h-4"></i>
         </div>
-
-        <div class="py-6">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">How long does Zoho implementation take?</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">The timeline depends entirely on the complexity of your business processes, the number of applications being deployed, and the volume of data being migrated. It ranges from a few weeks to several months.</p>
-        </div>
-
-        <div class="py-6">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Can Zoho be customized?</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Yes. Zoho offers extensive customization capabilities, from simple custom fields and modules to entirely bespoke applications built on Zoho Creator using Deluge script.</p>
-        </div>
-
-        <div class="py-6">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Can Zoho integrate with existing software?</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Yes. Zoho applications can connect to a wide array of third-party software via native integrations, API connections, and middleware platforms to ensure seamless data flow.</p>
-        </div>
-
-        <div class="py-6">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Can multiple Zoho applications be implemented together?</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Absolutely. Deploying multiple interconnected apps (like CRM, Books, and Analytics) or the full Zoho One suite provides a unified operating system for your business.</p>
-        </div>
-
-        <div class="py-6">
-          <h3 class="text-base font-semibold text-slate-900 mb-2">Does RHenova provide Zoho implementation across India and GCC?</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">Yes, we provide implementation, consulting, and development services to businesses operating within India and the GCC region.</p>
-        </div>
-
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5 group-hover:text-brand-600 transition-colors">Zoho CRM</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">
+          Lead capture, deal stages, automated quotes, communication history, and sales performance tracking.
+        </p>
       </div>
-    </section>
 
-    <!-- 9. RESTRAINED B2B CONSULTING CTA -->
-    <section id="contact" class="py-16 md:py-20">
-      <div class="bg-slate-950 text-white rounded-3xl p-8 sm:p-12 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-slate-900">
-        <div class="max-w-xl">
-          <p class="text-xs font-bold uppercase tracking-widest text-brand-400 mb-2">Initiate Engagement</p>
-          <h2 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight mb-3">
-            Ready to Streamline Your Operations?
-          </h2>
-          <p class="text-sm text-slate-400 leading-relaxed">
-            Discuss your requirements with our implementation team and discover how a properly architected system can transform your business.
-          </p>
+      <!-- Zoho Books -->
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl group transition-all duration-300 hover:shadow-[0_6px_20px_rgb(0,0,0,0.04)] hover:border-slate-300">
+        <div class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+          <i data-lucide="receipt" class="w-4 h-4"></i>
         </div>
-        <a href="mailto:ceo@rhenovatech.com" class="px-8 py-3.5 bg-white hover:bg-slate-100 text-slate-950 font-semibold text-sm rounded-full transition-all duration-200 shrink-0 shadow-sm">
-          Contact Us Today
-        </a>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5 group-hover:text-brand-600 transition-colors">Zoho Books & Finance</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">
+          Chart of accounts, automated invoicing, multi-currency tracking, expense approvals, and VAT/GST compliance.
+        </p>
       </div>
-    </section>
 
-  </main>
+      <!-- Zoho Analytics -->
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl group transition-all duration-300 hover:shadow-[0_6px_20px_rgb(0,0,0,0.04)] hover:border-slate-300">
+        <div class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+          <i data-lucide="bar-chart-3" class="w-4 h-4"></i>
+        </div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5 group-hover:text-brand-600 transition-colors">Zoho Analytics</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">
+          Cross-department dashboards, KPI reports, automated alerts, and real-time operational visibility.
+        </p>
+      </div>
 
-  <!-- CARD-STYLE FOOTER (Matching Homepage) -->
-  <div class="px-5 md:px-6 lg:px-8 max-w-[1320px] mx-auto mb-12">
-    <footer class="bg-white rounded-[32px] border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.03)] px-8 md:px-12 py-10 md:py-12 transition-colors duration-300">
-      <div class="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+      <!-- Integrations -->
+      <div class="bg-white border border-slate-200 p-6 rounded-2xl group transition-all duration-300 hover:shadow-[0_6px_20px_rgb(0,0,0,0.04)] hover:border-slate-300">
+        <div class="w-9 h-9 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center mb-4">
+          <i data-lucide="network" class="w-4 h-4"></i>
+        </div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5 group-hover:text-brand-600 transition-colors">Zoho Integrations</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">
+          Secure REST APIs connecting Zoho with payment gateways, e-commerce stores, and third-party software.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 4. IMPLEMENTATION PROCESS (The 8 Real Stages) ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24 border-b border-slate-100">
+    <div class="mb-12 max-w-3xl">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Step-by-Step Delivery</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-3">
+        Our Implementation Process
+      </h2>
+      <p class="text-slate-500 text-base">
+        A structured eight-stage delivery cycle designed for smooth rollout and full team adoption.
+      </p>
+    </div>
+
+    <!-- 8 Connected Phase Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+      
+      <!-- Stage 1 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 01</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Understand</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We map your current processes, identify bottlenecks, and define system requirements.</p>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 02</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Architect</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We design the data schema, module relationships, and role permissions.</p>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 03</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Configure</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We set up standard Zoho modules, custom layouts, and organizational rules.</p>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 04</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Customize</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We build custom functions, Deluge scripts, and tailored user interfaces.</p>
+      </div>
+
+      <!-- Stage 5 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 05</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Migrate</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We clean, map, and transfer your existing data into the new environment.</p>
+      </div>
+
+      <!-- Stage 6 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 06</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Automate</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We configure workflow triggers, email notifications, and approval paths.</p>
+      </div>
+
+      <!-- Stage 7 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 07</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Train</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We train your team with hands-on sessions and role-specific walkthroughs.</p>
+      </div>
+
+      <!-- Stage 8 -->
+      <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:border-brand-300 transition-colors">
+        <div class="text-[11px] font-bold font-mono text-brand-600 mb-2">PHASE 08</div>
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Support</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We provide ongoing technical assistance, system tuning, and maintenance.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. BUSINESS SYSTEMS WE SUPPORT ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24 border-b border-slate-100">
+    <div class="mb-12 max-w-3xl">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Connected Operations</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-3">
+        Business Systems We Support
+      </h2>
+      <p class="text-slate-500 text-base">
+        Connecting departmental handoffs into an automated workflow.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      
+      <div class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-slate-300 transition-all">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Sales</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Lead tracking, pipeline stages, activity logging, and automated quotations.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-slate-300 transition-all">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Finance</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Invoicing, expense tracking, multi-currency accounts, and tax compliance.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-slate-300 transition-all">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Operations</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Inventory tracking, purchase orders, vendor records, and project milestones.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-slate-300 transition-all">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Management</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Executive dashboards, real-time margin visibility, and operational KPI reporting.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-slate-300 transition-all">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Customer Support</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Ticket tracking, SLA escalation rules, customer portals, and FAQ bases.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200 rounded-2xl hover:border-slate-300 transition-all">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Field Operations</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Mobile data capture, job dispatching, site visit logging, and offline sync.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 6. INDUSTRIES (Concise & Focused) ==================== -->
+  <section id="industries" class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24 border-b border-slate-100">
+    <div class="mb-12 max-w-3xl">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Industry Experience</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-3">
+        Industry Solutions
+      </h2>
+      <p class="text-slate-500 text-base">
+        Zoho configurations tailored to specific industry workflows and operational requirements.
+      </p>
+    </div>
+
+    <!-- 4-Column Compact Image Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      
+      <!-- Builders & Construction -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="/builders.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Construction & Builders" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?q=80&w=800&auto=format&fit=crop'">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors">Builders & Construction</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Project milestones, subcontracts, material tracking, and progress billing.</p>
+      </div>
+
+      <!-- Real Estate -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Real Estate">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors">Real Estate</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Lead routing from property portals, site visit logging, and unit booking.</p>
+      </div>
+
+      <!-- Interior Design -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Interior Design">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors">Interior Design</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">BOQ management, vendor procurement schedules, and client approvals.</p>
+      </div>
+
+      <!-- Education -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="/school.jpg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Education & Campus" onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop'">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors">Education</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Student admissions, fee schedules, academic records, and parent communication.</p>
+      </div>
+
+      <!-- Facilities Management -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Facilities Management">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors">Facilities Management</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Maintenance schedules, technician dispatch, SLA tracking, and vendor contracts.</p>
+      </div>
+
+      <!-- Events -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Event Management">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors">Event Management</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Venue bookings, vendor deliverables, floorplans, and billing settlements.</p>
+      </div>
+
+      <!-- Optical Retail -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Optical Retail">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors">Optical Retail</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Patient exam history, prescription records, lab orders, and frame inventory.</p>
+      </div>
+
+      <!-- Jewellery Retail & Manufacturing -->
+      <div class="group flex flex-col">
+        <div class="relative overflow-hidden bg-slate-100 aspect-[16/10] mb-3.5 rounded-xl ring-1 ring-slate-900/5 transition-shadow duration-300 group-hover:shadow-md">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" alt="Jewellery Retail">
+        </div>
+        <h3 class="text-slate-900 text-base font-semibold mb-1 group-hover:text-brand-600 transition-colors"><a href="/gold/" class="hover:underline">Jewellery Retail & Manufacturing</a></h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Metal weight accounting, stone tracking, manufacturing orders, and gold savings schemes.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 7. INDIA & GCC REGIONAL COVERAGE ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24 border-b border-slate-100">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+      <div class="lg:col-span-6">
+        <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Regional Coverage</p>
+        <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-4">
+          Serving Businesses Across India and the GCC
+        </h2>
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
+          We deploy Zoho solutions across India, the United Arab Emirates, Saudi Arabia, Qatar, Oman, Bahrain, and Kuwait.
+        </p>
+        <p class="text-slate-500 text-xs md:text-sm leading-relaxed">
+          From e-invoicing compliance (ZATCA / FTA) and GST reconciliation to multi-currency operations and team onboarding, we handle regional requirements directly.
+        </p>
+      </div>
+
+      <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl">
+          <h4 class="text-sm font-semibold text-slate-900 mb-1.5">Tax & Compliance</h4>
+          <p class="text-slate-500 text-xs leading-relaxed">GCC VAT, ZATCA e-invoicing, and Indian GST pre-configured into your Zoho Books deployment.</p>
+        </div>
+        <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl">
+          <h4 class="text-sm font-semibold text-slate-900 mb-1.5">Multi-Currency Setup</h4>
+          <p class="text-slate-500 text-xs leading-relaxed">Exchange rate feeds and consolidated accounting across INR, AED, SAR, and USD.</p>
+        </div>
+        <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl">
+          <h4 class="text-sm font-semibold text-slate-900 mb-1.5">Consulting & Deployment</h4>
+          <p class="text-slate-500 text-xs leading-relaxed">Structured remote sprints with on-site go-live assistance for key milestones.</p>
+        </div>
+        <div class="p-5 bg-slate-50 border border-slate-200/80 rounded-2xl">
+          <h4 class="text-sm font-semibold text-slate-900 mb-1.5">Ongoing Maintenance</h4>
+          <p class="text-slate-500 text-xs leading-relaxed">Dedicated technical support, Deluge script maintenance, and workflow updates.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 8. WHY CHOOSE RHENOVA TECH ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24 border-b border-slate-100">
+    <div class="mb-12 max-w-3xl">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Our Standards</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-3">
+        Why Choose RHenova Tech
+      </h2>
+      <p class="text-slate-500 text-base">
+        Direct engineering capability with focused systems experience.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      
+      <div class="p-5 bg-white border border-slate-200 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Direct Engineering</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Work directly with systems architects and Deluge developers without communication layers.</p>
+      </div>
+
+      <div class="p-5 bg-white border border-slate-200 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Process-First</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">We audit your operational flow before configuring software so the system fits your business.</p>
+      </div>
+
+      <div class="p-5 bg-white border border-slate-200 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Custom Code Capability</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Expertise in Deluge scripts, custom Creator widgets, REST APIs, and native mobile extensions.</p>
+      </div>
+
+      <div class="p-5 bg-white border border-slate-200 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Long-Term Support</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Committed post-launch support and regular system updates as your business grows.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 9. FREQUENTLY ASKED QUESTIONS ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-24 border-b border-slate-100">
+    <div class="mb-12 max-w-3xl">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">FAQ</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-3">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-slate-500 text-base">
+        Direct answers to common questions about Zoho implementation.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="p-6 bg-white border border-slate-200/90 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">What does a Zoho implementation partner do?</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">A partner analyzes your operational workflows, designs system architecture, configures applications, builds custom scripts, migrates legacy data, and trains your staff for maximum adoption.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200/90 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">How long does a Zoho implementation take?</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Timelines vary depending on system complexity, module count, custom Deluge scripting, and migration volume. Projects typically range from several weeks to a few months.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200/90 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Can Zoho be customized for proprietary workflows?</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Yes. Through Zoho Creator, Deluge scripts, and custom API connections, we can build bespoke operational tools and widgets that precisely match proprietary business logic.</p>
+      </div>
+
+      <div class="p-6 bg-white border border-slate-200/90 rounded-2xl">
+        <h3 class="text-base font-semibold text-slate-900 mb-1.5">Can Zoho integrate with our third-party software?</h3>
+        <p class="text-slate-500 text-xs leading-relaxed">Yes. Zoho connects to external ERPs, payment gateways, e-commerce stores, and database platforms via secure REST APIs, webhooks, and middleware layers.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 10. SIGNATURE RHENOVA CTA SECTION ==================== -->
+  <div id="contact" class="px-5 md:px-6 lg:px-8 my-16 max-w-[1320px] mx-auto">
+    <div class="bg-brand-500 rounded-[36px] text-white text-center py-16 px-6 md:px-12 relative overflow-hidden flex flex-col items-center justify-center shadow-xl">
+      <!-- Subtle top gradient glow -->
+      <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+      
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 drop-shadow-sm text-white">Ready to Streamline Your Operations?</h2>
+        <p class="text-white/90 text-sm sm:text-base md:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+          Discuss your system requirements with our implementation team and discover how a properly architected Zoho environment can support your business.
+        </p>
+        <a href="mailto:ceo@rhenovatech.com" class="inline-flex items-center justify-center px-8 py-3.5 bg-white rounded-full hover:bg-gray-50 hover:scale-105 transition-all shadow-lg" style="color: #736db3 !important; font-size: 15px !important; font-weight: 600 !important;">Contact Us Today</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 11. SIGNATURE RHENOVA FOOTER ==================== -->
+  <div class="px-5 md:px-6 lg:px-8 max-w-[1320px] mx-auto mb-10">
+    <footer class="bg-white rounded-[28px] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-8 md:px-12 py-10 transition-colors duration-300">
+      <div class="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         
         <!-- Brand & Text (Left) -->
         <div class="col-span-1 md:col-span-1 flex flex-col items-start">
           <a href="/" class="flex items-center mb-4 group">
-            <img loading="lazy" src="/footer-logo.png" alt="RHenova Tech" class="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            <img loading="lazy" src="/footer-logo.png" alt="RHenova Tech" class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='/rhenova-tech-logo.png'">
           </a>
-          <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+          <p class="text-slate-500 mb-5 text-xs leading-relaxed">
             Enterprise teams transforming complex operations into clean, automated digital ecosystems.
           </p>
           
           <!-- Social & Contact -->
-          <div class="flex items-center gap-4">
-            <a href="https://www.linkedin.com/company/rhenova-tech/" target="_blank" class="text-slate-400 hover:text-slate-600 transition-colors" aria-label="LinkedIn">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="flex items-center gap-4 text-slate-400">
+            <a href="https://www.linkedin.com/company/rhenova-tech/" target="_blank" class="hover:text-brand-500 transition-colors" aria-label="LinkedIn">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
               </svg>
             </a>
-            <a href="https://www.instagram.com/rhenova_tech" target="_blank" class="text-slate-400 hover:text-slate-600 transition-colors" aria-label="Instagram">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <a href="https://www.instagram.com/rhenova_tech" target="_blank" class="hover:text-brand-500 transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" clip-rule="evenodd" />
               </svg>
             </a>
@@ -652,21 +750,22 @@
         </div>
 
         <!-- Navigation -->
-        <div class="col-span-1 flex flex-col gap-3">
-          <h4 class="text-slate-900 mb-2 font-bold text-base">Menu</h4>
-          <ul class="flex flex-col gap-2.5 text-slate-500 text-sm">
+        <div class="col-span-1 flex flex-col gap-2.5">
+          <h4 class="text-slate-900 font-semibold mb-1 text-sm">Menu</h4>
+          <ul class="flex flex-col gap-2 text-slate-500 text-xs">
+            <li><a href="/" class="hover:text-brand-500 transition-colors">Home</a></li>
             <li><a href="/#solutions" class="hover:text-brand-500 transition-colors">Solutions</a></li>
             <li><a href="/#architecture" class="hover:text-brand-500 transition-colors">Architecture</a></li>
             <li><a href="/#industries" class="hover:text-brand-500 transition-colors">Industries</a></li>
-            <li><a href="/#team" class="hover:text-brand-500 transition-colors">Team</a></li>
+            <li><a href="/services/zoho-implementation/" class="text-brand-600 font-medium">Zoho Implementation</a></li>
             <li><a href="/#about" class="hover:text-brand-500 transition-colors">About</a></li>
           </ul>
         </div>
 
         <!-- Solutions -->
-        <div class="col-span-1 flex flex-col gap-3">
-          <h4 class="text-slate-900 mb-2 font-bold text-base">Solutions</h4>
-          <ul class="flex flex-col gap-2.5 text-slate-500 text-sm">
+        <div class="col-span-1 flex flex-col gap-2.5">
+          <h4 class="text-slate-900 font-semibold mb-1 text-sm">Solutions</h4>
+          <ul class="flex flex-col gap-2 text-slate-500 text-xs">
             <li><a href="/gold/" class="hover:text-brand-500 transition-colors">Jewellery ERP</a></li>
             <li><a href="/mobile/" class="hover:text-brand-500 transition-colors">Mobile Applications</a></li>
             <li><a href="/services/zoho-implementation/" class="hover:text-brand-500 transition-colors">Zoho Implementation</a></li>
@@ -674,9 +773,9 @@
         </div>
 
         <!-- Contact -->
-        <div class="col-span-1 flex flex-col gap-3">
-          <h4 class="text-slate-900 mb-2 font-bold text-base">Contact</h4>
-          <ul class="flex flex-col gap-2.5 text-slate-500 text-sm">
+        <div class="col-span-1 flex flex-col gap-2.5">
+          <h4 class="text-slate-900 font-semibold mb-1 text-sm">Contact</h4>
+          <ul class="flex flex-col gap-2 text-slate-500 text-xs">
             <li><a href="mailto:ceo@rhenovatech.com" class="hover:text-brand-500 transition-colors">ceo@rhenovatech.com</a></li>
             <li><a href="tel:+917306201900" class="hover:text-brand-500 transition-colors">+91 73062 01900</a></li>
           </ul>
@@ -685,46 +784,55 @@
       </div>
       
       <!-- Bottom Row -->
-      <div class="max-w-[1320px] mx-auto w-full mt-12 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-400 text-sm">
+      <div class="max-w-[1320px] mx-auto w-full mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-xs">
         <p>&copy; 2026 RHenova Tech. All rights reserved.</p>
         <div class="flex items-center gap-6">
-          <a href="#" class="hover:text-gray-600 transition-colors">Terms of Service</a>
-          <a href="#" class="hover:text-gray-600 transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-600 transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-slate-600 transition-colors">Privacy Policy</a>
         </div>
       </div>
     </footer>
   </div>
 
+  <!-- JavaScript for Icons and Mobile Drawer Menu -->
   <script>
-    if (typeof lucide !== 'undefined') lucide.createIcons();
+    // Initialize Lucide Icons
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
 
-    // Mobile navigation drawer toggle
+    // Mobile Drawer Navigation Logic
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
-    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+    const mobileClose = document.getElementById('mobile-menu-close');
 
     function openMobileMenu() {
-      if (mobileMenu && mobileMenuBackdrop) {
+      if (mobileMenu && mobileBackdrop) {
         mobileMenu.classList.remove('translate-x-full');
-        mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
-        mobileMenuBackdrop.classList.add('opacity-100', 'pointer-events-auto');
-        document.body.style.overflow = 'hidden';
+        mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.classList.add('overflow-hidden');
       }
     }
 
     function closeMobileMenu() {
-      if (mobileMenu && mobileMenuBackdrop) {
+      if (mobileMenu && mobileBackdrop) {
         mobileMenu.classList.add('translate-x-full');
-        mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
-        mobileMenuBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
-        document.body.style.overflow = '';
+        mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
       }
     }
 
     if (hamburger) hamburger.addEventListener('click', openMobileMenu);
-    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
-    if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+    if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
+
+    // Auto-close drawer on menu link click
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
   </script>
 </body>
 </html>
