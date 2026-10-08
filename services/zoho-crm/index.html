@@ -1,0 +1,740 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoho CRM Implementation & Development Services | RHenova Tech</title>
+  <meta name="description" content="RHENOVA Tech provides Zoho CRM implementation, customization, automation and integrations for businesses across India and the GCC." />
+  <link rel="canonical" href="https://rhenovatech.com/services/zoho-crm/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rhenovatech.com/services/zoho-crm/" />
+  <meta property="og:title" content="Zoho CRM Implementation & Development Services | RHenova Tech" />
+  <meta property="og:description" content="RHENOVA Tech provides Zoho CRM implementation, customization, automation and integrations for businesses across India and the GCC." />
+  <meta property="og:image" content="https://rhenovatech.com/logo.png.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://rhenovatech.com/services/zoho-crm/" />
+  <meta name="twitter:title" content="Zoho CRM Implementation & Development Services | RHenova Tech" />
+  <meta name="twitter:description" content="RHENOVA Tech provides Zoho CRM implementation, customization, automation and integrations for businesses across India and the GCC." />
+  <meta name="twitter:image" content="https://rhenovatech.com/logo.png.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/logo.png.png" />
+  <link rel="apple-touch-icon" href="/logo.png.png" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Structured Data: Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Zoho CRM Implementation & Development Services",
+    "serviceType": "Zoho CRM Implementation",
+    "provider": {
+      "@type": "Organization",
+      "name": "RHenova Tech",
+      "url": "https://rhenovatech.com"
+    },
+    "areaServed": ["India", "GCC"],
+    "description": "RHENOVA Tech provides Zoho CRM implementation, customization, automation and integrations for businesses across India and the GCC."
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://rhenovatech.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://rhenovatech.com/#solutions"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Zoho CRM",
+        "item": "https://rhenovatech.com/services/zoho-crm/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration matching main site -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Inter"', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#f5f4fc',
+              100: '#ebe9f9',
+              200: '#d7d4f3',
+              300: '#b7b1e8',
+              400: '#928ad7',
+              500: '#736DB3',
+              600: '#635ca5',
+              700: '#544d8c',
+              800: '#464074',
+              900: '#3a375e',
+              950: '#242239',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-brand-500 selection:text-white font-sans overflow-x-hidden">
+<!-- ==================== HEADER ==================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-slate-100 bg-white/90 backdrop-blur-md py-4 sm:py-6">
+    <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
+      <div class="flex items-center justify-between w-full">
+        <!-- Logo Left -->
+        <div class="flex items-center gap-3 sm:gap-5">
+          <a href="/" class="flex items-center gap-2.5 sm:gap-3 group flex-shrink-0">
+            <img src="/rhenova-tech-logo.png" alt="RHenova Tech" class="h-8 sm:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='/logo.png.png'">
+            <div class="flex flex-col">
+              <span class="text-slate-800 uppercase font-semibold text-sm sm:text-base tracking-wide">
+                RHenova Tech
+              </span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex items-center gap-8">
+          <nav class="flex items-center gap-7">
+            <a href="/" class="text-[13px] font-semibold text-slate-600 hover:text-brand-600 transition-colors tracking-wide uppercase">Home</a>
+            <a href="/#solutions" class="text-[13px] font-semibold text-slate-600 hover:text-brand-600 transition-colors tracking-wide uppercase">Solutions</a>
+            <a href="/#architecture" class="text-[13px] font-semibold text-slate-600 hover:text-brand-600 transition-colors tracking-wide uppercase">Architecture</a>
+            <a href="/#industries" class="text-[13px] font-semibold text-slate-600 hover:text-brand-600 transition-colors tracking-wide uppercase">Industries</a>
+            <a href="/services/zoho-implementation/" class="text-[13px] font-semibold text-slate-600 hover:text-brand-600 transition-colors tracking-wide uppercase">Implementation</a>
+          </nav>
+          <a href="mailto:ceo@rhenovatech.com" class="px-6 py-2.5 bg-slate-900 text-white hover:bg-slate-800 rounded-full font-medium transition-all text-sm shadow-[0_4px_14px_0_rgb(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5">
+            Contact Us
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="hamburger" aria-label="Open menu" class="lg:hidden w-10 h-10 flex items-center justify-center bg-slate-50 rounded-lg text-slate-600 hover:bg-slate-100 border border-slate-200">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[98] opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <!-- Mobile Slide Drawer Menu Overlay -->
+    <div id="mobile-menu" class="fixed top-0 right-0 bottom-0 w-[290px] h-[100dvh] bg-white z-[99] translate-x-full shadow-2xl transition-transform duration-300 ease-in-out flex flex-col p-6 pt-20 gap-2 border-l border-slate-200">
+      <button id="mobile-menu-close" aria-label="Close menu" class="absolute top-5 right-5 w-9 h-9 flex items-center justify-center rounded-lg border border-slate-200 hover:bg-slate-50">
+        <i data-lucide="x" class="w-5 h-5 text-slate-600"></i>
+      </button>
+      <a href="/" class="block py-2.5 px-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm">Home</a>
+      <a href="/#solutions" class="block py-2.5 px-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm">Solutions</a>
+      <a href="/#architecture" class="block py-2.5 px-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm">Architecture</a>
+      <a href="/#industries" class="block py-2.5 px-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm">Industries</a>
+      <a href="/services/zoho-implementation/" class="block py-2.5 px-3 rounded-lg text-slate-700 hover:bg-slate-50 font-medium text-sm">Zoho Implementation</a>
+      <a href="mailto:ceo@rhenovatech.com" class="block py-2.5 px-3 mt-4 text-center text-white bg-slate-900 hover:bg-slate-800 rounded-lg font-semibold text-sm">Contact Us</a>
+    </div>
+  </header>
+  <!-- ==================== 1. HERO SECTION ==================== -->
+  <section class="relative w-full flex items-center bg-white overflow-hidden pt-28 sm:pt-32 pb-14 md:pb-18 border-b border-slate-100">
+    <div class="absolute inset-0 z-0 pointer-events-none flex items-center lg:justify-end overflow-hidden bg-white">
+      <img src="/hero-swoosh.png" alt="Abstract Background" class="w-[120vw] lg:w-full h-full object-contain lg:object-cover transform translate-x-0 lg:translate-x-[5%] opacity-90 mix-blend-multiply" onerror="this.style.display='none'">
+    </div>
+
+    <div class="absolute top-[10%] right-[10%] w-[400px] h-[400px] rounded-full bg-cyan-400/10 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+    <div class="absolute bottom-[10%] right-[30%] w-[500px] h-[500px] rounded-full bg-brand-400/10 blur-[120px] pointer-events-none mix-blend-multiply"></div>
+
+    <div class="relative z-10 w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
+      <div class="max-w-3xl flex flex-col items-start text-left py-4 lg:py-8 relative z-10">
+        <p class="text-xs font-bold uppercase tracking-wider text-brand-500 mb-3">ZOHO CRM IMPLEMENTATION</p>
+        <h1 class="text-slate-950 font-medium tracking-tight mb-5 leading-[1.12]" style="font-size: clamp(2.15rem, 3.6vw, 3.25rem);">
+          Build a Zoho CRM That Works the Way Your Business Sells
+        </h1>
+        <p class="text-slate-600 max-w-xl text-[15px] md:text-[17px] leading-relaxed mb-8">
+          We design, configure and extend Zoho CRM around your sales process — from lead capture and pipeline management to automation, integrations, reporting and customer follow-up.
+        </p>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+          <a href="mailto:ceo@rhenovatech.com" class="px-7 py-3.5 bg-slate-900 text-white hover:bg-slate-800 rounded-full font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-[15px] flex items-center justify-center gap-2">
+            Talk to an Expert <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="mailto:ceo@rhenovatech.com" class="px-7 py-3.5 bg-white text-slate-800 hover:bg-slate-50 border border-slate-200 rounded-full font-semibold transition-all duration-300 text-[15px] text-center">
+            Discuss Your Requirement
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. BUSINESS PROBLEM ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-20 border-b border-slate-100">
+    <div class="max-w-3xl mb-12">
+      <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">The Operational Gap</p>
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-4">
+        When Your CRM Doesn't Match Your Sales Process
+      </h2>
+      <p class="text-slate-600 text-base leading-relaxed">
+        A generic CRM setup often forces your team to work outside the system. We position our implementation directly around your business process rather than simply configuring software.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+        <i data-lucide="split-square-horizontal" class="w-8 h-8 text-brand-500 mb-4"></i>
+        <h3 class="text-slate-900 font-semibold mb-2">Fragmented Capture</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Lead capture is disconnected from follow-up, causing inconsistent communication and lost opportunities.</p>
+      </div>
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+        <i data-lucide="file-spreadsheet" class="w-8 h-8 text-brand-500 mb-4"></i>
+        <h3 class="text-slate-900 font-semibold mb-2">Manual Workarounds</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Teams rely on spreadsheets outside the CRM to manage pipelines, leading to poor visibility and manual data entry.</p>
+      </div>
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+        <i data-lucide="network" class="w-8 h-8 text-brand-500 mb-4"></i>
+        <h3 class="text-slate-900 font-semibold mb-2">Inconsistent Processes</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Different teams follow different processes, making accurate reporting and forecasting nearly impossible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. WHAT WE BUILD IN ZOHO CRM ==================== -->
+  <section class="bg-slate-50/50 w-full py-16 md:py-24 border-b border-slate-100">
+    <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Core Capabilities</p>
+        <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-4">
+          What We Build in Zoho CRM
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+        <div class="md:col-span-8 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-brand-50 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="kanban-square" class="w-6 h-6 text-brand-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-3">Deal & Pipeline Management</h3>
+            <p class="text-slate-600 leading-relaxed mb-6">
+              Structurally align your digital sales pipeline with your real-world sales stages. We configure custom fields, required inputs, and transition rules that guide representatives through a standardized process.
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-100 grid grid-cols-2 gap-4">
+            <div class="flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 mt-1"></i>
+              <span class="text-sm text-slate-600">Multiple Pipelines</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500 mt-1"></i>
+              <span class="text-sm text-slate-600">Accurate Forecasting</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 bg-slate-900 text-white p-8 rounded-2xl shadow-sm flex flex-col justify-between">
+          <div>
+            <i data-lucide="workflow" class="w-8 h-8 text-brand-400 mb-6"></i>
+            <h3 class="text-xl font-semibold mb-3">Blueprints & Process Automation</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Enforce business rules with Blueprint. Ensure crucial data is collected before a deal advances to the next stage.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="md:col-span-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <i data-lucide="users-2" class="w-8 h-8 text-brand-600 mb-5"></i>
+          <h3 class="font-semibold text-slate-900 mb-2">Lead & Contact Management</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Centralize your contact database with custom layouts that capture the exact information your sales team needs.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <i data-lucide="cpu" class="w-8 h-8 text-brand-600 mb-5"></i>
+          <h3 class="font-semibold text-slate-900 mb-2">Workflow Automation</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Eliminate manual follow-ups. We build triggers for emails, task creation, and field updates based on prospect behavior.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+          <i data-lucide="blocks" class="w-8 h-8 text-brand-600 mb-5"></i>
+          <h3 class="font-semibold text-slate-900 mb-2">Custom Modules</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Go beyond standard leads and contacts. We build bespoke modules to track unique assets, properties, or specialized inventory.
+          </p>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="md:col-span-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex gap-5 items-start">
+          <div class="bg-brand-50 p-3 rounded-lg flex-shrink-0">
+            <i data-lucide="bar-chart-4" class="w-6 h-6 text-brand-600"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-900 mb-2">Dashboards & Reporting</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Real-time analytics tailored for management, marketing, and sales performance tracking.
+            </p>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex gap-5 items-start">
+          <div class="bg-brand-50 p-3 rounded-lg flex-shrink-0">
+            <i data-lucide="code-2" class="w-6 h-6 text-brand-600"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-900 mb-2">Custom Functions</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Advanced Deluge scripting to handle complex mathematical operations and cross-module data processing.
+            </p>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm flex gap-5 items-start">
+          <div class="bg-brand-50 p-3 rounded-lg flex-shrink-0">
+            <i data-lucide="file-json" class="w-6 h-6 text-brand-600"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-900 mb-2">Client Scripts</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Enhance the user interface with real-time data validation and dynamic field population as users type.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. CRM INTEGRATIONS ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-20 border-b border-slate-100">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="text-brand-500 uppercase tracking-wider text-xs font-bold mb-2">Unified Ecosystem</p>
+        <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-5">
+          Connect CRM to the Rest of Your Business
+        </h2>
+        <p class="text-slate-600 text-base leading-relaxed mb-6">
+          A CRM is only as powerful as the data it can access. We integrate Zoho CRM seamlessly with your financial, operational, and communication platforms to create a single source of truth.
+        </p>
+
+        <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+          <div class="flex items-center gap-3"><i data-lucide="book-open" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Zoho Books</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="app-window" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Zoho Creator</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Zoho Campaigns</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="headphones" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Zoho Desk</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="line-chart" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Zoho Analytics</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="message-square" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Zoho SalesIQ</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="smartphone" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">WhatsApp Integration</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="inbox" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Email Connectivity</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="globe" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Website / Web Forms</span></div>
+          <div class="flex items-center gap-3"><i data-lucide="layers" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Third-Party Apps</span></div>
+          <div class="flex items-center gap-3 col-span-2"><i data-lucide="network" class="w-4 h-4 text-brand-500"></i><span class="text-sm font-medium text-slate-700">Custom APIs</span></div>
+        </div>
+      </div>
+
+      <div class="relative w-full aspect-square max-w-[450px] mx-auto flex items-center justify-center">
+        <div class="absolute inset-0 border border-brand-200 rounded-full opacity-50 scale-75"></div>
+        <div class="absolute inset-0 border border-slate-200 rounded-full opacity-30 scale-100"></div>
+
+        <div class="w-24 h-24 bg-white rounded-2xl shadow-xl border border-slate-100 flex items-center justify-center z-20">
+          <img src="/zoho-crm-logo-2d.jpg" class="w-12 h-12 object-contain" alt="CRM" onerror="this.src='/logo.png.png'">
+        </div>
+
+        <div class="absolute top-[10%] left-[20%] w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center text-xs font-bold text-brand-600 border border-slate-100">Books</div>
+        <div class="absolute top-[20%] right-[10%] w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center text-xs font-bold text-slate-600 border border-slate-100">Web</div>
+        <div class="absolute bottom-[20%] right-[15%] w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center text-[10px] font-bold text-slate-600 border border-slate-100">WhatsApp</div>
+        <div class="absolute bottom-[10%] left-[30%] w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center text-[10px] font-bold text-slate-600 border border-slate-100">Creator</div>
+        <div class="absolute top-[45%] left-[5%] w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center text-[10px] font-bold text-slate-400 border border-slate-100">APIs</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 5. IMPLEMENTATION PROCESS ==================== -->
+  <section class="bg-slate-950 text-white w-full py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-900/10 blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-brand-400 uppercase tracking-wider text-xs font-bold mb-3">Our Methodology</p>
+        <h2 class="text-3xl sm:text-4xl font-medium tracking-tight mb-5">
+          CRM Implementation Process
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 relative">
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">1. Understand</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Map your entire sales journey, lead sources, and reporting goals.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">2. Architect</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Design the module structure, data fields, and security profiles.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">3. Configure</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Set up the core CRM, user roles, layouts, and system settings.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">4. Customize</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Develop custom modules and advanced functions using Deluge.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">5. Automate</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Implement Blueprints, workflow rules, and automated alerts.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">6. Integrate</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Connect to ERPs, websites, and third-party operational tools.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">7. Migrate</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Safely import and map historical data from your previous systems.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">8. Train</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Onboard your sales team to ensure high day-one adoption rates.</p>
+        </div>
+        <div class="relative bg-slate-900 border border-slate-800 p-6 rounded-2xl hover:border-brand-500/50 transition-colors">
+          <h3 class="text-base font-semibold mb-2 text-brand-400">9. Support</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Provide ongoing optimization as your sales strategies evolve.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. BUSINESS AREAS WE CAN IMPROVE ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-20 border-b border-slate-100">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-4">
+        Practical Outcomes for Your Sales Team
+      </h2>
+      <p class="text-slate-600 text-base leading-relaxed">
+        A well-implemented Zoho CRM drives operational clarity across your entire organization.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="flex flex-col gap-2"><i data-lucide="zap" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Faster lead response</span></div>
+      <div class="flex flex-col gap-2"><i data-lucide="user-check" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Clearer sales ownership</span></div>
+      <div class="flex flex-col gap-2"><i data-lucide="calendar-clock" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Better follow-up execution</span></div>
+      <div class="flex flex-col gap-2"><i data-lucide="check-square" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Standardized sales processes</span></div>
+      <div class="flex flex-col gap-2"><i data-lucide="eye" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Better pipeline visibility</span></div>
+      <div class="flex flex-col gap-2"><i data-lucide="mouse-pointer-click" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Reduced manual work</span></div>
+      <div class="flex flex-col gap-2"><i data-lucide="database" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Connected customer data</span></div>
+      <div class="flex flex-col gap-2"><i data-lucide="bar-chart" class="w-5 h-5 text-brand-500"></i><span class="font-medium text-slate-800 text-sm">Actionable management reporting</span></div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. INDUSTRIES ==================== -->
+  <section class="bg-slate-50/50 w-full py-16 md:py-20 border-b border-slate-100">
+    <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h2 class="text-slate-900 text-2xl font-medium tracking-tight mb-3">Industries We Specialize In</h2>
+        <p class="text-slate-500 text-sm leading-relaxed">We configure CRM systems specifically for the operational demands of these sectors.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-3xl mx-auto">
+        <div class="px-5 py-3 border border-slate-200 rounded-full bg-white text-slate-700 text-sm font-medium shadow-sm cursor-default">Real Estate</div>
+        <div class="px-5 py-3 border border-slate-200 rounded-full bg-white text-slate-700 text-sm font-medium shadow-sm cursor-default">Jewellery</div>
+        <div class="px-5 py-3 border border-slate-200 rounded-full bg-white text-slate-700 text-sm font-medium shadow-sm cursor-default">Construction & Engineering</div>
+        <div class="px-5 py-3 border border-slate-200 rounded-full bg-white text-slate-700 text-sm font-medium shadow-sm cursor-default">Interior Design</div>
+        <div class="px-5 py-3 border border-slate-200 rounded-full bg-white text-slate-700 text-sm font-medium shadow-sm cursor-default">Education & Study Abroad</div>
+        <div class="px-5 py-3 border border-slate-200 rounded-full bg-white text-slate-700 text-sm font-medium shadow-sm cursor-default">Professional Services</div>
+        <div class="px-5 py-3 border border-slate-200 rounded-full bg-white text-slate-700 text-sm font-medium shadow-sm cursor-default">Distribution & Trading</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 8. MORE THAN CRM ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-20 border-b border-slate-100">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-4">
+        More Than Just CRM
+      </h2>
+      <p class="text-slate-600 text-base leading-relaxed">
+        We are a business systems implementation company. We understand how Zoho CRM forms the foundation of a wider Zoho ecosystem.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-4">
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> CRM</span>
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> Creator</span>
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> Books</span>
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> Analytics</span>
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> Campaigns</span>
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> Desk</span>
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> SalesIQ</span>
+      <span class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-50 text-brand-700 text-sm font-bold border border-brand-200"><i data-lucide="check" class="w-4 h-4 mr-2 text-brand-600"></i> Zoho One</span>
+    </div>
+  </section>
+
+  <!-- ==================== 9. INDIA + GCC ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-12 border-b border-slate-100">
+    <div class="flex flex-col md:flex-row items-center justify-between bg-slate-900 rounded-3xl p-8 md:p-12 overflow-hidden relative">
+      <div class="absolute inset-0 bg-brand-900/20 mix-blend-overlay"></div>
+
+      <div class="relative z-10 md:w-1/2 mb-6 md:mb-0">
+        <h2 class="text-white text-2xl font-medium tracking-tight mb-2">Zoho CRM Implementation Across India & the GCC</h2>
+        <p class="text-slate-400 text-sm">We provide expert Zoho CRM configuration and development for organizations scaling across these regions.</p>
+      </div>
+
+      <div class="relative z-10 flex gap-4 md:gap-8">
+        <div class="text-center">
+          <div class="text-brand-400 font-bold text-xl mb-1">India</div>
+          <div class="w-8 h-1 bg-brand-500 mx-auto rounded-full"></div>
+        </div>
+        <div class="text-center">
+          <div class="text-brand-400 font-bold text-xl mb-1">UAE</div>
+          <div class="w-8 h-1 bg-brand-500 mx-auto rounded-full"></div>
+        </div>
+        <div class="text-center">
+          <div class="text-brand-400 font-bold text-xl mb-1">GCC</div>
+          <div class="w-8 h-1 bg-brand-500 mx-auto rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 10. WHY RHENOVA ==================== -->
+  <section class="w-full max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8 py-16 md:py-20 border-b border-slate-100">
+    <div class="max-w-3xl mb-12">
+      <h2 class="text-slate-900 text-2xl sm:text-3xl font-medium tracking-tight mb-4">
+        Why Businesses Choose RHenova
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Business-First</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">We align the CRM configuration strictly with your operational sales process.</p>
+      </div>
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Custom Development</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Deep capability in writing custom Deluge scripts when standard features fall short.</p>
+      </div>
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Zoho Ecosystem</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Expertise spanning the entire Zoho application suite, especially Zoho One.</p>
+      </div>
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Integration</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Skilled at connecting CRM to your other essential business tools via API.</p>
+      </div>
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Data Migration</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Safe extraction and mapping of your legacy data into the new system.</p>
+      </div>
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Automation</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Eliminating manual data entry through smart workflow rules and Blueprints.</p>
+      </div>
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Training</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Ensuring your team actually knows how to use the system effectively.</p>
+      </div>
+      <div>
+        <h3 class="text-slate-900 font-semibold mb-2">Ongoing Support</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">We remain available for system updates, new module builds, and troubleshooting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 11. FAQ ==================== -->
+  <section class="bg-slate-50/30 w-full py-16 md:py-20 border-b border-slate-100">
+    <div class="max-w-[800px] mx-auto px-5 md:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-slate-900 text-2xl font-medium tracking-tight mb-3">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">What does Zoho CRM implementation include?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">It includes process mapping, system architecture, module configuration, data migration, user role setup, workflow automation, team training, and go-live support.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Can Zoho CRM be customized for our business?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Yes. We heavily customize fields, layouts, pipelines, and use Deluge scripting to build functionality specific to your unique operational needs.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Can you migrate our existing CRM data?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Yes, we routinely map and migrate historical leads, contacts, accounts, and deal histories from legacy CRMs and spreadsheets into Zoho.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Can Zoho CRM integrate with our existing applications?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Zoho CRM integrates natively with hundreds of apps. For specialized software, we use custom API integrations to ensure smooth data flow.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Can you automate our sales process?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Yes. Using Zoho Blueprints and workflow rules, we can automate follow-up emails, task creation, and stage transitions based on your criteria.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Can you integrate Zoho CRM with Zoho Books?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Yes, creating a seamless connection between your sales pipeline and financial accounting, allowing quotes and invoices to be generated directly from the CRM.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Can you build custom modules in Zoho CRM?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Yes, we create entirely custom modules to track specialized assets, properties, or project components that standard CRM modules don't cover.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Do you provide Zoho CRM support after implementation?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Yes, we provide ongoing support contracts for system updates, troubleshooting, and continuous customization as your business scales.</p>
+        </div>
+        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+          <h3 class="text-slate-900 font-semibold mb-2">Can you implement Zoho CRM for businesses in the UAE?</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Yes, we actively implement Zoho solutions for organizations operating across India and the GCC, ensuring configurations match regional requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 12. FINAL CTA ==================== -->
+  <section class="w-full py-16 md:py-24">
+    <div class="max-w-[1320px] mx-auto px-5 md:px-6 lg:px-8">
+      <div class="bg-brand-600 rounded-3xl p-8 md:p-14 text-center relative overflow-hidden shadow-xl">
+        <div class="absolute inset-0 bg-brand-700/20 mix-blend-multiply"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 drop-shadow-sm text-white">Discuss Your CRM Requirements</h2>
+          <p class="text-white/90 text-sm sm:text-base md:text-lg mb-8 max-w-lg mx-auto leading-relaxed">
+            Tell us how your sales process works. We'll design a Zoho CRM architecture that drives efficiency and visibility.
+          </p>
+          <a href="mailto:ceo@rhenovatech.com" class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-brand-700 rounded-full hover:bg-slate-50 hover:scale-105 transition-all shadow-lg font-semibold text-[15px]">
+            Talk to RHenova
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- ==================== FOOTER ==================== -->
+  <div class="px-5 md:px-6 lg:px-8 max-w-[1320px] mx-auto mb-10">
+    <footer class="bg-white rounded-[28px] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-8 md:px-12 py-10 transition-colors duration-300">
+      <div class="max-w-[1320px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+
+        <div class="col-span-1 md:col-span-1 flex flex-col items-start">
+          <a href="/" class="flex items-center mb-4 group">
+            <img loading="lazy" src="/footer-logo.png" alt="RHenova Tech" class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" onerror="this.src='/rhenova-tech-logo.png'">
+          </a>
+          <p class="text-slate-500 mb-5 text-xs leading-relaxed">
+            Enterprise teams transforming complex operations into clean, automated digital ecosystems.
+          </p>
+
+          <div class="flex items-center gap-4 text-slate-400">
+            <a href="https://www.linkedin.com/company/rhenova-tech/" target="_blank" class="hover:text-brand-500 transition-colors" aria-label="LinkedIn">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" /></svg>
+            </a>
+            <a href="https://www.instagram.com/rhenova_tech" target="_blank" class="hover:text-brand-500 transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" clip-rule="evenodd" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-span-1 flex flex-col gap-2.5">
+          <h4 class="text-slate-900 font-semibold mb-1 text-sm">Menu</h4>
+          <ul class="flex flex-col gap-2 text-slate-500 text-xs">
+            <li><a href="/" class="hover:text-brand-500 transition-colors">Home</a></li>
+            <li><a href="/#solutions" class="hover:text-brand-500 transition-colors">Solutions</a></li>
+            <li><a href="/#architecture" class="hover:text-brand-500 transition-colors">Architecture</a></li>
+            <li><a href="/#industries" class="hover:text-brand-500 transition-colors">Industries</a></li>
+            <li><a href="/services/zoho-implementation/" class="hover:text-brand-500 transition-colors">Zoho Implementation</a></li>
+            <li><a href="/#about" class="hover:text-brand-500 transition-colors">About</a></li>
+          </ul>
+        </div>
+
+        <div class="col-span-1 flex flex-col gap-2.5">
+          <h4 class="text-slate-900 font-semibold mb-1 text-sm">Solutions</h4>
+          <ul class="flex flex-col gap-2 text-slate-500 text-xs">
+            <li><a href="/services/zoho-creator/" class="hover:text-brand-500 transition-colors">Zoho Creator</a></li>
+            <li><a href="/services/zoho-crm/" class="text-brand-600 font-medium">Zoho CRM</a></li>
+            <li><a href="/services/zoho-implementation/" class="hover:text-brand-500 transition-colors">Zoho Implementation</a></li>
+            <li><a href="/mobile/" class="hover:text-brand-500 transition-colors">Mobile Applications</a></li>
+            <li><a href="/gold/" class="hover:text-brand-500 transition-colors">Jewellery ERP</a></li>
+          </ul>
+        </div>
+
+        <div class="col-span-1 flex flex-col gap-2.5">
+          <h4 class="text-slate-900 font-semibold mb-1 text-sm">Contact</h4>
+          <ul class="flex flex-col gap-2 text-slate-500 text-xs">
+            <li><a href="mailto:ceo@rhenovatech.com" class="hover:text-brand-500 transition-colors">ceo@rhenovatech.com</a></li>
+            <li><a href="tel:+917306201900" class="hover:text-brand-500 transition-colors">+91 73062 01900</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="max-w-[1320px] mx-auto w-full mt-8 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-400 text-xs">
+        <p>&copy; 2026 RHenova Tech. All rights reserved.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-600 transition-colors">Terms of Service</a>
+          <a href="#" class="hover:text-slate-600 transition-colors">Privacy Policy</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+    const mobileClose = document.getElementById('mobile-menu-close');
+
+    function openMobileMenu() {
+      if (mobileMenu && mobileBackdrop) {
+        mobileMenu.classList.remove('translate-x-full');
+        mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.classList.add('overflow-hidden');
+      }
+    }
+
+    function closeMobileMenu() {
+      if (mobileMenu && mobileBackdrop) {
+        mobileMenu.classList.add('translate-x-full');
+        mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        document.body.classList.remove('overflow-hidden');
+      }
+    }
+
+    if (hamburger) hamburger.addEventListener('click', openMobileMenu);
+    if (mobileClose) mobileClose.addEventListener('click', closeMobileMenu);
+    if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMobileMenu);
+
+    if (mobileMenu) {
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+    }
+  </script>
+</body>
+</html>
