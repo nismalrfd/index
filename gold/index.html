@@ -23,7 +23,7 @@
  <link rel="icon" type="image/png" href="/logo.png.png">
 
  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
- 
+
  <script>
  tailwind.config = {
  theme: {
@@ -60,7 +60,7 @@
 
  <style>
  .perspective-1000 { perspective: 1000px; }
- 
+
  /* Floating animations for mockups */
  @keyframes float-main {
  0% { transform: translateY(0px) rotateX(15deg) rotateY(-15deg) rotateZ(5deg); }
@@ -81,12 +81,12 @@
  border-radius: 60px 40px 100px 40px;
  }
  }
- 
+
  .mask-gradient {
  -webkit-mask-image: linear-gradient(to right, transparent, black 80%);
  mask-image: linear-gradient(to right, transparent, black 80%);
  }
- 
+
  /* Hide scrollbar */
  .no-scrollbar::-webkit-scrollbar {
  display: none;
@@ -95,21 +95,21 @@
  -ms-overflow-style: none;
  scrollbar-width: none;
  }
- 
+
  /* Carbon Fiber Texture */
  .bg-[#1C1C20] {
  background-color: #050505;
- background-image: 
+ background-image:
  radial-gradient(#222 1px, transparent 1px),
  radial-gradient(#222 1px, transparent 1px);
  background-size: 8px 8px;
  background-position: 0 0, 4px 4px;
  box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
  }
- .btn-3d { 
-      box-shadow: 0 4px 14px rgba(212, 180, 131, 0.15); 
-      border: 1px solid #D4B483; 
-      background-color: #D4B483; 
+ .btn-3d {
+      box-shadow: 0 4px 14px rgba(212, 180, 131, 0.15);
+      border: 1px solid #D4B483;
+      background-color: #D4B483;
       color: #0B0B0D;
       transition: all 0.3s ease;
       font-weight: 600;
@@ -120,7 +120,7 @@
       box-shadow: 0 6px 20px rgba(212, 180, 131, 0.25);
       transform: translateY(-2px);
     }
- 
+
 
  /* Custom Floating Animations */
  @keyframes floating {
@@ -140,7 +140,7 @@
  animation: floating-delayed 7s ease-in-out infinite;
  animation-delay: 2s;
  }
- 
+
 </style>
  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -150,15 +150,15 @@
 </head>
 <body class="bg-[#0B0B0D] text-[#F8F6F0] overflow-x-hidden antialiased">
 
- 
+
  <!-- Cinematic Hero Section -->
  <section data-aos="fade-up" class="w-full min-h-[70vh] md:min-h-[600px] flex flex-col lg:flex-row items-center justify-between relative rounded-[2rem] overflow-hidden bg-[#0B0B0D] shadow-2xl mb-32 group py-20 md:py-32">
- 
+
  <!-- Dark textured charcoal black background simulation -->
  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a1a1a] via-[#050508] to-black z-0 opacity-80 pointer-events-none"></div>
  <!-- Subtle noise texture overlay -->
  <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-30 mix-blend-overlay z-0 pointer-events-none"></div>
- 
+
  <!-- Simulated glowing sapphire blue light source for the pawn (focal point) -->
  <div class="absolute left-1/4 lg:left-1/3 top-1/2 -translate-y-1/2 w-[300px] h-[500px] bg-blue-600/30 blur-[120px] rounded-[100%] mix-blend-screen z-0 pointer-events-none transition-all duration-1000 group-hover:bg-[#D4B483]/40 group-hover:scale-105"></div>
  <div class="absolute left-1/4 lg:left-1/3 top-1/2 -translate-y-1/2 w-[150px] h-[300px] bg-blue-400/20 blur-[60px] rounded-[100%] mix-blend-screen z-0 pointer-events-none"></div>
@@ -182,11 +182,11 @@
 
  <!-- Right: Typography & Logos -->
  <div class="relative z-10 w-full lg:w-1/2 h-full flex flex-col justify-center items-end text-right px-10 md:px-16 lg:px-24 py-16">
- 
+
  <h1 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-4 leading-[1.1] drop-shadow-2xl" >
  Don't Just Exist
  </h1>
- 
+
  <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-10 opacity-95 drop-shadow-lg" >
  Be Unmissable
  </h2>
@@ -194,7 +194,7 @@
  <p class="text-lg md:text-xl lg:text-2xl font-light text-[#B8B8B8] max-w-sm tracking-[0.15em] leading-relaxed opacity-80 mb-12">
  Your Brand Deserves<br/>To Be Viral.
  </p>
- 
+
  <!-- Logos: Rhenova Tech | Zoho -->
  <div class="flex flex-col items-end mt-2">
  <p class="text-[#B8B8B8] text-xs font-bold tracking-[0.3em] uppercase mb-4 opacity-80 mr-4">Powered by</p>
@@ -203,25 +203,25 @@
  <img src="img/zoho-logo.png" alt="Zoho" class="h-16 md:h-20 w-auto object-contain pl-8">
  </div>
  </div>
- 
+
  </div>
  </section>
 
 
 
- 
+
  <!-- ===================== SCROLL DRIVEN IMMERSIVE SECTION ===================== -->
  <div id="scroll-story-container" class="relative w-full mt-20 md:mt-32" style="height: 400vh;">
- 
+
  <div class="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-[#0B0B0D]">
- 
+
  <!-- Parallax Background Image -->
  <div class="absolute inset-0 z-0 overflow-hidden">
  <img id="scene-bg" src="showroom_bg.png" alt="Luxury Jewellery Showroom" class="w-full h-full object-cover will-change-transform opacity-30 transform scale-110" />
  <!-- Soft overlay to preserve readability -->
  <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/70 to-[#0a0a0a]/90"></div>
  </div>
- 
+
  <!-- Background ambient glows -->
  <div id="ambient-glow" class="absolute w-[60vw] h-[60vw] bg-[#D4B483]/40 rounded-full blur-[120px] mix-blend-screen opacity-0 transition-opacity duration-1000 z-0"></div>
 
@@ -249,9 +249,9 @@
 
  <!-- Scene 3: The Reveal -->
                 <div id="scene-3" class="absolute inset-0 flex items-center justify-center z-10 will-change-transform opacity-0 scale-110 overflow-hidden bg-[#0B0B0D]">
-                    
+
                     <div class="w-full max-w-[1440px] mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-20">
-                        
+
                         <!-- Left-Aligned Content -->
                         <div class="text-left">
                             <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] mb-6 drop-shadow-2xl leading-tight">
@@ -282,7 +282,7 @@
  const scene3 = document.getElementById('scene-3');
  const glow = document.getElementById('ambient-glow');
  const bgImage = document.getElementById('scene-bg');
- 
+
  if(!container || !scene1 || !scene2 || !scene3) return;
 
  const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
@@ -294,7 +294,7 @@
  const updateScroll = () => {
  const rect = container.getBoundingClientRect();
  const windowHeight = window.innerHeight;
- 
+
  let progress = (windowHeight - rect.top) / (rect.height);
  progress = clamp(progress, 0, 1);
 
@@ -310,7 +310,7 @@
  if(progress < 0.1) { s1Op = mapRange(progress, 0.0, 0.1, 0, 1); s1Y = mapRange(progress, 0.0, 0.1, 50, 0); }
  else if (progress < 0.25) { s1Op = 1; s1Y = 0; }
  else { s1Op = mapRange(progress, 0.25, 0.35, 1, 0); s1Y = mapRange(progress, 0.25, 0.35, 0, -100); }
- 
+
  scene1.style.opacity = s1Op;
  scene1.style.transform = `translateY(${s1Y}px)`;
  scene1.style.pointerEvents = s1Op > 0.5 ? 'auto' : 'none';
@@ -329,14 +329,14 @@
  // Scene 3: 0.65 -> 1.0
  let s3Op = 0, s3Scale = 1.1, s3Y = 0;
  if(progress < 0.65) { s3Op = 0; s3Scale = 1.1; s3Y = 100; }
- else if(progress < 0.8) { 
- s3Op = mapRange(progress, 0.65, 0.8, 0, 1); 
- s3Scale = mapRange(progress, 0.65, 0.8, 1.1, 1.0); 
+ else if(progress < 0.8) {
+ s3Op = mapRange(progress, 0.65, 0.8, 0, 1);
+ s3Scale = mapRange(progress, 0.65, 0.8, 1.1, 1.0);
  s3Y = mapRange(progress, 0.65, 0.8, 100, 0);
  }
- else { 
- s3Op = 1; 
- s3Scale = 1.0; 
+ else {
+ s3Op = 1;
+ s3Scale = 1.0;
  s3Y = 0;
  }
 
@@ -366,16 +366,16 @@
  });
  </script>
 
- 
+
 <!-- ===================== SECTION: HOME EASE ===================== -->
 <section class="w-full bg-[#0B0B0D] py-20 md:py-32 relative overflow-hidden z-20">
     <div class="max-w-[1440px] mx-auto px-6 md:px-12 xl:px-24 relative z-10">
-        
+
         <!-- Top Half (Grid) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16 relative z-10">
             <!-- Left: Empty (Laptop floats over this space) -->
             <div class="hidden lg:block relative h-[80px]"></div>
-            
+
             <!-- Right: Branding -->
             <div class="flex flex-col justify-center lg:items-start items-center text-center lg:text-left z-20">
                 <h4 class="font-cinzel text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 leading-[1.1]">
@@ -387,7 +387,7 @@
 
         <!-- Bottom Half (Purple Container) -->
         <div class="bg-[#1C1C20] border border-[#2A2A2E] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-10 lg:p-12 relative shadow-[0_20px_40px_rgba(45,43,42,0.08)] flex flex-col lg:flex-row min-h-[350px] overflow-hidden lg:overflow-visible">
-            
+
             <!-- Left: Text Content -->
             <div class="w-full lg:w-5/12 relative z-20 pt-48 lg:pt-10">
                 <!-- Massive Number Watermark -->
@@ -400,38 +400,38 @@
 Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the first cloud-native platform designed with consumer-grade UI and enterprise-grade power. Beautifully intuitive, unbreakably fast, and built to move at the speed of your business.                    </p>
                 </div>
             </div>
-            
+
             <!-- Right: Desktop/Tablet Mockups -->
             <div class="w-full lg:w-7/12 relative mt-16 lg:mt-0 flex justify-end items-end z-10 animate-floating-delayed">
-                <img src="img/home_ease_desktop_tablet.png" alt="Desktop and Tablet Mockup" class="w-full max-w-lg lg:max-w-md transform lg:translate-x-[10%] lg:translate-y-[10%] transition-transform duration-700 hover:scale-105" />
+                <img src="/home_ease_desktop_tablet.png" alt="Desktop and Tablet Mockup" class="w-full max-w-lg lg:max-w-md transform lg:translate-x-[10%] lg:translate-y-[10%] transition-transform duration-700 hover:scale-105" />
             </div>
 
             <!-- Absolute Laptop Mockup (Breaking out of the box) -->
             <div class="absolute top-[-80px] md:top-[-150px] lg:top-[-200px] left-[5%] lg:left-[8%] w-[75%] md:w-[60%] lg:w-[35%] z-30 pointer-events-none animate-floating">
-                <img src="img/home_ease_laptop.png" alt="Home Ease Laptop" class="w-full h-auto drop-shadow-[0_20px_40px_rgba(45,43,42,0.08)]" />
+                <img src="/home_ease_laptop.png" alt="Home Ease Laptop" class="w-full h-auto drop-shadow-[0_20px_40px_rgba(45,43,42,0.08)]" />
             </div>
         </div>
-        
+
     </div>
 </section>
 
 
 
 
- 
+
 <!-- ===================== PROBLEM & SOLUTION SECTION ===================== -->
 <section class="bg-[#0B0B0D] py-20 md:py-32 overflow-hidden w-full relative z-20">
     <div class="max-w-[1440px] mx-auto px-6 md:px-12 xl:px-24 flex flex-col gap-32">
-        
+
         <!-- Row 1: The Problem -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
+
             <!-- Left: Graphics (Image field with Blobs) -->
             <div class="relative w-full aspect-square md:aspect-[4/3] lg:aspect-auto lg:h-[600px] flex items-center justify-center">
                 <!-- Blobs (Opacity reduced for dark theme) -->
                 <div class="absolute w-[90%] h-[90%] bg-[#FFD100] rounded-[60%_40%_50%_50%/40%_50%_60%_50%] top-[-5%] left-[-15%] -rotate-12 z-0 opacity-10 blur-xl"></div>
                 <div class="absolute w-[80%] h-[80%] bg-[#C942FF] rounded-[40%_60%_50%_40%/50%_40%_60%_50%] bottom-[-5%] left-[5%] rotate-45 z-0 opacity-10 blur-xl"></div>
-                
+
                 <!-- Image Field -->
                 <div class="relative z-10 w-[90%] rounded-2xl overflow-hidden group">
                     <img src="img/war.png" onerror="this.src='laptop-charts.png'" alt="The Problem" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
@@ -448,11 +448,11 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
                          <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                     </div>
                 </div>
-                
+
                 <h3 class="font-cinzel text-3xl md:text-5xl font-extrabold text-[#F8F6F0] mb-8 tracking-tight leading-snug">
                     The Problem
                 </h3>
-                
+
                 <ul class="text-[#B8B8B8] leading-relaxed mb-8 font-medium text-sm md:text-base space-y-4">
                     <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Slow application performance during peak business hours.</li>
                     <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Server downtime affecting daily operations and customer satisfaction.</li>
@@ -462,12 +462,12 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
                     <li class="flex items-start gap-3"><span class="text-red-500 mt-1 font-bold">✕</span> Difficulty scaling architecture as the business grows.</li>
                 </ul>
             </div>
-            
+
         </div>
 
         <!-- Row 2: The Solution -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mt-12">
-            
+
             <!-- Left: Text Content -->
             <div class="flex flex-col items-start lg:pr-16 order-2 lg:order-1">
                 <!-- Icon -->
@@ -481,7 +481,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
                 <h3 class="font-cinzel text-3xl md:text-5xl font-extrabold text-[#F8F6F0] mb-8 tracking-tight leading-snug">
                     The Solution
                 </h3>
-                
+
                 <ul class="text-[#B8B8B8] leading-relaxed mb-8 font-medium text-sm md:text-base space-y-4">
                     <li class="flex items-start gap-3"><span class="text-[#D4AF37] mt-1 font-bold">✓</span> Cloud-based infrastructure with high availability.</li>
                     <li class="flex items-start gap-3"><span class="text-[#D4AF37] mt-1 font-bold">✓</span> Optimized application performance using Zoho Creator best practices.</li>
@@ -496,7 +496,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
                 <!-- Blobs -->
                 <div class="absolute w-[80%] h-[80%] bg-[#1EC2A4] rounded-[50%_50%_40%_60%/40%_60%_50%_50%] top-[5%] left-[-10%] z-0 opacity-10 blur-xl"></div>
                 <div class="absolute w-[75%] h-[75%] bg-[#4285F4] rounded-[60%_40%_50%_50%/50%_40%_60%_50%] bottom-[-5%] right-[-5%] z-0 opacity-10 blur-xl"></div>
-                
+
                 <!-- Image Field -->
                 <div class="relative z-10 w-[90%] overflow-hidden group">
                     <img src="img/why-zoho.png" onerror="this.src='laptop-charts.png'" alt="The Solution" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
@@ -544,7 +544,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 
 <!-- ===================== REAL ESTATE MOCKUP SECTION ===================== -->
 <section class="relative bg-[#0B0B0D] py-20 md:py-32 overflow-hidden z-20">
-    
+
     <!-- Large out-of-focus background text -->
     <div class="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center z-0 pointer-events-none select-none overflow-hidden">
         <h2 class="font-cinzel text-[80px] md:text-[250px] font-bold text-[#F8F6F0]/[0.1] whitespace-nowrap leading-none tracking-tighter filter blur-sm">
@@ -553,14 +553,14 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
     </div>
 
     <div class="max-w-[1440px] mx-auto px-6 md:px-12 xl:px-24 flex flex-col items-center relative z-10">
-        
+
         <!-- Headline Block -->
         <div class="text-center mb-16 relative">
             <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] leading-none flex flex-col md:flex-row items-center justify-center gap-4">
  Predict Before It Happens
             </h2>
         </div>
-        
+
         <!-- The Generated Desktop Mockup Image -->
         <div class="relative w-full max-w-2xl lg:max-w-4xl mx-auto mb-20 group px-4 md:px-0">
              <!-- Deep ambient glow for dark mode -->
@@ -570,7 +570,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 
         <!-- Three Glassmorphism Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto relative z-20 -mt-24 md:-mt-32 lg:-mt-48 px-4">
-            
+
             <!-- Card 1 -->
             <div class="bg-[#1C1C20]/80 backdrop-blur-xl border border-[#2A2A2E] rounded-3xl p-8 shadow-[0_20px_40px_rgba(45,43,42,0.08)] hover:-translate-y-2 transition-transform duration-300">
                 <div class="w-12 h-12 bg-[#D4B483]/40 text-[#D4AF37] rounded-full flex items-center justify-center mb-6">
@@ -612,16 +612,16 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
                     Find more <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
             </div>
-            
+
         </div>
-        
+
     </div>
 </section>
 
 
 
  <section data-aos="fade-up" class="w-full min-h-[350px] lg:h-[400px] mt-20 relative flex items-center bg-[#0B0B0D] overflow-hidden py-20 md:py-32">
- 
+
  <!-- Background Image -->
  <div class="absolute inset-0 z-0">
  <img src="img/ai-sec.png" alt="AI Background" class="w-full h-full object-cover object-center opacity-90">
@@ -633,13 +633,13 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 
  <!-- Content Overlay -->
  <div class="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-12 md:px-16 lg:px-24 flex flex-col lg:flex-row items-center justify-between py-20 md:py-32">
- 
+
  <!-- Left Side: Large Title & Subtitle -->
  <div class="w-full lg:w-1/2 flex flex-col justify-center mb-8 lg:mb-0">
  <h2 class="font-cinzel text-3xl md:text-5xl font-extrabold tracking-tight text-[#F8F6F0] leading-[0.9] mb-4 drop-shadow-[0_20px_40px_rgba(45,43,42,0.08)] uppercase" >
  Beyond<br/>Automation
  </h2>
- 
+
  <div class="flex flex-wrap items-center gap-3 text-[#F8F6F0]/50 text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
  <span>Automation Follows Rules</span>
  <span class="text-[#F8F6F0]/50">✦</span>
@@ -654,7 +654,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
  START DEPLOYING INTELLIGENCE THAT ADAPTS, LEARNS, AND IMPROVES WITH EVERY INTERACTION.
  </p>
  </div>
- 
+
  </div>
  </section>
 
@@ -675,19 +675,19 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
  <!-- Advanced Bento Grid -->
  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 relative z-20 perspective-[2000px]">
 
- 
+
  <!-- 1. ERP & Operations (Large: 2x2) -->
  <div data-aos="fade-up" class="relative group rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.7)] transform-gpu hover:-translate-y-2 transition-all duration-500 border border-white/5 h-[400px] bg-black">
-     
+
      <!-- AI Background Image -->
     <img src="img/erp_card_right.png" alt="Jewellery ERP & Operations" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-[1.03] transition-transform duration-700 ease-in-out" />
-     
+
      <!-- Subtle Gradient Overlay to ensure text readability if needed -->
      <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent z-10 pointer-events-none"></div>
-     
+
      <!-- Hover Glow Effect -->
      <div class="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none"></div>
-     
+
      <!-- Invisible Overlay Link to make entire card clickable if needed -->
      <a href="#" class="absolute inset-0 z-30"></a>
  </div>
@@ -698,7 +698,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
     <div class="absolute inset-0 bg-[#D4AF37]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
     <img src="img/finance-card.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700 relative z-10" alt="Financial Management Dashboard" />
  </div>
- 
+
  <!-- 3. HRMS -->
  <div data-aos="fade-up" data-aos-delay="200" class="relative group bg-carbon rounded-[2rem] p-8 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-500 shadow-xl overflow-hidden flex flex-col justify-between perspective-[1000px]">
      <div class="absolute inset-0 bg-[#D4AF37]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -873,7 +873,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
      <div class="relative w-full h-40 mb-6 flex items-center justify-center">
          <div class="absolute inset-0 bg-[#D4AF37]/20 blur-[50px] rounded-full z-0 pointer-events-none"></div>
          <div class="absolute w-[70%] left-[10%] top-[10%] rounded-lg overflow-hidden shadow-2xl  transform group-hover:-translate-y-2 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700 z-10">
-             <img src="img/sec1.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+             <img src="/sec1.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
          </div>
          <!-- <div class="absolute w-[30%] right-[10%] bottom-[10%] rounded-xl overflow-hidden shadow-2xl  transform group-hover:translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
              <img src="img/sec2.png" onerror="this.src='laptop-charts.png'" class="w-full h-24 object-cover" />
@@ -912,7 +912,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
      </div>
      <div class="relative w-full md:w-1/2 h-48 flex items-center justify-center order-1 md:order-2">
          <div class="absolute w-[80%] left-[5%] top-[10%] rounded-xl overflow-hidden shadow-2xl transform group-hover:-translate-y-2 group-hover:scale-105 transition-all duration-700 z-10">
-             <img src="img/sec1.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
+             <img src="/sec1.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
          </div>
          <div class="absolute w-[40%] right-[5%] bottom-[10%] rounded-lg overflow-hidden transform group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:rotate-2 group-hover:scale-110 transition-all duration-700 z-20">
              <img src="img/sec2.png" onerror="this.src='laptop-charts.png'" class="w-full h-auto object-cover" />
@@ -922,13 +922,13 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 
  </div>
  </div>
- 
+
  </section>
 
 
 <!-- ===================== SECTION: PORTFOLIO / CREATIONS ===================== -->
 <section class="bg-[#0A0A0A] py-24 md:py-32 overflow-hidden relative border-t border-white/5">
-    
+
     <!-- Subtle Background Gold Accent -->
     <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#D4B483]/10 rounded-full blur-[120px] pointer-events-none -translate-y-1/2 translate-x-1/3"></div>
 
@@ -941,7 +941,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
                 Discover our complete, beautifully organized digital jewellery catalogue. We make it easy for you to browse, showcase, and manage your stunning collections in one place.
             </p>
         </div>
-        
+
         <!-- Right Side: Massive Heading -->
         <div class="md:w-2/3 md:text-right">
             <h2 class="font-cinzel text-4xl md:text-6xl lg:text-[6rem] font-black tracking-widest text-[#F8F6F0] uppercase leading-none">
@@ -952,7 +952,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 
     <!-- Simple Catalogue Grid -->
     <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-20">
-        
+
         <!-- Catalogue Card 1 -->
         <div class="bg-[#111111] rounded-2xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(212,180,131,0.15)] hover:-translate-y-2 transition-all duration-500 group border border-white/5">
             <div class="relative h-80 overflow-hidden bg-[#050505]">
@@ -1040,7 +1040,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
  <div class="lg:col-span-6 rounded-[2.5rem] overflow-hidden relative shadow-[0_0_50px_rgba(37,99,235,0.1)] group">
  <div class="absolute inset-0 bg-gradient-to-tr from-[#D4B483]/40 to-green-500/10 mix-blend-overlay z-10 opacity-50 group-hover:opacity-0 transition-opacity duration-500"></div>
  <!-- Make sure the image filename matches your uploaded image! -->
- <img src="img/zoho2.png" alt="Zoho Dashboard" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 relative z-0" onerror="this.src='attached-image.png'" />
+ <img src="/zoho2.png" alt="Zoho Dashboard" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 relative z-0" onerror="this.src='attached-image.png'" />
  </div>
 
  <!-- Right Column: Feature Cards Grid -->
@@ -1265,16 +1265,16 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 
 
 <!-- ===================== SECTION: APP STORE RELEASE ===================== -->
-<a href="#appstore" class="block w-full bg-[#0B0B0D] relative overflow-hidden pt-12 md:pt-16 rounded-t-[3rem] transition-colors group border-t border-gray-200">
+<a href="/mobile/" class="block w-full bg-[#0B0B0D] relative overflow-hidden pt-12 md:pt-16 rounded-t-[3rem] transition-colors group border-t border-gray-200">
     <div class="max-w-[1440px] mx-auto px-6 relative z-10 flex flex-col items-center">
         <!-- Typography -->
         <h2 class="font-cinzel text-xl md:text-3xl lg:text-4xl font-bold text-[#F8F6F0] tracking-tight text-center mb-6 md:mb-10 antialiased font-sans">
             Experience the Mobile App – Click Here...
         </h2>
-        
+
         <!-- Mockup -->
         <div class="w-full max-w-3xl mx-auto flex justify-center items-start relative mt-4 px-4 md:px-0">
-            <img src="img/platepay_laptop.png" alt="PlatePay App Store Preview" class="w-full h-auto object-contain transform group-hover:-translate-y-2 transition-transform duration-700 ease-out  drop-shadow-sm" />
+            <img src="/platepay_laptop.png" alt="PlatePay App Store Preview" class="w-full h-auto object-contain transform group-hover:-translate-y-2 transition-transform duration-700 ease-out  drop-shadow-sm" />
         </div>
     </div>
 </a>
@@ -1284,15 +1284,15 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="bg-[#0B0B0D] border-t border-[#2A2A2E] pt-20 pb-10 mt-20 relative overflow-hidden">
- 
+
  <!-- Subtle ambient glow in the background -->
  <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#D4B483]/40 via-transparent to-transparent rounded-full blur-[100px] pointer-events-none z-0"></div>
 
  <div class="max-w-[1440px] mx-auto px-6 md:px-12 relative z-10">
- 
+
  <!-- Top Section: Flex -->
  <div class="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 mb-16">
- 
+
  <!-- Brand & Tagline -->
  <div class="flex flex-col items-start lg:w-1/2">
  <h3 class="font-cinzel font-extrabold text-[#F8F6F0] tracking-tight mb-4" style="font-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);">
@@ -1324,7 +1324,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
  <a href="tel:+917306201900" class="text-[#B8B8B8] hover:text-[#F8F6F0] transition-colors text-sm font-medium">+91 73062 01900</a>
  </li>
  </ul>
- 
+
  <!-- Social Icons -->
  <div class="flex items-center gap-4 lg:justify-end w-full">
  <a href="https://www.linkedin.com/company/rhenova-tech/" target="_blank" class="w-10 h-10 rounded-full bg-[#2D2B2A]/5 border border-[#2A2A2E] flex items-center justify-center text-[#B8B8B8] hover:bg-[#D4B483] hover:text-[#0B0B0D] transition-all transform hover:-translate-y-1">
@@ -1335,7 +1335,7 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
  </a>
  </div>
  </div>
- 
+
  </div>
 
  <!-- Bottom Divider & Copyright -->
@@ -1534,16 +1534,16 @@ Stop settling for clunky, outdated spreadsheets and rigid legacy tools. Meet the
         <button class="rex-close-btn" onclick="event.stopPropagation(); document.getElementById('rexPopup').classList.add('minimized')">
             &times;
         </button>
-        
+
         <div class="rex-popup-text">
             <div class="rex-title">New to<br>Rhenovatech?</div>
             <div class="rex-subtitle">Talk to our experts</div>
         </div>
-        
+
         <a href="https://wa.me/917306201900?text=Hi,%20I%20would%20like%20to%20request%20a%20demo%20of%20your%20software." target="_blank" class="rex-demo-btn" onclick="event.stopPropagation();">Schedule a free demo</a>
-        
-        <img src="img/rex.png" alt="Rex Mascot" class="rex-popup-img">
-        <img src="img/rex_blink.png" alt="Rex Mascot Blink" class="rex-popup-img rex-blink-overlay">
+
+        <img src="/rex.png" alt="Rex Mascot" class="rex-popup-img">
+        <img src="/rex_blink.png" alt="Rex Mascot Blink" class="rex-popup-img rex-blink-overlay">
     </div>
 </div>
 <script>
